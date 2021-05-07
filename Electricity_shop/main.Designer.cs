@@ -58,6 +58,7 @@ namespace Electricity_shop
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -418,12 +419,22 @@ namespace Electricity_shop
             this.panel9.Size = new System.Drawing.Size(1505, 1);
             this.panel9.TabIndex = 15;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(213, 83);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(94, 29);
+            this.button11.TabIndex = 16;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1506, 754);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
@@ -488,5 +499,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button11;
     }
 }
