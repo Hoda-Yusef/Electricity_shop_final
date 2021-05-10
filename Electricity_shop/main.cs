@@ -37,6 +37,10 @@ namespace Electricity_shop
             button1.BackColor = Color.FromArgb(34, 36, 49);
         }
 
-        
+        private void button8_Click(object sender, EventArgs e)
+        {
+            orders_management orders = new orders_management();
+            orders.Show();
+        }
     }
 }

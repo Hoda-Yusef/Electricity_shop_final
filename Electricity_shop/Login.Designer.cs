@@ -51,7 +51,6 @@ namespace Electricity_shop
             // pictureBox1
             // 
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::Electricity_shop.Properties.Resources.user_group;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -113,7 +112,7 @@ namespace Electricity_shop
             // 
             // entry
             // 
-            this.entry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(184)))));
+            this.entry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.entry.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.entry, "entry");
             this.entry.ForeColor = System.Drawing.Color.White;
