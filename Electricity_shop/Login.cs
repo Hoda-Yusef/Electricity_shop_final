@@ -19,16 +19,6 @@ namespace Electricity_shop
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -100,22 +90,22 @@ namespace Electricity_shop
 
         private void entry_Click(object sender, EventArgs e)
         {
-            //    if(textBox1.Text != "" && textBox1.Text !="שם משתמש" && textBox2.Text !="" && textBox2.Text != "סיסמה")
-            //    {
-            //        if (textBox1.Text == "yusef123" && textBox2.Text == "y123")
-            //        {
-            //            this.Close();
-            //            th = new Thread(opennewform);
-            //            th.TrySetApartmentState(ApartmentState.STA);
-            //            th.Start();
-            //        }
-            //        else
-            //            MessageBox.Show("שם משתמש או סיסמה שגויים ");
+                if(textBox1.Text != "" && textBox1.Text !="שם משתמש" && textBox2.Text !="" && textBox2.Text != "סיסמה")
+               {
+                    if (textBox1.Text == "hoda182" && textBox2.Text == "18298")
+                    {
+                     this.Close();
+                        th = new Thread(opennewform);
+                        th.TrySetApartmentState(ApartmentState.STA);
+                        th.Start();
+                    }
+                   else
+                        MessageBox.Show("שם משתמש או סיסמה שגויים ");
 
-            //    }
-            //    else
-            //        MessageBox.Show("כתוב שם משתמש או סיסמה");
-            //
+                }
+                else
+                    MessageBox.Show("כתוב שם משתמש או סיסמה");
+            
             orders_management or = new orders_management();
             or.Show();
 

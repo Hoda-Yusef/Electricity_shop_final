@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
@@ -41,6 +42,21 @@ namespace Electricity_shop
         {
             orders_management orders = new orders_management();
             orders.Show();
+        }
+
+        private void entry_Click(object sender, EventArgs e)
+        {
+            Thread th;
+            this.Close();
+            th = new Thread(openProductManagement);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openProductManagement(object obj)
+        {
+            Application.Run(new products());
+            //throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Electricity_shop
 {
     partial class Login
@@ -175,6 +177,16 @@ namespace Electricity_shop
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

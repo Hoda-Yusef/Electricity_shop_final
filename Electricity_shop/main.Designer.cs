@@ -58,6 +58,7 @@ namespace Electricity_shop
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -97,7 +98,7 @@ namespace Electricity_shop
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(440, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(462, 8);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 53);
@@ -146,6 +147,7 @@ namespace Electricity_shop
             this.entry.TabIndex = 10;
             this.entry.Text = "ניהול מוצרים";
             this.entry.UseVisualStyleBackColor = false;
+            this.entry.Click += new System.EventHandler(this.entry_Click);
             // 
             // label2
             // 
@@ -215,9 +217,9 @@ namespace Electricity_shop
             // 
             this.label4.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(663, 132);
+            this.label4.Location = new System.Drawing.Point(661, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 23);
+            this.label4.Size = new System.Drawing.Size(67, 28);
             this.label4.TabIndex = 10;
             this.label4.Text = "ספקים";
             // 
@@ -322,9 +324,9 @@ namespace Electricity_shop
             // 
             this.label6.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(195, 132);
+            this.label6.Location = new System.Drawing.Point(171, 130);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 23);
+            this.label6.Size = new System.Drawing.Size(82, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "מידע";
             // 
@@ -419,12 +421,26 @@ namespace Electricity_shop
             this.panel9.Size = new System.Drawing.Size(1317, 1);
             this.panel9.TabIndex = 15;
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(49, 533);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(90, 33);
+            this.button11.TabIndex = 16;
+            this.button11.Text = "יציאה";
+            this.button11.UseVisualStyleBackColor = false;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1320, 569);
+            this.ClientSize = new System.Drawing.Size(1320, 609);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
@@ -488,5 +504,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button11;
     }
 }
