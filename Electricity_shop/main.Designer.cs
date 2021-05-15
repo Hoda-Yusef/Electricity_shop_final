@@ -58,6 +58,7 @@ namespace Electricity_shop
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -147,6 +148,7 @@ namespace Electricity_shop
             this.entry.TabIndex = 10;
             this.entry.Text = "ניהול מוצרים";
             this.entry.UseVisualStyleBackColor = false;
+            this.entry.Click += new System.EventHandler(this.entry_Click);
             // 
             // label2
             // 
@@ -420,6 +422,19 @@ namespace Electricity_shop
             this.panel9.Size = new System.Drawing.Size(1505, 10);
             this.panel9.TabIndex = 15;
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(49, 533);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(90, 33);
+            this.button11.TabIndex = 16;
+            this.button11.Text = "יציאה";
+            this.button11.UseVisualStyleBackColor = false;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -490,5 +505,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button11;
     }
 }
