@@ -100,24 +100,21 @@ namespace Electricity_shop
 
         private void entry_Click(object sender, EventArgs e)
         {
-            //    if(textBox1.Text != "" && textBox1.Text !="שם משתמש" && textBox2.Text !="" && textBox2.Text != "סיסמה")
-            //    {
-            //        if (textBox1.Text == "yusef123" && textBox2.Text == "y123")
-            //        {
-            //            this.Close();
-            //            th = new Thread(opennewform);
-            //            th.TrySetApartmentState(ApartmentState.STA);
-            //            th.Start();
-            //        }
-            //        else
-            //            MessageBox.Show("שם משתמש או סיסמה שגויים ");
+            if (textBox1.Text != "" && textBox1.Text != "שם משתמש" && textBox2.Text != "" && textBox2.Text != "סיסמה")
+            {
+                if (textBox1.Text == "yusef123" && textBox2.Text == "y123")
+                {
+                    this.Close();
+                    th = new Thread(opennewform);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                    MessageBox.Show("שם משתמש או סיסמה שגויים ");
 
-            //    }
-            //    else
-            //        MessageBox.Show("כתוב שם משתמש או סיסמה");
-            //
-            orders_management or = new orders_management();
-            or.Show();
+            }
+            else
+                MessageBox.Show("כתוב שם משתמש או סיסמה");
 
 
         }
