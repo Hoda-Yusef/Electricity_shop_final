@@ -26,21 +26,6 @@ namespace Electricity_shop
                 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_Click(object sender, EventArgs e)
         {
             if(textBox1.Text=="שם משתמש")
@@ -92,7 +77,8 @@ namespace Electricity_shop
         {
             if (textBox1.Text != "" && textBox1.Text != "שם משתמש" && textBox2.Text != "" && textBox2.Text != "סיסמה")
             {
-                if (textBox1.Text == "yusef123" && textBox2.Text == "y123")
+                if ((textBox1.Text == "yusef123" && textBox2.Text == "y123") || 
+                    (textBox1.Text == "hoda182" || textBox2.Text == "18298"))
                 {
                     this.Close();
                     th = new Thread(opennewform);

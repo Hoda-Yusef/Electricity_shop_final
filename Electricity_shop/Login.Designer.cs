@@ -81,14 +81,12 @@ namespace Electricity_shop
             this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.textBox1.Name = "textBox1";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel
             // 
@@ -104,7 +102,6 @@ namespace Electricity_shop
             this.textBox2.ForeColor = System.Drawing.SystemColors.Info;
             this.textBox2.Name = "textBox2";
             this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // password
             // 
@@ -117,7 +114,7 @@ namespace Electricity_shop
             this.entry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.entry.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.entry, "entry");
-            this.entry.ForeColor = System.Drawing.Color.White;
+            this.entry.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.entry.Name = "entry";
             this.entry.UseVisualStyleBackColor = false;
             this.entry.Click += new System.EventHandler(this.entry_Click);

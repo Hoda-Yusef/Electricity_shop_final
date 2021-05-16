@@ -16,11 +16,6 @@ namespace Electricity_shop
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -40,6 +35,7 @@ namespace Electricity_shop
 
         private void button8_Click(object sender, EventArgs e)
         {
+            this.Close();
             orders_management orders = new orders_management();
             orders.Show();
         }
@@ -57,6 +53,42 @@ namespace Electricity_shop
         {
             Application.Run(new products());
             //throw new NotImplementedException();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            Thread th;
+            this.Close();
+            th = new Thread(openProductAdd);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+           
+        }
+
+        private void openProductAdd(object obj)
+        {
+            Application.Run(new add_product());
+            //throw new NotImplementedException();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            add_order order = new add_order();
+            order.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            add_supplier supplier1 = new add_supplier();
+            supplier1.Show();
         }
     }
 }
