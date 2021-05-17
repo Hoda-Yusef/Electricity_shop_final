@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class customers : Form
+    public partial class update_supplier : Form
     {
-        public customers()
+        public update_supplier()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace Electricity_shop
             mainForm.Show();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
             main mainForm = new main();

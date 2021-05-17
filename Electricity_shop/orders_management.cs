@@ -66,5 +66,12 @@ namespace Electricity_shop
             Application.Run(new main());
             //throw new NotImplementedException();
         }
+
+        private void update_order_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            update_order order = new update_order();
+            order.Show();
+        }
     }
 }

@@ -8,21 +8,21 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class customers : Form
+    public partial class add_customer : Form
     {
-        public customers()
+        public add_customer()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
             main mainForm = new main();
             mainForm.Show();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
             main mainForm = new main();

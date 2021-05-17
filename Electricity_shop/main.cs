@@ -79,7 +79,7 @@ namespace Electricity_shop
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             add_order order = new add_order();
             order.Show();
         }
@@ -89,6 +89,20 @@ namespace Electricity_shop
             this.Close();
             add_supplier supplier1 = new add_supplier();
             supplier1.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            customers customers = new customers();
+            customers.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            suppliers supManage = new suppliers();
+            supManage.Show();
         }
     }
 }

@@ -31,10 +31,10 @@ namespace Electricity_shop
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orders_management));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -130,9 +130,9 @@ namespace Electricity_shop
             this.panel3.Controls.Add(this.search_order);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.ID_text);
-            this.panel3.Location = new System.Drawing.Point(945, 116);
+            this.panel3.Location = new System.Drawing.Point(981, 116);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 499);
+            this.panel3.Size = new System.Drawing.Size(206, 418);
             this.panel3.TabIndex = 20;
             // 
             // update_status
@@ -143,7 +143,7 @@ namespace Electricity_shop
             this.update_status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.update_status.ForeColor = System.Drawing.Color.White;
             this.update_status.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.update_status.Location = new System.Drawing.Point(18, 384);
+            this.update_status.Location = new System.Drawing.Point(19, 329);
             this.update_status.Name = "update_status";
             this.update_status.Size = new System.Drawing.Size(174, 38);
             this.update_status.TabIndex = 24;
@@ -158,12 +158,13 @@ namespace Electricity_shop
             this.update_order.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.update_order.ForeColor = System.Drawing.Color.White;
             this.update_order.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.update_order.Location = new System.Drawing.Point(18, 332);
+            this.update_order.Location = new System.Drawing.Point(18, 270);
             this.update_order.Name = "update_order";
             this.update_order.Size = new System.Drawing.Size(174, 38);
             this.update_order.TabIndex = 23;
             this.update_order.Text = "עדכון הזמנה";
             this.update_order.UseVisualStyleBackColor = false;
+            this.update_order.Click += new System.EventHandler(this.update_order_Click);
             // 
             // search_order
             // 
@@ -173,7 +174,7 @@ namespace Electricity_shop
             this.search_order.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.search_order.ForeColor = System.Drawing.Color.White;
             this.search_order.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.search_order.Location = new System.Drawing.Point(18, 235);
+            this.search_order.Location = new System.Drawing.Point(18, 166);
             this.search_order.Name = "search_order";
             this.search_order.Size = new System.Drawing.Size(174, 38);
             this.search_order.TabIndex = 22;
@@ -205,24 +206,23 @@ namespace Electricity_shop
             // 
             // orders_grid
             // 
-            this.orders_grid.AllowUserToAddRows = false;
-            this.orders_grid.AllowUserToDeleteRows = false;
+            this.orders_grid.AllowUserToResizeColumns = false;
             this.orders_grid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.orders_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.orders_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.orders_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orders_grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.orders_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orders_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.orders_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orders_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orders_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.orders_grid.ColumnHeadersHeight = 30;
             this.orders_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -233,25 +233,24 @@ namespace Electricity_shop
             this.Column6,
             this.Column7});
             this.orders_grid.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orders_grid.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orders_grid.DefaultCellStyle = dataGridViewCellStyle8;
             this.orders_grid.EnableHeadersVisualStyles = false;
-            this.orders_grid.Location = new System.Drawing.Point(75, 116);
+            this.orders_grid.Location = new System.Drawing.Point(33, 116);
             this.orders_grid.Name = "orders_grid";
             this.orders_grid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.orders_grid.RowHeadersVisible = false;
             this.orders_grid.RowHeadersWidth = 4;
             this.orders_grid.RowTemplate.Height = 30;
             this.orders_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orders_grid.Size = new System.Drawing.Size(883, 499);
+            this.orders_grid.Size = new System.Drawing.Size(883, 430);
             this.orders_grid.TabIndex = 21;
-            //this.orders_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orders_grid_CellContentClick);
             // 
             // Column1
             // 
@@ -285,9 +284,9 @@ namespace Electricity_shop
             // 
             // Column6
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column6.HeaderText = "סכום";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
@@ -327,6 +326,7 @@ namespace Electricity_shop
             this.MaximizeBox = false;
             this.Name = "orders_management";
             this.Text = "orders_management";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orders_grid)).EndInit();

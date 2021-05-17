@@ -30,9 +30,12 @@ namespace Electricity_shop
             Application.Run(new main());
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            main mainForm = new main();
+            mainForm.Show();
         }
     }
 }
