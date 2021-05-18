@@ -29,7 +29,7 @@ namespace Electricity_shop
         private void opennewform(object obj)
         {
             Application.Run(new main());
-            //throw new NotImplementedException();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)

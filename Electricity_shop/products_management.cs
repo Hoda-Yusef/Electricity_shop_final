@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class products : Form
+    public partial class products_management : Form
     {
         Thread th;
-        public products()
+        public products_management()
         {
             InitializeComponent();
         }

@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    
     public partial class add_customer : Form
     {
         public add_customer()
@@ -17,16 +19,25 @@ namespace Electricity_shop
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Thread th;
             this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openMain(object obj)
+        {
+            Application.Run(new main());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Thread th;
             this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }

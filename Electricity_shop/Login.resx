@@ -108,13 +108,10 @@
   </data>
   <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>160, 40</value>
-  </data>
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>183, 53</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>59, 54</value>
+    <value>67, 72</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -174,10 +171,13 @@
 </value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>324, 0</value>
+    <value>370, 0</value>
+  </data>
+  <data name="button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>34, 38</value>
+    <value>39, 51</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>1</value>
@@ -226,13 +226,10 @@
     <value>NoControl</value>
   </data>
   <data name="user.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>284, 159</value>
-  </data>
-  <data name="user.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>325, 183</value>
   </data>
   <data name="user.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>24, 26</value>
+    <value>27, 35</value>
   </data>
   <data name="user.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>2</value>
@@ -253,10 +250,13 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>30, 162</value>
+    <value>34, 187</value>
+  </data>
+  <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>240, 22</value>
+    <value>274, 27</value>
   </data>
   <data name="textBox1.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>3</value>
@@ -280,10 +280,13 @@
     <value>9</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>54, 279</value>
+    <value>62, 343</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>254, 1</value>
+    <value>290, 1</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>4</value>
@@ -301,10 +304,13 @@
     <value>8</value>
   </data>
   <data name="panel.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>54, 190</value>
+    <value>62, 224</value>
+  </data>
+  <data name="panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panel.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>254, 1</value>
+    <value>290, 1</value>
   </data>
   <data name="panel.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>7</value>
@@ -325,10 +331,13 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>30, 252</value>
+    <value>34, 307</value>
+  </data>
+  <data name="textBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>240, 22</value>
+    <value>274, 27</value>
   </data>
   <data name="textBox2.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>6</value>
@@ -384,13 +393,10 @@
     <value>NoControl</value>
   </data>
   <data name="password.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>284, 248</value>
-  </data>
-  <data name="password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>325, 302</value>
   </data>
   <data name="password.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>24, 26</value>
+    <value>27, 41</value>
   </data>
   <data name="password.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>5</value>
@@ -414,10 +420,13 @@
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="entry.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>103, 310</value>
+    <value>118, 402</value>
+  </data>
+  <data name="entry.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="entry.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>158, 38</value>
+    <value>181, 51</value>
   </data>
   <data name="entry.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>9</value>
@@ -438,16 +447,10 @@
     <value>5</value>
   </data>
   <data name="panel9.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, -4</value>
-  </data>
-  <data name="panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>0, -5</value>
   </data>
   <data name="panel9.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>358, 8</value>
+    <value>409, 11</value>
   </data>
   <data name="panel9.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>16</value>
@@ -465,16 +468,10 @@
     <value>4</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, 374</value>
-  </data>
-  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>0, 499</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>358, 8</value>
+    <value>409, 11</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>17</value>
@@ -492,16 +489,10 @@
     <value>3</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>-5, 1</value>
-  </data>
-  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>-6, 1</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>9, 377</value>
+    <value>10, 503</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>18</value>
@@ -519,13 +510,10 @@
     <value>2</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>355, -2</value>
-  </data>
-  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>406, -3</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>9, 377</value>
+    <value>10, 503</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>19</value>
@@ -546,13 +534,13 @@
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="password_user_wrong_message.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>116, 260</value>
+    <value>133, 346</value>
   </data>
   <data name="password_user_wrong_message.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
   <data name="password_user_wrong_message.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>192, 19</value>
+    <value>219, 25</value>
   </data>
   <data name="password_user_wrong_message.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>20</value>
@@ -573,13 +561,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing.Primitives">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>360, 377</value>
+    <value>411, 503</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1712,9 +1700,6 @@
         AAAAAX///////////+iAAAAAACT////////////6IAAAAACL/////////////IgAAAACL///////////
         //8hAAAAEL//////////////yKAAAUL///8=
 </value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

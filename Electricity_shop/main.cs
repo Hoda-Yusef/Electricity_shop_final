@@ -36,8 +36,15 @@ namespace Electricity_shop
         private void button8_Click(object sender, EventArgs e)
         {
             this.Close();
-            orders_management orders = new orders_management();
-            orders.Show();
+            Thread th;
+            th = new Thread(openOrderManagement);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openOrderManagement(object obj)
+        {
+            Application.Run(new orders_management());
         }
 
         private void entry_Click(object sender, EventArgs e)
@@ -51,7 +58,7 @@ namespace Electricity_shop
 
         private void openProductManagement(object obj)
         {
-            Application.Run(new products());
+            Application.Run(new products_management());
             //throw new NotImplementedException();
         }
 
@@ -77,32 +84,70 @@ namespace Electricity_shop
             this.Close();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Close();
-            add_order order = new add_order();
-            order.Show();
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Thread th;
             this.Close();
-            add_supplier supplier1 = new add_supplier();
-            supplier1.Show();
+            th = new Thread(openAddSupplier);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openAddSupplier(object obj)
+        {
+            Application.Run(new add_supplier());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Thread th;
             this.Close();
-            customers customers = new customers();
-            customers.Show();
+            th = new Thread(openCustomeMmanagement);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+
+        }
+
+        private void openCustomeMmanagement(object obj)
+        {
+            Application.Run(new customers_management());
+        }
+
+        private void openAddCustomer(object obj)
+        {
+            Application.Run(new add_customer());
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            Thread th;
             this.Close();
-            suppliers supManage = new suppliers();
-            supManage.Show();
+            th = new Thread(openSupplierManagement);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
+
+        private void openSupplierManagement(object obj)
+        {
+            Application.Run(new suppliers_management());
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Thread th;
+            this.Close();
+            th = new Thread(openAddCustomer);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        
     }
 }

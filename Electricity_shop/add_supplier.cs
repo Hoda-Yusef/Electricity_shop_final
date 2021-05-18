@@ -17,30 +17,27 @@ namespace Electricity_shop
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            th = new Thread(opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            th = new Thread(opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
+      
 
         private void opennewform(object obj)
         {
             Application.Run(new main());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(opennewform);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(opennewform);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }

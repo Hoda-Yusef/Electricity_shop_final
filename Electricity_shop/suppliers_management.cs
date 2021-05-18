@@ -4,31 +4,33 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class suppliers : Form
+    public partial class suppliers_management : Form
     {
-        public suppliers()
+        public suppliers_management()
         {
             InitializeComponent();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Thread th;
             this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void openMain(object obj)
         {
-
-            this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            Application.Run(new main());
         }
+
+       
 
         private void button2_Click(object sender, EventArgs e)
         {

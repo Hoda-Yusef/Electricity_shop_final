@@ -99,5 +99,7 @@ namespace Electricity_shop
         {
             Application.Run(new main());
         }
+
+        
     }
 }

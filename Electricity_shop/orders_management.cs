@@ -52,14 +52,7 @@ namespace Electricity_shop
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            th = new Thread(opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-
-        }
+      
 
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
@@ -99,6 +92,21 @@ namespace Electricity_shop
                 upOr.update_status.Text = "לא סופק";
 
             upOr.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread th;
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+
+        }
+
+        private void openMain(object obj)
+        {
+            Application.Run(new main());
         }
 
 

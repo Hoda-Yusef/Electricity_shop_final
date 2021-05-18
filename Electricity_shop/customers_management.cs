@@ -4,13 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class customers : Form
+    public partial class customers_management : Form
     {
-        public customers()
+        main mn = new main();
+        Thread th;
+        
+        public customers_management()
         {
             InitializeComponent();
         }
@@ -18,15 +22,14 @@ namespace Electricity_shop
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void openMain(object obj)
         {
-            this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            Application.Run(new main());
         }
     }
 }
