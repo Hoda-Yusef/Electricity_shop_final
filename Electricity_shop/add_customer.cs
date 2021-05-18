@@ -8,19 +8,11 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class update_order : Form
+    public partial class add_customer : Form
     {
-        orders_management or = new orders_management();
-        public update_order()
+        public add_customer()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            main mainForm = new main();
-            mainForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,7 +21,12 @@ namespace Electricity_shop
             main mainForm = new main();
             mainForm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            main mainForm = new main();
+            mainForm.Show();
+        }
     }
-
-
 }

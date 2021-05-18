@@ -4,15 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class add_order : Form
+    public partial class suppliers : Form
     {
-        Thread th;
-        public add_order()
+        public suppliers()
         {
             InitializeComponent();
         }
@@ -20,22 +18,23 @@ namespace Electricity_shop
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            main mainForm = new main();
+            mainForm.Show();
         }
 
-        private void opennewform(object obj)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Application.Run(new main());
-        }
 
-        
-        private void button2_Click(object sender, EventArgs e)
-        {
             this.Close();
             main mainForm = new main();
             mainForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            update_supplier supplier = new update_supplier();
+            supplier.Show();
         }
     }
 }

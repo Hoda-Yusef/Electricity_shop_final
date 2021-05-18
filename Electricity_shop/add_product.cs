@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class add_order : Form
+    public partial class add_product : Form
     {
         Thread th;
-        public add_order()
+        public add_product()
         {
             InitializeComponent();
         }
@@ -30,12 +30,17 @@ namespace Electricity_shop
             Application.Run(new main());
         }
 
-        
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            th = new Thread(opennewform);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void add_product_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

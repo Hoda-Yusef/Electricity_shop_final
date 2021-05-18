@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
@@ -54,6 +55,10 @@ namespace Electricity_shop
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            th = new Thread(opennewform);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+
         }
 
 
