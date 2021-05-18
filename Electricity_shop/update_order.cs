@@ -14,8 +14,6 @@ namespace Electricity_shop
         public update_order()
         {
             InitializeComponent();
-
-           
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -27,11 +25,7 @@ namespace Electricity_shop
         {
             this.Close();
         }
-
-        private void update_button_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
     }
+
+
 }

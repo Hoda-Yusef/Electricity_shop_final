@@ -30,7 +30,6 @@ namespace Electricity_shop
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(update_order));
-            this.panel4 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.update_status = new System.Windows.Forms.ComboBox();
@@ -51,24 +50,18 @@ namespace Electricity_shop
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel4.Location = new System.Drawing.Point(-4, -6);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1022, 10);
-            this.panel4.TabIndex = 54;
-            // 
             // button3
             // 
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(964, 0);
+            this.button3.Location = new System.Drawing.Point(964, 1);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(39, 51);
@@ -93,7 +86,7 @@ namespace Electricity_shop
             this.panel5.Controls.Add(this.update_lastName);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.update_name);
-            this.panel5.Location = new System.Drawing.Point(52, 71);
+            this.panel5.Location = new System.Drawing.Point(52, 79);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(896, 502);
             this.panel5.TabIndex = 55;
@@ -159,7 +152,6 @@ namespace Electricity_shop
             this.update_button.TabIndex = 47;
             this.update_button.Text = "עדכן";
             this.update_button.UseVisualStyleBackColor = false;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // label6
             // 
@@ -293,7 +285,7 @@ namespace Electricity_shop
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(320, -2);
+            this.label1.Location = new System.Drawing.Point(320, 6);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(323, 72);
@@ -317,19 +309,28 @@ namespace Electricity_shop
             this.panel3.Size = new System.Drawing.Size(1022, 10);
             this.panel3.TabIndex = 55;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel4.Location = new System.Drawing.Point(0, -4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1022, 10);
+            this.panel4.TabIndex = 56;
+            // 
             // update_order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1007, 603);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.Snow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "update_order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -341,16 +342,19 @@ namespace Electricity_shop
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
@@ -363,5 +367,6 @@ namespace Electricity_shop
         public System.Windows.Forms.TextBox update_lastName;
         public System.Windows.Forms.ComboBox update_status;
         public System.Windows.Forms.Button update_button;
+        private System.Windows.Forms.Panel panel4;
     }
 }

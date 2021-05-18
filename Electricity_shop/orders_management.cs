@@ -67,7 +67,19 @@ namespace Electricity_shop
             button1.BackColor = Color.FromArgb(34, 36, 49);
         }
 
-        private void update_order_Click(object sender, EventArgs e)
+        
+
+        private void orders_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void update_grid_row()
+        {
+           
+        }
+
+        private void update_row_Click(object sender, EventArgs e)
         {
             update_order upOr = new update_order();
 
@@ -82,20 +94,9 @@ namespace Electricity_shop
                 upOr.update_status.Text = "לא סופק";
 
             upOr.ShowDialog();
-
         }
 
-        private void orders_grid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        public void update_grid_row()
-        {
-           
-        }
-
-      
 
 
 
