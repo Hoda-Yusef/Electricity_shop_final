@@ -45,6 +45,7 @@ namespace Electricity_shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.password_user_wrong_message = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.password)).BeginInit();
@@ -146,11 +147,18 @@ namespace Electricity_shop
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
+            // password_user_wrong_message
+            // 
+            resources.ApplyResources(this.password_user_wrong_message, "password_user_wrong_message");
+            this.password_user_wrong_message.ForeColor = System.Drawing.Color.Red;
+            this.password_user_wrong_message.Name = "password_user_wrong_message";
+            // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Controls.Add(this.password_user_wrong_message);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -204,6 +212,7 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label password_user_wrong_message;
     }
 }
 

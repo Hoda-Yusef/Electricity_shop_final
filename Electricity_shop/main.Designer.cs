@@ -306,6 +306,7 @@ namespace Electricity_shop
             this.button7.TabIndex = 13;
             this.button7.Text = "ביצוע הזמנה";
             this.button7.UseVisualStyleBackColor = false;
+           
             // 
             // button8
             // 

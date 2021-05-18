@@ -58,5 +58,7 @@ namespace Electricity_shop
             Application.Run(new products());
             //throw new NotImplementedException();
         }
+
+        
     }
 }

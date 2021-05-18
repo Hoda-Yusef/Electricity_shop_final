@@ -100,11 +100,11 @@ namespace Electricity_shop
                     th.Start();
                 }
                 else
-                    MessageBox.Show("שם משתמש או סיסמה שגויים ");
+                    password_user_wrong_message.Text = "* סיסמה או שם משתמש שגויים";
 
             }
             else
-                MessageBox.Show("כתוב שם משתמש או סיסמה");
+                password_user_wrong_message.Text="* כתוב שם משתמש או סיסמה";
 
 
         }
