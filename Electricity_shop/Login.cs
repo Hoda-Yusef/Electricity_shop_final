@@ -100,6 +100,9 @@ namespace Electricity_shop
             Application.Run(new main());
         }
 
-        
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            button1.BackColor = Color.White;
+        }
     }
 }

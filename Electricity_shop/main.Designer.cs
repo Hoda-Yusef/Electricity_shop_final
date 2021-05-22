@@ -312,6 +312,7 @@ namespace Electricity_shop
             this.make_order.TabIndex = 13;
             this.make_order.Text = "ביצוע הזמנה";
             this.make_order.UseVisualStyleBackColor = false;
+            this.make_order.Click += new System.EventHandler(this.make_order_Click);
             // 
             // button8
             // 

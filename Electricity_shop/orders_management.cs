@@ -11,6 +11,9 @@ namespace Electricity_shop
 {
     public partial class orders_management : Form
     {
+        bool drag = false;
+        Point sp = new Point(0, 0);
+
         orders or = new orders("הודא", "חיר", "אבו סנאן", "02546654", 15000, true);
         public orders_management()
         {
@@ -107,6 +110,36 @@ namespace Electricity_shop
         private void openMain(object obj)
         {
             Application.Run(new main());
+        }
+
+        private void panel8_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel8_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel8_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void button3_MouseMove(object sender, MouseEventArgs e)
+        {
+            button3.BackColor = Color.White;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(34, 36, 49);
         }
 
 

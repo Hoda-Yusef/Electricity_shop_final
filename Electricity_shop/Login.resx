@@ -393,7 +393,7 @@
     <value>NoControl</value>
   </data>
   <data name="password.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>325, 302</value>
+    <value>325, 297</value>
   </data>
   <data name="password.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>27, 41</value>

@@ -148,6 +148,18 @@ namespace Electricity_shop
             th.Start();
         }
 
-        
+        private void make_order_Click(object sender, EventArgs e)
+        {
+            Thread th;
+            this.Close();
+            th = new Thread(openAddOorder);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openAddOorder(object obj)
+        {
+            Application.Run(new add_order());
+        }
     }
 }

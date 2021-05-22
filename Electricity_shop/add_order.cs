@@ -34,8 +34,9 @@ namespace Electricity_shop
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            main mainForm = new main();
-            mainForm.Show();
+            th = new Thread(opennewform);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }

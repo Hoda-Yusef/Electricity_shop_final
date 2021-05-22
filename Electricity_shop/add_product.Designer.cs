@@ -42,7 +42,6 @@ namespace Electricity_shop
             this.label5 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,7 +56,9 @@ namespace Electricity_shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -206,19 +207,6 @@ namespace Electricity_shop
             this.label6.TabIndex = 12;
             this.label6.Text = "ספק";
             // 
-            // textBox8
-            // 
-            this.textBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox8.ForeColor = System.Drawing.Color.White;
-            this.textBox8.Location = new System.Drawing.Point(108, 247);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox8.Size = new System.Drawing.Size(243, 34);
-            this.textBox8.TabIndex = 13;
-            // 
             // textBox9
             // 
             this.textBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -250,12 +238,12 @@ namespace Electricity_shop
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label7.Location = new System.Drawing.Point(224, 225);
+            this.label7.Location = new System.Drawing.Point(274, 216);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(124, 28);
+            this.label7.Size = new System.Drawing.Size(59, 28);
             this.label7.TabIndex = 16;
-            this.label7.Text = "כמות במלאי";
+            this.label7.Text = "כמות";
             // 
             // label8
             // 
@@ -274,7 +262,7 @@ namespace Electricity_shop
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label9.Location = new System.Drawing.Point(236, 28);
+            this.label9.Location = new System.Drawing.Point(223, 28);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label9.Size = new System.Drawing.Size(110, 28);
@@ -298,6 +286,7 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
@@ -307,7 +296,6 @@ namespace Electricity_shop
             this.panel1.Controls.Add(this.textBox7);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.textBox9);
             this.panel1.Controls.Add(this.label4);
@@ -330,10 +318,10 @@ namespace Electricity_shop
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(98, 546);
+            this.button2.Location = new System.Drawing.Point(71, 546);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 63);
+            this.button2.Size = new System.Drawing.Size(146, 63);
             this.button2.TabIndex = 20;
             this.button2.Text = "ביטול";
             this.button2.UseVisualStyleBackColor = false;
@@ -346,10 +334,10 @@ namespace Electricity_shop
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(246, 546);
+            this.button1.Location = new System.Drawing.Point(236, 546);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 63);
+            this.button1.Size = new System.Drawing.Size(146, 63);
             this.button1.TabIndex = 19;
             this.button1.Text = "הוספה";
             this.button1.UseVisualStyleBackColor = false;
@@ -398,6 +386,17 @@ namespace Electricity_shop
             this.panel5.Size = new System.Drawing.Size(10, 792);
             this.panel5.TabIndex = 64;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDown1.ForeColor = System.Drawing.Color.White;
+            this.numericUpDown1.Location = new System.Drawing.Point(108, 247);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.numericUpDown1.Size = new System.Drawing.Size(243, 34);
+            this.numericUpDown1.TabIndex = 21;
+            // 
             // add_product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -419,6 +418,7 @@ namespace Electricity_shop
             this.Load += new System.EventHandler(this.add_product_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -436,7 +436,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label7;
@@ -451,5 +450,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
