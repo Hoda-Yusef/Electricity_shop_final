@@ -77,21 +77,14 @@ namespace Electricity_shop
             }
         }
 
-        public int GetCityMaxNumber()
-        {
-            int result;
-            string cmdStr = "SELECT Max(cityCode) FROM city";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                result = ExecuteScalarIntQuery(command);
-            }
-            return result;
-        }
+       
 
         public void InsertProduct(product Item)
         {
-            string cmdStr = "INSERT INTO product (barcode,product_category,product_model,product_manufacturer,product_supplier,cost_price,selling_price,amount,product_info) VALUES (@barcode,@product_category,@product_model,@product_manufacturer,@product_supplier,@cost_price,@selling_price,@amount,@product_info)";
+            string cmdStr = "INSERT INTO product (barcode,product_category,product_model," +
+                "product_manufacturer,product_supplier,cost_price,selling_price,amount,product_info)" +
+                " VALUES (@barcode,@product_category,@product_model,@product_manufacturer," +
+                "@product_supplier,@cost_price,@selling_price,@amount,@product_info)";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -105,6 +98,25 @@ namespace Electricity_shop
                 command.Parameters.AddWithValue("@amount", Item.Amount);
                 command.Parameters.AddWithValue("@product_info", Item.Product_info);
 
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void InsertCustomer(customer Item)
+        {
+            string cmdStr = "INSERT INTO customer (id,first_name,last_name," +
+                "phone_number,address)" +
+                " VALUES (@id,@first_name,@last_name,@phone_number," +
+                "@address)";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@id", Item.Id);
+                command.Parameters.AddWithValue("@first_name", Item.First_name);
+                command.Parameters.AddWithValue("@last_name", Item.Last_name);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+                
                 base.ExecuteSimpleQuery(command);
             }
         }
@@ -124,6 +136,18 @@ namespace Electricity_shop
             return result;
         }
 
+
+        public int GetCityMaxNumber()
+        {
+            int result;
+            string cmdStr = "SELECT Max(cityCode) FROM city";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                result = ExecuteScalarIntQuery(command);
+            }
+            return result;
+        }
 
         public product[] GetProductData()
         {
@@ -169,10 +193,53 @@ namespace Electricity_shop
 
         }
 
+        public customer[] GetCustomerData()
+        {
+            DataSet ds = new DataSet();
+            customer[] Customer = null;
+            string cmdStr = "SELECT * FROM customer";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Customer = new customer[dt.Rows.Count];
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    Customer[i] = new customer();
+                    Customer[i].Id = dt.Rows[i][0].ToString();
+                    Customer[i].First_name = dt.Rows[i][1].ToString();
+                    Customer[i].Last_name = dt.Rows[i][2].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
+                    Customer[i].Address = dt.Rows[i][4].ToString();
+                }
+            }
+            return Customer;
+
+        }
+
 
         public void UpdateProduct(product Item)
         {
-            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category,product_model=@product_model,product_manufacturer=@product_manufacturer,product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price,amount=@amount,product_info=@product_info WHERE barcode=@barcode";
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE barcode=@barcode";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -186,6 +253,25 @@ namespace Electricity_shop
                 command.Parameters.AddWithValue("@amount", Item.Amount);
                 command.Parameters.AddWithValue("@product_info", Item.Product_info);
 
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateCustomer(customer Item)
+        {
+            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
+                "last_name=@last_name,phone_number=@phone_number," +
+                "address=@address WHERE id=@id";
+                
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@id", Item.Id);
+                command.Parameters.AddWithValue("@first_name", Item.First_name);
+                command.Parameters.AddWithValue("@last_name", Item.Last_name);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+                
                 base.ExecuteSimpleQuery(command);
             }
         }

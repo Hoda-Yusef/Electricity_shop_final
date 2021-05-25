@@ -32,15 +32,15 @@ namespace Electricity_shop
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(add_customer));
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.add_button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.phone_number = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.last_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.first_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ID_text = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,15 +56,15 @@ namespace Electricity_shop
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.panel5.Controls.Add(this.button2);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.add_button);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.textBox4);
+            this.panel5.Controls.Add(this.address);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Controls.Add(this.phone_number);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.last_name);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.first_name);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.ID_text);
             this.panel5.Location = new System.Drawing.Point(30, 135);
@@ -89,51 +89,52 @@ namespace Electricity_shop
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // add_button
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(200, 389);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 51);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "הוספה";
-            this.button1.UseVisualStyleBackColor = false;
+            this.add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.add_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.add_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.add_button.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.add_button.ForeColor = System.Drawing.Color.White;
+            this.add_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.add_button.Location = new System.Drawing.Point(200, 389);
+            this.add_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.add_button.Name = "add_button";
+            this.add_button.Size = new System.Drawing.Size(142, 51);
+            this.add_button.TabIndex = 47;
+            this.add_button.Text = "הוספה";
+            this.add_button.UseVisualStyleBackColor = false;
+            this.add_button.Click += new System.EventHandler(this.add_button_Click);
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label6.Location = new System.Drawing.Point(155, 57);
+            this.label6.Location = new System.Drawing.Point(215, 55);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(118, 27);
+            this.label6.Size = new System.Drawing.Size(91, 27);
             this.label6.TabIndex = 45;
             this.label6.Text = "כתובת";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // address
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(37, 75);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox4.Size = new System.Drawing.Size(257, 38);
-            this.textBox4.TabIndex = 44;
+            this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.address.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.address.ForeColor = System.Drawing.Color.White;
+            this.address.Location = new System.Drawing.Point(70, 75);
+            this.address.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.address.Name = "address";
+            this.address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.address.Size = new System.Drawing.Size(257, 38);
+            this.address.TabIndex = 44;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label5.Location = new System.Drawing.Point(685, 427);
+            this.label5.Location = new System.Drawing.Point(685, 420);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(145, 27);
@@ -141,23 +142,23 @@ namespace Electricity_shop
             this.label5.Text = "מספר טלפון";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // phone_number
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(593, 439);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox3.Size = new System.Drawing.Size(257, 38);
-            this.textBox3.TabIndex = 42;
+            this.phone_number.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.phone_number.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.phone_number.ForeColor = System.Drawing.Color.White;
+            this.phone_number.Location = new System.Drawing.Point(593, 439);
+            this.phone_number.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.phone_number.Name = "phone_number";
+            this.phone_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.phone_number.Size = new System.Drawing.Size(257, 38);
+            this.phone_number.TabIndex = 42;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label4.Location = new System.Drawing.Point(703, 311);
+            this.label4.Location = new System.Drawing.Point(703, 304);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(127, 27);
@@ -165,41 +166,41 @@ namespace Electricity_shop
             this.label4.Text = "שם משפחה";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // last_name
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(593, 325);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox2.Size = new System.Drawing.Size(257, 38);
-            this.textBox2.TabIndex = 40;
+            this.last_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.last_name.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.last_name.ForeColor = System.Drawing.Color.White;
+            this.last_name.Location = new System.Drawing.Point(593, 325);
+            this.last_name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.last_name.Name = "last_name";
+            this.last_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.last_name.Size = new System.Drawing.Size(257, 38);
+            this.last_name.TabIndex = 40;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(685, 185);
+            this.label3.Location = new System.Drawing.Point(703, 185);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(145, 27);
+            this.label3.Size = new System.Drawing.Size(127, 27);
             this.label3.TabIndex = 39;
             this.label3.Text = "שם פרטי";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // first_name
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(593, 201);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(257, 38);
-            this.textBox1.TabIndex = 38;
+            this.first_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.first_name.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.first_name.ForeColor = System.Drawing.Color.White;
+            this.first_name.Location = new System.Drawing.Point(593, 201);
+            this.first_name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.first_name.Name = "first_name";
+            this.first_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.first_name.Size = new System.Drawing.Size(257, 38);
+            this.first_name.TabIndex = 38;
             // 
             // label2
             // 
@@ -224,6 +225,7 @@ namespace Electricity_shop
             this.ID_text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ID_text.Size = new System.Drawing.Size(257, 38);
             this.ID_text.TabIndex = 36;
+            this.ID_text.Leave += new System.EventHandler(this.ID_text_Leave);
             // 
             // label1
             // 
@@ -301,6 +303,7 @@ namespace Electricity_shop
             this.Name = "add_customer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "add_customer";
+            this.Load += new System.EventHandler(this.add_customer_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -311,15 +314,15 @@ namespace Electricity_shop
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button add_button;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox address;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox phone_number;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox last_name;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox first_name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ID_text;
         private System.Windows.Forms.Label label1;

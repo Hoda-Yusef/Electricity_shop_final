@@ -25,7 +25,14 @@ namespace Electricity_shop
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
 
+            set_AutoCompleteMode_text_boxes();
+
+        }
+
+        private void set_AutoCompleteMode_text_boxes()
+        {
             category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
@@ -37,12 +44,6 @@ namespace Electricity_shop
 
             supplier.AutoCompleteMode = AutoCompleteMode.Suggest;
             supplier.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-
-
-
-            mySQL = DBSQL.Instance;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -71,7 +72,6 @@ namespace Electricity_shop
         {
             bool same = false;
             
-
             if (barcode.Text != "" && category.Text != "" && productInfo.Text != "" && modell.Text != ""
                 && manufature.Text != "" && supplier.Text != "" && costPrice.Text != ""
                 && sellingPrice.Text != "" && amount.Value != 0)
@@ -93,14 +93,11 @@ namespace Electricity_shop
                 if(same)
                 {
                     same_product(Prod,Product[inx]);
-                    MessageBox.Show("עודכן בהצלחה");
-                    clear_boxes();
                 }
                 else
                 {
                     new_product(Prod);
-                    MessageBox.Show("הוסף בהצלחה");
-                    clear_boxes();
+                    
                 }
             }
             else
@@ -180,6 +177,9 @@ namespace Electricity_shop
             Prod.Amount = Convert.ToInt32(amount.Value)+Product.Amount;
             Prod.Product_info = productInfo.Text;
             mySQL.UpdateProduct(Prod);
+
+            MessageBox.Show("מוצר קיים , עודכן בהצלחה");
+            clear_boxes();
         }
 
         private void new_product(product Prod)
@@ -194,6 +194,9 @@ namespace Electricity_shop
             Prod.Amount = Convert.ToInt32(amount.Value);
             Prod.Product_info = productInfo.Text;
             mySQL.InsertProduct(Prod);
+
+            MessageBox.Show("מוצר הוסף בהצלחה");
+            clear_boxes();
         }
     }
 }
