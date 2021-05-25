@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Electricity_shop": {
+      "commandName": "Project",
+      "sqlDebugging": false,
+      "nativeDebugging": false
+    }
+  }
+}

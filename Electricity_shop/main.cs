@@ -59,7 +59,7 @@ namespace Electricity_shop
         private void openProductManagement(object obj)
         {
             Application.Run(new products_management());
-            //throw new NotImplementedException();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace Electricity_shop
         private void openProductAdd(object obj)
         {
             Application.Run(new add_product());
-            //throw new NotImplementedException();
+            
         }
 
         private void button12_Click(object sender, EventArgs e)
