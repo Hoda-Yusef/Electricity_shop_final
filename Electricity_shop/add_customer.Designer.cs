@@ -153,6 +153,7 @@ namespace Electricity_shop
             this.phone_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.phone_number.Size = new System.Drawing.Size(257, 38);
             this.phone_number.TabIndex = 42;
+            this.phone_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_number_KeyPress);
             // 
             // label4
             // 
@@ -225,6 +226,7 @@ namespace Electricity_shop
             this.ID_text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ID_text.Size = new System.Drawing.Size(257, 38);
             this.ID_text.TabIndex = 36;
+            this.ID_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ID_text_KeyPress);
             this.ID_text.Leave += new System.EventHandler(this.ID_text_Leave);
             // 
             // label1

@@ -121,6 +121,26 @@ namespace Electricity_shop
             }
         }
 
+        public void InsertSupplier(supplier Item)
+        {
+            string cmdStr = "INSERT INTO supplier (name,phone_number,address," +
+                "dept,paid)" +
+                " VALUES (@name,@phone_number,@address,@dept," +
+                "@paid)";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@name", Item.Name);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+                command.Parameters.AddWithValue("@dept", Item.Dept);
+                command.Parameters.AddWithValue("@paid", Item.Paid);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+
         public bool checkCity(string cityName)
         {
             bool result = false;
@@ -230,6 +250,46 @@ namespace Electricity_shop
                 }
             }
             return Customer;
+
+        }
+
+        public supplier[] GetSupplierData()
+        {
+            DataSet ds = new DataSet();
+            supplier[] Supplier = null;
+            string cmdStr = "SELECT * FROM supplier";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Supplier = new supplier[dt.Rows.Count];
+
+                for (int i = 0; i < Supplier.Length; i++)
+                {
+                    Supplier[i] = new supplier();
+                    Supplier[i].Name = dt.Rows[i][0].ToString();
+                    Supplier[i].Phone_number = dt.Rows[i][1].ToString();
+                    Supplier[i].Address = dt.Rows[i][2].ToString();
+                    Supplier[i].Dept = Convert.ToInt32(dt.Rows[i][3]);
+                    Supplier[i].Paid = Convert.ToInt32(dt.Rows[i][4]);
+                }
+            }
+            return Supplier;
 
         }
 

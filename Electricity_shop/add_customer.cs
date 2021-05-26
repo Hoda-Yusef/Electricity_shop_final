@@ -14,7 +14,7 @@ namespace Electricity_shop
     {
         private DBSQL mySQL;
         Thread th;
-        int inx;
+        
         AutoCompleteStringCollection id1 = new AutoCompleteStringCollection();
         AutoCompleteStringCollection firstName1 = new AutoCompleteStringCollection();
         AutoCompleteStringCollection lastName1 = new AutoCompleteStringCollection();
@@ -88,7 +88,7 @@ namespace Electricity_shop
                     if (idTmp == Customer[i].Id.ToString())
                     {
                         same = true;
-                        inx = i;
+                        
                     }
                 }
 
@@ -178,6 +178,26 @@ namespace Electricity_shop
                        
                     }
                 }
+            }
+        }
+
+        private void ID_text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void phone_number_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
             }
         }
     }

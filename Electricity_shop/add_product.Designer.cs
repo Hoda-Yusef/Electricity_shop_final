@@ -73,7 +73,6 @@ namespace Electricity_shop
             this.category.ShortcutsEnabled = false;
             this.category.Size = new System.Drawing.Size(243, 34);
             this.category.TabIndex = 7;
-            //this.category.TextChanged += new System.EventHandler(this.category_TextChanged);
             // 
             // label2
             // 
@@ -134,7 +133,6 @@ namespace Electricity_shop
             this.modell.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.modell.Size = new System.Drawing.Size(243, 34);
             this.modell.TabIndex = 8;
-           // this.modell.TextChanged += new System.EventHandler(this.model_TextChanged);
             // 
             // manufature
             // 
@@ -147,7 +145,6 @@ namespace Electricity_shop
             this.manufature.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.manufature.Size = new System.Drawing.Size(243, 34);
             this.manufature.TabIndex = 9;
-           // this.manufature.TextChanged += new System.EventHandler(this.manufature_TextChanged);
             // 
             // label5
             // 
@@ -173,7 +170,6 @@ namespace Electricity_shop
             this.supplier.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.supplier.Size = new System.Drawing.Size(243, 34);
             this.supplier.TabIndex = 11;
-           // this.supplier.TextChanged += new System.EventHandler(this.supplier_TextChanged);
             // 
             // label6
             // 
@@ -199,6 +195,7 @@ namespace Electricity_shop
             this.sellingPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.sellingPrice.Size = new System.Drawing.Size(243, 34);
             this.sellingPrice.TabIndex = 13;
+            this.sellingPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sellingPrice_KeyPress);
             // 
             // costPrice
             // 
@@ -212,6 +209,7 @@ namespace Electricity_shop
             this.costPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.costPrice.Size = new System.Drawing.Size(243, 34);
             this.costPrice.TabIndex = 12;
+            this.costPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.costPrice_KeyPress);
             // 
             // label7
             // 
@@ -315,6 +313,7 @@ namespace Electricity_shop
             this.barcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.barcode.Size = new System.Drawing.Size(243, 34);
             this.barcode.TabIndex = 22;
+            this.barcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.barcode_KeyPress);
             this.barcode.Leave += new System.EventHandler(this.barcode_Leave);
             // 
             // amount
