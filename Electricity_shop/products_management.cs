@@ -16,6 +16,13 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
+        product[] Product;
+
+        AutoCompleteStringCollection barcodeAuto = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection manufactureAuto = new AutoCompleteStringCollection();
+        
         public products_management()
         {
             InitializeComponent();
@@ -24,21 +31,68 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
 
-            dt = mySQL.GetProductData_for_table();
+            set_AutoCompleteMode_text_boxes();
 
-            fill_grid();
+        }
+
+        private void set_AutoCompleteMode_text_boxes()
+        {
+            barcode.AutoCompleteMode = AutoCompleteMode.Suggest;
+            barcode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            category.AutoCompleteMode = AutoCompleteMode.Suggest;
+            category.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            model.AutoCompleteMode = AutoCompleteMode.Suggest;
+            model.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            manufacture.AutoCompleteMode = AutoCompleteMode.Suggest;
+            manufacture.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             
         }
 
-        private void fill_grid()
+        private void fill_grid_by_barcode()
         {
-            product[] Product = mySQL.GetProductData();
+            Product = mySQL.GetProductDataFiltered("barcode",barcode.Text);
 
-            for (int i = 0; i < Product.Length; i++)
+            fill_grid(Product);
+            
+        }
+
+        private void fill_grid_by_category()
+        {
+            Product = mySQL.GetProductDataFiltered("product_category", category.Text);
+
+            fill_grid(Product);
+
+        }
+
+        private void fill_grid_by_manufacture()
+        {
+            Product = mySQL.GetProductDataFiltered("product_manufacturer", manufacture.Text);
+
+            fill_grid(Product);
+
+        }
+
+        private void fill_grid_by_model()
+        {
+            Product = mySQL.GetProductDataFiltered("product_model", model.Text);
+
+            fill_grid(Product);
+
+        }
+
+        private void fill_grid(product[] Product)
+        {
+            products_grid.Rows.Clear();
+            if (Product != null)
             {
-                products_grid.Rows.Add(new object[]
+                for (int i = 0; i < Product.Length; i++)
                 {
+                    products_grid.Rows.Add(new object[]
+                    {
                     Product[i].Category,
                     Product[i].Manufacturer,
                     Product[i].Model,
@@ -48,8 +102,11 @@ namespace Electricity_shop
                     Product[i].Cost_price,
                     Product[i].Selling_price,
                     Product[i].Product_info
-                });
+                    });
+                }
             }
+            else
+                products_grid.Rows.Clear();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -162,17 +219,79 @@ namespace Electricity_shop
 
         private void barcode_TextChanged(object sender, EventArgs e)
         {
-            DataView dv = new DataView(dt);
-            dv.RowFilter = string.Format("CONVERT(barcode, System.String) LIKE '%{0}%'", barcode.Text);
-            products_grid.DataSource = dv;
+            
+            fill_grid_by_barcode();
             
         }
 
         private void category_TextChanged(object sender, EventArgs e)
         {
-            DataView dv = new DataView(dt);
-            dv.RowFilter = string.Format("product_category like '{0}%'", category.Text);
-            products_grid.DataSource = dv;
+            
+            fill_grid_by_category();
+        }
+
+        private void manufacture_TextChanged(object sender, EventArgs e)
+        {
+            fill_grid_by_manufacture();
+        }
+
+        private void model_TextChanged(object sender, EventArgs e)
+        {
+            fill_grid_by_model();
+        }
+
+        private void products_management_Load(object sender, EventArgs e)
+        {
+            product[] Product = mySQL.GetProductData();
+
+            for (int i = 0; i < Product.Length; i++)
+            {
+                products_grid.Rows.Add(new object[]
+                {
+                    Product[i].Category,
+                    Product[i].Manufacturer,
+                    Product[i].Model,
+                    Product[i].Barcode,
+                    Product[i].Supplier,
+                    Product[i].Amount,
+                    Product[i].Cost_price,
+                    Product[i].Selling_price,
+                    Product[i].Product_info
+                });
+            }
+
+            
+            for (int i = 0; i < Product.Length; i++)
+            {
+                barcodeAuto.Add(Product[i].Barcode.ToString());
+                categoryAuto.Add(Product[i].Category);
+                modelAuto.Add(Product[i].Model);
+                manufactureAuto.Add(Product[i].Manufacturer);
+                
+
+            }
+            barcode.AutoCompleteCustomSource = barcodeAuto;
+            manufacture.AutoCompleteCustomSource = manufactureAuto;
+            model.AutoCompleteCustomSource = modelAuto;
+            category.AutoCompleteCustomSource = categoryAuto;
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            barcode.Text = "";
+            category.Text = "";
+            model.Text = "";
+            manufacture.Text = "";
+        }
+
+        private void barcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

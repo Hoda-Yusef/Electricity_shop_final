@@ -384,6 +384,52 @@ namespace Electricity_shop
             }
         }
 
+        public product[] GetProductDataFiltered(string columnName, string item)
+        {
+            DataSet ds = new DataSet();
+            product[] Product = null;
+            string cmdStr = "SELECT * FROM product WHERE "+columnName+" LIKE '"+item+"%'";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Product = new product[dt.Rows.Count];
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    Product[i] = new product();
+                    Product[i].Barcode = Convert.ToInt64(dt.Rows[i][0]);
+                    Product[i].Category = dt.Rows[i][1].ToString();
+                    Product[i].Model = dt.Rows[i][2].ToString();
+                    Product[i].Manufacturer = dt.Rows[i][3].ToString();
+                    Product[i].Supplier = dt.Rows[i][4].ToString();
+                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][5]);
+                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][6]);
+                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][7]);
+                    Product[i].Product_info = dt.Rows[i][8].ToString();
+                }
+            }
+            return Product;
+
+        }
+
+
+
 
 
     }

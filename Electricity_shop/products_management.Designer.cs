@@ -31,14 +31,11 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(products_management));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.button3 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(products_management));
             this.products_grid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,9 @@ namespace Electricity_shop
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.exit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@ namespace Electricity_shop
             this.label3 = new System.Windows.Forms.Label();
             this.manufacture = new System.Windows.Forms.TextBox();
             this.update_product = new System.Windows.Forms.Button();
-            this.search_order = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.category = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -76,48 +76,9 @@ namespace Electricity_shop
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(609, 39);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(343, 64);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ניהול מוצרים";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 843);
-            this.splitter1.TabIndex = 1;
-            this.splitter1.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(1614, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 37);
-            this.button3.TabIndex = 37;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
-            this.button3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button3_MouseMove);
-            // 
             // products_grid
             // 
+            this.products_grid.AllowUserToAddRows = false;
             this.products_grid.AllowUserToDeleteRows = false;
             this.products_grid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
@@ -246,6 +207,46 @@ namespace Electricity_shop
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(609, 39);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(343, 64);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ניהול מוצרים";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 843);
+            this.splitter1.TabIndex = 1;
+            this.splitter1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button3.Location = new System.Drawing.Point(1614, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(39, 37);
+            this.button3.TabIndex = 37;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
+            this.button3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button3_MouseMove);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
@@ -258,7 +259,7 @@ namespace Electricity_shop
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.manufacture);
             this.panel3.Controls.Add(this.update_product);
-            this.panel3.Controls.Add(this.search_order);
+            this.panel3.Controls.Add(this.clear);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.category);
             this.panel3.Location = new System.Drawing.Point(1370, 129);
@@ -307,6 +308,7 @@ namespace Electricity_shop
             this.model.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.model.Size = new System.Drawing.Size(199, 38);
             this.model.TabIndex = 28;
+            this.model.TextChanged += new System.EventHandler(this.model_TextChanged);
             // 
             // label4
             // 
@@ -332,6 +334,7 @@ namespace Electricity_shop
             this.barcode.Size = new System.Drawing.Size(199, 38);
             this.barcode.TabIndex = 26;
             this.barcode.TextChanged += new System.EventHandler(this.barcode_TextChanged);
+            this.barcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.barcode_KeyPress);
             // 
             // label3
             // 
@@ -356,6 +359,7 @@ namespace Electricity_shop
             this.manufacture.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.manufacture.Size = new System.Drawing.Size(199, 38);
             this.manufacture.TabIndex = 24;
+            this.manufacture.TextChanged += new System.EventHandler(this.manufacture_TextChanged);
             // 
             // update_product
             // 
@@ -374,21 +378,22 @@ namespace Electricity_shop
             this.update_product.UseVisualStyleBackColor = false;
             this.update_product.Click += new System.EventHandler(this.update_product_Click);
             // 
-            // search_order
+            // clear
             // 
-            this.search_order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.search_order.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.search_order.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.search_order.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.search_order.ForeColor = System.Drawing.Color.White;
-            this.search_order.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.search_order.Location = new System.Drawing.Point(27, 445);
-            this.search_order.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.search_order.Name = "search_order";
-            this.search_order.Size = new System.Drawing.Size(199, 51);
-            this.search_order.TabIndex = 22;
-            this.search_order.Text = "חיפוש";
-            this.search_order.UseVisualStyleBackColor = false;
+            this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.clear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.clear.ForeColor = System.Drawing.Color.White;
+            this.clear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.clear.Location = new System.Drawing.Point(27, 445);
+            this.clear.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(199, 51);
+            this.clear.TabIndex = 22;
+            this.clear.Text = "נקה חיפוש";
+            this.clear.UseVisualStyleBackColor = false;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // label2
             // 
@@ -502,6 +507,7 @@ namespace Electricity_shop
             this.Name = "products_management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "products";
+            this.Load += new System.EventHandler(this.products_management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.products_grid)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -528,10 +534,9 @@ namespace Electricity_shop
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button button3;
-        public System.Windows.Forms.DataGridView products_grid;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button update_product;
-        private System.Windows.Forms.Button search_order;
+        private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox category;
         private System.Windows.Forms.Panel panel2;
@@ -557,5 +562,6 @@ namespace Electricity_shop
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.DataGridView products_grid;
     }
 }
