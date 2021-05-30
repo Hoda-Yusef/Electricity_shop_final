@@ -142,6 +142,17 @@ namespace Electricity_shop
             button3.BackColor = Color.FromArgb(34, 36, 49);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread th;
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+
+
 
 
 

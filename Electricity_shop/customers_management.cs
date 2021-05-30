@@ -31,5 +31,13 @@ namespace Electricity_shop
         {
             Application.Run(new main());
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
     }
 }
