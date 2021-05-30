@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
+
 namespace Electricity_shop
 {
     public partial class suppliers_management : Form
@@ -38,5 +39,16 @@ namespace Electricity_shop
             update_supplier supplier = new update_supplier();
             supplier.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Thread th;
+            this.Close();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+      
     }
 }

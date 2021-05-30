@@ -18,7 +18,7 @@ namespace Electricity_shop
         private DBSQL mySQL;
         AutoCompleteStringCollection bar = new AutoCompleteStringCollection();
         AutoCompleteStringCollection cat = new AutoCompleteStringCollection();
-        string mod;
+        //string mod;
         AutoCompleteStringCollection factory = new AutoCompleteStringCollection();
         AutoCompleteStringCollection supp = new AutoCompleteStringCollection();
 
@@ -77,7 +77,7 @@ namespace Electricity_shop
         private void button1_Click(object sender, EventArgs e)
         {
             bool same = false;
-            
+
             if (barcode.Text != "" && category.Text != "" && productInfo.Text != "" && modell.Text != ""
                 && manufature.Text != "" && supplier.Text != "" && costPrice.Text != ""
                 && sellingPrice.Text != "" && amount.Value != 0)
@@ -86,26 +86,26 @@ namespace Electricity_shop
                 product Prod = new product();
                 string barcodeTmp = barcode.Text;
 
-                for(int i=0;i<Product.Length;i++)
+                for (int i = 0; i < Product.Length; i++)
                 {
                     if (barcodeTmp == Product[i].Barcode.ToString())
                     {
                         same = true;
                         inx = i;
                     }
-                
+
                 }
 
-                if(same)
+                if (same)
                 {
-                    same_product(Prod,Product[inx]);
+                    same_product(Prod, Product[inx]);
                     read_only_false();
                 }
                 else
                 {
                     new_product(Prod);
                     read_only_false();
-                    
+
                 }
             }
             else
@@ -113,7 +113,7 @@ namespace Electricity_shop
 
         }
 
-        
+
 
         private void barcode_Leave(object sender, EventArgs e)
         {
@@ -126,8 +126,8 @@ namespace Electricity_shop
                 {
                     if (barcodeTmp == Product[i].Barcode.ToString())
                     {
-                        
-                        
+
+
                         barcode.Text = Product[i].Barcode.ToString();
                         category.Text = Product[i].Category;
                         modell.Text = Product[i].Model;
@@ -159,7 +159,7 @@ namespace Electricity_shop
 
         private void add_product_Load(object sender, EventArgs e)
         {
-          
+
             product[] Product = mySQL.GetProductData();
 
 
@@ -167,7 +167,7 @@ namespace Electricity_shop
             {
                 bar.Add(Product[i].Barcode.ToString());
                 cat.Add(Product[i].Category);
-                mod = Product[i].Model;
+                //mod = Product[i].Model;
                 factory.Add(Product[i].Manufacturer);
                 supp.Add(Product[i].Supplier);
 
@@ -193,7 +193,7 @@ namespace Electricity_shop
 
         private void same_product(product Prod, product Product)
         {
-           
+
             Prod.Barcode = Convert.ToInt64(barcode.Text);
             Prod.Category = category.Text;
             Prod.Model = modell.Text;
@@ -201,13 +201,13 @@ namespace Electricity_shop
             Prod.Supplier = supplier.Text;
             Prod.Cost_price = Convert.ToInt32(costPrice.Text);
             Prod.Selling_price = Convert.ToInt32(sellingPrice.Text);
-            Prod.Amount = Convert.ToInt32(amount.Value)+Product.Amount;
+            Prod.Amount = Convert.ToInt32(amount.Value) + Product.Amount;
             Prod.Product_info = productInfo.Text;
             mySQL.UpdateProductByBarcode(Prod);
 
             MessageBox.Show("מוצר קיים , עודכן בהצלחה");
             clear_boxes();
-            
+
         }
 
         private void read_only_false()
@@ -235,9 +235,9 @@ namespace Electricity_shop
             Prod.Product_info = productInfo.Text;
             mySQL.InsertProduct(Prod);
 
-            MessageBox.Show("מוצר הוסף בהצלחה");
+            MessageBox.Show("מוצר התווסף בהצלחה");
             clear_boxes();
-            
+
         }
 
         private void barcode_KeyPress(object sender, KeyPressEventArgs e)
@@ -324,5 +324,7 @@ namespace Electricity_shop
                 }
             }
         }
+
+       
     }
 }
