@@ -400,7 +400,7 @@ namespace Electricity_shop
             DataTable dt = new DataTable();
             try
             {
-                dt = ds.Tables[0];
+               dt = ds.Tables[0];
             }
 
             catch

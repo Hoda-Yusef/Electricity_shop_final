@@ -57,7 +57,9 @@ namespace Electricity_shop
             Product = mySQL.GetProductDataFiltered(barcode.Text,category.Text,manufacture.Text,model.Text);
 
             fill_grid(Product);
-            
+            if(products_grid.Rows.Count!=0)
+                products_grid.Rows[0].Cells[0].Selected = false;
+
         }
 
         private void fill_grid_by_category()
@@ -65,6 +67,8 @@ namespace Electricity_shop
             Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
             fill_grid(Product);
+            if (products_grid.Rows.Count != 0)
+                products_grid.Rows[0].Cells[0].Selected = false;
 
         }
 
@@ -74,6 +78,9 @@ namespace Electricity_shop
 
             fill_grid(Product);
 
+            if (products_grid.Rows.Count != 0)
+                products_grid.Rows[0].Cells[0].Selected = false;
+
         }
 
         private void fill_grid_by_model()
@@ -81,6 +88,8 @@ namespace Electricity_shop
            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
             fill_grid(Product);
+            if (products_grid.Rows.Count != 0)
+                products_grid.Rows[0].Cells[0].Selected = false;
 
         }
 
@@ -270,6 +279,9 @@ namespace Electricity_shop
                 
 
             }
+            if (products_grid.Rows.Count != 0)
+                products_grid.Rows[0].Cells[0].Selected = false;
+           
             barcode.AutoCompleteCustomSource = barcodeAuto;
             manufacture.AutoCompleteCustomSource = manufactureAuto;
             model.AutoCompleteCustomSource = modelAuto;
