@@ -146,6 +146,7 @@ namespace Electricity_shop
 
 
 
+
         //private void orders_grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         //{
         //    if (e.RowIndex > -1)
