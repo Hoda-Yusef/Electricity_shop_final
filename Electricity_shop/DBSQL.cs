@@ -384,11 +384,13 @@ namespace Electricity_shop
             }
         }
 
-        public product[] GetProductDataFiltered(string columnName, string item)
+        public product[] GetProductDataFiltered(string barcodeItem,string categoryItem,string manufactureItem, string modelItem)
         {
             DataSet ds = new DataSet();
             product[] Product = null;
-            string cmdStr = "SELECT * FROM product WHERE "+columnName+" LIKE '"+item+"%'";
+            string cmdStr = "SELECT * FROM product WHERE barcode LIKE '"+ barcodeItem + "%'" +
+                " AND product_category LIKE '"+categoryItem+ "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+                "AND product_model LIKE '" + modelItem + "%'";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {

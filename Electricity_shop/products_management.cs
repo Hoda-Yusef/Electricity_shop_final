@@ -54,7 +54,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_barcode()
         {
-            Product = mySQL.GetProductDataFiltered("barcode",barcode.Text);
+            Product = mySQL.GetProductDataFiltered(barcode.Text,category.Text,manufacture.Text,model.Text);
 
             fill_grid(Product);
             
@@ -62,7 +62,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_category()
         {
-            Product = mySQL.GetProductDataFiltered("product_category", category.Text);
+            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
             fill_grid(Product);
 
@@ -70,7 +70,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_manufacture()
         {
-            Product = mySQL.GetProductDataFiltered("product_manufacturer", manufacture.Text);
+           Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
             fill_grid(Product);
 
@@ -78,7 +78,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_model()
         {
-            Product = mySQL.GetProductDataFiltered("product_model", model.Text);
+           Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
             fill_grid(Product);
 

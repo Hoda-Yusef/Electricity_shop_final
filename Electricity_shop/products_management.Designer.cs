@@ -307,7 +307,7 @@ namespace Electricity_shop
             this.model.Name = "model";
             this.model.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.model.Size = new System.Drawing.Size(199, 38);
-            this.model.TabIndex = 28;
+            this.model.TabIndex = 3;
             this.model.TextChanged += new System.EventHandler(this.model_TextChanged);
             // 
             // label4
@@ -332,7 +332,7 @@ namespace Electricity_shop
             this.barcode.Name = "barcode";
             this.barcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.barcode.Size = new System.Drawing.Size(199, 38);
-            this.barcode.TabIndex = 26;
+            this.barcode.TabIndex = 0;
             this.barcode.TextChanged += new System.EventHandler(this.barcode_TextChanged);
             this.barcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.barcode_KeyPress);
             // 
@@ -358,7 +358,7 @@ namespace Electricity_shop
             this.manufacture.Name = "manufacture";
             this.manufacture.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.manufacture.Size = new System.Drawing.Size(199, 38);
-            this.manufacture.TabIndex = 24;
+            this.manufacture.TabIndex = 2;
             this.manufacture.TextChanged += new System.EventHandler(this.manufacture_TextChanged);
             // 
             // update_product
@@ -417,7 +417,7 @@ namespace Electricity_shop
             this.category.Name = "category";
             this.category.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.category.Size = new System.Drawing.Size(199, 38);
-            this.category.TabIndex = 0;
+            this.category.TabIndex = 1;
             this.category.TextChanged += new System.EventHandler(this.category_TextChanged);
             // 
             // panel2
