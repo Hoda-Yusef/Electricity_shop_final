@@ -15,7 +15,7 @@ namespace Electricity_shop
         int inx;
         private DBSQL mySQL;
         AutoCompleteStringCollection cat = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection mod = new AutoCompleteStringCollection();
+        string mod;
         AutoCompleteStringCollection factory = new AutoCompleteStringCollection();
         AutoCompleteStringCollection supp = new AutoCompleteStringCollection();
 
@@ -36,8 +36,8 @@ namespace Electricity_shop
             category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            modell.AutoCompleteMode = AutoCompleteMode.Suggest;
-            modell.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //modell.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //modell.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             manufature.AutoCompleteMode = AutoCompleteMode.Suggest;
             manufature.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -141,14 +141,13 @@ namespace Electricity_shop
             for (int i = 0; i < Product.Length; i++)
             {
                 cat.Add(Product[i].Category);
-                mod.Add(Product[i].Model);
+                mod = Product[i].Model;
                 factory.Add(Product[i].Manufacturer);
                 supp.Add(Product[i].Supplier);
 
             }
             supplier.AutoCompleteCustomSource = supp;
             manufature.AutoCompleteCustomSource = factory;
-            modell.AutoCompleteCustomSource = mod;
             category.AutoCompleteCustomSource = cat;
         }
 
@@ -228,5 +227,6 @@ namespace Electricity_shop
                 e.Handled = true;
             }
         }
+
     }
 }
