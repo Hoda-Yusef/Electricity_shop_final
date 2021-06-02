@@ -146,6 +146,7 @@ namespace Electricity_shop
             this.phone_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.phone_number.Size = new System.Drawing.Size(225, 32);
             this.phone_number.TabIndex = 42;
+            this.phone_number.Leave += new System.EventHandler(this.phone_number_Leave);
             // 
             // label4
             // 
@@ -215,6 +216,7 @@ namespace Electricity_shop
             this.id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.id.Size = new System.Drawing.Size(225, 32);
             this.id.TabIndex = 36;
+            this.id.Leave += new System.EventHandler(this.id_Leave);
             // 
             // label1
             // 
@@ -254,6 +256,7 @@ namespace Electricity_shop
             this.Name = "update_customer";
             this.Text = "update_customer";
             this.Load += new System.EventHandler(this.update_customer_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.update_customer_MouseMove);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
