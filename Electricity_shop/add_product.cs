@@ -324,7 +324,5 @@ namespace Electricity_shop
                 }
             }
         }
-
-       
     }
 }

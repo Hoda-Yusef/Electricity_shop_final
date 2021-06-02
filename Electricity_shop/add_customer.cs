@@ -107,7 +107,7 @@ namespace Electricity_shop
 
         private void new_customer(customer cust)
         {
-            cust.Id =ID_text.Text;
+            cust.Id =Convert.ToInt32(ID_text.Text);
             cust.First_name = first_name.Text;
             cust.Last_name = last_name.Text;
             cust.Phone_number = phone_number.Text;
@@ -120,7 +120,7 @@ namespace Electricity_shop
 
         private void same_customer(customer cust)
         {
-            cust.Id= ID_text.Text;
+            cust.Id= Convert.ToInt32(ID_text.Text);
             cust.First_name = first_name.Text;
             cust.Last_name = last_name.Text;
             cust.Phone_number= phone_number.Text;
@@ -147,7 +147,7 @@ namespace Electricity_shop
 
             for (int i = 0; i < Customer.Length; i++)
             {
-                id1.Add(Customer[i].Id);
+                id1.Add(Customer[i].Id.ToString());
                 firstName1.Add(Customer[i].First_name);
                 lastName1.Add(Customer[i].Last_name);
                 addrees1.Add(Customer[i].Address);
@@ -170,7 +170,7 @@ namespace Electricity_shop
                 {
                     if (idTmp == Customer[i].Id.ToString())
                     {
-                        ID_text.Text = Customer[i].Id;
+                        ID_text.Text = Customer[i].Id.ToString();
                         first_name.Text = Customer[i].First_name;
                         last_name.Text = Customer[i].Last_name;
                         phone_number.Text = Customer[i].Phone_number;

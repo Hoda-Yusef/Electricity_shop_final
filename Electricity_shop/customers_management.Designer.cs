@@ -41,12 +41,16 @@ namespace Electricity_shop
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.phoneNumber = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.firstName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customers_grid)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -143,54 +147,123 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.phoneNumber);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.firstName);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.btn_update);
+            this.panel1.Controls.Add(this.Id);
             this.panel1.Location = new System.Drawing.Point(991, 77);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 457);
             this.panel1.TabIndex = 22;
             // 
-            // button2
+            // label2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(40, 308);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button2.Size = new System.Drawing.Size(123, 29);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "עדכן";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.label2.Location = new System.Drawing.Point(56, 197);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(121, 27);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "מספר פלאפון";
             // 
-            // button1
+            // phoneNumber
             // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(41, 257);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button1.Size = new System.Drawing.Size(122, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "חפש";
-            this.button1.UseVisualStyleBackColor = false;
+            this.phoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.phoneNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.phoneNumber.ForeColor = System.Drawing.Color.DimGray;
+            this.phoneNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.phoneNumber.Location = new System.Drawing.Point(38, 217);
+            this.phoneNumber.Name = "phoneNumber";
+            this.phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.phoneNumber.Size = new System.Drawing.Size(152, 33);
+            this.phoneNumber.TabIndex = 31;
+            this.phoneNumber.TextChanged += new System.EventHandler(this.phoneNumber_TextChanged);
+            this.phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumber_KeyPress);
             // 
-            // textBox4
+            // label1
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox4.Location = new System.Drawing.Point(38, 77);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox4.Size = new System.Drawing.Size(125, 25);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "תעודת זהות";
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.label1.Location = new System.Drawing.Point(74, 115);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(103, 27);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "שם פרטי";
+            // 
+            // firstName
+            // 
+            this.firstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.firstName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.firstName.ForeColor = System.Drawing.Color.DimGray;
+            this.firstName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.firstName.Location = new System.Drawing.Point(38, 135);
+            this.firstName.Name = "firstName";
+            this.firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.firstName.Size = new System.Drawing.Size(152, 33);
+            this.firstName.TabIndex = 29;
+            this.firstName.TextChanged += new System.EventHandler(this.firstName_TextChanged);
+            this.firstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstName_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.label4.Location = new System.Drawing.Point(74, 34);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(103, 27);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "תעודת זהות";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(38, 360);
+            this.button4.Name = "button4";
+            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button4.Size = new System.Drawing.Size(123, 29);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "חזרה לראשי";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btn_update
+            // 
+            this.btn_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_update.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_update.Location = new System.Drawing.Point(40, 308);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_update.Size = new System.Drawing.Size(123, 29);
+            this.btn_update.TabIndex = 9;
+            this.btn_update.Text = "עדכן";
+            this.btn_update.UseVisualStyleBackColor = false;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            // 
+            // Id
+            // 
+            this.Id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.Id.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Id.ForeColor = System.Drawing.Color.DimGray;
+            this.Id.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Id.Location = new System.Drawing.Point(38, 54);
+            this.Id.Name = "Id";
+            this.Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Id.Size = new System.Drawing.Size(152, 33);
+            this.Id.TabIndex = 5;
+            this.Id.TextChanged += new System.EventHandler(this.Id_TextChanged);
+            this.Id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Id_KeyPress);
             // 
             // button3
             // 
@@ -217,21 +290,6 @@ namespace Electricity_shop
             this.label10.Text = "ניהול לקוחות";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(38, 360);
-            this.button4.Name = "button4";
-            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button4.Size = new System.Drawing.Size(123, 29);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "חזרה לראשי";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // customers_management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -247,6 +305,7 @@ namespace Electricity_shop
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "customers";
+            this.Load += new System.EventHandler(this.customers_management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customers_grid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -262,11 +321,15 @@ namespace Electricity_shop
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.TextBox Id;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox phoneNumber;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox firstName;
     }
 }

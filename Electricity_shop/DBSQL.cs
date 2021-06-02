@@ -10,7 +10,7 @@ namespace Electricity_shop
     public class DBSQL : DBconnection
     {
         private static DBSQL instance;
-
+       
         private DBSQL()
         {
             baseDataBaseName = "electricity_shop";
@@ -263,20 +263,63 @@ namespace Electricity_shop
             if (dt.Rows.Count > 0)
             {
                 Customer = new customer[dt.Rows.Count];
-
                 for (int i = 0; i < Customer.Length; i++)
                 {
                     Customer[i] = new customer();
-                    Customer[i].Id = dt.Rows[i][0].ToString();
+                    Customer[i].Id = Convert.ToInt64(dt.Rows[i][0]);
                     Customer[i].First_name = dt.Rows[i][1].ToString();
                     Customer[i].Last_name = dt.Rows[i][2].ToString();
                     Customer[i].Phone_number = dt.Rows[i][3].ToString();
                     Customer[i].Address = dt.Rows[i][4].ToString();
+
                 }
             }
             return Customer;
 
         }
+
+
+
+        public customer GetCustomerDataByID(int id)
+        {
+            DataSet ds = new DataSet();
+            customer Customer = null;
+            string cmdStr = "SELECT * FROM customer WHERE id="+id+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                
+                    Customer = new customer();
+                    Customer.Id = Convert.ToInt64(dt.Rows[0][0]);
+                    Customer.First_name = dt.Rows[0][1].ToString();
+                    Customer.Last_name = dt.Rows[0][2].ToString();
+                    Customer.Phone_number = dt.Rows[0][3].ToString();
+                    Customer.Address = dt.Rows[0][4].ToString();
+                    Customer.Serial_number = Convert.ToInt32(dt.Rows[0][5]);
+
+                
+            }
+            return Customer;
+
+        }
+
+
 
         public supplier[] GetSupplierData()
         {
@@ -364,13 +407,13 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+     
         public void UpdateCustomer(customer Item)
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
                 "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE id=@id";
-                
+                "address=@address WHERE phone_number=@phone_number";
+
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -379,7 +422,28 @@ namespace Electricity_shop
                 command.Parameters.AddWithValue("@last_name", Item.Last_name);
                 command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
                 command.Parameters.AddWithValue("@address", Item.Address);
-                
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+        
+
+        public void UpdateCustomerBySerial(customer Item)
+        {
+            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
+                "last_name=@last_name,phone_number=@phone_number," +
+                "address=@address WHERE serial_number =@serial_number";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@id", Item.Id);
+                command.Parameters.AddWithValue("@first_name", Item.First_name);
+                command.Parameters.AddWithValue("@last_name", Item.Last_name);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+
                 base.ExecuteSimpleQuery(command);
             }
         }
@@ -427,6 +491,171 @@ namespace Electricity_shop
                 }
             }
             return Product;
+
+        }
+
+
+
+        public customer GetCustomerDataById(string id)
+        {
+            DataSet ds = new DataSet();
+            customer Customer = null;
+            string cmdStr = "SELECT * FROM customer WHERE id LIKE '" + id + "%'";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+               
+                    Customer = new customer();
+                    Customer.Id = Convert.ToInt64(dt.Rows[0][0]);
+                    Customer.First_name = dt.Rows[0][1].ToString();
+                    Customer.Last_name = dt.Rows[0][2].ToString();
+                    Customer.Phone_number = dt.Rows[0][3].ToString();
+                    Customer.Address = dt.Rows[0][4].ToString();
+
+                
+            }
+            return Customer;
+
+        }
+
+
+
+        public customer[] GetCustomerDataById2(string id)
+        {
+            DataSet ds = new DataSet();
+            customer[] Customer = null;
+            string cmdStr = "SELECT * FROM customer WHERE id LIKE '" + id + "%'";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Customer = new customer[dt.Rows.Count];
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    Customer[i] = new customer();
+                    Customer[i].Id = Convert.ToInt64(dt.Rows[i][0]);
+                    Customer[i].First_name = dt.Rows[i][1].ToString();
+                    Customer[i].Last_name = dt.Rows[i][2].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
+                    Customer[i].Address = dt.Rows[i][4].ToString();
+
+                }
+            }
+            return Customer;
+
+        }
+
+
+
+        public customer[] GetCustomerDataByphoneN(string phone)
+        {
+            DataSet ds = new DataSet();
+            customer[] Customer = null;
+            string cmdStr = "SELECT * FROM customer WHERE phone_number LIKE '" + phone + "%'";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Customer = new customer[dt.Rows.Count];
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    Customer[i] = new customer();
+                    Customer[i].Id =Convert.ToInt64(dt.Rows[i][0]);
+                    Customer[i].First_name = dt.Rows[i][1].ToString();
+                    Customer[i].Last_name = dt.Rows[i][2].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
+                    Customer[i].Address = dt.Rows[i][4].ToString();
+
+                }
+            }
+            return Customer;
+
+        }
+
+
+
+        public customer[] GetCustomerDataByFN(string name)
+        {
+            DataSet ds = new DataSet();
+            customer[] Customer = null;
+            string cmdStr = "SELECT * FROM customer WHERE first_name LIKE '" + name + "%'";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Customer = new customer[dt.Rows.Count];
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    Customer[i] = new customer();
+                    Customer[i].Id =Convert.ToInt64(dt.Rows[i][0]);
+                    Customer[i].First_name = dt.Rows[i][1].ToString();
+                    Customer[i].Last_name = dt.Rows[i][2].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
+                    Customer[i].Address = dt.Rows[i][4].ToString();
+
+                }
+            }
+            return Customer;
 
         }
 
