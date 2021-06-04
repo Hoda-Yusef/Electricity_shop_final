@@ -59,6 +59,7 @@ namespace Electricity_shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel44X = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.product_serial_number = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel44X.SuspendLayout();
             this.SuspendLayout();
@@ -432,12 +433,27 @@ namespace Electricity_shop
             this.panel5.Size = new System.Drawing.Size(1201, 10);
             this.panel5.TabIndex = 64;
             // 
+            // product_serial_number
+            // 
+            this.product_serial_number.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.product_serial_number.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.product_serial_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.product_serial_number.ForeColor = System.Drawing.Color.Black;
+            this.product_serial_number.Location = new System.Drawing.Point(150, 50);
+            this.product_serial_number.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.product_serial_number.Name = "product_serial_number";
+            this.product_serial_number.ReadOnly = true;
+            this.product_serial_number.Size = new System.Drawing.Size(157, 27);
+            this.product_serial_number.TabIndex = 23;
+            this.product_serial_number.Visible = false;
+            // 
             // update_product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1167, 790);
+            this.Controls.Add(this.product_serial_number);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel44X);
             this.Controls.Add(this.panel2);
@@ -493,5 +509,6 @@ namespace Electricity_shop
         public System.Windows.Forms.TextBox cost_price;
         public System.Windows.Forms.TextBox category;
         public System.Windows.Forms.Panel panel44X;
+        public System.Windows.Forms.TextBox product_serial_number;
     }
 }

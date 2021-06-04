@@ -14,36 +14,12 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
 
-        orders or = new orders("הודא", "חיר", "אבו סנאן", "02546654", 15000, true);
+        
         public orders_management()
         {
             InitializeComponent();
 
            
-
-            orders_grid.Rows.Add(new object[]
-            {
-                    or.Name,
-                    or.Last_name,
-                    or.Address,
-                    or.Phone_number,
-                    null,
-                    or.Summ,
-                    or.Status?imageList1.Images[1]:imageList1.Images[0]
-
-            });
-
-            orders_grid.Rows.Add(new object[]
-                {
-                    "יוסף",
-                    "אבורוקן",
-                    "0525487855",
-                    "עיספיא",
-                    "אין",
-                    "2000",
-                   imageList1.Images[0]
-
-                });
 
             for(int i=0;i<50;i++)
             {

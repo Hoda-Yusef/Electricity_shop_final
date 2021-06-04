@@ -11,6 +11,10 @@ namespace Electricity_shop
 {
     public partial class main : Form
     {
+
+        bool drag = false;
+        Point sp = new Point(0, 0);
+
         public main()
         {
             InitializeComponent();
@@ -160,6 +164,26 @@ namespace Electricity_shop
         private void openAddOorder(object obj)
         {
             Application.Run(new add_order());
+        }
+
+        private void panel9_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel9_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel9_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }
