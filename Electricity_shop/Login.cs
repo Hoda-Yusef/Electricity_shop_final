@@ -41,8 +41,7 @@ namespace Electricity_shop
 
         private void textBox2_Click(object sender, EventArgs e)
         {
-           
-                textBox2.Clear();
+            textBox2.Clear();
 
             if (textBox1.Text == "")
             {

@@ -193,7 +193,7 @@ namespace Electricity_shop
         private void update_product_Click(object sender, EventArgs e)
         {
             update_product updateProduct = new update_product();
-
+            
             updateProduct.category.Text = products_grid.CurrentRow.Cells[0].Value.ToString();
             updateProduct.manufacture.Text = products_grid.CurrentRow.Cells[1].Value.ToString();
             updateProduct.model.Text = products_grid.CurrentRow.Cells[2].Value.ToString();
