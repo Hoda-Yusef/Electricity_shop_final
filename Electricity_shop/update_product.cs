@@ -55,7 +55,7 @@ namespace Electricity_shop
             {
                     fill_obj(load_products);
 
-                    mySQL.UpdateProductBySerialNumber(load_products);
+                    mySQL.UpdateProductBySerial(load_products);
 
                     MessageBox.Show("מוצר עודכן בהצלחה");
                     this.Close();
