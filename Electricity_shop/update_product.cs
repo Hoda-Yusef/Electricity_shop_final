@@ -11,8 +11,7 @@ namespace Electricity_shop
 {
     public partial class update_product : Form
     {
-        product first_load = new product();
-        product after_load = new product();
+        product load_products = new product();
         DBSQL mySQL;
 
         bool drag = false;
@@ -50,26 +49,21 @@ namespace Electricity_shop
 
         private void update_button_Click(object sender, EventArgs e)
         {
-            fill_obj(after_load);
-
+            
             if (barcode.Text != "" && category.Text != "" && manufacture.Text != "" && model.Text != ""
                  && cost_price.Text != "" && selling_price.Text != "" && amount.Text != "")
-                
             {
+                    fill_obj(load_products);
 
-                if (after_load.Barcode.ToString() == first_load.Barcode.ToString())
-                {
-                    mySQL.UpdateProductByBarcode(after_load);
-                }
-                else
-                {
-                    mySQL.UpdateProductByModel(after_load);
-                }
-                MessageBox.Show("מוצר עודכן בהצלחה");
-                this.Close();
+                    mySQL.UpdateProductBySerial(load_products);
+
+                    MessageBox.Show("מוצר עודכן בהצלחה");
+                    this.Close();
+               
             }
             else
                 MessageBox.Show("יש למלא את כל השדות");
+
 
 
 
@@ -77,7 +71,8 @@ namespace Electricity_shop
 
         private void fill_obj(product items)
         {
-            items.Barcode = Convert.ToInt64(barcode.Text);
+            
+            items.Barcode = barcode.Text;
             items.Category = category.Text;
             items.Model = model.Text;
             items.Manufacturer = manufacture.Text;
@@ -140,7 +135,7 @@ namespace Electricity_shop
 
         private void update_product_Load(object sender, EventArgs e)
         {
-            fill_obj(first_load);
+          load_products = mySQL.GetProductDataByBarcode(Convert.ToInt32(barcode.Text));
         }
 
         private void amount_TextChanged(object sender, EventArgs e)

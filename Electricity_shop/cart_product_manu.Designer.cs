@@ -1,9 +1,7 @@
 ﻿
-using System;
-
 namespace Electricity_shop
 {
-    partial class products_management
+    partial class cart_product_manu
     {
         /// <summary>
         /// Required designer variable.
@@ -31,11 +29,20 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(products_management));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cart_product_manu));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.products_grid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +53,6 @@ namespace Electricity_shop
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.exit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,52 +61,140 @@ namespace Electricity_shop
             this.barcode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.manufacture = new System.Windows.Forms.TextBox();
-            this.update_product = new System.Windows.Forms.Button();
+            this.add_to_cart = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.category = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.products_grid)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(1463, -1);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(39, 34);
+            this.button1.TabIndex = 64;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Location = new System.Drawing.Point(1494, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(10, 893);
+            this.panel9.TabIndex = 63;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel10.Location = new System.Drawing.Point(8, 865);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1363, 11);
+            this.panel10.TabIndex = 16;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel8.Controls.Add(this.button3);
+            this.panel8.Location = new System.Drawing.Point(-2, 1);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1523, 32);
+            this.panel8.TabIndex = 62;
+            this.panel8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseDown);
+            this.panel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseMove);
+            this.panel8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseUp);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button3.Location = new System.Drawing.Point(1614, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(39, 37);
+            this.button3.TabIndex = 37;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Location = new System.Drawing.Point(-7, 822);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1658, 11);
+            this.panel6.TabIndex = 61;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel7.Location = new System.Drawing.Point(8, 865);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1363, 11);
+            this.panel7.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Location = new System.Drawing.Point(-4, -3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 879);
+            this.panel2.TabIndex = 60;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel4.Location = new System.Drawing.Point(8, 865);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1363, 11);
+            this.panel4.TabIndex = 16;
             // 
             // products_grid
             // 
             this.products_grid.AllowUserToAddRows = false;
             this.products_grid.AllowUserToDeleteRows = false;
             this.products_grid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.products_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.products_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.products_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.products_grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.products_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.products_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.products_grid.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.products_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.products_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.products_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.products_grid.ColumnHeadersHeight = 55;
             this.products_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -115,16 +207,16 @@ namespace Electricity_shop
             this.Column8,
             this.Column9});
             this.products_grid.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.products_grid.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.products_grid.DefaultCellStyle = dataGridViewCellStyle12;
             this.products_grid.EnableHeadersVisualStyles = false;
-            this.products_grid.Location = new System.Drawing.Point(27, 129);
+            this.products_grid.Location = new System.Drawing.Point(25, 131);
             this.products_grid.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.products_grid.Name = "products_grid";
             this.products_grid.ReadOnly = true;
@@ -133,9 +225,9 @@ namespace Electricity_shop
             this.products_grid.RowHeadersWidth = 5;
             this.products_grid.RowTemplate.Height = 40;
             this.products_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.products_grid.Size = new System.Drawing.Size(1198, 685);
-            this.products_grid.TabIndex = 39;
-            this.products_grid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.orders_grid_CellFormatting);
+            this.products_grid.Size = new System.Drawing.Size(1186, 685);
+            this.products_grid.TabIndex = 59;
+            this.products_grid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.products_grid_CellFormatting);
             // 
             // Column1
             // 
@@ -179,8 +271,8 @@ namespace Electricity_shop
             // 
             // Column6
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column6.FillWeight = 25F;
             this.Column6.HeaderText = "כמות מלאי";
             this.Column6.MinimumWidth = 6;
@@ -211,46 +303,6 @@ namespace Electricity_shop
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(609, 39);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(343, 64);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ניהול מוצרים";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 848);
-            this.splitter1.TabIndex = 1;
-            this.splitter1.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(1614, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 37);
-            this.button3.TabIndex = 37;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
-            this.button3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button3_MouseMove);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
@@ -262,15 +314,15 @@ namespace Electricity_shop
             this.panel3.Controls.Add(this.barcode);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.manufacture);
-            this.panel3.Controls.Add(this.update_product);
+            this.panel3.Controls.Add(this.add_to_cart);
             this.panel3.Controls.Add(this.clear);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.category);
-            this.panel3.Location = new System.Drawing.Point(1241, 129);
+            this.panel3.Location = new System.Drawing.Point(1230, 131);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 685);
-            this.panel3.TabIndex = 38;
+            this.panel3.Size = new System.Drawing.Size(250, 669);
+            this.panel3.TabIndex = 58;
             // 
             // exit
             // 
@@ -285,7 +337,7 @@ namespace Electricity_shop
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(199, 51);
             this.exit.TabIndex = 30;
-            this.exit.Text = "חזרה לראשי";
+            this.exit.Text = "חזרה לעגלה";
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
@@ -365,22 +417,21 @@ namespace Electricity_shop
             this.manufacture.TabIndex = 2;
             this.manufacture.TextChanged += new System.EventHandler(this.manufacture_TextChanged);
             // 
-            // update_product
+            // add_to_cart
             // 
-            this.update_product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.update_product.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.update_product.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.update_product.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.update_product.ForeColor = System.Drawing.Color.White;
-            this.update_product.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.update_product.Location = new System.Drawing.Point(27, 523);
-            this.update_product.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.update_product.Name = "update_product";
-            this.update_product.Size = new System.Drawing.Size(199, 51);
-            this.update_product.TabIndex = 23;
-            this.update_product.Text = "עדכון מוצר";
-            this.update_product.UseVisualStyleBackColor = false;
-            this.update_product.Click += new System.EventHandler(this.update_product_Click);
+            this.add_to_cart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.add_to_cart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.add_to_cart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.add_to_cart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.add_to_cart.ForeColor = System.Drawing.Color.White;
+            this.add_to_cart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.add_to_cart.Location = new System.Drawing.Point(27, 523);
+            this.add_to_cart.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.add_to_cart.Name = "add_to_cart";
+            this.add_to_cart.Size = new System.Drawing.Size(199, 51);
+            this.add_to_cart.TabIndex = 23;
+            this.add_to_cart.Text = "הוספה לעגלה";
+            this.add_to_cart.UseVisualStyleBackColor = false;
             // 
             // clear
             // 
@@ -424,174 +475,71 @@ namespace Electricity_shop
             this.category.TabIndex = 1;
             this.category.TextChanged += new System.EventHandler(this.category_TextChanged);
             // 
-            // panel2
+            // splitter1
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(-2, -5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 879);
-            this.panel2.TabIndex = 40;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 830);
+            this.splitter1.TabIndex = 57;
+            this.splitter1.TabStop = false;
             // 
-            // panel4
+            // label1
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel4.Location = new System.Drawing.Point(8, 865);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1363, 11);
-            this.panel4.TabIndex = 16;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(503, 47);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(466, 64);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "בחירת מוצרים לעגלה";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Location = new System.Drawing.Point(1646, -3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 879);
-            this.panel1.TabIndex = 41;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel5.Location = new System.Drawing.Point(8, 865);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1363, 11);
-            this.panel5.TabIndex = 16;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(-5, 840);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1658, 11);
-            this.panel6.TabIndex = 42;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel7.Location = new System.Drawing.Point(8, 865);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1363, 11);
-            this.panel7.TabIndex = 16;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel8.Controls.Add(this.button3);
-            this.panel8.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.panel8.Location = new System.Drawing.Point(0, -1);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1523, 32);
-            this.panel8.TabIndex = 43;
-            this.panel8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseDown);
-            this.panel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseMove);
-            this.panel8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseUp);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(1514, -2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(10, 893);
-            this.panel9.TabIndex = 44;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel10.Location = new System.Drawing.Point(8, 865);
-            this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1363, 11);
-            this.panel10.TabIndex = 16;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1481, -3);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 34);
-            this.button1.TabIndex = 55;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // products_management
+            // cart_product_manu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1521, 848);
+            this.ClientSize = new System.Drawing.Size(1503, 830);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.products_grid);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "products_management";
+            this.Name = "cart_product_manu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "products";
-            this.Load += new System.EventHandler(this.products_management_Load);
+            this.Text = "cart_product_manu";
+            this.Load += new System.EventHandler(this.cart_product_manu_Load);
+            this.panel9.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.products_grid)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button update_product;
-        private System.Windows.Forms.Button clear;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox category;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox model;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox barcode;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox manufacture;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView products_grid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -601,10 +549,19 @@ namespace Electricity_shop
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button exit;
-        private System.Windows.Forms.DataGridView products_grid;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox model;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox barcode;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox manufacture;
+        private System.Windows.Forms.Button add_to_cart;
+        private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox category;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -199,16 +199,58 @@ namespace Electricity_shop
                 for (int i = 0; i < Product.Length; i++)
                 {
                     Product[i] = new product();
-                    Product[i].Barcode = Convert.ToInt64(dt.Rows[i][0]);
-                    Product[i].Category = dt.Rows[i][1].ToString();
-                    Product[i].Model = dt.Rows[i][2].ToString();
-                    Product[i].Manufacturer = dt.Rows[i][3].ToString();
-                    Product[i].Supplier = dt.Rows[i][4].ToString();
-                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][5]);
-                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][6]);
-                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][7]);
-                    Product[i].Product_info = dt.Rows[i][8].ToString();
+                    Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Product[i].Barcode = dt.Rows[i][1].ToString();
+                    Product[i].Category = dt.Rows[i][2].ToString();
+                    Product[i].Model = dt.Rows[i][3].ToString();
+                    Product[i].Manufacturer = dt.Rows[i][4].ToString();
+                    Product[i].Supplier = dt.Rows[i][5].ToString();
+                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
+                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
+                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
+                    Product[i].Product_info = dt.Rows[i][9].ToString();
                 }
+            }
+            return Product;
+
+        }
+
+        public product GetProductDataByBarcode(int barcode)
+        {
+            DataSet ds = new DataSet();
+            product Product = null;
+            string cmdStr = "SELECT * FROM product WHERE barcode="+barcode+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+            if (dt.Rows.Count > 0)
+            {
+               
+                    Product = new product();
+                    Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
+                    Product.Barcode = dt.Rows[0][1].ToString();
+                    Product.Category = dt.Rows[0][2].ToString();
+                    Product.Model = dt.Rows[0][3].ToString();
+                    Product.Manufacturer = dt.Rows[0][4].ToString();
+                    Product.Supplier = dt.Rows[0][5].ToString();
+                    Product.Cost_price = Convert.ToInt32(dt.Rows[0][6]);
+                    Product.Selling_price = Convert.ToInt32(dt.Rows[0][7]);
+                    Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
+                    Product.Product_info = dt.Rows[0][9].ToString();
+                
             }
             return Product;
 
@@ -413,7 +455,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+     
         public void UpdateCustomer(customer Item)
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
@@ -509,15 +551,15 @@ namespace Electricity_shop
                 for (int i = 0; i < Product.Length; i++)
                 {
                     Product[i] = new product();
-                    Product[i].Barcode = Convert.ToInt64(dt.Rows[i][0]);
-                    Product[i].Category = dt.Rows[i][1].ToString();
-                    Product[i].Model = dt.Rows[i][2].ToString();
-                    Product[i].Manufacturer = dt.Rows[i][3].ToString();
-                    Product[i].Supplier = dt.Rows[i][4].ToString();
-                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][5]);
-                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][6]);
-                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][7]);
-                    Product[i].Product_info = dt.Rows[i][8].ToString();
+                    Product[i].Barcode = dt.Rows[i][1].ToString();
+                    Product[i].Category = dt.Rows[i][2].ToString();
+                    Product[i].Model = dt.Rows[i][3].ToString();
+                    Product[i].Manufacturer = dt.Rows[i][4].ToString();
+                    Product[i].Supplier = dt.Rows[i][5].ToString();
+                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
+                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
+                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
+                    Product[i].Product_info = dt.Rows[i][9].ToString();
                 }
             }
             return Product;

@@ -6,7 +6,8 @@ namespace Electricity_shop
 {
     public class product
     {
-        private long barcode;
+        private int product_serial_number;
+        private string barcode;
         private string category;
         private string model;
         private string manufacturer;
@@ -19,7 +20,8 @@ namespace Electricity_shop
 
         public product()
         {
-            Barcode = 0;
+            Product_serial_number = 0;
+            Barcode = string.Empty;
             Category = string.Empty;
             Model = string.Empty;
             Manufacturer = string.Empty;
@@ -30,7 +32,7 @@ namespace Electricity_shop
             Product_info = string.Empty;
         }
 
-        public long Barcode { get => barcode; set => barcode = value; }
+        
         public string Category { get => category; set => category = value; }
         public string Model { get => model; set => model = value; }
         public string Manufacturer { get => manufacturer; set => manufacturer = value; }
@@ -39,5 +41,7 @@ namespace Electricity_shop
         public int Selling_price { get => selling_price; set => selling_price = value; }
         public int Amount { get => amount; set => amount = value; }
         public string Product_info { get => product_info; set => product_info = value; }
+        public int Product_serial_number { get => product_serial_number; set => product_serial_number = value; }
+        public string Barcode { get => barcode; set => barcode = value; }
     }
 }

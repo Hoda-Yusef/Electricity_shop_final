@@ -18,7 +18,7 @@ namespace Electricity_shop
         private DBSQL mySQL;
         AutoCompleteStringCollection bar = new AutoCompleteStringCollection();
         AutoCompleteStringCollection cat = new AutoCompleteStringCollection();
-        //string mod;
+        AutoCompleteStringCollection mod = new AutoCompleteStringCollection();
         AutoCompleteStringCollection factory = new AutoCompleteStringCollection();
         AutoCompleteStringCollection supp = new AutoCompleteStringCollection();
 
@@ -36,19 +36,19 @@ namespace Electricity_shop
 
         private void set_AutoCompleteMode_text_boxes()
         {
-            barcode.AutoCompleteMode = AutoCompleteMode.Suggest;
+            barcode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             barcode.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            //modell.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //modell.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            modell.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            modell.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            manufature.AutoCompleteMode = AutoCompleteMode.Suggest;
+            manufature.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             manufature.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            supplier.AutoCompleteMode = AutoCompleteMode.Suggest;
+            supplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             supplier.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
@@ -78,7 +78,7 @@ namespace Electricity_shop
         {
             bool same = false;
 
-            if (barcode.Text != "" && category.Text != "" && productInfo.Text != "" && modell.Text != ""
+            if (barcode.Text!="" && category.Text != "" && productInfo.Text != "" && modell.Text != ""
                 && manufature.Text != "" && supplier.Text != "" && costPrice.Text != ""
                 && sellingPrice.Text != "" && amount.Value != 0)
             {
@@ -128,7 +128,7 @@ namespace Electricity_shop
                     {
 
 
-                        barcode.Text = Product[i].Barcode.ToString();
+                        barcode.Text = Product[i].Barcode;
                         category.Text = Product[i].Category;
                         modell.Text = Product[i].Model;
                         manufature.Text = Product[i].Manufacturer;
@@ -165,15 +165,16 @@ namespace Electricity_shop
 
             for (int i = 0; i < Product.Length; i++)
             {
-                bar.Add(Product[i].Barcode.ToString());
+                bar.Add(Product[i].Barcode);
                 cat.Add(Product[i].Category);
-                //mod = Product[i].Model;
+                mod.Add(Product[i].Model);
                 factory.Add(Product[i].Manufacturer);
                 supp.Add(Product[i].Supplier);
 
             }
             barcode.AutoCompleteCustomSource = bar;
             supplier.AutoCompleteCustomSource = supp;
+            modell.AutoCompleteCustomSource = mod;
             manufature.AutoCompleteCustomSource = factory;
             category.AutoCompleteCustomSource = cat;
         }
@@ -194,7 +195,7 @@ namespace Electricity_shop
         private void same_product(product Prod, product Product)
         {
 
-            Prod.Barcode = Convert.ToInt64(barcode.Text);
+            Prod.Barcode = barcode.Text;
             Prod.Category = category.Text;
             Prod.Model = modell.Text;
             Prod.Manufacturer = manufature.Text;
@@ -224,7 +225,7 @@ namespace Electricity_shop
 
         private void new_product(product Prod)
         {
-            Prod.Barcode = Convert.ToInt64(barcode.Text);
+            Prod.Barcode = barcode.Text;
             Prod.Category = category.Text;
             Prod.Model = modell.Text;
             Prod.Manufacturer = manufature.Text;
@@ -308,7 +309,7 @@ namespace Electricity_shop
                     {
 
 
-                        barcode.Text = Product[i].Barcode.ToString();
+                        barcode.Text = Product[i].Barcode;
                         category.Text = Product[i].Category;
                         modell.Text = Product[i].Model;
                         manufature.Text = Product[i].Manufacturer;
@@ -324,5 +325,7 @@ namespace Electricity_shop
                 }
             }
         }
+
+        
     }
 }
