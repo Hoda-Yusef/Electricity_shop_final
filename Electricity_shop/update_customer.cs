@@ -182,6 +182,15 @@ namespace Electricity_shop
             }
         }
 
+        private void id_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
 

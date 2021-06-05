@@ -75,7 +75,7 @@ namespace Electricity_shop
 
                 if(same)
                 {
-                    same_customer(cust); 
+                    same_customer(cust);
                 }
                 else
                 {
@@ -83,9 +83,11 @@ namespace Electricity_shop
                 }
             }
             else
-                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדותיש למלא את כל השדות");
+                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות,יש למלא את כל השדות");
+         
         }
 
+      
         private void new_customer(customer cust)
         {
             cust.Id =Convert.ToInt32(ID_text.Text);
