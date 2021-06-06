@@ -314,5 +314,9 @@ namespace Electricity_shop
             th.Start();
         }
 
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

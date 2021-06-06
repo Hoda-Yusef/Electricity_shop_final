@@ -11,11 +11,13 @@ namespace Electricity_shop
 {
     public partial class add_product : Form
     {
+        int count = 0;
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
         int inx;
         private DBSQL mySQL;
+        private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
         AutoCompleteStringCollection bar = new AutoCompleteStringCollection();
         AutoCompleteStringCollection cat = new AutoCompleteStringCollection();
         AutoCompleteStringCollection mod = new AutoCompleteStringCollection();
@@ -30,10 +32,10 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
 
-            set_AutoCompleteMode_text_boxes();
+            //set_AutoCompleteMode_text_boxes();
 
         }
-
+        /*
         private void set_AutoCompleteMode_text_boxes()
         {
             barcode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -51,7 +53,7 @@ namespace Electricity_shop
             supplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             supplier.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
-
+        */
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -100,11 +102,19 @@ namespace Electricity_shop
                 {
                     same_product(Prod, Product[inx]);
                     read_only_false();
+                    this.Close();
+                    th = new Thread(open_proManagment);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
                 }
                 else
                 {
                     new_product(Prod);
                     read_only_false();
+                    this.Close();
+                    th = new Thread(open_proManagment);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
 
                 }
             }
@@ -114,10 +124,46 @@ namespace Electricity_shop
         }
 
 
+        private void open_proManagment(object obj)
+        {
+            Application.Run(new products_management());
+        }
+
+        private bool check_barcode()
+        {
+            return (barcode.Text.Length == 13 || barcode.Text.Length == 12 || barcode.Text.Length == 0);
+        }
 
         private void barcode_Leave(object sender, EventArgs e)
         {
-            if (barcode.Text != "")
+            if (check_barcode() == false && count == 0)
+            {
+                count++;
+                // מגדירים שגאיה בהתאם
+                barcodeErrorProvider = new ErrorProvider();
+                barcodeErrorProvider.SetError(barcode, "ברקוד מכיל 13 או 12 ספרות");
+            }
+            else
+            {
+                if (check_barcode() == true && count == 0)
+                {
+                    //לא מבצעים פעולות
+                    // נשאר count=0
+                }
+                else
+                {
+                    if (check_barcode() == true)
+                    {
+                        barcodeErrorProvider.SetError(barcode, "");
+                    }
+                    else
+                    {
+                        barcodeErrorProvider.SetError(barcode, "ברקוד מכיל 13 או 12 ספרות");
+                    }
+                }
+            }
+               
+                if (barcode.Text != "")
             {
                 product[] Product = mySQL.GetProductData();
                 string barcodeTmp = barcode.Text;

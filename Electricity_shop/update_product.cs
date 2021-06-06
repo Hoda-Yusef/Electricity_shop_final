@@ -11,10 +11,11 @@ namespace Electricity_shop
 {
     public partial class update_product : Form
     {
+        private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
         product load_products = new product();
         DBSQL mySQL;
+        int count = 0;
 
-        bool drag = false;
         Point sp = new Point(0, 0);
         public update_product()
         {
@@ -27,20 +28,13 @@ namespace Electricity_shop
         
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-            
-        }
-
         private void opennewform(object obj)
         {
             Application.Run(new products_management());
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_exit_Click(object sender, EventArgs e)
         {
 
             this.Close();
@@ -50,7 +44,7 @@ namespace Electricity_shop
         private void update_button_Click(object sender, EventArgs e)
         {
             
-            if (barcode.Text != "" && category.Text != "" && manufacture.Text != "" && model.Text != ""
+            if ((barcode.Text != "" || model.Text!="") && category.Text != "" && manufacture.Text != "" 
                  && cost_price.Text != "" && selling_price.Text != "" && amount.Text != "")
             {
                     fill_obj(load_products);
@@ -71,16 +65,45 @@ namespace Electricity_shop
 
         private void fill_obj(product items)
         {
-            
-            items.Barcode = barcode.Text;
-            items.Category = category.Text;
-            items.Model = model.Text;
-            items.Manufacturer = manufacture.Text;
-            items.Supplier = supplier.Text;
-            items.Cost_price = Convert.ToInt32(cost_price.Text);
-            items.Selling_price = Convert.ToInt32(selling_price.Text);
-            items.Amount = Convert.ToInt32(amount.Text);
-            items.Product_info = productInfo.Text;
+            if (model.Text != "" && barcode.Text != "")
+            {
+                items.Barcode = barcode.Text;
+                items.Category = category.Text;
+                items.Model = model.Text;
+                items.Manufacturer = manufacture.Text;
+                items.Supplier = supplier.Text;
+                items.Cost_price = Convert.ToInt32(cost_price.Text);
+                items.Selling_price = Convert.ToInt32(selling_price.Text);
+                items.Amount = Convert.ToInt32(amount.Text);
+                items.Product_info = productInfo.Text;
+            }
+            else
+            {
+                if(barcode.Text=="" && model.Text!="")
+                {
+                    //items.Barcode = barcode.Text;
+                    items.Category = category.Text;
+                    items.Model = model.Text;
+                    items.Manufacturer = manufacture.Text;
+                    items.Supplier = supplier.Text;
+                    items.Cost_price = Convert.ToInt32(cost_price.Text);
+                    items.Selling_price = Convert.ToInt32(selling_price.Text);
+                    items.Amount = Convert.ToInt32(amount.Text);
+                    items.Product_info = productInfo.Text;
+                }
+                else
+                {
+                    items.Barcode = barcode.Text;
+                    items.Category = category.Text;
+                    //items.Model = model.Text;
+                    items.Manufacturer = manufacture.Text;
+                    items.Supplier = supplier.Text;
+                    items.Cost_price = Convert.ToInt32(cost_price.Text);
+                    items.Selling_price = Convert.ToInt32(selling_price.Text);
+                    items.Amount = Convert.ToInt32(amount.Text);
+                    items.Product_info = productInfo.Text;
+                }
+            }
         }
 
         private void barcode_KeyPress(object sender, KeyPressEventArgs e)
@@ -125,12 +148,12 @@ namespace Electricity_shop
 
         private void button4_MouseMove(object sender, MouseEventArgs e)
         {
-            button4.BackColor = Color.White;
+            btn_exit.BackColor = Color.White;
         }
 
         private void button4_MouseLeave(object sender, EventArgs e)
         {
-            button4.BackColor = Color.FromArgb(34, 36, 49);
+            btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void update_product_Load(object sender, EventArgs e)
@@ -152,6 +175,46 @@ namespace Electricity_shop
                     amount.ForeColor = Color.White;
             }
 
+        }
+
+        private bool check_barcode()
+        {
+            return (barcode.Text.Length==13 || barcode.Text.Length==12 || barcode.Text.Length==0);
+        }
+
+        private void barcode_Leave(object sender, EventArgs e)
+        { 
+            if (check_barcode() == false && count == 0)
+            {
+                count++;
+                // מגדירים שגאיה בהתאם
+                barcodeErrorProvider = new ErrorProvider();
+                barcodeErrorProvider.SetError(barcode, "ברקוד מכיל 13 או 12 ספרות");
+            }
+            else
+            {
+                if (check_barcode() == true && count == 0)
+                {
+                    //לא מבצעים פעולות
+                    // נשאר count=0
+                }
+                else
+                {
+                    if (check_barcode() == true)
+                    {
+                        barcodeErrorProvider.SetError(barcode, "");
+                    }
+                    else
+                    {
+                        barcodeErrorProvider.SetError(barcode, "ברקוד מכיל 13 או 12 ספרות");
+                    }
+                }
+            }
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
