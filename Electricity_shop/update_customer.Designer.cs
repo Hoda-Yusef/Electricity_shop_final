@@ -216,6 +216,7 @@ namespace Electricity_shop
             this.id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.id.Size = new System.Drawing.Size(225, 32);
             this.id.TabIndex = 36;
+            this.id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_KeyPress);
             this.id.Leave += new System.EventHandler(this.id_Leave);
             // 
             // label1
