@@ -49,7 +49,7 @@ namespace Electricity_shop
 
         private void fill_obj(customer person)
         {
-            person.Id = Convert.ToInt32(id.Text);
+            person.Id = id.Text;
             person.First_name = first_name.Text;
             person.Last_name = last_name.Text;
             person.Phone_number = phone_number.Text;

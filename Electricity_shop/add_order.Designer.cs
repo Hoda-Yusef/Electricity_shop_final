@@ -1,5 +1,4 @@
-﻿
-namespace Electricity_shop
+﻿namespace Electricity_shop
 {
     partial class add_order
     {
@@ -37,12 +36,13 @@ namespace Electricity_shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.clear = new System.Windows.Forms.Button();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.delivery = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.TextBox();
             this.cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
-            this.to_cart = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.phoneNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,10 +58,10 @@ namespace Electricity_shop
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(336, 9);
+            this.label1.Location = new System.Drawing.Point(273, 22);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(283, 54);
+            this.label1.Size = new System.Drawing.Size(323, 72);
             this.label1.TabIndex = 20;
             this.label1.Text = "הוספת הזמנה";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,10 +74,10 @@ namespace Electricity_shop
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(969, 0);
+            this.button3.Location = new System.Drawing.Point(869, -5);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 51);
+            this.button3.Size = new System.Drawing.Size(39, 38);
             this.button3.TabIndex = 36;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -85,10 +85,9 @@ namespace Electricity_shop
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Location = new System.Drawing.Point(-1, -4);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Location = new System.Drawing.Point(-1, -5);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1013, 11);
+            this.panel9.Size = new System.Drawing.Size(920, 38);
             this.panel9.TabIndex = 37;
             this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseDown);
             this.panel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseMove);
@@ -97,36 +96,37 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel1.Location = new System.Drawing.Point(-10, 652);
+            this.panel1.Location = new System.Drawing.Point(-1, 694);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1034, 11);
+            this.panel1.Size = new System.Drawing.Size(1118, 16);
             this.panel1.TabIndex = 38;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel2.Location = new System.Drawing.Point(1005, 3);
+            this.panel2.Location = new System.Drawing.Point(897, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 667);
+            this.panel2.Size = new System.Drawing.Size(22, 703);
             this.panel2.TabIndex = 39;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(-6, 1);
+            this.panel3.Location = new System.Drawing.Point(-1, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 667);
+            this.panel3.Size = new System.Drawing.Size(10, 706);
             this.panel3.TabIndex = 40;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.panel4.Controls.Add(this.clear);
+            this.panel4.Controls.Add(this.dateTimePicker);
             this.panel4.Controls.Add(this.delivery);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.id);
             this.panel4.Controls.Add(this.cancel);
             this.panel4.Controls.Add(this.OK);
-            this.panel4.Controls.Add(this.to_cart);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.phoneNumber);
             this.panel4.Controls.Add(this.label4);
@@ -134,15 +134,14 @@ namespace Electricity_shop
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lastName);
             this.panel4.Controls.Add(this.label2);
-            //this.panel4.Controls.Add(this.ID_text);
+            this.panel4.Controls.Add(this.ID_text);
             this.panel4.Location = new System.Drawing.Point(59, 84);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(887, 525);
+            this.panel4.Size = new System.Drawing.Size(816, 576);
             this.panel4.TabIndex = 41;
             // 
-            // delivery
+            // clear
             // 
-            /*
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -158,10 +157,8 @@ namespace Electricity_shop
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            */
             // button1
             // 
-            /*
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -176,10 +173,8 @@ namespace Electricity_shop
             this.button1.Text = "אישור";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            */
             // search_order
             // 
-            /*
             this.search_order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.search_order.Cursor = System.Windows.Forms.Cursors.Hand;
             this.search_order.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -199,12 +194,12 @@ namespace Electricity_shop
             // 
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label6.Location = new System.Drawing.Point(161, 51);
+            this.label6.Location = new System.Drawing.Point(610, 37);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(113, 27);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "סך הכל";
+            this.label6.Size = new System.Drawing.Size(127, 28);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "תעודת זהות";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // id
@@ -217,8 +212,9 @@ namespace Electricity_shop
             this.id.Name = "id";
             this.id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.id.Size = new System.Drawing.Size(257, 38);
-            this.id.TabIndex = 49;
+            this.id.TabIndex = 1;
             this.id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_KeyPress);
+            this.id.Leave += new System.EventHandler(this.id_Leave);
             // 
             // cancel
             // 
@@ -228,10 +224,10 @@ namespace Electricity_shop
             this.cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cancel.ForeColor = System.Drawing.Color.White;
             this.cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cancel.Location = new System.Drawing.Point(251, 466);
+            this.cancel.Location = new System.Drawing.Point(112, 458);
             this.cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(128, 51);
+            this.cancel.Size = new System.Drawing.Size(179, 63);
             this.cancel.TabIndex = 48;
             this.cancel.Text = "ביטול";
             this.cancel.UseVisualStyleBackColor = false;
@@ -239,7 +235,6 @@ namespace Electricity_shop
             // 
             // OK
             // 
-            /*
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox4.ForeColor = System.Drawing.Color.White;
@@ -250,7 +245,6 @@ namespace Electricity_shop
             this.textBox4.Size = new System.Drawing.Size(257, 38);
             this.textBox4.TabIndex = 44;
             // 
-            */
             // to_cart
             // 
             this.to_cart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
@@ -272,17 +266,16 @@ namespace Electricity_shop
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label5.Location = new System.Drawing.Point(685, 415);
+            this.label5.Location = new System.Drawing.Point(172, 36);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(127, 20);
+            this.label5.Size = new System.Drawing.Size(145, 27);
             this.label5.TabIndex = 43;
             this.label5.Text = "מספר טלפון";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // phoneNumber
             // 
-            /*
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox3.ForeColor = System.Drawing.Color.White;
@@ -298,17 +291,16 @@ namespace Electricity_shop
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label4.Location = new System.Drawing.Point(725, 300);
+            this.label4.Location = new System.Drawing.Point(212, 143);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(92, 20);
+            this.label4.Size = new System.Drawing.Size(105, 27);
             this.label4.TabIndex = 41;
             this.label4.Text = "כתובת";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // address
             // 
-            /*
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.Color.White;
@@ -324,17 +316,16 @@ namespace Electricity_shop
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(685, 177);
+            this.label3.Location = new System.Drawing.Point(592, 268);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(127, 20);
+            this.label3.Size = new System.Drawing.Size(145, 27);
             this.label3.TabIndex = 39;
             this.label3.Text = "שם משפחה";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lastName
             // 
-            /*
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.Color.White;
@@ -350,17 +341,16 @@ namespace Electricity_shop
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(703, 52);
+            this.label2.Location = new System.Drawing.Point(610, 143);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(111, 21);
+            this.label2.Size = new System.Drawing.Size(127, 28);
             this.label2.TabIndex = 37;
             this.label2.Text = "שם פרטי";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // firstName
             // 
-            /*
             this.ID_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ID_text.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ID_text.ForeColor = System.Drawing.Color.White;
@@ -370,24 +360,25 @@ namespace Electricity_shop
             this.ID_text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ID_text.Size = new System.Drawing.Size(257, 38);
             this.ID_text.TabIndex = 36;
-            //
-            */
+            // 
             // add_order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1011, 656);
+            this.ClientSize = new System.Drawing.Size(907, 704);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "add_order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "add_order";
+            this.Load += new System.EventHandler(this.add_order_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -405,7 +396,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button OK;
-        private System.Windows.Forms.Button to_cart;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox phoneNumber;
         private System.Windows.Forms.Label label4;
@@ -417,5 +407,7 @@ namespace Electricity_shop
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.CheckBox delivery;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button clear;
     }
 }

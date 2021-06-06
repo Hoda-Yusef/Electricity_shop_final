@@ -123,10 +123,9 @@ namespace Electricity_shop
             else
             {
 
-               if(deptTBox.Text==""&& paidTBox.Text=="")
-               {
+            if(deptTBox.Text==""&& paidTBox.Text=="")
+            {
                 supp.FirstName = firstNameTBox.Text;
-                supp.LasttName = lastNameTBox.Text;
                 supp.Address = addressTBox.Text;
                 supp.Phone_number = phoneNumberTBox.Text;
                 mySQL.InsertSupplier(supp);
@@ -137,14 +136,13 @@ namespace Electricity_shop
                 else
                 {
 
-                    if(deptTBox.Text!=""&&paidTBox.Text=="")
-                    {
-                        supp.FirstName = firstNameTBox.Text;
-                        supp.LasttName = lastNameTBox.Text;
-                        supp.Address = addressTBox.Text;
-                        supp.Phone_number = phoneNumberTBox.Text;
-                        supp.Dept = Convert.ToInt32(deptTBox.Text);
-                        mySQL.InsertSupplier(supp);
+            if(dept.Text!=""&&paid.Text=="")
+            {
+                supp.Name = name.Text;
+                supp.Address = address.Text;
+                supp.Phone_number = phoneNumber.Text;
+                supp.Dept = Convert.ToInt32(dept.Text);
+                mySQL.InsertSupplier(supp);
 
                         MessageBox.Show("ספק הוסף בהצלחה");
                         clear_boxes();
@@ -152,11 +150,10 @@ namespace Electricity_shop
 
                    else
                     {
-                        supp.FirstName = firstNameTBox.Text;
-                        supp.LasttName = lastNameTBox.Text;
-                        supp.Address = addressTBox.Text;
-                        supp.Phone_number = phoneNumberTBox.Text;
-                        supp.Paid = Convert.ToInt32(paidTBox.Text);
+                        supp.Name = name.Text;
+                        supp.Address = address.Text;
+                        supp.Phone_number = phoneNumber.Text;
+                        supp.Paid = Convert.ToInt32(paid.Text);
                         mySQL.InsertSupplier(supp);
 
                         MessageBox.Show("ספק הוסף בהצלחה");

@@ -149,6 +149,5 @@ namespace Electricity_shop
         }
 
 
-
     }
 }

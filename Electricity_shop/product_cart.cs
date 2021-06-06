@@ -23,9 +23,14 @@ namespace Electricity_shop
         {
             Thread th;
             this.Close();
-            th = new Thread(OpenAddOrder);
+            th = new Thread(openMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void openMain(object obj)
+        {
+            Application.Run(new main());
         }
 
         private void OpenAddOrder(object obj)
