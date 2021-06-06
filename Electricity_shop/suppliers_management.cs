@@ -81,14 +81,13 @@ namespace Electricity_shop
             {
                 suppliers_grid.Rows.Add(new object[]
                     {
-                        //Supplier[i].Serial_number,
                         Supplier[i].FirstName,
                         Supplier[i].LasttName,
                         Supplier[i].Phone_number,
                         Supplier[i].Address,
                         Supplier[i].Dept,
                         Supplier[i].Paid
-                    }) ;
+                    });
             }
 
             for (int i = 0; i < Supplier.Length; i++)

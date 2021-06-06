@@ -144,48 +144,17 @@ namespace Electricity_shop
         public void InsertOrder(orders Item)
         {
             string cmdStr = "INSERT INTO orders (customer_id,date,status) VALUES (@customer_id,@date,@status)";
-                
+
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
                 command.Parameters.AddWithValue("@customer_id", Item.Customer_id);
                 command.Parameters.AddWithValue("@date", Item.Date);
                 command.Parameters.AddWithValue("@status", Item.Status);
-               
+
 
                 base.ExecuteSimpleQuery(command);
             }
-        }
-
-        
-
-
-        public bool checkCity(string cityName)
-        {
-            bool result = false;
-
-            string cmdStr = "SELECT count(*) FROM city WHERE cityName=@cityName";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@cityName", cityName);
-                result = ExecuteScalarIntQuery(command) > 0;
-            }
-
-            return result;
-        }
-
-
-        public int GetCityMaxNumber()
-        {
-            int result;
-            string cmdStr = "SELECT Max(cityCode) FROM city";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                result = ExecuteScalarIntQuery(command);
-            }
-            return result;
         }
 
         public product[] GetProductData()
@@ -237,7 +206,7 @@ namespace Electricity_shop
         {
             DataSet ds = new DataSet();
             product Product = null;
-            string cmdStr = "SELECT * FROM product WHERE barcode="+barcode+"";
+            string cmdStr = "SELECT * FROM product WHERE barcode=" + barcode + "";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -256,19 +225,19 @@ namespace Electricity_shop
             }
             if (dt.Rows.Count > 0)
             {
-               
-                    Product = new product();
-                    Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
-                    Product.Barcode = dt.Rows[0][1].ToString();
-                    Product.Category = dt.Rows[0][2].ToString();
-                    Product.Model = dt.Rows[0][3].ToString();
-                    Product.Manufacturer = dt.Rows[0][4].ToString();
-                    Product.Supplier = dt.Rows[0][5].ToString();
-                    Product.Cost_price = Convert.ToInt32(dt.Rows[0][6]);
-                    Product.Selling_price = Convert.ToInt32(dt.Rows[0][7]);
-                    Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
-                    Product.Product_info = dt.Rows[0][9].ToString();
-                
+
+                Product = new product();
+                Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
+                Product.Barcode = dt.Rows[0][1].ToString();
+                Product.Category = dt.Rows[0][2].ToString();
+                Product.Model = dt.Rows[0][3].ToString();
+                Product.Manufacturer = dt.Rows[0][4].ToString();
+                Product.Supplier = dt.Rows[0][5].ToString();
+                Product.Cost_price = Convert.ToInt32(dt.Rows[0][6]);
+                Product.Selling_price = Convert.ToInt32(dt.Rows[0][7]);
+                Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
+                Product.Product_info = dt.Rows[0][9].ToString();
+
             }
             return Product;
 
@@ -339,8 +308,6 @@ namespace Electricity_shop
 
         }
 
-
-
         public customer GetCustomerDataByID(int id)
         {
             DataSet ds = new DataSet();
@@ -365,25 +332,20 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                
-                    Customer = new customer();
-                    Customer.Id = dt.Rows[0][0].ToString();
-                    Customer.First_name = dt.Rows[0][1].ToString();
-                    Customer.Last_name = dt.Rows[0][2].ToString();
-                    Customer.Phone_number = dt.Rows[0][3].ToString();
-                    Customer.Address = dt.Rows[0][4].ToString();
-                    Customer.Serial_number = Convert.ToInt32(dt.Rows[0][5]);
+
+                Customer = new customer();
+                Customer.Id = dt.Rows[0][0].ToString();
+                Customer.First_name = dt.Rows[0][1].ToString();
+                Customer.Last_name = dt.Rows[0][2].ToString();
+                Customer.Phone_number = dt.Rows[0][3].ToString();
+                Customer.Address = dt.Rows[0][4].ToString();
+                Customer.Serial_number = Convert.ToInt32(dt.Rows[0][5]);
 
 
             }
             return Customer;
 
         }
-
-
-
-
-
 
         public supplier[] GetSupplierData()
         {
@@ -427,92 +389,28 @@ namespace Electricity_shop
 
         }
 
-        public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
-        {
-            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
-                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
-                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE product_model=@product_model";
+        //public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
+        //{
+        //    string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+        //        "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+        //        "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+        //        "amount=@amount,product_info=@product_info WHERE product_model=@product_model";
 
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@barcode", Item.Barcode);
-                command.Parameters.AddWithValue("@product_category", Item.Category);
-                command.Parameters.AddWithValue("@product_model", Item.Model);
-                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
-                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
-                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
-                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
-                command.Parameters.AddWithValue("@amount", Item.Amount);
-                command.Parameters.AddWithValue("@product_info", Item.Product_info);
+        //    using (MySqlCommand command = new MySqlCommand(cmdStr))
+        //    {
+        //        command.Parameters.AddWithValue("@barcode", Item.Barcode);
+        //        command.Parameters.AddWithValue("@product_category", Item.Category);
+        //        command.Parameters.AddWithValue("@product_model", Item.Model);
+        //        command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+        //        command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+        //        command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+        //        command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+        //        command.Parameters.AddWithValue("@amount", Item.Amount);
+        //        command.Parameters.AddWithValue("@product_info", Item.Product_info);
 
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-     
-        public void UpdateCustomer(customer Item)
-        {
-            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
-                "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE phone_number=@phone_number";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@id", Item.Id);
-                command.Parameters.AddWithValue("@first_name", Item.First_name);
-                command.Parameters.AddWithValue("@last_name", Item.Last_name);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-
-        public void UpdateCustomerBySerial(customer Item)
-        {
-            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
-                "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE serial_number =@serial_number";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
-                command.Parameters.AddWithValue("@id", Item.Id);
-                command.Parameters.AddWithValue("@first_name", Item.First_name);
-                command.Parameters.AddWithValue("@last_name", Item.Last_name);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-
-
-        public void UpdateSupplierBySerial(supplier Item)
-        {
-            string cmdStr = "UPDATE supplier SET first_name=@first_name," +
-                "last_name=@last_name,phone_number=@phone_number,address=@address,"+
-                "dept=@dept,paid=@paid WHERE serial_number=@serial_number";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
-                command.Parameters.AddWithValue("@first_name", Item.FirstName);
-                command.Parameters.AddWithValue("@last_name", Item.LasttName);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-                command.Parameters.AddWithValue("@dept", Item.Dept);
-                command.Parameters.AddWithValue("@paid", Item.Paid);
-
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
+        //        base.ExecuteSimpleQuery(command);
+        //    }
+        //}
 
         public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
         {
@@ -560,8 +458,6 @@ namespace Electricity_shop
 
         }
 
-
-        
         public customer GetCustomerDataById(string id)
         {
             DataSet ds = new DataSet();
@@ -638,10 +534,6 @@ namespace Electricity_shop
 
         }
 
-
-
-
-
         public customer[] GetCustomerDataById2(string id)
         {
             DataSet ds = new DataSet();
@@ -681,8 +573,6 @@ namespace Electricity_shop
             return Customer;
 
         }
-
-
 
         public customer[] GetCustomerDataByphoneN(string phone)
         {
@@ -724,8 +614,6 @@ namespace Electricity_shop
 
         }
 
-
-
         public customer[] GetCustomerDataByFN(string name)
         {
             DataSet ds = new DataSet();
@@ -766,7 +654,84 @@ namespace Electricity_shop
 
         }
 
+        public supplier[] GetSupplierDataByFN(string name)
+        {
+            DataSet ds = new DataSet();
+            supplier[] Suppliers = null;
+            string cmdStr = "SELECT * FROM supplier WHERE last_name LIKE '" + name + "%'";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
 
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Suppliers = new supplier[dt.Rows.Count];
+
+                for (int i = 0; i < Suppliers.Length; i++)
+                {
+                    Suppliers[i] = new supplier();
+                    Suppliers[i].FirstName = dt.Rows[i][1].ToString();
+                    Suppliers[i].LasttName = dt.Rows[i][2].ToString();
+                    Suppliers[i].Phone_number = dt.Rows[i][3].ToString();
+                    Suppliers[i].Address = dt.Rows[i][4].ToString();
+                    Suppliers[i].Dept = Convert.ToInt32(dt.Rows[i][5].ToString());
+                    Suppliers[i].Paid = Convert.ToInt32(dt.Rows[i][6].ToString());
+
+                }
+            }
+            return Suppliers;
+        }
+        public supplier[] GetSupplierDataByLN(string name)
+        {
+            DataSet ds = new DataSet();
+            supplier[] Suppliers = null;
+            string cmdStr = "SELECT * FROM supplier WHERE last_name LIKE '" + name + "%'";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Suppliers = new supplier[dt.Rows.Count];
+
+                for (int i = 0; i < Suppliers.Length; i++)
+                {
+                    Suppliers[i] = new supplier();
+                    Suppliers[i].FirstName = dt.Rows[i][1].ToString();
+                    Suppliers[i].LasttName = dt.Rows[i][2].ToString();
+                    Suppliers[i].Phone_number = dt.Rows[i][3].ToString();
+                    Suppliers[i].Address = dt.Rows[i][4].ToString();
+                    Suppliers[i].Dept = Convert.ToInt32(dt.Rows[i][5].ToString());
+                    Suppliers[i].Paid = Convert.ToInt32(dt.Rows[i][6].ToString());
+
+                }
+            }
+            return Suppliers;
+        }
 
         public void UpdateProductByBarcode(product Item)
         {
@@ -856,7 +821,6 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-        
 
         public void UpdateCustomerBySerial(customer Item)
         {
@@ -878,54 +842,37 @@ namespace Electricity_shop
             }
         }
 
-        
-
-        }
-
-
-        public supplier[] GetSupplierDataByLN(string name)
+        public void UpdateSupplierBySerial(supplier Item)
         {
-            DataSet ds = new DataSet();
-            supplier[] Suppliers = null;
-            string cmdStr = "SELECT * FROM supplier WHERE last_name LIKE '" + name + "%'";
+            string cmdStr = "UPDATE supplier SET first_name=@first_name," +
+                "last_name=@last_name,phone_number=@phone_number,address=@address," +
+                "dept=@dept,paid=@paid WHERE serial_number=@serial_number";
+
+
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
-                ds = GetMultipleQuery(command);
+                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@first_name", Item.FirstName);
+                command.Parameters.AddWithValue("@last_name", Item.LasttName);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+                command.Parameters.AddWithValue("@dept", Item.Dept);
+                command.Parameters.AddWithValue("@paid", Item.Paid);
+
+
+                base.ExecuteSimpleQuery(command);
             }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-                Suppliers = new supplier[dt.Rows.Count];
-
-                for (int i = 0; i < Suppliers.Length; i++)
-                {
-                    Suppliers[i] = new supplier();
-                    Suppliers[i].FirstName = dt.Rows[i][1].ToString();
-                    Suppliers[i].LasttName = dt.Rows[i][2].ToString();
-                    Suppliers[i].Phone_number = dt.Rows[i][3].ToString();
-                    Suppliers[i].Address = dt.Rows[i][4].ToString();
-                    Suppliers[i].Dept = Convert.ToInt32(dt.Rows[i][5].ToString());
-                    Suppliers[i].Paid = Convert.ToInt32(dt.Rows[i][6].ToString());
-
-                }
-            }
-            return Suppliers;
-
-
-
-
-
         }
+
+
+
+
+
+
     }
 }
+
+    
+
+
+

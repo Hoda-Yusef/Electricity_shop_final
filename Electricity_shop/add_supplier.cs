@@ -123,11 +123,11 @@ namespace Electricity_shop
             else
             {
 
-            if(dept.Text==""&& paid.Text=="")
+            if(deptTBox.Text==""&& paidTBox.Text=="")
             {
-                supp.Name = name.Text;
-                supp.Address = address.Text;
-                supp.Phone_number = phoneNumber.Text;
+                supp.FirstName = firstNameTBox.Text;
+                supp.Address = addressTBox.Text;
+                supp.Phone_number = phoneNumberTBox.Text;
                 mySQL.InsertSupplier(supp);
 
                     MessageBox.Show("ספק הוסף בהצלחה");
@@ -136,12 +136,12 @@ namespace Electricity_shop
                 else
                 {
 
-            if(dept.Text!=""&&paid.Text=="")
+            if(deptTBox.Text!=""&&paidTBox.Text=="")
             {
-                supp.Name = name.Text;
-                supp.Address = address.Text;
-                supp.Phone_number = phoneNumber.Text;
-                supp.Dept = Convert.ToInt32(dept.Text);
+                supp.FirstName = firstNameTBox.Text;
+                supp.Address = addressTBox.Text;
+                supp.Phone_number = phoneNumberTBox.Text;
+                supp.Dept = Convert.ToInt32(deptTBox.Text);
                 mySQL.InsertSupplier(supp);
 
                         MessageBox.Show("ספק הוסף בהצלחה");
@@ -150,10 +150,10 @@ namespace Electricity_shop
 
                    else
                     {
-                        supp.Name = name.Text;
-                        supp.Address = address.Text;
-                        supp.Phone_number = phoneNumber.Text;
-                        supp.Paid = Convert.ToInt32(paid.Text);
+                        supp.FirstName = firstNameTBox.Text;
+                        supp.Address = addressTBox.Text;
+                        supp.Phone_number = phoneNumberTBox.Text;
+                        supp.Paid = Convert.ToInt32(paidTBox.Text);
                         mySQL.InsertSupplier(supp);
 
                         MessageBox.Show("ספק הוסף בהצלחה");
