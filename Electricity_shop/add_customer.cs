@@ -88,7 +88,7 @@ namespace Electricity_shop
 
         private void new_customer(customer cust)
         {
-            cust.Id =Convert.ToInt32(ID_text.Text);
+            cust.Id =ID_text.Text;
             cust.First_name = first_name.Text;
             cust.Last_name = last_name.Text;
             cust.Phone_number = phone_number.Text;
@@ -101,7 +101,7 @@ namespace Electricity_shop
 
         private void same_customer(customer cust)
         {
-            cust.Id= Convert.ToInt32(ID_text.Text);
+            cust.Id= ID_text.Text;
             cust.First_name = first_name.Text;
             cust.Last_name = last_name.Text;
             cust.Phone_number= phone_number.Text;

@@ -37,12 +37,13 @@ namespace Electricity_shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.clear = new System.Windows.Forms.Button();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.delivery = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.TextBox();
             this.cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
-            this.to_cart = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.phoneNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -120,12 +121,13 @@ namespace Electricity_shop
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.panel4.Controls.Add(this.clear);
+            this.panel4.Controls.Add(this.dateTimePicker);
             this.panel4.Controls.Add(this.delivery);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.id);
             this.panel4.Controls.Add(this.cancel);
             this.panel4.Controls.Add(this.OK);
-            this.panel4.Controls.Add(this.to_cart);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.phoneNumber);
             this.panel4.Controls.Add(this.label4);
@@ -136,17 +138,49 @@ namespace Electricity_shop
             this.panel4.Controls.Add(this.firstName);
             this.panel4.Location = new System.Drawing.Point(46, 97);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(816, 572);
+            this.panel4.Size = new System.Drawing.Size(816, 576);
             this.panel4.TabIndex = 41;
+            // 
+            // clear
+            // 
+            this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.clear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.clear.ForeColor = System.Drawing.Color.White;
+            this.clear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.clear.Location = new System.Drawing.Point(314, 458);
+            this.clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(179, 63);
+            this.clear.TabIndex = 53;
+            this.clear.Text = "ניקוי";
+            this.clear.UseVisualStyleBackColor = false;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker.Location = new System.Drawing.Point(80, 292);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(257, 34);
+            this.dateTimePicker.TabIndex = 6;
             // 
             // delivery
             // 
             this.delivery.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.delivery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.delivery.Location = new System.Drawing.Point(113, 294);
+            this.delivery.Location = new System.Drawing.Point(102, 365);
             this.delivery.Name = "delivery";
             this.delivery.Size = new System.Drawing.Size(215, 36);
-            this.delivery.TabIndex = 51;
+            this.delivery.TabIndex = 7;
             this.delivery.Text = ": עם משלוח";
             this.delivery.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.delivery.UseVisualStyleBackColor = true;
@@ -174,8 +208,9 @@ namespace Electricity_shop
             this.id.Name = "id";
             this.id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.id.Size = new System.Drawing.Size(257, 38);
-            this.id.TabIndex = 49;
+            this.id.TabIndex = 1;
             this.id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.id_KeyPress);
+            this.id.Leave += new System.EventHandler(this.id_Leave);
             // 
             // cancel
             // 
@@ -185,10 +220,10 @@ namespace Electricity_shop
             this.cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cancel.ForeColor = System.Drawing.Color.White;
             this.cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cancel.Location = new System.Drawing.Point(251, 466);
+            this.cancel.Location = new System.Drawing.Point(112, 458);
             this.cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(128, 51);
+            this.cancel.Size = new System.Drawing.Size(179, 63);
             this.cancel.TabIndex = 48;
             this.cancel.Text = "ביטול";
             this.cancel.UseVisualStyleBackColor = false;
@@ -202,30 +237,14 @@ namespace Electricity_shop
             this.OK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OK.ForeColor = System.Drawing.Color.White;
             this.OK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.OK.Location = new System.Drawing.Point(385, 466);
+            this.OK.Location = new System.Drawing.Point(512, 458);
             this.OK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(123, 51);
+            this.OK.Size = new System.Drawing.Size(179, 63);
             this.OK.TabIndex = 47;
             this.OK.Text = "אישור";
             this.OK.UseVisualStyleBackColor = false;
-            // 
-            // to_cart
-            // 
-            this.to_cart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.to_cart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.to_cart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.to_cart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.to_cart.ForeColor = System.Drawing.Color.White;
-            this.to_cart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.to_cart.Location = new System.Drawing.Point(251, 395);
-            this.to_cart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.to_cart.Name = "to_cart";
-            this.to_cart.Size = new System.Drawing.Size(257, 63);
-            this.to_cart.TabIndex = 46;
-            this.to_cart.Text = " לעגלה";
-            this.to_cart.UseVisualStyleBackColor = false;
-            this.to_cart.Click += new System.EventHandler(this.to_cart_Click);
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // label5
             // 
@@ -249,7 +268,7 @@ namespace Electricity_shop
             this.phoneNumber.Name = "phoneNumber";
             this.phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.phoneNumber.Size = new System.Drawing.Size(257, 38);
-            this.phoneNumber.TabIndex = 42;
+            this.phoneNumber.TabIndex = 4;
             this.phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumber_KeyPress);
             // 
             // label4
@@ -274,7 +293,7 @@ namespace Electricity_shop
             this.address.Name = "address";
             this.address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.address.Size = new System.Drawing.Size(257, 38);
-            this.address.TabIndex = 40;
+            this.address.TabIndex = 5;
             // 
             // label3
             // 
@@ -298,7 +317,7 @@ namespace Electricity_shop
             this.lastName.Name = "lastName";
             this.lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lastName.Size = new System.Drawing.Size(257, 38);
-            this.lastName.TabIndex = 38;
+            this.lastName.TabIndex = 3;
             // 
             // label2
             // 
@@ -322,7 +341,7 @@ namespace Electricity_shop
             this.firstName.Name = "firstName";
             this.firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.firstName.Size = new System.Drawing.Size(257, 38);
-            this.firstName.TabIndex = 36;
+            this.firstName.TabIndex = 2;
             // 
             // add_order
             // 
@@ -341,6 +360,7 @@ namespace Electricity_shop
             this.Name = "add_order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "add_order";
+            this.Load += new System.EventHandler(this.add_order_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -358,7 +378,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button OK;
-        private System.Windows.Forms.Button to_cart;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox phoneNumber;
         private System.Windows.Forms.Label label4;
@@ -370,5 +389,7 @@ namespace Electricity_shop
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.CheckBox delivery;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button clear;
     }
 }
