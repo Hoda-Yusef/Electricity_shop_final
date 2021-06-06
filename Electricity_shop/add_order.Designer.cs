@@ -134,7 +134,7 @@ namespace Electricity_shop
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lastName);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.ID_text);
+            //this.panel4.Controls.Add(this.ID_text);
             this.panel4.Location = new System.Drawing.Point(59, 84);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(887, 525);
@@ -142,6 +142,7 @@ namespace Electricity_shop
             // 
             // delivery
             // 
+            /*
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -157,8 +158,10 @@ namespace Electricity_shop
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            */
             // button1
             // 
+            /*
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -173,8 +176,10 @@ namespace Electricity_shop
             this.button1.Text = "אישור";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            */
             // search_order
             // 
+            /*
             this.search_order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.search_order.Cursor = System.Windows.Forms.Cursors.Hand;
             this.search_order.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -189,6 +194,7 @@ namespace Electricity_shop
             this.search_order.Text = "הוספת מוצר לעגלה";
             this.search_order.UseVisualStyleBackColor = false;
             // 
+            */
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -233,6 +239,7 @@ namespace Electricity_shop
             // 
             // OK
             // 
+            /*
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox4.ForeColor = System.Drawing.Color.White;
@@ -243,6 +250,7 @@ namespace Electricity_shop
             this.textBox4.Size = new System.Drawing.Size(257, 38);
             this.textBox4.TabIndex = 44;
             // 
+            */
             // to_cart
             // 
             this.to_cart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
@@ -274,6 +282,7 @@ namespace Electricity_shop
             // 
             // phoneNumber
             // 
+            /*
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox3.ForeColor = System.Drawing.Color.White;
@@ -284,6 +293,7 @@ namespace Electricity_shop
             this.textBox3.Size = new System.Drawing.Size(257, 38);
             this.textBox3.TabIndex = 42;
             // 
+            */
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -298,6 +308,7 @@ namespace Electricity_shop
             // 
             // address
             // 
+            /*
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.Color.White;
@@ -308,6 +319,7 @@ namespace Electricity_shop
             this.textBox2.Size = new System.Drawing.Size(257, 38);
             this.textBox2.TabIndex = 40;
             // 
+            */
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -322,6 +334,7 @@ namespace Electricity_shop
             // 
             // lastName
             // 
+            /*
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.Color.White;
@@ -332,6 +345,7 @@ namespace Electricity_shop
             this.textBox1.Size = new System.Drawing.Size(257, 38);
             this.textBox1.TabIndex = 38;
             // 
+            */
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -346,6 +360,7 @@ namespace Electricity_shop
             // 
             // firstName
             // 
+            /*
             this.ID_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ID_text.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ID_text.ForeColor = System.Drawing.Color.White;
@@ -355,7 +370,8 @@ namespace Electricity_shop
             this.ID_text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ID_text.Size = new System.Drawing.Size(257, 38);
             this.ID_text.TabIndex = 36;
-            // 
+            //
+            */
             // add_order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

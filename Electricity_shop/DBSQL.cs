@@ -77,8 +77,6 @@ namespace Electricity_shop
             }
         }
 
-
-
         public void InsertProduct(product Item)
         {
             string cmdStr = "INSERT INTO product (barcode,product_category,product_model," +
@@ -409,7 +407,6 @@ namespace Electricity_shop
 
         }
 
-
         public void UpdateProductByBarcode(product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -419,6 +416,32 @@ namespace Electricity_shop
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
+                command.Parameters.AddWithValue("@barcode", Item.Barcode);
+                command.Parameters.AddWithValue("@product_category", Item.Category);
+                command.Parameters.AddWithValue("@product_model", Item.Model);
+                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+                command.Parameters.AddWithValue("@amount", Item.Amount);
+                command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+
+
+        public void UpdateProductBySerial(product Item)
+        {
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Product_serial_number);
                 command.Parameters.AddWithValue("@barcode", Item.Barcode);
                 command.Parameters.AddWithValue("@product_category", Item.Category);
                 command.Parameters.AddWithValue("@product_model", Item.Model);
