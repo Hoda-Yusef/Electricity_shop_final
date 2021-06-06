@@ -135,6 +135,7 @@ namespace Electricity_shop
             this.products_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.products_grid.Size = new System.Drawing.Size(1048, 514);
             this.products_grid.TabIndex = 39;
+           
             this.products_grid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.orders_grid_CellFormatting);
             // 
             // Column1

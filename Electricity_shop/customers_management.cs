@@ -12,7 +12,6 @@ namespace Electricity_shop
     public partial class customers_management : Form
     {
         private DBSQL mySQL;
-        //main mn = new main();
         Thread th;
         customer[] Customer;
 

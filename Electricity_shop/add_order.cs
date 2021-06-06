@@ -269,5 +269,7 @@ namespace Electricity_shop
             address.Text = string.Empty;
             read_only_false();
         }
+
+       
     }
 }

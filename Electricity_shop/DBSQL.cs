@@ -387,17 +387,51 @@ namespace Electricity_shop
 
         }
 
-        //    using (MySqlCommand command = new MySqlCommand(cmdStr))
-        //    {
-        //        command.Parameters.AddWithValue("@barcode", Item.Barcode);
-        //        command.Parameters.AddWithValue("@product_category", Item.Category);
-        //        command.Parameters.AddWithValue("@product_model", Item.Model);
-        //        command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
-        //        command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
-        //        command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
-        //        command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
-        //        command.Parameters.AddWithValue("@amount", Item.Amount);
-        //        command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+        public void UpdateProductByBarcode(product Item)
+        {
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE barcode=@barcode";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@barcode", Item.Barcode);
+                command.Parameters.AddWithValue("@product_category", Item.Category);
+                command.Parameters.AddWithValue("@product_model", Item.Model);
+                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+                command.Parameters.AddWithValue("@amount", Item.Amount);
+                command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+
+
+        public void UpdateProductBySerial(product Item)
+        {
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Product_serial_number);
+                command.Parameters.AddWithValue("@barcode", Item.Barcode);
+                command.Parameters.AddWithValue("@product_category", Item.Category);
+                command.Parameters.AddWithValue("@product_model", Item.Model);
+                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+                command.Parameters.AddWithValue("@amount", Item.Amount);
+                command.Parameters.AddWithValue("@product_info", Item.Product_info);
 
                 base.ExecuteSimpleQuery(command);
             }
@@ -473,6 +507,46 @@ namespace Electricity_shop
             string cmdStr = "UPDATE supplier SET first_name=@first_name," +
                 "last_name=@last_name,phone_number=@phone_number,address=@address,"+
                 "dept=@dept,paid=@paid WHERE serial_number=@serial_number";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@first_name", Item.FirstName);
+                command.Parameters.AddWithValue("@last_name", Item.LasttName);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+                command.Parameters.AddWithValue("@dept", Item.Dept);
+                command.Parameters.AddWithValue("@paid", Item.Paid);
+
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        //public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
+        //{
+        //    string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+        //        "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+        //        "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+        //        "amount=@amount,product_info=@product_info WHERE product_model=@product_model";
+
+        //    using (MySqlCommand command = new MySqlCommand(cmdStr))
+        //    {
+        //        command.Parameters.AddWithValue("@barcode", Item.Barcode);
+        //        command.Parameters.AddWithValue("@product_category", Item.Category);
+        //        command.Parameters.AddWithValue("@product_model", Item.Model);
+        //        command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+        //        command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+        //        command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+        //        command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+        //        command.Parameters.AddWithValue("@amount", Item.Amount);
+        //        command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+        //        base.ExecuteSimpleQuery(command);
+        //    }
+        //}
+
 
         public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
         {
@@ -794,7 +868,7 @@ namespace Electricity_shop
             }
             return Suppliers;
         }
-
+        /*
         public void UpdateProductByBarcode(product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -817,7 +891,8 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+       
+        
         public void UpdateProductByModel(product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -840,7 +915,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+        
         public void UpdateProductBySerial(product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -924,15 +999,16 @@ namespace Electricity_shop
 
                 base.ExecuteSimpleQuery(command);
             }
+        */
         }
-
+        
 
 
 
 
 
     }
-}
+
 
     
 
