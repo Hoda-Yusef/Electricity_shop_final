@@ -11,23 +11,20 @@ namespace Electricity_shop
 {
     public partial class orders_management : Form
     {
+        private DBSQL mySQL;
         bool drag = false;
         Point sp = new Point(0, 0);
+        orders Orders;
+
 
         
         public orders_management()
         {
             InitializeComponent();
-
-           
-
-            for(int i=0;i<50;i++)
-            {
-                orders_grid.Rows.Add(new object[]
-                {
-                    
-                });
-            }
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
 
         }
 
@@ -126,6 +123,122 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
+
+        private void orders_management_Load(object sender, EventArgs e)
+        {
+            orders[] Orders = mySQL.GetOrdersData();
+            customer Customer;
+
+            for(int i=0;i<Orders.Length;i++)
+            {
+              Customer=  mySQL.GetCustomerDataByID(Orders[i].Customer_id);
+
+                orders_grid.Rows.Add(new object[]
+                {
+                    Orders[i].Order_number,
+                    Customer.Id,
+                    Customer.First_name,
+                    Customer.Last_name,
+                    Customer.Phone_number,
+                    Customer.Address,
+                    Orders[i].Date,
+                    Orders[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+                    }); ;
+
+
+            }
+        }
+
+        private void update_status_Click(object sender, EventArgs e)//עדכון סטטוס
+        {
+            Orders = mySQL.GetOrdersDataByCustomerId(orders_grid.CurrentRow.Cells[1].Value.ToString());
+
+            if(Orders.Status ==1)//משנים את הסטטוס לסופק
+            {
+                mySQL.UpdateOrderById(Orders.Customer_id, 0);
+                this.Close();
+                Thread th;
+                th = new Thread(openSelf);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+
+            if (Orders.Status == 0)//משנים את הסטטוס ללא סופק
+            {
+                mySQL.UpdateOrderById(Orders.Customer_id, 1);
+                this.Close();
+                Thread th;
+                th = new Thread(openSelf);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+
+            }
+        }
+
+        private void openSelf(object obj)
+        {
+            Application.Run(new orders_management());
+        }
+
+        private void IDBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            fill_grid_by_date();
+        }
+
+        private void fill_grid_by_date()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lastNameBox_TextChanged(object sender, EventArgs e)
+        {
+            fill_grid_by_last_name();
+        }
+
+        private void fill_grid_by_last_name()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void firstNameBox_TextChanged(object sender, EventArgs e)
+        {
+            fill_grid_by_first_name();
+        }
+
+        private void fill_grid_by_first_name()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void IDBox_TextChanged(object sender, EventArgs e)
+        {
+            fill_grid_by_customer_id();
+        }
+
+        private void fill_grid_by_customer_id()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void show_order_Click(object sender, EventArgs e)
+        {
+            show_products Show_order = new show_products();
+
+            Show_order.show_order_number.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
+            Show_order.ShowDialog();
+        }
+
+
 
 
 

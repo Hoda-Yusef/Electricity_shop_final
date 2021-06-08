@@ -132,7 +132,7 @@ namespace Electricity_shop
             orders Orders = new orders();
             Orders.Customer_id = id.Text;
             Orders.Date = dateTimePicker.Text;
-            Orders.Status = delivery.Checked;
+            Orders.Status = Convert.ToInt32(delivery.Checked);
             mySQL.InsertOrder(Orders);
         }
 
@@ -141,7 +141,7 @@ namespace Electricity_shop
             orders Orders = new orders();
             Orders.Customer_id = id.Text;
             Orders.Date = dateTimePicker.Text;
-            Orders.Status = delivery.Checked;
+            Orders.Status = Convert.ToInt32(delivery.Checked);
             mySQL.InsertOrder(Orders);
             MessageBox.Show("לקוח קיים ,עובר לבחירת מוצרים");
         }

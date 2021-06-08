@@ -6,34 +6,23 @@ namespace Electricity_shop
 {
     public class orders
     {
+        private int order_number;
         private string customer_id;
         private string date;
-        private bool status;
-        //private product[] productList;
-        //private bool status;
+        private int status;
+        
        
-
-
         public orders()
         {
-            //Custome_id = string.Empty;
-            //ProductList = null;
-            //Status = true;
-
-            Customer_id = string.Empty;
-            Date = string.Empty;
-            Status = false;
-
-
+            Order_number = 0;
+            customer_id = string.Empty;
+            date = string.Empty;
+            status = 0;
         }
 
         public string Customer_id { get => customer_id; set => customer_id = value; }
         public string Date { get => date; set => date = value; }
-        public bool Status { get => status; set => status = value; }
-
-
-        //public string Custome_id { get => custome_id; set => custome_id = value; }
-        //public product[] ProductList { get => productList; set => productList = value; }
-        //public bool Status { get => status; set => status = value; }
+        public int Order_number { get => order_number; set => order_number = value; }
+        public int Status { get => status; set => status = value; }
     }
 }

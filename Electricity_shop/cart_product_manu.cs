@@ -220,5 +220,38 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
+
+        private void add_to_cart_Click(object sender, EventArgs e)
+        {
+            bool same = false;
+            string item = products_grid.CurrentRow.Cells[3].Value.ToString();
+            int amount = (int)products_grid.CurrentRow.Cells[5].Value;
+            cart[] Cart = mySQL.getCartData();
+
+            for (int i = 0; i < Cart.Length; i++)
+            {
+                if (Cart[i].Product_barcode == item)
+                {
+                    same = true;
+                }
+            }
+
+            if (same)
+            {
+                MessageBox.Show("מוצר קיים בעגלה", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (amount != 0)
+                {
+                    mySQL.InsertToCart(item,Convert.ToInt32(amountChoose.Value));
+                    MessageBox.Show("מוצר התווסף לעגלה");
+                }
+                else
+                    MessageBox.Show("מוצר אזל מהמלאי", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            amountChoose.Value = 1;
+        }
     }
 }

@@ -155,6 +155,173 @@ namespace Electricity_shop
             }
         }
 
+        public void InsertToCart(string item,int amount)
+        {
+            string cmdStr = "INSERT INTO cart (product_barcode,amount) VALUES (" + item + ","+amount+")";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@product_barcode", item);
+                command.Parameters.AddWithValue("@amount", amount);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void InsertToProductOrder(int product_serial, int order_serial,int amount)
+        {
+            string cmdStr = "INSERT INTO product_order (product_serial_number,order_serial_number,amount)" +
+                " VALUES (" + product_serial + "," + order_serial + ","+amount+")";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@product_serial_number", product_serial);
+                command.Parameters.AddWithValue("@order_serial_number", order_serial);
+                command.Parameters.AddWithValue("@amount", amount);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public int GetOrderMaxNumber()
+        {
+            int result;
+            string cmdStr = "SELECT Max(order_number) FROM orders";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                result = ExecuteScalarIntQuery(command);
+            }
+            return result;
+        }
+
+        public orders[] GetOrdersData()
+        {
+            DataSet ds = new DataSet();
+            orders[] Orders = null;
+            string cmdStr = "SELECT * FROM orders ORDER BY date DESC";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Orders = new orders[dt.Rows.Count];
+
+                for (int i = 0; i < Orders.Length; i++)
+                {
+                    Orders[i] = new orders();
+                    Orders[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Orders[i].Customer_id = dt.Rows[i][1].ToString();
+                    Orders[i].Date = dt.Rows[i][2].ToString();
+                    Orders[i].Status = Convert.ToInt32(dt.Rows[i][3]);
+                   
+                }
+            }
+            return Orders;
+
+        }
+
+        public orders GetOrdersDataByCustomerId(string id)
+        {
+            DataSet ds = new DataSet();
+            orders Orders = null;
+            string cmdStr = "SELECT * FROM orders WHERE customer_id="+id+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Orders = new orders();
+
+                    Orders = new orders();
+                    Orders.Order_number = Convert.ToInt32(dt.Rows[0][0]);
+                    Orders.Customer_id = dt.Rows[0][1].ToString();
+                    Orders.Date = dt.Rows[0][2].ToString();
+                    Orders.Status = Convert.ToInt32(dt.Rows[0][3]);
+
+                
+            }
+            return Orders;
+
+        }
+
+        //public orders[] GetOrderDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
+        //{
+        //    DataSet ds = new DataSet();
+        //    product[] Product = null;
+        //    string cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
+        //        " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+        //        "AND product_model LIKE '" + modelItem + "%'";
+
+        //    using (MySqlCommand command = new MySqlCommand(cmdStr))
+        //    {
+        //        ds = GetMultipleQuery(command);
+        //    }
+
+        //    DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        dt = ds.Tables[0];
+        //    }
+
+        //    catch
+        //    {
+
+        //    }
+
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        Product = new product[dt.Rows.Count];
+
+        //        for (int i = 0; i < Product.Length; i++)
+        //        {
+        //            Product[i] = new product();
+        //            Product[i].Barcode = dt.Rows[i][1].ToString();
+        //            Product[i].Category = dt.Rows[i][2].ToString();
+        //            Product[i].Model = dt.Rows[i][3].ToString();
+        //            Product[i].Manufacturer = dt.Rows[i][4].ToString();
+        //            Product[i].Supplier = dt.Rows[i][5].ToString();
+        //            Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
+        //            Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
+        //            Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
+        //            Product[i].Product_info = dt.Rows[i][9].ToString();
+        //        }
+        //    }
+        //    return Product;
+
+        //}
+
+
         public product[] GetProductData()
         {
             DataSet ds = new DataSet();
@@ -200,7 +367,133 @@ namespace Electricity_shop
 
         }
 
-        public product GetProductDataByBarcode(int barcode)
+        public product GetProductDataBySerialNumber(string product_serial_number)
+        {
+            DataSet ds = new DataSet();
+            product Product = null;
+            string cmdStr = "SELECT * FROM product WHERE product_serial_number=" + product_serial_number + "";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Product = new product();
+
+               
+                    Product= new product();
+                    Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
+                    Product.Barcode = dt.Rows[0][1].ToString();
+                    Product.Category = dt.Rows[0][2].ToString();
+                    Product.Model = dt.Rows[0][3].ToString();
+                    Product.Manufacturer = dt.Rows[0][4].ToString();
+                    Product.Supplier = dt.Rows[0][5].ToString();
+                    Product.Cost_price = Convert.ToInt32(dt.Rows[0][6]);
+                    Product.Selling_price = Convert.ToInt32(dt.Rows[0][7]);
+                    Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
+                    Product.Product_info = dt.Rows[0][9].ToString();
+                
+            }
+            return Product;
+
+        }
+
+        public product[] GetProductDataByOrderNumber(string orderNumber)
+        {
+            DataSet ds = new DataSet();
+            product[] Product = null;
+            string cmdStr = "SELECT * FROM product_order WHERE order_serial_number="+orderNumber+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Product = new product[dt.Rows.Count];
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    Product[i] = new product();
+                    Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Product[i].Barcode = dt.Rows[i][1].ToString();
+                    Product[i].Category = dt.Rows[i][2].ToString();
+                    Product[i].Model = dt.Rows[i][3].ToString();
+                    Product[i].Manufacturer = dt.Rows[i][4].ToString();
+                    Product[i].Supplier = dt.Rows[i][5].ToString();
+                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
+                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
+                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
+                    Product[i].Product_info = dt.Rows[i][9].ToString();
+                }
+            }
+            return Product;
+
+        }
+
+        public cart[] getCartData()
+        {
+            DataSet ds = new DataSet();
+            cart[] Cart = null;
+            string cmdStr = "SELECT * FROM cart";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count >= 0)
+            {
+                Cart = new cart[dt.Rows.Count];
+
+                for (int i = 0; i < Cart.Length; i++)
+                {
+                    Cart[i] = new cart();
+                    Cart[i].Product_barcode = dt.Rows[i][0].ToString();
+                    Cart[i].Amount= Convert.ToInt32(dt.Rows[i][1]);
+
+                }
+            }
+            return Cart;
+        }
+
+        public product GetProductDataByBarcode(string barcode)
         {
             DataSet ds = new DataSet();
             product Product = null;
@@ -306,7 +599,7 @@ namespace Electricity_shop
 
         }
 
-        public customer GetCustomerDataByID(int id)
+        public customer GetCustomerDataByID(string id)
         {
             DataSet ds = new DataSet();
             customer Customer = null;
@@ -332,14 +625,13 @@ namespace Electricity_shop
             {
 
                 Customer = new customer();
-                Customer.Id = dt.Rows[0][0].ToString();
-                Customer.First_name = dt.Rows[0][1].ToString();
-                Customer.Last_name = dt.Rows[0][2].ToString();
-                Customer.Phone_number = dt.Rows[0][3].ToString();
-                Customer.Address = dt.Rows[0][4].ToString();
-                Customer.Serial_number = Convert.ToInt32(dt.Rows[0][5]);
-
-
+                Customer.Serial_number = Convert.ToInt32(dt.Rows[0][0]);
+                Customer.Id = dt.Rows[0][1].ToString();
+                Customer.First_name = dt.Rows[0][2].ToString();
+                Customer.Last_name = dt.Rows[0][3].ToString();
+                Customer.Phone_number = dt.Rows[0][4].ToString();
+                Customer.Address = dt.Rows[0][5].ToString();
+                
             }
             return Customer;
 
@@ -367,7 +659,7 @@ namespace Electricity_shop
 
             }
 
-            if (dt.Rows.Count > 0)
+            if (dt.Rows.Count >= 0)
             {
                 Supplier = new supplier[dt.Rows.Count];
 
@@ -379,174 +671,13 @@ namespace Electricity_shop
                     Supplier[i].LasttName = dt.Rows[i][2].ToString();
                     Supplier[i].Phone_number = dt.Rows[i][3].ToString();
                     Supplier[i].Address = dt.Rows[i][4].ToString();
-                    Supplier[i].Paid = Convert.ToInt32(dt.Rows[i][5]);
-                    Supplier[i].Dept = Convert.ToInt32(dt.Rows[i][6]);
+                    Supplier[i].Dept = Convert.ToInt32(dt.Rows[i][5]);
+                    Supplier[i].Paid = Convert.ToInt32(dt.Rows[i][6]);
                 }
             }
             return Supplier;
 
         }
-
-
-        public void UpdateProductByBarcode(product Item)
-        {
-            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
-                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
-                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE barcode=@barcode";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@barcode", Item.Barcode);
-                command.Parameters.AddWithValue("@product_category", Item.Category);
-                command.Parameters.AddWithValue("@product_model", Item.Model);
-                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
-                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
-                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
-                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
-                command.Parameters.AddWithValue("@amount", Item.Amount);
-                command.Parameters.AddWithValue("@product_info", Item.Product_info);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-
-
-        public void UpdateProductBySerial(product Item)
-        {
-            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
-                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
-                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@serial_number", Item.Product_serial_number);
-                command.Parameters.AddWithValue("@barcode", Item.Barcode);
-                command.Parameters.AddWithValue("@product_category", Item.Category);
-                command.Parameters.AddWithValue("@product_model", Item.Model);
-                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
-                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
-                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
-                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
-                command.Parameters.AddWithValue("@amount", Item.Amount);
-                command.Parameters.AddWithValue("@product_info", Item.Product_info);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-        public void UpdateProductByModel(product Item)
-        {
-            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
-                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
-                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE product_model=@product_model";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@barcode", Item.Barcode);
-                command.Parameters.AddWithValue("@product_category", Item.Category);
-                command.Parameters.AddWithValue("@product_model", Item.Model);
-                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
-                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
-                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
-                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
-                command.Parameters.AddWithValue("@amount", Item.Amount);
-                command.Parameters.AddWithValue("@product_info", Item.Product_info);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-     
-        public void UpdateCustomer(customer Item)
-        {
-            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
-                "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE phone_number=@phone_number";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@id", Item.Id);
-                command.Parameters.AddWithValue("@first_name", Item.First_name);
-                command.Parameters.AddWithValue("@last_name", Item.Last_name);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-
-        public void UpdateCustomerBySerial(customer Item)
-        {
-            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
-                "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE serial_number =@serial_number";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
-                command.Parameters.AddWithValue("@id", Item.Id);
-                command.Parameters.AddWithValue("@first_name", Item.First_name);
-                command.Parameters.AddWithValue("@last_name", Item.Last_name);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-
-
-        public void UpdateSupplierBySerial(supplier Item)
-        {
-            string cmdStr = "UPDATE supplier SET first_name=@first_name," +
-                "last_name=@last_name,phone_number=@phone_number,address=@address,"+
-                "dept=@dept,paid=@paid WHERE serial_number=@serial_number";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
-                command.Parameters.AddWithValue("@first_name", Item.FirstName);
-                command.Parameters.AddWithValue("@last_name", Item.LasttName);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-                command.Parameters.AddWithValue("@dept", Item.Dept);
-                command.Parameters.AddWithValue("@paid", Item.Paid);
-
-
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-        //public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
-        //{
-        //    string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
-        //        "product_model=@product_model,product_manufacturer=@product_manufacturer," +
-        //        "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-        //        "amount=@amount,product_info=@product_info WHERE product_model=@product_model";
-
-        //    using (MySqlCommand command = new MySqlCommand(cmdStr))
-        //    {
-        //        command.Parameters.AddWithValue("@barcode", Item.Barcode);
-        //        command.Parameters.AddWithValue("@product_category", Item.Category);
-        //        command.Parameters.AddWithValue("@product_model", Item.Model);
-        //        command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
-        //        command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
-        //        command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
-        //        command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
-        //        command.Parameters.AddWithValue("@amount", Item.Amount);
-        //        command.Parameters.AddWithValue("@product_info", Item.Product_info);
-
-        //        base.ExecuteSimpleQuery(command);
-        //    }
-        //}
-
 
         public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
         {
@@ -829,6 +960,7 @@ namespace Electricity_shop
             }
             return Suppliers;
         }
+
         public supplier[] GetSupplierDataByLN(string name)
         {
             DataSet ds = new DataSet();
@@ -868,6 +1000,238 @@ namespace Electricity_shop
             }
             return Suppliers;
         }
+
+        public product_order[] GetProduct_orderDataByOrderNumber(string orderNumber)
+        {
+            DataSet ds = new DataSet();
+            product_order[] Product_order = null;
+            string cmdStr = "SELECT * FROM product_order WHERE order_serial_number=" + orderNumber + "";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Product_order = new product_order[dt.Rows.Count];
+
+                for (int i = 0; i < Product_order.Length; i++)
+                {
+                    Product_order[i] = new product_order();
+                    Product_order[i].Id = Convert.ToInt32(dt.Rows[i][0]);
+                    Product_order[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][1]);
+                    Product_order[i].Order_serial_number = Convert.ToInt32(dt.Rows[i][2]);
+                    Product_order[i].Amount = Convert.ToInt32(dt.Rows[i][3]);
+                    
+                }
+            }
+            return Product_order;
+
+        }
+
+        public void UpdateProductByBarcode(product Item)
+        {
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE barcode=@barcode";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@barcode", Item.Barcode);
+                command.Parameters.AddWithValue("@product_category", Item.Category);
+                command.Parameters.AddWithValue("@product_model", Item.Model);
+                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+                command.Parameters.AddWithValue("@amount", Item.Amount);
+                command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateProductAmountByBarcode(int amount,string barcode)
+        {
+            string cmdStr = "UPDATE product SET amount="+amount+" WHERE barcode="+barcode+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@amount", amount);
+                
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateProductBySerial(product Item)
+        {
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Product_serial_number);
+                command.Parameters.AddWithValue("@barcode", Item.Barcode);
+                command.Parameters.AddWithValue("@product_category", Item.Category);
+                command.Parameters.AddWithValue("@product_model", Item.Model);
+                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+                command.Parameters.AddWithValue("@amount", Item.Amount);
+                command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateProductByModel(product Item)
+        {
+            string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
+                "product_model=@product_model,product_manufacturer=@product_manufacturer," +
+                "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
+                "amount=@amount,product_info=@product_info WHERE product_model=@product_model";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@barcode", Item.Barcode);
+                command.Parameters.AddWithValue("@product_category", Item.Category);
+                command.Parameters.AddWithValue("@product_model", Item.Model);
+                command.Parameters.AddWithValue("@product_manufacturer", Item.Manufacturer);
+                command.Parameters.AddWithValue("@product_supplier", Item.Supplier);
+                command.Parameters.AddWithValue("@cost_price", Item.Cost_price);
+                command.Parameters.AddWithValue("@selling_price", Item.Selling_price);
+                command.Parameters.AddWithValue("@amount", Item.Amount);
+                command.Parameters.AddWithValue("@product_info", Item.Product_info);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateCustomer(customer Item)
+        {
+            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
+                "last_name=@last_name,phone_number=@phone_number," +
+                "address=@address WHERE phone_number=@phone_number";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@id", Item.Id);
+                command.Parameters.AddWithValue("@first_name", Item.First_name);
+                command.Parameters.AddWithValue("@last_name", Item.Last_name);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateOrderById(string id,int status)
+        {
+            string cmdStr = "UPDATE orders SET status="+status+" WHERE customer_id="+id+"";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@status", status);
+                
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateCustomerBySerial(customer Item)
+        {
+            string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
+                "last_name=@last_name,phone_number=@phone_number," +
+                "address=@address WHERE serial_number =@serial_number";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@id", Item.Id);
+                command.Parameters.AddWithValue("@first_name", Item.First_name);
+                command.Parameters.AddWithValue("@last_name", Item.Last_name);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateSupplierBySerial(supplier Item)
+        {
+            string cmdStr = "UPDATE supplier SET first_name=@first_name," +
+                "last_name=@last_name,phone_number=@phone_number,address=@address," +
+                "dept=@dept,paid=@paid WHERE serial_number=@serial_number";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@first_name", Item.FirstName);
+                command.Parameters.AddWithValue("@last_name", Item.LasttName);
+                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+                command.Parameters.AddWithValue("@address", Item.Address);
+                command.Parameters.AddWithValue("@dept", Item.Dept);
+                command.Parameters.AddWithValue("@paid", Item.Paid);
+
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateCartAmount(int productAmount,string productBarcode)
+        {
+            string cmdStr = "UPDATE cart SET amount=" + productAmount + " WHERE product_barcode="+ productBarcode + "";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@amount", productAmount);
+                
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void clearCart()
+        {
+            string cmdStr = "DELETE FROM cart";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void removeItemFromCart(string item)
+        {
+            string cmdStr = "DELETE FROM cart WHERE product_barcode="+item+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        
+
         /*
         public void UpdateProductByBarcode(product Item)
         {
@@ -1000,7 +1364,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         */
-        }
+    }
         
 
 

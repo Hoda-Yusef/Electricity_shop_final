@@ -30,19 +30,20 @@ namespace Electricity_shop
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(product_cart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.products_grid = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,8 +56,13 @@ namespace Electricity_shop
             this.cancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.products_count = new System.Windows.Forms.Label();
+            this.total = new System.Windows.Forms.Label();
+            this.remove = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.order_number = new System.Windows.Forms.Label();
+            this.total_sum_products = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.products_grid)).BeginInit();
@@ -73,6 +79,9 @@ namespace Electricity_shop
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1523, 32);
             this.panel8.TabIndex = 67;
+            this.panel8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseDown);
+            this.panel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseMove);
+            this.panel8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseUp);
             // 
             // button3
             // 
@@ -112,26 +121,27 @@ namespace Electricity_shop
             this.products_grid.AllowUserToAddRows = false;
             this.products_grid.AllowUserToDeleteRows = false;
             this.products_grid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.products_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.products_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.products_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.products_grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.products_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.products_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.products_grid.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.products_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.products_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.products_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.products_grid.ColumnHeadersHeight = 55;
             this.products_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -139,19 +149,18 @@ namespace Electricity_shop
             this.Column4,
             this.Column9});
             this.products_grid.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.products_grid.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.products_grid.DefaultCellStyle = dataGridViewCellStyle3;
             this.products_grid.EnableHeadersVisualStyles = false;
             this.products_grid.Location = new System.Drawing.Point(35, 133);
             this.products_grid.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.products_grid.Name = "products_grid";
-            this.products_grid.ReadOnly = true;
             this.products_grid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.products_grid.RowHeadersVisible = false;
             this.products_grid.RowHeadersWidth = 5;
@@ -159,6 +168,14 @@ namespace Electricity_shop
             this.products_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.products_grid.Size = new System.Drawing.Size(1250, 544);
             this.products_grid.TabIndex = 65;
+            this.products_grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.products_grid_CellEndEdit);
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 80F;
+            this.Column5.HeaderText = "ברקוד";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
             // 
             // Column1
             // 
@@ -197,9 +214,7 @@ namespace Electricity_shop
             this.Column4.HeaderText = "כמות";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Column9
             // 
@@ -223,7 +238,7 @@ namespace Electricity_shop
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(452, 48);
+            this.label1.Location = new System.Drawing.Point(425, 48);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(466, 64);
@@ -275,10 +290,10 @@ namespace Electricity_shop
             this.add_to_cart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.add_to_cart.ForeColor = System.Drawing.Color.White;
             this.add_to_cart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.add_to_cart.Location = new System.Drawing.Point(1089, 703);
+            this.add_to_cart.Location = new System.Drawing.Point(963, 703);
             this.add_to_cart.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.add_to_cart.Name = "add_to_cart";
-            this.add_to_cart.Size = new System.Drawing.Size(199, 51);
+            this.add_to_cart.Size = new System.Drawing.Size(151, 51);
             this.add_to_cart.TabIndex = 71;
             this.add_to_cart.Text = "הוספה לעגלה";
             this.add_to_cart.UseVisualStyleBackColor = false;
@@ -292,13 +307,14 @@ namespace Electricity_shop
             this.OK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OK.ForeColor = System.Drawing.Color.White;
             this.OK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.OK.Location = new System.Drawing.Point(846, 703);
+            this.OK.Location = new System.Drawing.Point(1134, 703);
             this.OK.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(199, 51);
+            this.OK.Size = new System.Drawing.Size(151, 51);
             this.OK.TabIndex = 72;
             this.OK.Text = "אישור";
             this.OK.UseVisualStyleBackColor = false;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // cancel
             // 
@@ -308,10 +324,10 @@ namespace Electricity_shop
             this.cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cancel.ForeColor = System.Drawing.Color.White;
             this.cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cancel.Location = new System.Drawing.Point(592, 703);
+            this.cancel.Location = new System.Drawing.Point(614, 703);
             this.cancel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(199, 51);
+            this.cancel.Size = new System.Drawing.Size(151, 51);
             this.cancel.TabIndex = 73;
             this.cancel.Text = "ביטול";
             this.cancel.UseVisualStyleBackColor = false;
@@ -321,7 +337,7 @@ namespace Electricity_shop
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(356, 729);
+            this.label2.Location = new System.Drawing.Point(393, 694);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 25);
             this.label2.TabIndex = 74;
@@ -331,34 +347,94 @@ namespace Electricity_shop
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(172, 729);
+            this.label3.Location = new System.Drawing.Point(152, 713);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(87, 25);
+            this.label3.Size = new System.Drawing.Size(106, 25);
             this.label3.TabIndex = 75;
             this.label3.Text = "סכום :";
             // 
+            // products_count
+            // 
+            this.products_count.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.products_count.ForeColor = System.Drawing.Color.White;
+            this.products_count.Location = new System.Drawing.Point(317, 694);
+            this.products_count.Name = "products_count";
+            this.products_count.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.products_count.Size = new System.Drawing.Size(70, 25);
+            this.products_count.TabIndex = 76;
+            this.products_count.Text = "0";
+            // 
+            // total
+            // 
+            this.total.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.total.ForeColor = System.Drawing.Color.White;
+            this.total.Location = new System.Drawing.Point(15, 714);
+            this.total.Name = "total";
+            this.total.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.total.Size = new System.Drawing.Size(158, 25);
+            this.total.TabIndex = 77;
+            this.total.Text = "0";
+            // 
+            // remove
+            // 
+            this.remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.remove.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.remove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(126)))), ((int)(((byte)(26)))));
+            this.remove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.remove.Location = new System.Drawing.Point(789, 703);
+            this.remove.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(151, 51);
+            this.remove.TabIndex = 78;
+            this.remove.Text = "הסרה";
+            this.remove.UseVisualStyleBackColor = false;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
+            // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(280, 729);
+            this.label4.Location = new System.Drawing.Point(1171, 82);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(70, 25);
-            this.label4.TabIndex = 76;
-            this.label4.Text = "0";
+            this.label4.Size = new System.Drawing.Size(98, 20);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "מספר הזמנה :";
             // 
-            // label5
+            // order_number
             // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(27, 729);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(139, 25);
-            this.label5.TabIndex = 77;
-            this.label5.Text = "0";
+            this.order_number.ForeColor = System.Drawing.Color.White;
+            this.order_number.Location = new System.Drawing.Point(1045, 82);
+            this.order_number.Name = "order_number";
+            this.order_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.order_number.Size = new System.Drawing.Size(120, 20);
+            this.order_number.TabIndex = 80;
+            this.order_number.Text = "0";
+            // 
+            // total_sum_products
+            // 
+            this.total_sum_products.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.total_sum_products.ForeColor = System.Drawing.Color.White;
+            this.total_sum_products.Location = new System.Drawing.Point(276, 738);
+            this.total_sum_products.Name = "total_sum_products";
+            this.total_sum_products.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.total_sum_products.Size = new System.Drawing.Size(111, 25);
+            this.total_sum_products.TabIndex = 96;
+            this.total_sum_products.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(250)))));
+            this.label12.Location = new System.Drawing.Point(406, 736);
+            this.label12.Name = "label12";
+            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label12.Size = new System.Drawing.Size(150, 25);
+            this.label12.TabIndex = 95;
+            this.label12.Text = "כמות כללית :";
             // 
             // product_cart
             // 
@@ -366,8 +442,13 @@ namespace Electricity_shop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1321, 790);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.total_sum_products);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.order_number);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.remove);
+            this.Controls.Add(this.total);
+            this.Controls.Add(this.products_count);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cancel);
@@ -384,12 +465,14 @@ namespace Electricity_shop
             this.Name = "product_cart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "product_cart";
+            this.Load += new System.EventHandler(this.product_cart_Load);
             this.panel8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.products_grid)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -409,15 +492,21 @@ namespace Electricity_shop
         private System.Windows.Forms.Button add_to_cart;
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label products_count;
+        private System.Windows.Forms.Label total;
+        private System.Windows.Forms.Button remove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label order_number;
+        private System.Windows.Forms.Label total_sum_products;
+        private System.Windows.Forms.Label label12;
     }
 }
