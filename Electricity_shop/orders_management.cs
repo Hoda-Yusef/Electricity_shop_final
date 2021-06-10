@@ -53,22 +53,7 @@ namespace Electricity_shop
            
         }
 
-        private void update_row_Click(object sender, EventArgs e)
-        {
-            update_order upOr = new update_order();
-
-            upOr.update_name.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
-            upOr.update_lastName.Text = orders_grid.CurrentRow.Cells[1].Value.ToString();
-            upOr.update_phone_number.Text = orders_grid.CurrentRow.Cells[2].Value.ToString();
-            upOr.update_address.Text = orders_grid.CurrentRow.Cells[3].Value.ToString();
-            upOr.update_total.Text = orders_grid.CurrentRow.Cells[5].Value.ToString();
-            if (orders_grid.CurrentRow.Cells[6].Value.Equals(imageList1.Images[0]))
-                upOr.update_status.Text = "סופק";
-            else
-                upOr.update_status.Text = "לא סופק";
-
-            upOr.ShowDialog();
-        }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -238,10 +223,26 @@ namespace Electricity_shop
             Show_order.ShowDialog();
         }
 
+        private void Update_order_Click(object sender, EventArgs e)
+        {
+            //update_order update_Order = new update_order();
 
+            //update_Order.show_order_number.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
+            //update_Order.ShowDialog();
 
+            mySQL.InsertOrderNumberHolder(orders_grid.CurrentRow.Cells[0].Value.ToString());
+            this.Close();
+            Thread th;
+            th = new Thread(openUpdateOrder);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
 
+        }
 
+        private void openUpdateOrder(object obj)
+        {
+            Application.Run(new update_order());
+        }
 
 
 

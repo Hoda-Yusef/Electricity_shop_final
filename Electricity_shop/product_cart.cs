@@ -18,7 +18,7 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
 
         product Product;
-        string[] Products;
+        
 
         public product_cart()
         {
@@ -122,7 +122,7 @@ namespace Electricity_shop
         private void remove_Click(object sender, EventArgs e)
         {
             string item = products_grid.CurrentRow.Cells[0].Value.ToString();//מסיר מוצר מעגלה
-            mySQL.removeItemFromCart(item);
+            mySQL.deleteItemFromCart(item);
 
             Thread th;
             this.Close();
@@ -206,5 +206,7 @@ namespace Electricity_shop
             mySQL.UpdateCartAmount(Convert.ToInt32(products_grid.CurrentRow.Cells[5].Value),products_grid.CurrentRow.Cells[0].Value.ToString());
             MessageBox.Show("כמות עודכנה");
         }
+
+        
     }
 }

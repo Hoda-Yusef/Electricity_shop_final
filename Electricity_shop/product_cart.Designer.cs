@@ -337,7 +337,7 @@ namespace Electricity_shop
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(393, 694);
+            this.label2.Location = new System.Drawing.Point(419, 694);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 25);
             this.label2.TabIndex = 74;
@@ -358,10 +358,10 @@ namespace Electricity_shop
             // 
             this.products_count.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.products_count.ForeColor = System.Drawing.Color.White;
-            this.products_count.Location = new System.Drawing.Point(317, 694);
+            this.products_count.Location = new System.Drawing.Point(302, 694);
             this.products_count.Name = "products_count";
             this.products_count.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.products_count.Size = new System.Drawing.Size(70, 25);
+            this.products_count.Size = new System.Drawing.Size(111, 25);
             this.products_count.TabIndex = 76;
             this.products_count.Text = "0";
             // 
@@ -418,7 +418,7 @@ namespace Electricity_shop
             // 
             this.total_sum_products.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.total_sum_products.ForeColor = System.Drawing.Color.White;
-            this.total_sum_products.Location = new System.Drawing.Point(276, 738);
+            this.total_sum_products.Location = new System.Drawing.Point(300, 738);
             this.total_sum_products.Name = "total_sum_products";
             this.total_sum_products.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.total_sum_products.Size = new System.Drawing.Size(111, 25);
@@ -429,7 +429,7 @@ namespace Electricity_shop
             // 
             this.label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(250)))));
-            this.label12.Location = new System.Drawing.Point(406, 736);
+            this.label12.Location = new System.Drawing.Point(420, 736);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label12.Size = new System.Drawing.Size(150, 25);

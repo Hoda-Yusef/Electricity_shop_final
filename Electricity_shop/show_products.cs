@@ -59,7 +59,6 @@ namespace Electricity_shop
 
             if (Product_order != null)
             {
-
                 for (int i = 0; i < Product_order.Length; i++)
                 {
                     product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
@@ -77,9 +76,11 @@ namespace Electricity_shop
 
                     total_amount += Convert.ToInt32(Product_order[i].Amount);
                     Total_price += Convert.ToInt32(Product.Selling_price);
-
                 }
             }
+            else
+                MessageBox.Show("אין מוצרים להזמנה");
+
             products_amount.Text = product_grid.Rows.Count.ToString();
             total_sum_products.Text = total_amount.ToString();
             total_price.Text = Total_price.ToString();

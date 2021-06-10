@@ -155,6 +155,19 @@ namespace Electricity_shop
             }
         }
 
+        public void InsertOrderNumberHolder(string orderNumber)
+        {
+            string cmdStr = "INSERT INTO order_number_holder (order_number) VALUES ("+orderNumber+")";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@order_number", orderNumber);
+                
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         public void InsertToCart(string item,int amount)
         {
             string cmdStr = "INSERT INTO cart (product_barcode,amount) VALUES (" + item + ","+amount+")";
@@ -275,52 +288,43 @@ namespace Electricity_shop
 
         }
 
-        //public orders[] GetOrderDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
-        //{
-        //    DataSet ds = new DataSet();
-        //    product[] Product = null;
-        //    string cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
-        //        " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
-        //        "AND product_model LIKE '" + modelItem + "%'";
+        public orders GetOrdersDataByOrderNumber(string order_number)
+        {
+            DataSet ds = new DataSet();
+            orders Orders = null;
+            string cmdStr = "SELECT * FROM orders WHERE order_number=" + order_number + "";
 
-        //    using (MySqlCommand command = new MySqlCommand(cmdStr))
-        //    {
-        //        ds = GetMultipleQuery(command);
-        //    }
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
 
-        //    DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        dt = ds.Tables[0];
-        //    }
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
 
-        //    catch
-        //    {
+            catch
+            {
 
-        //    }
+            }
 
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        Product = new product[dt.Rows.Count];
+            if (dt.Rows.Count > 0)
+            {
+                Orders = new orders();
 
-        //        for (int i = 0; i < Product.Length; i++)
-        //        {
-        //            Product[i] = new product();
-        //            Product[i].Barcode = dt.Rows[i][1].ToString();
-        //            Product[i].Category = dt.Rows[i][2].ToString();
-        //            Product[i].Model = dt.Rows[i][3].ToString();
-        //            Product[i].Manufacturer = dt.Rows[i][4].ToString();
-        //            Product[i].Supplier = dt.Rows[i][5].ToString();
-        //            Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
-        //            Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
-        //            Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
-        //            Product[i].Product_info = dt.Rows[i][9].ToString();
-        //        }
-        //    }
-        //    return Product;
+                Orders = new orders();
+                Orders.Order_number = Convert.ToInt32(dt.Rows[0][0]);
+                Orders.Customer_id = dt.Rows[0][1].ToString();
+                Orders.Date = dt.Rows[0][2].ToString();
+                Orders.Status = Convert.ToInt32(dt.Rows[0][3]);
 
-        //}
 
+            }
+            return Orders;
+
+        }
 
         public product[] GetProductData()
         {
@@ -1041,6 +1045,38 @@ namespace Electricity_shop
 
         }
 
+        public order_number_holder GetorderNumberHolder()
+        {
+            DataSet ds = new DataSet();
+            order_number_holder Order_number_holder = null;
+            string cmdStr = "SELECT * FROM order_number_holder";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+
+                Order_number_holder = new order_number_holder();
+                Order_number_holder.Order_number = Convert.ToInt32(dt.Rows[0][0]);
+             
+            }
+            return Order_number_holder;
+
+        }
+
         public void UpdateProductByBarcode(product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -1210,6 +1246,19 @@ namespace Electricity_shop
             }
         }
 
+        public void UpdateProduct_orderAmount(string product_serial_number, string order_serial_number,int amount)
+        {
+            string cmdStr = "UPDATE product_order SET amount=" + amount + " WHERE product_serial_number=" + product_serial_number + " AND order_serial_number="+ order_serial_number + "";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@amount", amount);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         public void clearCart()
         {
             string cmdStr = "DELETE FROM cart";
@@ -1220,7 +1269,17 @@ namespace Electricity_shop
             }
         }
 
-        public void removeItemFromCart(string item)
+        public void clearOrderNumberHolder()
+        {
+            string cmdStr = "DELETE FROM order_number_holder";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void deleteItemFromCart(string item)
         {
             string cmdStr = "DELETE FROM cart WHERE product_barcode="+item+"";
 
@@ -1230,7 +1289,19 @@ namespace Electricity_shop
             }
         }
 
+        public void deleteProductFromProduct_cartByOrderNumberAndProductSerial(string product_serial_number,string order_serial_number)
+        {
+            string cmdStr = "DELETE FROM product_order WHERE product_serial_number=" + product_serial_number + " AND order_serial_number="+ order_serial_number +"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         
+
+
 
         /*
         public void UpdateProductByBarcode(product Item)

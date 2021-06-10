@@ -198,15 +198,7 @@ namespace Electricity_shop
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Thread th;
-            this.Close();
-            th = new Thread(OpenProductCart);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-
+       
         private void OpenProductCart(object obj)
         {
             Application.Run(new product_cart());
