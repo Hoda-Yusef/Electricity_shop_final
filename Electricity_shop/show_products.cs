@@ -75,7 +75,7 @@ namespace Electricity_shop
                     });
 
                     total_amount += Convert.ToInt32(Product_order[i].Amount);
-                    Total_price += Convert.ToInt32(Product.Selling_price);
+                    Total_price += Convert.ToInt32(Product.Selling_price)* total_amount;
                 }
             }
             else

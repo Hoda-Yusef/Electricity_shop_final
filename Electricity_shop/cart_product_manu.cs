@@ -17,9 +17,12 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        product[] Product;
+        product[] Products;
+        product Product;
+        cart Cart;
 
-        
+
+
         public cart_product_manu()
         {
             InitializeComponent();
@@ -33,21 +36,21 @@ namespace Electricity_shop
 
         private void cart_product_manu_Load(object sender, EventArgs e)
         {
-            Product = mySQL.GetProductData();
+            Products = mySQL.GetProductData();
 
-            for (int i = 0; i < Product.Length; i++)
+            for (int i = 0; i < Products.Length; i++)
             {
                 products_grid.Rows.Add(new object[]
                 {
-                    Product[i].Category,
-                    Product[i].Manufacturer,
-                    Product[i].Model,
-                    Product[i].Barcode,
-                    Product[i].Supplier,
-                    Product[i].Amount,
-                    Product[i].Cost_price,
-                    Product[i].Selling_price,
-                    Product[i].Product_info
+                    Products[i].Category,
+                    Products[i].Manufacturer,
+                    Products[i].Model,
+                    Products[i].Barcode,
+                    Products[i].Supplier,
+                    Products[i].Amount,
+                    Products[i].Cost_price,
+                    Products[i].Selling_price,
+                    Products[i].Product_info
                 });
             }
 
@@ -58,9 +61,9 @@ namespace Electricity_shop
 
         private void fill_grid_by_barcode()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
-            fill_grid(Product);
+            fill_grid(Products);
             if (products_grid.Rows.Count != 0)
                 products_grid.Rows[0].Cells[0].Selected = false;
 
@@ -68,9 +71,9 @@ namespace Electricity_shop
 
         private void fill_grid_by_category()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
-            fill_grid(Product);
+            fill_grid(Products);
             if (products_grid.Rows.Count != 0)
                 products_grid.Rows[0].Cells[0].Selected = false;
 
@@ -78,9 +81,9 @@ namespace Electricity_shop
 
         private void fill_grid_by_manufacture()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
-            fill_grid(Product);
+            fill_grid(Products);
 
             if (products_grid.Rows.Count != 0)
                 products_grid.Rows[0].Cells[0].Selected = false;
@@ -89,9 +92,9 @@ namespace Electricity_shop
 
         private void fill_grid_by_model()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
-            fill_grid(Product);
+            fill_grid(Products);
             if (products_grid.Rows.Count != 0)
                 products_grid.Rows[0].Cells[0].Selected = false;
 
@@ -218,16 +221,16 @@ namespace Electricity_shop
             bool same = false;
             string item = products_grid.CurrentRow.Cells[3].Value.ToString();
             int amount = (int)products_grid.CurrentRow.Cells[5].Value;
-            cart[] Cart = mySQL.getCartData();
+            Cart = mySQL.getCartDataByProductBarcode(item);
 
-            for (int i = 0; i < Cart.Length; i++)
+            if (Cart != null)
             {
-                if (Cart[i].Product_barcode == item)
+                if (Cart.Product_barcode == item)
                 {
                     same = true;
                 }
             }
-
+            
             if (same)
             {
                 MessageBox.Show("מוצר קיים בעגלה", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -236,8 +239,14 @@ namespace Electricity_shop
             {
                 if (amount != 0)
                 {
-                    mySQL.InsertToCart(item,Convert.ToInt32(amountChoose.Value));
-                    MessageBox.Show("מוצר התווסף לעגלה");
+                    Product = mySQL.GetProductDataByBarcode(products_grid.CurrentRow.Cells[3].Value.ToString());
+                    if (Product.Amount - Convert.ToInt32(amountChoose.Value) >= 0)
+                    {
+                        mySQL.InsertToCart(item, Convert.ToInt32(amountChoose.Value));
+                        MessageBox.Show("מוצר התווסף לעגלה");
+                    }
+                    else
+                        MessageBox.Show("אין מספיק מלאי להכמות המבוקשת");
                 }
                 else
                     MessageBox.Show("מוצר אזל מהמלאי", "", MessageBoxButtons.OK, MessageBoxIcon.Error);

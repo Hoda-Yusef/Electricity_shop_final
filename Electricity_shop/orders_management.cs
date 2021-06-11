@@ -15,9 +15,11 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
         orders Orders;
+        string order_number_holder;
 
 
-        
+
+
         public orders_management()
         {
             InitializeComponent();
@@ -136,11 +138,11 @@ namespace Electricity_shop
 
         private void update_status_Click(object sender, EventArgs e)//עדכון סטטוס
         {
-            Orders = mySQL.GetOrdersDataByCustomerId(orders_grid.CurrentRow.Cells[1].Value.ToString());
+            Orders = mySQL.GetOrdersDataByOrderNumber(orders_grid.CurrentRow.Cells[0].Value.ToString());
 
             if(Orders.Status ==1)//משנים את הסטטוס לסופק
             {
-                mySQL.UpdateOrderById(Orders.Customer_id, 0);
+                mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 0);
                 this.Close();
                 Thread th;
                 th = new Thread(openSelf);
@@ -150,7 +152,7 @@ namespace Electricity_shop
 
             if (Orders.Status == 0)//משנים את הסטטוס ללא סופק
             {
-                mySQL.UpdateOrderById(Orders.Customer_id, 1);
+                mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 1);
                 this.Close();
                 Thread th;
                 th = new Thread(openSelf);
@@ -230,7 +232,8 @@ namespace Electricity_shop
             //update_Order.show_order_number.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
             //update_Order.ShowDialog();
 
-            mySQL.InsertOrderNumberHolder(orders_grid.CurrentRow.Cells[0].Value.ToString());
+             mySQL.InsertOrderNumberHolder(orders_grid.CurrentRow.Cells[0].Value.ToString());
+            order_number_holder=orders_grid.CurrentRow.Cells[0].Value.ToString();
             this.Close();
             Thread th;
             th = new Thread(openUpdateOrder);
@@ -241,7 +244,10 @@ namespace Electricity_shop
 
         private void openUpdateOrder(object obj)
         {
-            Application.Run(new update_order());
+
+            Application.Run(new update_order(order_number_holder));
+
+
         }
 
 

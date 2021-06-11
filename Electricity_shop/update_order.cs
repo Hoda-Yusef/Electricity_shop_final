@@ -20,6 +20,7 @@ namespace Electricity_shop
         product_order[] Product_order;
         product Product;
         int previosAmount;
+        string order_number_holder;
         public update_order()
         {
             InitializeComponent();
@@ -27,6 +28,19 @@ namespace Electricity_shop
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+        }
+
+        public update_order(string order_number)
+        {
+            InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
+
+            order_number_holder = order_number;
+
+
         }
 
         private void panel4_MouseDown(object sender, MouseEventArgs e)
@@ -53,12 +67,13 @@ namespace Electricity_shop
         {
             int Total_price = 0, total_amount = 0;
 
-            ONH = mySQL.GetorderNumberHolder();
-            show_order_number.Text = ONH.Order_number.ToString();
+            show_order_number.Text = order_number_holder;
 
-            Orderss = mySQL.GetOrdersDataByOrderNumber(ONH.Order_number.ToString());
+            Orderss = mySQL.GetOrdersDataByOrderNumber(order_number_holder);
 
-            product_order[] Product_order = mySQL.GetProduct_orderDataByOrderNumber(ONH.Order_number.ToString());
+            product_order[] Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
+
+            
 
             if (Product_order != null)
             {
@@ -78,7 +93,7 @@ namespace Electricity_shop
                     });
 
                     total_amount += Convert.ToInt32(Product_order[i].Amount);
-                    Total_price += Convert.ToInt32(Product.Selling_price);
+                    Total_price += Convert.ToInt32(Product.Selling_price)*total_amount;
                 }
             }
             else
@@ -90,6 +105,9 @@ namespace Electricity_shop
                 if (Orderss.Status == 0)
                     order_status.Text = "סופק";
             }
+
+            if (Orderss.Status == 0)
+                product_grid.Columns[5].ReadOnly = true;
 
             products_count.Text = product_grid.Rows.Count.ToString();
             total_sum_products.Text = total_amount.ToString();
@@ -142,7 +160,7 @@ namespace Electricity_shop
                     }
 
                     this.Close();
-                    Thread th;
+                    
                     th = new Thread(openself);
                     th.TrySetApartmentState(ApartmentState.STA);
                     th.Start();
@@ -158,7 +176,7 @@ namespace Electricity_shop
 
         private void openself(object obj)
         {
-            Application.Run(new update_order());
+            Application.Run(new update_order(order_number_holder));
         }
 
         private void add_to_cart_Click(object sender, EventArgs e)
@@ -179,27 +197,24 @@ namespace Electricity_shop
 
         private void OpenAddProductToOrder(object obj)
         {
-            Application.Run(new add_products_to_order());
+            Application.Run(new add_products_to_order(order_number_holder));
         }
 
         private void UPDATE_Click(object sender, EventArgs e)//לחיצה על עדכן מעדכן הסטטוס של ההזמנה
         {
-            Orderss = mySQL.GetOrdersDataByOrderNumber(ONH.Order_number.ToString());
+            Orderss = mySQL.GetOrdersDataByOrderNumber(order_number_holder);
             if (order_status != null)
             {
                 if (order_status.Text == "לא סופק")
                 {
-                    mySQL.UpdateOrderById(Orderss.Customer_id, 1);
+                    mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 1);
                 }
 
                 if(order_status.Text=="סופק")
                 {
-                    mySQL.UpdateOrderById(Orderss.Customer_id, 0);
+                    mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 0);
                 }
             }
-
-            mySQL.clearOrderNumberHolder();
-
             Thread th;
             this.Close();
             th = new Thread(OpenOrderManagement);
@@ -216,24 +231,37 @@ namespace Electricity_shop
         {
             int sum = 0;
 
-            Product_order = mySQL.GetProduct_orderDataByOrderNumber(ONH.Order_number.ToString());
+            Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
             Product = mySQL.GetProductDataByBarcode(product_grid.CurrentRow.Cells[0].Value.ToString());
 
             for(int i=0;i<Product_order.Length;i++)
             {
                 if(Product_order[i].Product_serial_number == Product.Product_serial_number)
                 {
-                    if((Product.Amount+previosAmount)-Convert.ToInt32(product_grid.CurrentRow.Cells[5].Value)>=0)
+                    if ((Product.Amount + previosAmount) - Convert.ToInt32(product_grid.CurrentRow.Cells[5].Value) >= 0)
                     {
                         sum += (Product.Amount + previosAmount) - Convert.ToInt32(product_grid.CurrentRow.Cells[5].Value);
-                        mySQL.UpdateProduct_orderAmount(Product.Product_serial_number.ToString(),ONH.Order_number.ToString(), Convert.ToInt32(product_grid.CurrentRow.Cells[5].Value));
+                        mySQL.UpdateProduct_orderAmount(Product.Product_serial_number.ToString(), order_number_holder, Convert.ToInt32(product_grid.CurrentRow.Cells[5].Value));
                         mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);
 
                         MessageBox.Show("כמות עודכנה");
+                        
+                        this.Close();
+                        th = new Thread(openself);
+                        th.TrySetApartmentState(ApartmentState.STA);
+                        th.Start();
 
                     }
                     else
+                    {
                         MessageBox.Show("לא מספיק מלאי לכמות המבוקשת");
+                        this.Close();
+                        th = new Thread(openself);
+                        th.TrySetApartmentState(ApartmentState.STA);
+                        th.Start();
+
+                    }
+
                 }
             }
         }

@@ -43,7 +43,7 @@ namespace Electricity_shop
 
         private void update_customer_Load(object sender, EventArgs e)
         {
-            load_customers = mySQL.GetCustomerDataByID(Convert.ToInt32(id.Text));
+            load_customers = mySQL.GetCustomerDataByID(id.Text);
         }
 
 

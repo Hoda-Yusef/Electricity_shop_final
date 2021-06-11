@@ -99,7 +99,8 @@ namespace Electricity_shop
             }
 
             statusBar();
-            order_number.Text =mySQL.GetOrderMaxNumber().ToString();
+            int num = mySQL.GetOrderMaxNumber();
+            order_number.Text =num.ToString();
             
             
         }

@@ -288,6 +288,7 @@ namespace Electricity_shop
 
         }
 
+        
         public orders GetOrdersDataByOrderNumber(string order_number)
         {
             DataSet ds = new DataSet();
@@ -495,6 +496,42 @@ namespace Electricity_shop
                 }
             }
             return Cart;
+        }
+
+        public cart getCartDataByProductBarcode(string barcode)
+        {
+            DataSet ds = new DataSet();
+            cart Cart = null;
+            string cmdStr = "SELECT * FROM cart WHERE product_barcode =" + barcode + "";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Cart = new cart();
+
+                Cart = new cart();
+                Cart.Product_barcode = dt.Rows[0][0].ToString();
+               
+
+
+            }
+            return Cart;
+
         }
 
         public product GetProductDataByBarcode(string barcode)
@@ -1009,7 +1046,7 @@ namespace Electricity_shop
         {
             DataSet ds = new DataSet();
             product_order[] Product_order = null;
-            string cmdStr = "SELECT * FROM product_order WHERE order_serial_number=" + orderNumber + "";
+            string cmdStr = "SELECT * FROM product_order WHERE order_serial_number=" + orderNumber +"";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -1117,11 +1154,11 @@ namespace Electricity_shop
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
                 "product_model=@product_model,product_manufacturer=@product_manufacturer," +
                 "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
+                "amount=@amount,product_info=@product_info WHERE product_serial_number=" + Item.Product_serial_number+"";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
-                command.Parameters.AddWithValue("@serial_number", Item.Product_serial_number);
+                command.Parameters.AddWithValue("@product_serial_number", Item.Product_serial_number);
                 command.Parameters.AddWithValue("@barcode", Item.Barcode);
                 command.Parameters.AddWithValue("@product_category", Item.Category);
                 command.Parameters.AddWithValue("@product_model", Item.Model);
@@ -1187,6 +1224,19 @@ namespace Electricity_shop
             {
                 command.Parameters.AddWithValue("@status", status);
                 
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateOrderByOrderNumber(string orderNumber, int status)
+        {
+            string cmdStr = "UPDATE orders SET status=" + status + " WHERE order_number=" + orderNumber + "";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@status", status);
+
                 base.ExecuteSimpleQuery(command);
             }
         }
