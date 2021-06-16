@@ -113,7 +113,7 @@ namespace Electricity_shop
         {
             orders[] Orders = mySQL.GetOrdersData();
             customer Customer;
-
+            if(Orders!=null)
             for(int i=0;i<Orders.Length;i++)
             {
               Customer=  mySQL.GetCustomerDataByID(Orders[i].Customer_id);

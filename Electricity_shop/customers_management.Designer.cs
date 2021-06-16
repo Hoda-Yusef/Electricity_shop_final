@@ -300,6 +300,7 @@ namespace Electricity_shop
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.customers_grid);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "customers_management";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

@@ -62,7 +62,7 @@ namespace Electricity_shop
 
         private void openProductManagement(object obj)
         {
-            Application.Run(new products_management());
+            Application.Run(new Frm_products_management());
             
         }
 
@@ -79,7 +79,7 @@ namespace Electricity_shop
 
         private void openProductAdd(object obj)
         {
-            Application.Run(new add_product());
+            Application.Run(new Frm_addProduct());
             
         }
 

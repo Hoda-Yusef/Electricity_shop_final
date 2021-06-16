@@ -4,14 +4,15 @@ using System.Text;
 
 namespace Electricity_shop
 {
-    public class cart
+    public class Cart
     {
         private string product_barcode;
         private int amount;
 
 
-        public cart()
+        public Cart()
         {
+
             Product_barcode = string.Empty;
             Amount = 0;
         }

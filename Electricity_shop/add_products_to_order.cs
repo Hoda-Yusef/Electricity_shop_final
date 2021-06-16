@@ -15,8 +15,8 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        product[] Products;
-        product Product;
+        Product[] Products;
+        Product Product;
         order_number_holder ONH;
         product_order[] Product_order;
 
@@ -130,7 +130,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid(product[] Product)
+        private void fill_grid(Product[] Product)
         {
             products_grid.Rows.Clear();
             if (Product != null)

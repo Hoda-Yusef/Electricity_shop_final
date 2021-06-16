@@ -17,7 +17,7 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        product[] Product;
+        Product[] Product;
 
         
         public cart_product_manu()
@@ -97,7 +97,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid(product[] Product)
+        private void fill_grid(Product[] Product)
         {
             products_grid.Rows.Clear();
             if (Product != null)
@@ -218,7 +218,7 @@ namespace Electricity_shop
             bool same = false;
             string item = products_grid.CurrentRow.Cells[3].Value.ToString();
             int amount = (int)products_grid.CurrentRow.Cells[5].Value;
-            cart[] Cart = mySQL.getCartData();
+            Cart[] Cart = mySQL.getCartData();
 
             for (int i = 0; i < Cart.Length; i++)
             {

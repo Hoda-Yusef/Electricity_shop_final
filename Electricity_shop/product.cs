@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Electricity_shop
 {
-    public class product
+    public class Product
     {
         private int product_serial_number;
         private string barcode;
@@ -18,7 +18,7 @@ namespace Electricity_shop
         private string product_info;
 
 
-        public product()
+        public Product()
         {
             Product_serial_number = 0;
             Barcode = string.Empty;
