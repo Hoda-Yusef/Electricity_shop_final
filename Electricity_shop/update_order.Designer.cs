@@ -91,7 +91,7 @@ namespace Electricity_shop
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel2.Location = new System.Drawing.Point(1425, -4);
+            this.panel2.Location = new System.Drawing.Point(1322, -1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 811);
             this.panel2.TabIndex = 54;
@@ -109,7 +109,7 @@ namespace Electricity_shop
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel4.Location = new System.Drawing.Point(0, -4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1435, 25);
+            this.panel4.Size = new System.Drawing.Size(1359, 25);
             this.panel4.TabIndex = 56;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
@@ -140,7 +140,7 @@ namespace Electricity_shop
             // show_order_number
             // 
             this.show_order_number.ForeColor = System.Drawing.Color.White;
-            this.show_order_number.Location = new System.Drawing.Point(1111, 76);
+            this.show_order_number.Location = new System.Drawing.Point(1058, 76);
             this.show_order_number.Name = "show_order_number";
             this.show_order_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.show_order_number.Size = new System.Drawing.Size(120, 20);
@@ -151,7 +151,7 @@ namespace Electricity_shop
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1237, 76);
+            this.label4.Location = new System.Drawing.Point(1184, 76);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(98, 20);
@@ -166,10 +166,10 @@ namespace Electricity_shop
             this.remove.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.remove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(126)))), ((int)(((byte)(26)))));
             this.remove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.remove.Location = new System.Drawing.Point(898, 697);
+            this.remove.Location = new System.Drawing.Point(861, 696);
             this.remove.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.remove.Name = "remove";
-            this.remove.Size = new System.Drawing.Size(151, 51);
+            this.remove.Size = new System.Drawing.Size(134, 51);
             this.remove.TabIndex = 106;
             this.remove.Text = "הסרה";
             this.remove.UseVisualStyleBackColor = false;
@@ -226,10 +226,10 @@ namespace Electricity_shop
             this.cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cancel.ForeColor = System.Drawing.Color.White;
             this.cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cancel.Location = new System.Drawing.Point(723, 697);
+            this.cancel.Location = new System.Drawing.Point(708, 696);
             this.cancel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(151, 51);
+            this.cancel.Size = new System.Drawing.Size(134, 51);
             this.cancel.TabIndex = 101;
             this.cancel.Text = "ביטול";
             this.cancel.UseVisualStyleBackColor = false;
@@ -243,10 +243,10 @@ namespace Electricity_shop
             this.UPDATE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.UPDATE.ForeColor = System.Drawing.Color.White;
             this.UPDATE.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.UPDATE.Location = new System.Drawing.Point(1246, 697);
+            this.UPDATE.Location = new System.Drawing.Point(1166, 696);
             this.UPDATE.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.UPDATE.Name = "UPDATE";
-            this.UPDATE.Size = new System.Drawing.Size(151, 51);
+            this.UPDATE.Size = new System.Drawing.Size(134, 51);
             this.UPDATE.TabIndex = 100;
             this.UPDATE.Text = "עדכן";
             this.UPDATE.UseVisualStyleBackColor = false;
@@ -260,10 +260,10 @@ namespace Electricity_shop
             this.add_to_cart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.add_to_cart.ForeColor = System.Drawing.Color.White;
             this.add_to_cart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.add_to_cart.Location = new System.Drawing.Point(1072, 697);
+            this.add_to_cart.Location = new System.Drawing.Point(1014, 696);
             this.add_to_cart.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.add_to_cart.Name = "add_to_cart";
-            this.add_to_cart.Size = new System.Drawing.Size(151, 51);
+            this.add_to_cart.Size = new System.Drawing.Size(134, 51);
             this.add_to_cart.TabIndex = 99;
             this.add_to_cart.Text = "הוספה מוצר";
             this.add_to_cart.UseVisualStyleBackColor = false;
@@ -319,7 +319,7 @@ namespace Electricity_shop
             this.product_grid.RowHeadersWidth = 5;
             this.product_grid.RowTemplate.Height = 40;
             this.product_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.product_grid.Size = new System.Drawing.Size(1365, 544);
+            this.product_grid.Size = new System.Drawing.Size(1268, 544);
             this.product_grid.TabIndex = 98;
             this.product_grid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.product_grid_CellBeginEdit);
             this.product_grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_grid_CellEndEdit);
@@ -383,12 +383,12 @@ namespace Electricity_shop
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(491, 37);
+            this.label1.Location = new System.Drawing.Point(437, 37);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(466, 64);
             this.label1.TabIndex = 97;
-            this.label1.Text = "הצגה/עדכון הזמנה";
+            this.label1.Text = "עדכון הזמנה";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -407,7 +407,7 @@ namespace Electricity_shop
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1433, 799);
+            this.ClientSize = new System.Drawing.Size(1329, 799);
             this.Controls.Add(this.order_status);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.total_sum_products);

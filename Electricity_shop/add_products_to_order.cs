@@ -15,10 +15,11 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        Product[] Products;
-        Product Product;
-        order_number_holder ONH;
+        product[] Products;
+        product Product;
+        //order_number_holder ONH;
         product_order[] Product_order;
+        string order_number_holder;
 
         public add_products_to_order()
         {
@@ -28,6 +29,17 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
 
+        }
+
+        public add_products_to_order(string orderNumber)
+        {
+            InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
+
+            order_number_holder = orderNumber;
         }
 
         private void add_products_to_order_Load(object sender, EventArgs e)
@@ -190,10 +202,10 @@ namespace Electricity_shop
         private void add_to_order_Click(object sender, EventArgs e)
         {
             bool same = false;
-            ONH = mySQL.GetorderNumberHolder();//שולפים את מספר ההזמנה
+            //ONH = mySQL.GetorderNumberHolder();//שולפים את מספר ההזמנה
                                              
             Product = mySQL.GetProductDataByBarcode(products_grid.CurrentRow.Cells[3].Value.ToString());
-            Product_order = mySQL.GetProduct_orderDataByOrderNumber(ONH.Order_number.ToString());
+            Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
 
             string item = products_grid.CurrentRow.Cells[3].Value.ToString();//שולפים את הברקוד מהטבלה 
             int amount = (int)products_grid.CurrentRow.Cells[5].Value;//שולפים את הכמות הקיימת למוצר הנבחר
@@ -225,7 +237,7 @@ namespace Electricity_shop
                     if (amount - Convert.ToInt32(amountChoose.Value) >= 0)//בודקים אם יש מספיק מלאי לכמות המבוקשת
                     {
                         Product = mySQL.GetProductDataByBarcode(item);//שולפים מידע למוצר הקיים
-                        mySQL.InsertToProductOrder(Product.Product_serial_number, ONH.Order_number, Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
+                        mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
                         mySQL.UpdateProductAmountByBarcode(amount - Convert.ToInt32(amountChoose.Value), item);//מעדכנים את הכמות של המוצר הקיים
                         MessageBox.Show("מוצר התווסף להזמנה");
                         Thread th;
@@ -254,12 +266,12 @@ namespace Electricity_shop
 
         private void OpenUpadteOrder(object obj)
         {
-            Application.Run(new update_order());
+            Application.Run(new update_order(order_number_holder));
         }
 
         private void OpenSelf(object obj)
         {
-            Application.Run(new add_products_to_order());
+            Application.Run(new add_products_to_order(order_number_holder));
         }
 
         private void barcode_KeyPress(object sender, KeyPressEventArgs e)
