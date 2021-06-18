@@ -1,5 +1,4 @@
-﻿
-namespace Electricity_shop
+﻿namespace Electricity_shop
 {
     partial class orders_management
     {
@@ -132,7 +131,7 @@ namespace Electricity_shop
             this.orders_grid.RowHeadersWidth = 4;
             this.orders_grid.RowTemplate.Height = 40;
             this.orders_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orders_grid.Size = new System.Drawing.Size(1236, 655);
+            this.orders_grid.Size = new System.Drawing.Size(1149, 655);
             this.orders_grid.TabIndex = 21;
             this.orders_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orders_grid_CellClick);
             // 
@@ -186,9 +185,9 @@ namespace Electricity_shop
             // 
             // Column6
             // 
-            //dataGridViewCellStyle13.NullValue = null;
-            //this.Column6.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Column6.FillWeight = 90F;
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column6.FillWeight = 80F;
             this.Column6.HeaderText = "תאריך";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
@@ -221,10 +220,10 @@ namespace Electricity_shop
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1710, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button1.Location = new System.Drawing.Point(1954, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 38);
+            this.button1.Size = new System.Drawing.Size(39, 51);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
@@ -235,8 +234,9 @@ namespace Electricity_shop
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel8.Controls.Add(this.panel6);
             this.panel8.Location = new System.Drawing.Point(3, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1570, 32);
+            this.panel8.Size = new System.Drawing.Size(1452, 32);
             this.panel8.TabIndex = 15;
             this.panel8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseDown);
             this.panel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseMove);
@@ -268,10 +268,10 @@ namespace Electricity_shop
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(1535, -2);
+            this.button3.Location = new System.Drawing.Point(1409, -1);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 26);
+            this.button3.Size = new System.Drawing.Size(37, 34);
             this.button3.TabIndex = 53;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -281,47 +281,47 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel1.Location = new System.Drawing.Point(-2, 1137);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(-2, 1516);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1759, 15);
+            this.panel1.Size = new System.Drawing.Size(2010, 20);
             this.panel1.TabIndex = 16;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel7.Location = new System.Drawing.Point(1746, -5);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7.Location = new System.Drawing.Point(1995, -7);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(9, 659);
+            this.panel7.Size = new System.Drawing.Size(10, 879);
             this.panel7.TabIndex = 17;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(-4, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(-5, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(11, 659);
+            this.panel2.Size = new System.Drawing.Size(13, 879);
             this.panel2.TabIndex = 18;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel4.Location = new System.Drawing.Point(7, 649);
+            this.panel4.Location = new System.Drawing.Point(8, 865);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1193, 8);
+            this.panel4.Size = new System.Drawing.Size(1363, 11);
             this.panel4.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(594, 45);
+            this.label1.Location = new System.Drawing.Point(532, 43);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(283, 54);
+            this.label1.Size = new System.Drawing.Size(323, 72);
             this.label1.TabIndex = 19;
             this.label1.Text = "ניהול הזמנות";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -342,10 +342,10 @@ namespace Electricity_shop
             this.panel3.Controls.Add(this.Update_order);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.IDBox);
-            this.panel3.Location = new System.Drawing.Point(1296, 130);
+            this.panel3.Location = new System.Drawing.Point(1191, 130);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 492);
+            this.panel3.Size = new System.Drawing.Size(244, 655);
             this.panel3.TabIndex = 20;
             // 
             // dateTimePicker
@@ -388,7 +388,7 @@ namespace Electricity_shop
             this.label4.Location = new System.Drawing.Point(61, 183);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(112, 24);
+            this.label4.Size = new System.Drawing.Size(128, 32);
             this.label4.TabIndex = 30;
             this.label4.Text = "שם משפחה";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -402,7 +402,7 @@ namespace Electricity_shop
             this.lastNameBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.lastNameBox.Name = "lastNameBox";
             this.lastNameBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lastNameBox.Size = new System.Drawing.Size(175, 32);
+            this.lastNameBox.Size = new System.Drawing.Size(199, 38);
             this.lastNameBox.TabIndex = 29;
             this.lastNameBox.TextChanged += new System.EventHandler(this.lastNameBox_TextChanged);
             // 
@@ -413,7 +413,7 @@ namespace Electricity_shop
             this.label3.Location = new System.Drawing.Point(61, 94);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(112, 24);
+            this.label3.Size = new System.Drawing.Size(128, 32);
             this.label3.TabIndex = 28;
             this.label3.Text = "שם פרטי";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -427,7 +427,7 @@ namespace Electricity_shop
             this.firstNameBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.firstNameBox.Name = "firstNameBox";
             this.firstNameBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.firstNameBox.Size = new System.Drawing.Size(175, 32);
+            this.firstNameBox.Size = new System.Drawing.Size(199, 38);
             this.firstNameBox.TabIndex = 27;
             this.firstNameBox.TextChanged += new System.EventHandler(this.firstNameBox_TextChanged);
             // 
@@ -442,7 +442,7 @@ namespace Electricity_shop
             this.show_order.Location = new System.Drawing.Point(26, 401);
             this.show_order.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.show_order.Name = "show_order";
-            this.show_order.Size = new System.Drawing.Size(174, 38);
+            this.show_order.Size = new System.Drawing.Size(199, 51);
             this.show_order.TabIndex = 26;
             this.show_order.Text = "הצגת מוצרים";
             this.show_order.UseVisualStyleBackColor = false;
@@ -459,7 +459,7 @@ namespace Electricity_shop
             this.back.Location = new System.Drawing.Point(26, 584);
             this.back.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(174, 38);
+            this.back.Size = new System.Drawing.Size(199, 51);
             this.back.TabIndex = 25;
             this.back.Text = "חזרה לראשי";
             this.back.UseVisualStyleBackColor = false;
@@ -476,7 +476,7 @@ namespace Electricity_shop
             this.update_status.Location = new System.Drawing.Point(26, 523);
             this.update_status.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.update_status.Name = "update_status";
-            this.update_status.Size = new System.Drawing.Size(174, 38);
+            this.update_status.Size = new System.Drawing.Size(199, 51);
             this.update_status.TabIndex = 24;
             this.update_status.Text = "עדכון סטטוס";
             this.update_status.UseVisualStyleBackColor = false;
@@ -493,7 +493,7 @@ namespace Electricity_shop
             this.Update_order.Location = new System.Drawing.Point(26, 462);
             this.Update_order.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Update_order.Name = "Update_order";
-            this.Update_order.Size = new System.Drawing.Size(174, 38);
+            this.Update_order.Size = new System.Drawing.Size(199, 51);
             this.Update_order.TabIndex = 23;
             this.Update_order.Text = "עדכון הזמנה";
             this.Update_order.UseVisualStyleBackColor = false;
@@ -506,7 +506,7 @@ namespace Electricity_shop
             this.label2.Location = new System.Drawing.Point(61, 6);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(112, 24);
+            this.label2.Size = new System.Drawing.Size(128, 32);
             this.label2.TabIndex = 22;
             this.label2.Text = "תעודת זהות";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -520,7 +520,7 @@ namespace Electricity_shop
             this.IDBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.IDBox.Name = "IDBox";
             this.IDBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IDBox.Size = new System.Drawing.Size(175, 32);
+            this.IDBox.Size = new System.Drawing.Size(199, 38);
             this.IDBox.TabIndex = 0;
             this.IDBox.TextChanged += new System.EventHandler(this.IDBox_TextChanged);
             this.IDBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDBox_KeyPress);
@@ -528,35 +528,37 @@ namespace Electricity_shop
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel5.Location = new System.Drawing.Point(3, 607);
+            this.panel5.Location = new System.Drawing.Point(3, 809);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1754, 8);
+            this.panel5.Size = new System.Drawing.Size(2005, 11);
             this.panel5.TabIndex = 16;
             // 
             // panel10
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel6.Controls.Add(this.panel9);
-            this.panel6.Location = new System.Drawing.Point(1563, -5);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(10, 908);
-            this.panel6.TabIndex = 19;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Location = new System.Drawing.Point(1446, -1);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(13, 879);
+            this.panel10.TabIndex = 19;
             // 
             // panel11
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Location = new System.Drawing.Point(8, 865);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1363, 11);
-            this.panel9.TabIndex = 16;
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel11.Location = new System.Drawing.Point(8, 865);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1363, 11);
+            this.panel11.TabIndex = 16;
             // 
             // orders_management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1570, 817);
+            this.ClientSize = new System.Drawing.Size(1454, 817);
+            this.Controls.Add(this.panel10);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel5);
@@ -569,6 +571,7 @@ namespace Electricity_shop
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "orders_management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
