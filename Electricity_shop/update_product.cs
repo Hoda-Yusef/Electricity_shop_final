@@ -12,7 +12,7 @@ namespace Electricity_shop
     public partial class Frm_updateProduct : Form
     {
         private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
-        product load_products;
+        Product load_products;
         DBSQL mySQL;
         int count = 0;
         private Point sp = new Point(0, 0);
@@ -56,7 +56,7 @@ namespace Electricity_shop
 
         private void Fill_obj(Product items)
         {
-            if (model.Text != "" && barcode.Text != "")
+            if (Txt_model.Text != "" && Txt_barcode.Text != "")
             {
                 items.Barcode = Txt_barcode.Text;
                 items.Category = Txt_category.Text;
@@ -139,7 +139,7 @@ namespace Electricity_shop
 
         private void update_product_Load(object sender, EventArgs e)
         {
-          load_products = mySQL.GetProductDataByBarcode(Convert.ToInt32(barcode.Text));
+          load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
         }
 
         private void Txt_amount_TextChanged(object sender, EventArgs e)

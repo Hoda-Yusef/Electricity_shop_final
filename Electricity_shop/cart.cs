@@ -6,7 +6,7 @@ namespace Electricity_shop
 {
     public class Cart
     {
-        private string product_barcode;
+        public string product_barcode;
         private int amount;
 
 

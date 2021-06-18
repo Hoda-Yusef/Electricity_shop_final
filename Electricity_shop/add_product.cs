@@ -377,10 +377,11 @@ namespace Electricity_shop
             {
                 Product[] Product = mySQL.GetProductData();
                 string modelTmp = txt_model.Text;
+                string upperCaseString = modelTmp.ToUpper();
 
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    if (modelTmp == Product[i].Model.ToString())
+                    if (modelTmp == Product[i].Model.ToString() || upperCaseString == Product[i].Model.ToString())
                     {
                         MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
                         int temporary_serial_number = Product[i].Product_serial_number;
@@ -395,6 +396,7 @@ namespace Electricity_shop
                         //productAmount.Value = load_products.Amount;
                         txt_productInformation.Text = load_products.Product_info.ToString();
                         Read_only_true();
+                    }
 
                     }
 
@@ -402,4 +404,4 @@ namespace Electricity_shop
             }
         }
     }
-}
+
