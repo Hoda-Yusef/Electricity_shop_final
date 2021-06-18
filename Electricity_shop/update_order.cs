@@ -18,7 +18,7 @@ namespace Electricity_shop
         orders Orderss;
         order_number_holder ONH;
         product_order[] Product_order;
-        product Product;
+        Product Product;
         int previosAmount;
         string order_number_holder;
         public update_order()
@@ -79,7 +79,7 @@ namespace Electricity_shop
             {
                 for (int i = 0; i < Product_order.Length; i++)
                 {
-                    product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
+                    Product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
 
                     product_grid.Rows.Add(new object[]
                     {
@@ -149,7 +149,7 @@ namespace Electricity_shop
 
                 if (product_grid.Rows.Count != 0)//אם הטבלה לא ריקה
                 {
-                    product Product = mySQL.GetProductDataByBarcode(product_grid.CurrentRow.Cells[0].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
+                    Product Product = mySQL.GetProductDataByBarcode(product_grid.CurrentRow.Cells[0].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
 
                     mySQL.deleteProductFromProduct_cartByOrderNumberAndProductSerial(Product.Product_serial_number.ToString(), show_order_number.Text);//מסירים את המוצר הנבחר מההזמנה
 

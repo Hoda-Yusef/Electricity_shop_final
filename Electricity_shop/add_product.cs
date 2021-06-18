@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,22 +10,23 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class add_product : Form
+    public partial class Frm_addProduct : Form
     {
+        Product load_products;
         int count = 0;
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        int inx;
-        private DBSQL mySQL;
+        //int inx;
+        private readonly DBSQL mySQL;
         private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
-        AutoCompleteStringCollection bar = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection cat = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection mod = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection factory = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection supp = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection barcode = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection category = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection model = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection manufacturer = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection supplier = new AutoCompleteStringCollection();
 
-        public add_product()
+        public Frm_addProduct()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -32,262 +34,189 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
 
-            //set_AutoCompleteMode_text_boxes();
+            Set_AutoCompleteMode_text_boxes();
 
         }
-        /*
-        private void set_AutoCompleteMode_text_boxes()
+
+        private void Set_AutoCompleteMode_text_boxes()
         {
-            barcode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            barcode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            category.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_manufacturer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_manufacturer.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            modell.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            modell.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            manufature.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            manufature.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            supplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            supplier.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_supplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_supplier.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
-        */
-        private void button3_Click(object sender, EventArgs e)
+
+        private void btn_exitX_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void opennewform(object obj)
+        private void Opennewform(object obj)
         {
             Application.Run(new main());
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Open_proManagment(object obj)
         {
-            bool same = false;
+            Application.Run(new Frm_products_management());
+        }
 
-            if (barcode.Text!="" && category.Text != "" && productInfo.Text != "" && modell.Text != ""
-                && manufature.Text != "" && supplier.Text != "" && costPrice.Text != ""
-                && sellingPrice.Text != "" && amount.Value != 0)
-            {
-                product[] Product = mySQL.GetProductData();
-                product Prod = new product();
-                string barcodeTmp = barcode.Text;
-
-                for (int i = 0; i < Product.Length; i++)
-                {
-                    if (barcodeTmp == Product[i].Barcode.ToString())
-                    {
-                        same = true;
-                        inx = i;
-                    }
-
-                }
-
-                if (same)
-                {
-                    same_product(Prod, Product[inx]);
-                    read_only_false();
-                    this.Close();
-                    th = new Thread(open_proManagment);
-                    th.TrySetApartmentState(ApartmentState.STA);
-                    th.Start();
-                }
-                else
-                {
-                    new_product(Prod);
-                    read_only_false();
-                    this.Close();
-                    th = new Thread(open_proManagment);
-                    th.TrySetApartmentState(ApartmentState.STA);
-                    th.Start();
-
-                }
-            }
-            else
-                MessageBox.Show("יש למלא את כל השדות");
-
+        private bool Check_barcode()
+        {
+            return (txt_barcode.Text.Length == 13 || txt_barcode.Text.Length == 12 || txt_barcode.Text.Length == 0);
         }
 
 
-        private void open_proManagment(object obj)
+        private void Read_only_true()
         {
-            Application.Run(new products_management());
+            txt_barcode.ReadOnly = true;
+            txt_category.ReadOnly = true;
+            txt_model.ReadOnly = true;
+            txt_manufacturer.ReadOnly = true;
+            txt_supplier.ReadOnly = true;
+            txt_costPrice.ReadOnly = true;
+            txt_sellingPrice.ReadOnly = true;
+            txt_productInformation.ReadOnly = true;
         }
 
-        private bool check_barcode()
+        private void Frm_addProduct_Load(object sender, EventArgs e)
         {
-            return (barcode.Text.Length == 13 || barcode.Text.Length == 12 || barcode.Text.Length == 0);
-        }
-
-        private void barcode_Leave(object sender, EventArgs e)
-        {
-            if (check_barcode() == false && count == 0)
-            {
-                count++;
-                // מגדירים שגאיה בהתאם
-                barcodeErrorProvider = new ErrorProvider();
-                barcodeErrorProvider.SetError(barcode, "ברקוד מכיל 13 או 12 ספרות");
-            }
-            else
-            {
-                if (check_barcode() == true && count == 0)
-                {
-                    //לא מבצעים פעולות
-                    // נשאר count=0
-                }
-                else
-                {
-                    if (check_barcode() == true)
-                    {
-                        barcodeErrorProvider.SetError(barcode, "");
-                    }
-                    else
-                    {
-                        barcodeErrorProvider.SetError(barcode, "ברקוד מכיל 13 או 12 ספרות");
-                    }
-                }
-            }
-               
-                if (barcode.Text != "")
-            {
-                product[] Product = mySQL.GetProductData();
-                string barcodeTmp = barcode.Text;
-
-                for (int i = 0; i < Product.Length; i++)
-                {
-                    if (barcodeTmp == Product[i].Barcode.ToString())
-                    {
-
-
-                        barcode.Text = Product[i].Barcode;
-                        category.Text = Product[i].Category;
-                        modell.Text = Product[i].Model;
-                        manufature.Text = Product[i].Manufacturer;
-                        supplier.Text = Product[i].Supplier;
-                        costPrice.Text = Product[i].Cost_price.ToString();
-                        sellingPrice.Text = Product[i].Selling_price.ToString();
-                        productInfo.Text = Product[i].Product_info;
-                        MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
-                        read_only_true();
-
-                    }
-
-                }
-            }
-        }
-
-        private void read_only_true()
-        {
-            barcode.ReadOnly = true;
-            category.ReadOnly = true;
-            modell.ReadOnly = true;
-            manufature.ReadOnly = true;
-            supplier.ReadOnly = true;
-            costPrice.ReadOnly = true;
-            sellingPrice.ReadOnly = true;
-            productInfo.ReadOnly = true;
-        }
-
-        private void add_product_Load(object sender, EventArgs e)
-        {
-
-            product[] Product = mySQL.GetProductData();
+            Product[] Product = mySQL.GetProductData();
 
 
             for (int i = 0; i < Product.Length; i++)
             {
-                bar.Add(Product[i].Barcode);
-                cat.Add(Product[i].Category);
-                mod.Add(Product[i].Model);
-                factory.Add(Product[i].Manufacturer);
-                supp.Add(Product[i].Supplier);
+                barcode.Add(Product[i].Barcode);
+                category.Add(Product[i].Category);
+                model.Add(Product[i].Model);
+                manufacturer.Add(Product[i].Manufacturer);
+                supplier.Add(Product[i].Supplier);
 
             }
-            barcode.AutoCompleteCustomSource = bar;
-            supplier.AutoCompleteCustomSource = supp;
-            modell.AutoCompleteCustomSource = mod;
-            manufature.AutoCompleteCustomSource = factory;
-            category.AutoCompleteCustomSource = cat;
+            txt_barcode.AutoCompleteCustomSource = barcode;
+            txt_supplier.AutoCompleteCustomSource = supplier;
+            txt_model.AutoCompleteCustomSource = model;
+            txt_manufacturer.AutoCompleteCustomSource = manufacturer;
+            txt_category.AutoCompleteCustomSource = category;
         }
 
-        private void clear_boxes()
+        private void Clear_boxes()
         {
-            barcode.Clear();
-            category.Clear();
-            modell.Clear();
-            manufature.Clear();
-            supplier.Clear();
-            costPrice.Clear();
-            sellingPrice.Clear();
-            amount.Value = 0;
-            productInfo.Clear();
+            txt_barcode.Clear();
+            txt_category.Clear();
+            txt_model.Clear();
+            txt_manufacturer.Clear();
+            txt_supplier.Clear();
+            txt_costPrice.Clear();
+            txt_sellingPrice.Clear();
+            productAmount.Value = 0;
+            txt_productInformation.Clear();
         }
 
-        private void same_product(product Prod, product Product)
+
+
+        private void fill_obj(Product items)
         {
+            if (txt_model.Text != "" && txt_barcode.Text != "")
+            {
+                items.Barcode = txt_barcode.Text;
+                items.Category = txt_category.Text;
+                items.Model = txt_model.Text;
+                items.Manufacturer = txt_manufacturer.Text;
+                items.Supplier = txt_supplier.Text;
+                items.Cost_price = Convert.ToInt32(txt_costPrice.Text);
+                items.Selling_price = Convert.ToInt32(txt_sellingPrice.Text);
+                items.Amount = Convert.ToInt32(productAmount.Text);
+                items.Product_info = txt_productInformation.Text;
+            }
+            else
+            {
+                if (txt_barcode.Text == "" && txt_model.Text != "")
+                {
+                    //items.Barcode = barcode.Text;
+                    items.Category = txt_category.Text;
+                    items.Model = txt_model.Text;
+                    items.Manufacturer = txt_manufacturer.Text;
+                    items.Supplier = txt_supplier.Text;
+                    items.Cost_price = Convert.ToInt32(txt_costPrice.Text);
+                    items.Selling_price = Convert.ToInt32(txt_sellingPrice.Text);
+                    items.Amount = Convert.ToInt32(productAmount.Text);
+                    items.Product_info = txt_productInformation.Text;
+                }
+                else
+                {
+                    items.Barcode = txt_barcode.Text;
+                    items.Category = txt_category.Text;
+                    //items.Model = model.Text;
+                    items.Manufacturer = txt_manufacturer.Text;
+                    items.Supplier = txt_supplier.Text;
+                    items.Cost_price = Convert.ToInt32(txt_costPrice.Text);
+                    items.Selling_price = Convert.ToInt32(txt_sellingPrice.Text);
+                    items.Amount = Convert.ToInt32(productAmount.Text);
+                    items.Product_info = txt_productInformation.Text;
+                }
+            }
+        }
 
-            Prod.Barcode = barcode.Text;
-            Prod.Category = category.Text;
-            Prod.Model = modell.Text;
-            Prod.Manufacturer = manufature.Text;
-            Prod.Supplier = supplier.Text;
-            Prod.Cost_price = Convert.ToInt32(costPrice.Text);
-            Prod.Selling_price = Convert.ToInt32(sellingPrice.Text);
-            Prod.Amount = Convert.ToInt32(amount.Value) + Product.Amount;
-            Prod.Product_info = productInfo.Text;
-            mySQL.UpdateProductByBarcode(Prod);
 
+        private void Same_product(Product Product)
+        {
+            fill_obj(Product);
+
+            mySQL.UpdateProductAmountByBarcode(Convert.ToInt32(productAmount.Value), Product.Barcode.ToString());
             MessageBox.Show("מוצר קיים , עודכן בהצלחה");
-            clear_boxes();
+            Clear_boxes();
 
         }
 
-        private void read_only_false()
+        private void Read_only_false()
         {
-            barcode.ReadOnly = false;
-            category.ReadOnly = false;
-            modell.ReadOnly = false;
-            manufature.ReadOnly = false;
-            supplier.ReadOnly = false;
-            costPrice.ReadOnly = false;
-            sellingPrice.ReadOnly = false;
-            productInfo.ReadOnly = false;
+            txt_barcode.ReadOnly = false;
+            txt_category.ReadOnly = false;
+            txt_model.ReadOnly = false;
+            txt_manufacturer.ReadOnly = false;
+            txt_supplier.ReadOnly = false;
+            txt_costPrice.ReadOnly = false;
+            txt_sellingPrice.ReadOnly = false;
+            txt_productInformation.ReadOnly = false;
         }
 
-        private void new_product(product Prod)
+        private void New_product(Product Prod)
         {
-            Prod.Barcode = barcode.Text;
-            Prod.Category = category.Text;
-            Prod.Model = modell.Text;
-            Prod.Manufacturer = manufature.Text;
-            Prod.Supplier = supplier.Text;
-            Prod.Cost_price = Convert.ToInt32(costPrice.Text);
-            Prod.Selling_price = Convert.ToInt32(sellingPrice.Text);
-            Prod.Amount = Convert.ToInt32(amount.Value);
-            Prod.Product_info = productInfo.Text;
+            Prod.Barcode = txt_barcode.Text;
+            Prod.Category = txt_category.Text;
+            Prod.Model = txt_model.Text;
+            Prod.Manufacturer = txt_manufacturer.Text;
+            Prod.Supplier = txt_supplier.Text;
+            Prod.Cost_price = Convert.ToInt32(txt_costPrice.Text);
+            Prod.Selling_price = Convert.ToInt32(txt_sellingPrice.Text);
+            Prod.Amount = Convert.ToInt32(productAmount.Value);
+            Prod.Product_info = txt_productInformation.Text;
             mySQL.InsertProduct(Prod);
 
             MessageBox.Show("מוצר התווסף בהצלחה");
-            clear_boxes();
+            Clear_boxes();
 
         }
 
-        private void barcode_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void txt_sellingPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -297,33 +226,13 @@ namespace Electricity_shop
             }
         }
 
-        private void costPrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-
-            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void sellingPrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-
-            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        private void frameColorUp_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        private void frameColorUp_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -332,46 +241,165 @@ namespace Electricity_shop
             }
         }
 
-        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        private void frameColorUp_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
-        private void delete_Click(object sender, EventArgs e)
+        private void txt_barcode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            clear_boxes();
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
         }
 
-        private void modell_Leave(object sender, EventArgs e)
+
+
+        private void txt_barcode_Leave(object sender, EventArgs e)
         {
-            if (modell.Text != "")
+            // בודקים אם לקוח קיים לפי תעודת זהות
+            if (txt_barcode.Text != "")
             {
-                product[] Product = mySQL.GetProductData();
-                string modelTmp = modell.Text;
+                //product Prod = new product();
+                Product[] Product = mySQL.GetProductData();
+                string temporary_barcode = txt_barcode.Text;
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    if (temporary_barcode == Product[i].Barcode.ToString())
+                    {
+                        MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
+                        load_products = mySQL.GetProductDataByBarcode(txt_barcode.Text);
+                        txt_barcode.Text = load_products.Barcode.ToString();
+                        txt_category.Text = load_products.Category.ToString();
+                        txt_model.Text = load_products.Model.ToString();
+                        txt_manufacturer.Text = load_products.Manufacturer.ToString();
+                        txt_supplier.Text = load_products.Supplier.ToString();
+                        txt_costPrice.Text = load_products.Cost_price.ToString();
+                        txt_sellingPrice.Text = load_products.Selling_price.ToString();
+                        //productAmount.Value = load_products.Amount;
+                        txt_productInformation.Text = load_products.Product_info.ToString();
+                        Read_only_true();
+
+                    }
+                }
+            }
+
+            if (Check_barcode() == false && count == 0)
+            {
+                count++;
+                // מגדירים שגאיה בהתאם
+                barcodeErrorProvider = new ErrorProvider();
+                barcodeErrorProvider.SetError(txt_barcode, "ברקוד מכיל 13 או 12 ספרות");
+            }
+            else
+            {
+                if (Check_barcode() == true && count == 0)
+                {
+                    //לא מבצעים פעולות
+                    // נשאר count=0
+                }
+                else
+                {
+                    if (Check_barcode() == true)
+                    {
+                        barcodeErrorProvider.SetError(txt_barcode, "");
+                    }
+                    else
+                    {
+                        barcodeErrorProvider.SetError(txt_barcode, "ברקוד מכיל 13 או 12 ספרות");
+                    }
+                }
+            }
+        }
+
+        private void txt_costPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btn_addProduct_Click(object sender, EventArgs e)
+        {
+            bool same = false;
+
+            if ((Check_barcode() || txt_model.Text != "") && txt_category.Text != "" && txt_productInformation.Text != ""
+                && txt_manufacturer.Text != "" && txt_supplier.Text != "" && txt_costPrice.Text != ""
+                && txt_sellingPrice.Text != "" && productAmount.Value != 0)
+            {
+                Product[] Product = mySQL.GetProductData();
+                Product Prod = new Product();
+                string barcodeTmp = txt_barcode.Text;
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    if (barcodeTmp == Product[i].Barcode.ToString())
+                    {
+                        same = true;
+                    }
+                }
+
+                if (same)
+                {
+                    int new_amount = Convert.ToInt32(productAmount.Value) + load_products.Amount;
+
+                    mySQL.UpdateProductAmountBySerial(new_amount, load_products.Product_serial_number.ToString());
+                    MessageBox.Show("מוצר קיים , עודכן בהצלחה");
+                    Clear_boxes();
+                }
+                else
+                {
+                    New_product(Prod);
+                    Clear_boxes();
+                }
+            }
+            else
+            {
+                MessageBox.Show("יש למלא את כל השדות");
+            }
+        }
+
+        private void btn_clearAll_Click(object sender, EventArgs e)
+        {
+            Clear_boxes();
+        }
+
+        private void txt_model_Leave(object sender, EventArgs e)
+        {
+            if (txt_model.Text != "")
+            {
+                Product[] Product = mySQL.GetProductData();
+                string modelTmp = txt_model.Text;
 
                 for (int i = 0; i < Product.Length; i++)
                 {
                     if (modelTmp == Product[i].Model.ToString())
                     {
-
-
-                        barcode.Text = Product[i].Barcode;
-                        category.Text = Product[i].Category;
-                        modell.Text = Product[i].Model;
-                        manufature.Text = Product[i].Manufacturer;
-                        supplier.Text = Product[i].Supplier;
-                        costPrice.Text = Product[i].Cost_price.ToString();
-                        sellingPrice.Text = Product[i].Selling_price.ToString();
-                        productInfo.Text = Product[i].Product_info;
                         MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
-                        read_only_true();
+                        int temporary_serial_number = Product[i].Product_serial_number;
+                        load_products = mySQL.GetProductDataBySerialNumber(temporary_serial_number.ToString());
+                        txt_barcode.Text = load_products.Barcode.ToString();
+                        txt_category.Text = load_products.Category.ToString();
+                        txt_model.Text = load_products.Model.ToString();
+                        txt_manufacturer.Text = load_products.Manufacturer.ToString();
+                        txt_supplier.Text = load_products.Supplier.ToString();
+                        txt_costPrice.Text = load_products.Cost_price.ToString();
+                        txt_sellingPrice.Text = load_products.Selling_price.ToString();
+                        //productAmount.Value = load_products.Amount;
+                        txt_productInformation.Text = load_products.Product_info.ToString();
+                        Read_only_true();
 
                     }
 
                 }
             }
         }
-
-        
     }
 }

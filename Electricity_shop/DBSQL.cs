@@ -24,7 +24,7 @@ namespace Electricity_shop
             {
                 if (instance == null)
                 {
-                    DBconnection connection = DBconnection.Instance();
+                   DBconnection connection = DBconnection.Instance();
                     instance = new DBSQL();
                 }
                 return instance;
@@ -77,7 +77,7 @@ namespace Electricity_shop
             }
         }
 
-        public void InsertProduct(product Item)
+        public void InsertProduct(Product Item)
         {
             string cmdStr = "INSERT INTO product (barcode,product_category,product_model," +
                 "product_manufacturer,product_supplier,cost_price,selling_price,amount,product_info)" +
@@ -126,17 +126,15 @@ namespace Electricity_shop
                 " VALUES (@first_name,@last_name,@phone_number,@address,@dept," +
                 "@paid)";
 
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@first_name", Item.FirstName);
-                command.Parameters.AddWithValue("@last_name", Item.LasttName);
-                command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
-                command.Parameters.AddWithValue("@address", Item.Address);
-                command.Parameters.AddWithValue("@dept", Item.Dept);
-                command.Parameters.AddWithValue("@paid", Item.Paid);
+            using MySqlCommand command = new MySqlCommand(cmdStr);
+            command.Parameters.AddWithValue("@first_name", Item.FirstName);
+            command.Parameters.AddWithValue("@last_name", Item.LasttName);
+            command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
+            command.Parameters.AddWithValue("@address", Item.Address);
+            command.Parameters.AddWithValue("@dept", Item.Dept);
+            command.Parameters.AddWithValue("@paid", Item.Paid);
 
-                base.ExecuteSimpleQuery(command);
-            }
+            base.ExecuteSimpleQuery(command);
         }
 
         public void InsertOrder(orders Item)
@@ -327,10 +325,10 @@ namespace Electricity_shop
 
         }
 
-        public product[] GetProductData()
+        public Product[] GetProductData()
         {
             DataSet ds = new DataSet();
-            product[] Product = null;
+            Product[] Product = null;
             string cmdStr = "SELECT * FROM product ORDER BY product_category";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
@@ -351,11 +349,11 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                Product = new product[dt.Rows.Count];
+                Product = new Product[dt.Rows.Count];
 
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    Product[i] = new product();
+                    Product[i] = new Product();
                     Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
                     Product[i].Barcode = dt.Rows[i][1].ToString();
                     Product[i].Category = dt.Rows[i][2].ToString();
@@ -372,10 +370,10 @@ namespace Electricity_shop
 
         }
 
-        public product GetProductDataBySerialNumber(string product_serial_number)
+        public Product GetProductDataBySerialNumber(string product_serial_number)
         {
             DataSet ds = new DataSet();
-            product Product = null;
+            Product Product = null;
             string cmdStr = "SELECT * FROM product WHERE product_serial_number=" + product_serial_number + "";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
@@ -396,10 +394,10 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                Product = new product();
+                Product = new Product();
 
                
-                    Product= new product();
+                    Product= new Product();
                     Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
                     Product.Barcode = dt.Rows[0][1].ToString();
                     Product.Category = dt.Rows[0][2].ToString();
@@ -416,10 +414,10 @@ namespace Electricity_shop
 
         }
 
-        public product[] GetProductDataByOrderNumber(string orderNumber)
+        public Product[] GetProductDataByOrderNumber(string orderNumber)
         {
             DataSet ds = new DataSet();
-            product[] Product = null;
+            Product[] Product = null;
             string cmdStr = "SELECT * FROM product_order WHERE order_serial_number="+orderNumber+"";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
@@ -440,11 +438,11 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                Product = new product[dt.Rows.Count];
+                Product = new Product[dt.Rows.Count];
 
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    Product[i] = new product();
+                    Product[i] = new Product();
                     Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
                     Product[i].Barcode = dt.Rows[i][1].ToString();
                     Product[i].Category = dt.Rows[i][2].ToString();
@@ -461,10 +459,10 @@ namespace Electricity_shop
 
         }
 
-        public cart[] getCartData()
+        public Cart[] getCartData()
         {
             DataSet ds = new DataSet();
-            cart[] Cart = null;
+            Cart[] cart = null;
             string cmdStr = "SELECT * FROM cart";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
@@ -485,13 +483,13 @@ namespace Electricity_shop
 
             if (dt.Rows.Count >= 0)
             {
-                Cart = new cart[dt.Rows.Count];
+                cart = new Cart[dt.Rows.Count];
 
-                for (int i = 0; i < Cart.Length; i++)
+                for (int i = 0; i < cart.Length; i++)
                 {
-                    Cart[i] = new cart();
-                    Cart[i].Product_barcode = dt.Rows[i][0].ToString();
-                    Cart[i].Amount= Convert.ToInt32(dt.Rows[i][1]);
+                    cart[i] = new Cart();
+                    cart[i].Product_barcode = dt.Rows[i][0].ToString();
+                    cart[i].Amount= Convert.ToInt32(dt.Rows[i][1]);
 
                 }
             }
@@ -534,10 +532,10 @@ namespace Electricity_shop
 
         }
 
-        public product GetProductDataByBarcode(string barcode)
+        public Product GetProductDataByBarcode(string barcode)
         {
             DataSet ds = new DataSet();
-            product Product = null;
+            Product Product = null;
             string cmdStr = "SELECT * FROM product WHERE barcode=" + barcode + "";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
@@ -558,7 +556,7 @@ namespace Electricity_shop
             if (dt.Rows.Count > 0)
             {
 
-                Product = new product();
+                Product = new Product();
                 Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
                 Product.Barcode = dt.Rows[0][1].ToString();
                 Product.Category = dt.Rows[0][2].ToString();
@@ -720,10 +718,10 @@ namespace Electricity_shop
 
         }
 
-        public product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
+        public Product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
         {
             DataSet ds = new DataSet();
-            product[] Product = null;
+            Product[] Product = null;
             string cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
                 " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
                 "AND product_model LIKE '" + modelItem + "%'";
@@ -746,11 +744,11 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                Product = new product[dt.Rows.Count];
+                Product = new Product[dt.Rows.Count];
 
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    Product[i] = new product();
+                    Product[i] = new Product();
                     Product[i].Barcode = dt.Rows[i][1].ToString();
                     Product[i].Category = dt.Rows[i][2].ToString();
                     Product[i].Model = dt.Rows[i][3].ToString();
@@ -1161,7 +1159,7 @@ namespace Electricity_shop
             return Order_number_holder;
 
         }
-
+      /*
         public void UpdateProductByBarcode(product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -1184,10 +1182,10 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
-        public void UpdateProductAmountByBarcode(int amount,string barcode)
+        */
+        public void UpdateProductAmountBySerial(int amount,string serial)
         {
-            string cmdStr = "UPDATE product SET amount="+amount+" WHERE barcode="+barcode+"";
+            string cmdStr = "UPDATE product SET amount="+amount+" WHERE product_serial_number="+serial+"";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -1197,12 +1195,26 @@ namespace Electricity_shop
             }
         }
 
-        public void UpdateProductBySerial(product Item)
+
+
+        public void UpdateProductAmountByBarcode(int amount, string barcode)
+        {
+            string cmdStr = "UPDATE product SET amount=" + amount + " WHERE barcode=" + barcode + "";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@amount", amount);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateProductBySerial(Product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
                 "product_model=@product_model,product_manufacturer=@product_manufacturer," +
                 "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE product_serial_number=" + Item.Product_serial_number+"";
+                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -1221,7 +1233,7 @@ namespace Electricity_shop
             }
         }
 
-        public void UpdateProductByModel(product Item)
+        public void UpdateProductByModel(Product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
                 "product_model=@product_model,product_manufacturer=@product_manufacturer," +

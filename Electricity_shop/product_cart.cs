@@ -17,7 +17,7 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
 
-        product Product;
+        Product Product;
         
 
         public product_cart()
@@ -74,8 +74,8 @@ namespace Electricity_shop
 
         private void product_cart_Load(object sender, EventArgs e)
         {
-            product[] Products = mySQL.GetProductData();
-            cart[] Cart = mySQL.getCartData();
+            Product[] Products = mySQL.GetProductData();
+            Cart[] Cart = mySQL.getCartData();
 
             for(int i=0;i<Cart.Length;i++)
             {

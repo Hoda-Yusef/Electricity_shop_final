@@ -142,7 +142,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid(product[] Product)
+        private void fill_grid(Product[] Product)
         {
             products_grid.Rows.Clear();
             if (Product != null)

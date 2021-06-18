@@ -100,7 +100,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid(product[] Product)
+        private void fill_grid(Product[] Product)
         {
             products_grid.Rows.Clear();
             if (Product != null)
@@ -221,7 +221,7 @@ namespace Electricity_shop
             bool same = false;
             string item = products_grid.CurrentRow.Cells[3].Value.ToString();
             int amount = (int)products_grid.CurrentRow.Cells[5].Value;
-            Cart = mySQL.getCartDataByProductBarcode(item);
+            cart[] Cart = mySQL.getCartData();
 
             if (Cart != null)
             {

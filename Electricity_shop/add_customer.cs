@@ -12,14 +12,14 @@ namespace Electricity_shop
     
     public partial class add_customer : Form
     {
-        private DBSQL mySQL;
+        private readonly DBSQL mySQL;
         Thread th;
         int count = 0;
-        private System.Windows.Forms.ErrorProvider idErrorProvider;
-        AutoCompleteStringCollection id1 = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection firstName1 = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection lastName1 = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection addrees1 = new AutoCompleteStringCollection();
+        private ErrorProvider idErrorProvider;
+        readonly AutoCompleteStringCollection id1 = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection firstName1 = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection lastName1 = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection addrees1 = new AutoCompleteStringCollection();
 
         public add_customer()
         {
@@ -57,7 +57,7 @@ namespace Electricity_shop
         {
             bool same = false;
 
-            if(ID_text.Text!=""&& check_id()==true && first_name.Text!=""&&last_name.Text!=""
+            if(ID_text.Text!="" && check_id()==true && first_name.Text!=""&&last_name.Text!=""
                 &&phone_number.Text!="" && check_phoneNumber()==true && address.Text!="")
             {
                 customer[] Customer = mySQL.GetCustomerData();

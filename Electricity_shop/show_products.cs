@@ -61,7 +61,7 @@ namespace Electricity_shop
             {
                 for (int i = 0; i < Product_order.Length; i++)
                 {
-                    product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
+                    Product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
 
                     product_grid.Rows.Add(new object[]
                     {

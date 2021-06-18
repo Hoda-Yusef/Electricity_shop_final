@@ -9,21 +9,20 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class products_management : Form
+    public partial class Frm_products_management : Form
     {
-        private DBSQL mySQL;
-        DataTable dt;
+        private readonly DBSQL mySQL;
+       // DataTable dt;
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        product[] Product;
+        Product[] product;
+        readonly AutoCompleteStringCollection barcodeAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection manufactureAuto = new AutoCompleteStringCollection();
 
-        AutoCompleteStringCollection barcodeAuto = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection manufactureAuto = new AutoCompleteStringCollection();
-
-        public products_management()
+        public Frm_products_management()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -31,76 +30,76 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
 
-            set_AutoCompleteMode_text_boxes();
+            Set_AutoCompleteMode_text_boxes();
 
         }
 
-        private void set_AutoCompleteMode_text_boxes()
+        private void Set_AutoCompleteMode_text_boxes()
         {
-            barcode.AutoCompleteMode = AutoCompleteMode.None;
-            barcode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_barcode.AutoCompleteMode = AutoCompleteMode.None;
+            Txt_barcode.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            category.AutoCompleteMode = AutoCompleteMode.None;
-            category.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            model.AutoCompleteMode = AutoCompleteMode.None;
-            model.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_model.AutoCompleteMode = AutoCompleteMode.None;
+            Txt_model.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            manufacture.AutoCompleteMode = AutoCompleteMode.None;
-            manufacture.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_manufacturer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_manufacturer.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
 
         }
 
-        private void fill_grid_by_barcode()
+        private void Fill_grid_by_barcode()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
-            fill_grid(Product);
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            Fill_grid(product);
+            if (Grd_products.Rows.Count != 0)
+                Grd_products.Rows[0].Cells[0].Selected = false;
 
         }
 
-        private void fill_grid_by_category()
+        private void Fill_grid_by_category()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
-            fill_grid(Product);
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            Fill_grid(product);
+            if (Grd_products.Rows.Count != 0)
+                Grd_products.Rows[0].Cells[0].Selected = false;
 
         }
 
-        private void fill_grid_by_manufacture()
+        private void Fill_grid_by_manufacture()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
-            fill_grid(Product);
+            Fill_grid(product);
 
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            if (Grd_products.Rows.Count != 0)
+                Grd_products.Rows[0].Cells[0].Selected = false;
 
         }
 
-        private void fill_grid_by_model()
+        private void Fill_grid_by_model()
         {
-            Product = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+           product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
-            fill_grid(Product);
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            Fill_grid(product);
+            if (Grd_products.Rows.Count != 0)
+                Grd_products.Rows[0].Cells[0].Selected = false;
 
         }
 
-        private void fill_grid(product[] Product)
+        private void Fill_grid(Product[] Product)
         {
-            products_grid.Rows.Clear();
+            Grd_products.Rows.Clear();
             if (Product != null)
             {
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    products_grid.Rows.Add(new object[]
+                    Grd_products.Rows.Add(new object[]
                     {
                     Product[i].Category,
                     Product[i].Manufacturer,
@@ -115,48 +114,21 @@ namespace Electricity_shop
                 }
             }
             else
-                products_grid.Rows.Clear();
+                Grd_products.Rows.Clear();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
-            th = new Thread(opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-
-        private void opennewform(object obj)
+        private void Opennewform(object obj)
         {
             Application.Run(new main());
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            th = new Thread(opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-
-
-        private void button3_MouseMove(object sender, MouseEventArgs e)
-        {
-            button3.BackColor = Color.White;
-        }
-
-        private void button3_MouseLeave(object sender, EventArgs e)
-        {
-            button3.BackColor = Color.FromArgb(34, 36, 49);
-        }
-
-        private void panel8_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_panel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel8_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -165,97 +137,97 @@ namespace Electricity_shop
             }
         }
 
-        private void panel8_MouseUp(object sender, MouseEventArgs e)
-        {
+        private void Upper_panel_MouseUp(object sender, MouseEventArgs e)
+        { 
             drag = false;
         }
 
-        private void orders_grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void Grd_products_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            for (int i = 0; i < products_grid.Rows.Count; i++)
+            for (int i = 0; i < Grd_products.Rows.Count; i++)
             {
-                int amount = Convert.ToInt32(products_grid.Rows[i].Cells[5].Value);
+                int amount = Convert.ToInt32(Grd_products.Rows[i].Cells[5].Value);
                 if (amount > 0 && amount <= 2)
                 {
-                    products_grid.Rows[i].DefaultCellStyle.ForeColor = Color.Orange;
+                    Grd_products.Rows[i].DefaultCellStyle.ForeColor = Color.Orange;
 
                 }
 
                 if (amount == 0)
                 {
-                    products_grid.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                    Grd_products.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
                 }
             }
 
 
         }
 
-        private void update_product_Click(object sender, EventArgs e)
+        private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
-            update_product updateProduct = new update_product();
+            Frm_updateProduct updateProduct = new Frm_updateProduct();
             
-            updateProduct.category.Text = products_grid.CurrentRow.Cells[0].Value.ToString();
-            updateProduct.manufacture.Text = products_grid.CurrentRow.Cells[1].Value.ToString();
-            updateProduct.model.Text = products_grid.CurrentRow.Cells[2].Value.ToString();
-            updateProduct.barcode.Text = products_grid.CurrentRow.Cells[3].Value.ToString();
-            updateProduct.supplier.Text = products_grid.CurrentRow.Cells[4].Value.ToString();
-            updateProduct.amount.Text = products_grid.CurrentRow.Cells[5].Value.ToString();
-            updateProduct.cost_price.Text = products_grid.CurrentRow.Cells[6].Value.ToString();
-            updateProduct.selling_price.Text = products_grid.CurrentRow.Cells[7].Value.ToString();
-            updateProduct.productInfo.Text = products_grid.CurrentRow.Cells[8].Value.ToString();
+            updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
+            updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();
+            updateProduct.Txt_model.Text = Grd_products.CurrentRow.Cells[2].Value.ToString();
+            updateProduct.Txt_barcode.Text = Grd_products.CurrentRow.Cells[3].Value.ToString();
+            updateProduct.Txt_supplier.Text = Grd_products.CurrentRow.Cells[4].Value.ToString();
+            updateProduct.Txt_amount.Text = Grd_products.CurrentRow.Cells[5].Value.ToString();
+            updateProduct.Txt_cost_price.Text = Grd_products.CurrentRow.Cells[6].Value.ToString();
+            updateProduct.Txt_selling_price.Text = Grd_products.CurrentRow.Cells[7].Value.ToString();
+            updateProduct.Txt_productInfo.Text = Grd_products.CurrentRow.Cells[8].Value.ToString();
 
             updateProduct.ShowDialog();
 
             this.Close();
-            th = new Thread(openSelf);
+            th = new Thread(OpenSelf);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
 
         }
 
-        private void openSelf(object obj)
+        private void OpenSelf(object obj)
         {
-            Application.Run(new products_management());
+            Application.Run(new Frm_products_management());
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void barcode_TextChanged(object sender, EventArgs e)
+        private void Txt_barcode_TextChanged(object sender, EventArgs e)
         {
 
-            fill_grid_by_barcode();
+            Fill_grid_by_barcode();
 
         }
 
-        private void category_TextChanged(object sender, EventArgs e)
+        private void Txt_category_TextChanged(object sender, EventArgs e)
         {
 
-            fill_grid_by_category();
+            Fill_grid_by_category();
         }
 
-        private void manufacture_TextChanged(object sender, EventArgs e)
+        private void Txt_manufacturer_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_manufacture();
+            Fill_grid_by_manufacture();
         }
 
-        private void model_TextChanged(object sender, EventArgs e)
+        private void Txt_model_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_model();
+            Fill_grid_by_model();
         }
 
-        private void products_management_Load(object sender, EventArgs e)
+        private void Frm_products_management_Load(object sender, EventArgs e)
         {
-            product[] Product = mySQL.GetProductData();
+            Product[] Product = mySQL.GetProductData();
 
             for (int i = 0; i < Product.Length; i++)
             {
-                products_grid.Rows.Add(new object[]
+                Grd_products.Rows.Add(new object[]
                 {
                     Product[i].Category,
                     Product[i].Manufacturer,
@@ -279,24 +251,24 @@ namespace Electricity_shop
 
 
             }
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            if (Grd_products.Rows.Count != 0)
+                Grd_products.Rows[0].Cells[0].Selected = false;
 
-            barcode.AutoCompleteCustomSource = barcodeAuto;
-            manufacture.AutoCompleteCustomSource = manufactureAuto;
-            model.AutoCompleteCustomSource = modelAuto;
-            category.AutoCompleteCustomSource = categoryAuto;
+            Txt_barcode.AutoCompleteCustomSource = barcodeAuto;
+            Txt_manufacturer.AutoCompleteCustomSource = manufactureAuto;
+            Txt_model.AutoCompleteCustomSource = modelAuto;
+            Txt_category.AutoCompleteCustomSource = categoryAuto;
         }
 
-        private void clear_Click(object sender, EventArgs e)
+        private void Btn_clear_Click(object sender, EventArgs e)
         {
-            barcode.Text = "";
-            category.Text = "";
-            model.Text = "";
-            manufacture.Text = "";
+            Txt_barcode.Text = "";
+            Txt_category.Text = "";
+            Txt_model.Text = "";
+            Txt_manufacturer.Text = "";
         }
 
-        private void barcode_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_barcode_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -306,17 +278,13 @@ namespace Electricity_shop
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
-        }
-
-        private void btn_exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
