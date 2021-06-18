@@ -16,6 +16,8 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         orders Orders;
         string order_number_holder;
+        orders_customers[] Orders_customers;
+        bool date_changed = false;
 
 
 
@@ -179,42 +181,93 @@ namespace Electricity_shop
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            fill_grid_by_date();
-        }
-
-        private void fill_grid_by_date()
-        {
-            throw new NotImplementedException();
+            date_changed = true;
+            Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+            fill_grid(Orders_customers);
         }
 
         private void lastNameBox_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_last_name();
+            if (date_changed)
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+
+                fill_grid(Orders_customers);
+            }
+            else
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, "");
+
+                fill_grid(Orders_customers);
+            }
         }
 
         private void fill_grid_by_last_name()
         {
-            throw new NotImplementedException();
+            Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+
+            fill_grid(Orders_customers);
         }
 
         private void firstNameBox_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_first_name();
+            if (date_changed)
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+
+                fill_grid(Orders_customers);
+            }
+            else
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, "");
+
+                fill_grid(Orders_customers);
+            }
         }
 
-        private void fill_grid_by_first_name()
-        {
-            throw new NotImplementedException();
-        }
-
+       
         private void IDBox_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_customer_id();
+            if(date_changed)
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+
+                fill_grid(Orders_customers);
+            }
+            else
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, "");
+
+                fill_grid(Orders_customers);
+            }
+            
         }
 
-        private void fill_grid_by_customer_id()
+        
+
+        private void fill_grid(orders_customers[] Orders_customers)
         {
-            throw new NotImplementedException();
+            orders_grid.Rows.Clear();
+            if (Orders_customers != null)
+            {
+                for (int i = 0; i < Orders_customers.Length; i++)
+                {
+                    orders_grid.Rows.Add(new object[]
+                    {
+                    Orders_customers[i].Order_number,
+                    Orders_customers[i].Customer_id,
+                    Orders_customers[i].First_name,
+                    Orders_customers[i].Last_name,
+                    Orders_customers[i].Phone_number,
+                    Orders_customers[i].Address,
+                    Orders_customers[i].Date,
+                    Orders_customers[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+
+                    });
+                }
+            }
+            else
+                orders_grid.Rows.Clear();
         }
 
         private void show_order_Click(object sender, EventArgs e)
@@ -249,6 +302,26 @@ namespace Electricity_shop
 
 
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            IDBox.Text = string.Empty;
+            firstNameBox.Text = string.Empty;
+            lastNameBox.Text = string.Empty;
+            date_changed = false;
+            this.Close();
+            Thread th;
+            th = new Thread(openSelf);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+
+        }
+
+        
+
+
+
+
 
 
 

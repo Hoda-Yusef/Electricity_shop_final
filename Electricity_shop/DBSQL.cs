@@ -766,6 +766,54 @@ namespace Electricity_shop
 
         }
 
+        public orders_customers[] GetOrdersDataFiltered(string customerID, string firstName, string lastName,string date)
+        {
+            DataSet ds = new DataSet();
+            orders_customers[] Orders_customers = null;
+            string cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                "customer.phone_number,customer.address,orders.date,orders.status FROM orders INNER JOIN " +
+                "customer ON orders.customer_id = customer.id" +
+                " WHERE customer.id LIKE '"+customerID+ "%' AND customer.first_name LIKE '"+firstName+"%'" +
+                "AND customer.last_name LIKE '"+lastName+"%' AND orders.date LIKE '"+date+"%'";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Orders_customers = new orders_customers[dt.Rows.Count];
+
+                for (int i = 0; i < Orders_customers.Length; i++)
+                {
+                    Orders_customers[i] = new orders_customers();
+                    Orders_customers[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Orders_customers[i].Customer_id = dt.Rows[i][1].ToString();
+                    Orders_customers[i].First_name = dt.Rows[i][2].ToString();
+                    Orders_customers[i].Last_name = dt.Rows[i][3].ToString();
+                    Orders_customers[i].Phone_number = dt.Rows[i][4].ToString();
+                    Orders_customers[i].Address = dt.Rows[i][5].ToString();
+                    Orders_customers[i].Date = dt.Rows[i][6].ToString();
+                    Orders_customers[i].Status = Convert.ToInt32(dt.Rows[i][7]);
+                    
+                }
+            }
+            return Orders_customers;
+
+        }
+
         public customer GetCustomerDataById(string id)
         {
             DataSet ds = new DataSet();
