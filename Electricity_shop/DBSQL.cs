@@ -493,13 +493,13 @@ namespace Electricity_shop
 
                 }
             }
-            return Cart;
+            return cart;
         }
 
-        public cart getCartDataByProductBarcode(string barcode)
+        public Cart getCartDataByProductBarcode(string barcode)
         {
             DataSet ds = new DataSet();
-            cart Cart = null;
+            Cart Cart = null;
             string cmdStr = "SELECT * FROM cart WHERE product_barcode =" + barcode + "";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
@@ -520,9 +520,9 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                Cart = new cart();
+                Cart = new Cart();
 
-                Cart = new cart();
+                Cart = new Cart();
                 Cart.Product_barcode = dt.Rows[0][0].ToString();
                
 
@@ -1214,8 +1214,7 @@ namespace Electricity_shop
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
                 "product_model=@product_model,product_manufacturer=@product_manufacturer," +
                 "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE serial_number=@serial_number";
-
+                "amount=@amount,product_info=@product_info WHERE product_serial_number=" + Item.Product_serial_number + "";
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
                 command.Parameters.AddWithValue("@product_serial_number", Item.Product_serial_number);

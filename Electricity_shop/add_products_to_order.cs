@@ -15,9 +15,11 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-        product[] Products;
-        product Product;
-        //order_number_holder ONH;
+
+        Product[] Products;
+        Product Product;
+        order_number_holder ONH;
+
         product_order[] Product_order;
         string order_number_holder;
 

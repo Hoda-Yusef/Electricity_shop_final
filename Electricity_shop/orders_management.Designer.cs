@@ -186,8 +186,8 @@ namespace Electricity_shop
             // 
             // Column6
             // 
-            dataGridViewCellStyle13.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle13;
+            //dataGridViewCellStyle13.NullValue = null;
+            //this.Column6.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column6.FillWeight = 90F;
             this.Column6.HeaderText = "תאריך";
             this.Column6.MinimumWidth = 6;
