@@ -82,7 +82,7 @@ namespace Electricity_shop
 
         private void OpenMain(object obj)
         {
-            Application.Run(new main());
+            Application.Run(new Frm_main());
         }
 
         private void Btn_toMain_Click(object sender, EventArgs e)

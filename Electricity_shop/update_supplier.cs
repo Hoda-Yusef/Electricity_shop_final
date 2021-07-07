@@ -95,7 +95,7 @@ namespace Electricity_shop
         private void cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            main mainForm = new main();
+            Frm_main mainForm = new Frm_main();
             mainForm.Show();
         }
 

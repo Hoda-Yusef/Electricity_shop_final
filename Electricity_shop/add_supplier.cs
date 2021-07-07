@@ -29,7 +29,7 @@ namespace Electricity_shop
        
         private void opennewform(object obj)
         {
-            Application.Run(new main());
+            Application.Run(new Frm_main());
         }
         
 

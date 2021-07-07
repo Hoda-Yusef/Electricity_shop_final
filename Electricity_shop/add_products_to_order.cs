@@ -30,7 +30,6 @@ namespace Electricity_shop
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
         }
 
         public add_products_to_order(string orderNumber)

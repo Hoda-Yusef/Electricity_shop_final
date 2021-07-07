@@ -1,7 +1,7 @@
 ﻿
 namespace Electricity_shop
 {
-    partial class main
+    partial class Frm_main
     {
         /// <summary>
         /// Required designer variable.
@@ -29,38 +29,38 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_main));
+            this.Btn_exit = new System.Windows.Forms.Button();
+            this.Lbl_heading = new System.Windows.Forms.Label();
+            this.Pic_socket = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.entry = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Btn_addProduct = new System.Windows.Forms.Button();
+            this.Btn_manageProducts = new System.Windows.Forms.Button();
+            this.Lbl_products = new System.Windows.Forms.Label();
+            this.Lbl_customers = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Btn_addCustomer = new System.Windows.Forms.Button();
+            this.Btn_manageCustomers = new System.Windows.Forms.Button();
+            this.Lbl_suppliers = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Btn_addSupplier = new System.Windows.Forms.Button();
+            this.Btn_manageSuppliers = new System.Windows.Forms.Button();
+            this.Lbl_ordersAndDelivery = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.make_order = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Btn_addOrder = new System.Windows.Forms.Button();
+            this.Btn_manageOrders = new System.Windows.Forms.Button();
+            this.Lbl_information = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.information = new System.Windows.Forms.Button();
-            this.stocktaking = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.Btn_incomeAndOutcome = new System.Windows.Forms.Button();
+            this.Btn_inStockReport = new System.Windows.Forms.Button();
+            this.Lbl_welcome = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.Upper_panel = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
-            this.exit = new System.Windows.Forms.Button();
+            this.Btn_close = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_socket)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,331 +68,333 @@ namespace Electricity_shop
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // Btn_exit
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1299, -2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 28);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave_1);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover_1);
+            this.Btn_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
+            this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_exit.Location = new System.Drawing.Point(1299, -2);
+            this.Btn_exit.Name = "Btn_exit";
+            this.Btn_exit.Size = new System.Drawing.Size(32, 28);
+            this.Btn_exit.TabIndex = 2;
+            this.Btn_exit.UseVisualStyleBackColor = false;
+            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
+            this.Btn_exit.MouseLeave += new System.EventHandler(this.Btn_exit_MouseLeave_1);
+            this.Btn_exit.MouseHover += new System.EventHandler(this.Btn_exit_MouseHover_1);
             // 
-            // label1
+            // Lbl_heading
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(490, 39);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(428, 40);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "חנות למוצרי חשמל";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_heading.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_heading.ForeColor = System.Drawing.Color.White;
+            this.Lbl_heading.Location = new System.Drawing.Point(490, 39);
+            this.Lbl_heading.Name = "Lbl_heading";
+            this.Lbl_heading.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_heading.Size = new System.Drawing.Size(428, 40);
+            this.Lbl_heading.TabIndex = 3;
+            this.Lbl_heading.Text = "חנות למוצרי חשמל";
+            this.Lbl_heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // Pic_socket
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(387, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 53);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.Pic_socket.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pic_socket.BackgroundImage")));
+            this.Pic_socket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Pic_socket.Location = new System.Drawing.Point(440, 39);
+            this.Pic_socket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Pic_socket.Name = "Pic_socket";
+            this.Pic_socket.Size = new System.Drawing.Size(68, 62);
+            this.Pic_socket.TabIndex = 4;
+            this.Pic_socket.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.entry);
+            this.panel1.Controls.Add(this.Btn_addProduct);
+            this.panel1.Controls.Add(this.Btn_manageProducts);
             this.panel1.Location = new System.Drawing.Point(1046, 146);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 347);
             this.panel1.TabIndex = 5;
             // 
-            // button2
+            // Btn_addProduct
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(19, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 38);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "הוספת מוצר";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Btn_addProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_addProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_addProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_addProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_addProduct.ForeColor = System.Drawing.Color.White;
+            this.Btn_addProduct.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_addProduct.Location = new System.Drawing.Point(19, 138);
+            this.Btn_addProduct.Name = "Btn_addProduct";
+            this.Btn_addProduct.Size = new System.Drawing.Size(173, 38);
+            this.Btn_addProduct.TabIndex = 11;
+            this.Btn_addProduct.Text = "הוספת מוצר";
+            this.Btn_addProduct.UseVisualStyleBackColor = false;
+            this.Btn_addProduct.Click += new System.EventHandler(this.Btn_addProduct_Click);
             // 
-            // entry
+            // Btn_manageProducts
             // 
-            this.entry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.entry.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.entry.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.entry.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.entry.ForeColor = System.Drawing.Color.White;
-            this.entry.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.entry.Location = new System.Drawing.Point(19, 53);
-            this.entry.Name = "entry";
-            this.entry.Size = new System.Drawing.Size(173, 38);
-            this.entry.TabIndex = 10;
-            this.entry.Text = "ניהול מוצרים";
-            this.entry.UseVisualStyleBackColor = false;
-            this.entry.Click += new System.EventHandler(this.entry_Click);
+            this.Btn_manageProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_manageProducts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_manageProducts.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_manageProducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_manageProducts.ForeColor = System.Drawing.Color.White;
+            this.Btn_manageProducts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_manageProducts.Location = new System.Drawing.Point(19, 53);
+            this.Btn_manageProducts.Name = "Btn_manageProducts";
+            this.Btn_manageProducts.Size = new System.Drawing.Size(173, 38);
+            this.Btn_manageProducts.TabIndex = 10;
+            this.Btn_manageProducts.Text = "ניהול מוצרים";
+            this.Btn_manageProducts.UseVisualStyleBackColor = false;
+            this.Btn_manageProducts.Click += new System.EventHandler(this.Btn_manageProducts_Click);
             // 
-            // label2
+            // Lbl_products
             // 
-            this.label2.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1137, 132);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(90, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "מוצרים";
+            this.Lbl_products.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_products.ForeColor = System.Drawing.Color.White;
+            this.Lbl_products.Location = new System.Drawing.Point(1137, 132);
+            this.Lbl_products.Name = "Lbl_products";
+            this.Lbl_products.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_products.Size = new System.Drawing.Size(90, 23);
+            this.Lbl_products.TabIndex = 8;
+            this.Lbl_products.Text = "מוצרים";
             // 
-            // label3
+            // Lbl_customers
             // 
-            this.label3.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(890, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 23);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "לקוחות";
+            this.Lbl_customers.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_customers.ForeColor = System.Drawing.Color.White;
+            this.Lbl_customers.Location = new System.Drawing.Point(890, 132);
+            this.Lbl_customers.Name = "Lbl_customers";
+            this.Lbl_customers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_customers.Size = new System.Drawing.Size(90, 23);
+            this.Lbl_customers.TabIndex = 10;
+            this.Lbl_customers.Text = "לקוחות";
             // 
             // panel2
             // 
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.Btn_addCustomer);
+            this.panel2.Controls.Add(this.Btn_manageCustomers);
             this.panel2.Location = new System.Drawing.Point(799, 146);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 347);
             this.panel2.TabIndex = 9;
             // 
-            // button3
+            // Btn_addCustomer
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(16, 138);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(173, 38);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "הוספת לקוח";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Btn_addCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_addCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_addCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_addCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_addCustomer.ForeColor = System.Drawing.Color.White;
+            this.Btn_addCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_addCustomer.Location = new System.Drawing.Point(16, 138);
+            this.Btn_addCustomer.Name = "Btn_addCustomer";
+            this.Btn_addCustomer.Size = new System.Drawing.Size(173, 38);
+            this.Btn_addCustomer.TabIndex = 13;
+            this.Btn_addCustomer.Text = "הוספת לקוח";
+            this.Btn_addCustomer.UseVisualStyleBackColor = false;
+            this.Btn_addCustomer.Click += new System.EventHandler(this.Btn_addCustomer_Click);
             // 
-            // button4
+            // Btn_manageCustomers
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button4.Location = new System.Drawing.Point(16, 53);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(173, 38);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "ניהול לקוחות";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Btn_manageCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_manageCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_manageCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_manageCustomers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_manageCustomers.ForeColor = System.Drawing.Color.White;
+            this.Btn_manageCustomers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_manageCustomers.Location = new System.Drawing.Point(16, 53);
+            this.Btn_manageCustomers.Name = "Btn_manageCustomers";
+            this.Btn_manageCustomers.Size = new System.Drawing.Size(173, 38);
+            this.Btn_manageCustomers.TabIndex = 12;
+            this.Btn_manageCustomers.Text = "ניהול לקוחות";
+            this.Btn_manageCustomers.UseVisualStyleBackColor = false;
+            this.Btn_manageCustomers.Click += new System.EventHandler(this.Btn_manageCustomers_Click);
             // 
-            // label4
+            // Lbl_suppliers
             // 
-            this.label4.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(647, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 23);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "ספקים";
+            this.Lbl_suppliers.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_suppliers.ForeColor = System.Drawing.Color.White;
+            this.Lbl_suppliers.Location = new System.Drawing.Point(647, 135);
+            this.Lbl_suppliers.Name = "Lbl_suppliers";
+            this.Lbl_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_suppliers.Size = new System.Drawing.Size(84, 31);
+            this.Lbl_suppliers.TabIndex = 10;
+            this.Lbl_suppliers.Text = "ספקים";
             // 
             // panel3
             // 
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.button6);
+            this.panel3.Controls.Add(this.Btn_addSupplier);
+            this.panel3.Controls.Add(this.Btn_manageSuppliers);
             this.panel3.Location = new System.Drawing.Point(549, 146);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(206, 347);
             this.panel3.TabIndex = 9;
             // 
-            // button5
+            // Btn_addSupplier
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button5.Location = new System.Drawing.Point(17, 138);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(173, 38);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "הוספת ספק";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.Btn_addSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_addSupplier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_addSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_addSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_addSupplier.ForeColor = System.Drawing.Color.White;
+            this.Btn_addSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_addSupplier.Location = new System.Drawing.Point(17, 138);
+            this.Btn_addSupplier.Name = "Btn_addSupplier";
+            this.Btn_addSupplier.Size = new System.Drawing.Size(173, 38);
+            this.Btn_addSupplier.TabIndex = 13;
+            this.Btn_addSupplier.Text = "הוספת ספק";
+            this.Btn_addSupplier.UseVisualStyleBackColor = false;
+            this.Btn_addSupplier.Click += new System.EventHandler(this.Btn_addSupplier_Click);
             // 
-            // button6
+            // Btn_manageSuppliers
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button6.Location = new System.Drawing.Point(17, 53);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(173, 38);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "ניהול ספקים";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.Btn_manageSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_manageSuppliers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_manageSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_manageSuppliers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_manageSuppliers.ForeColor = System.Drawing.Color.White;
+            this.Btn_manageSuppliers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_manageSuppliers.Location = new System.Drawing.Point(17, 53);
+            this.Btn_manageSuppliers.Name = "Btn_manageSuppliers";
+            this.Btn_manageSuppliers.Size = new System.Drawing.Size(173, 38);
+            this.Btn_manageSuppliers.TabIndex = 12;
+            this.Btn_manageSuppliers.Text = "ניהול ספקים";
+            this.Btn_manageSuppliers.UseVisualStyleBackColor = false;
+            this.Btn_manageSuppliers.Click += new System.EventHandler(this.Btn_manageSuppliers_Click);
             // 
-            // label5
+            // Lbl_ordersAndDelivery
             // 
-            this.label5.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(352, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 23);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "הזמנות ומשלוחים";
+            this.Lbl_ordersAndDelivery.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_ordersAndDelivery.ForeColor = System.Drawing.Color.White;
+            this.Lbl_ordersAndDelivery.Location = new System.Drawing.Point(352, 135);
+            this.Lbl_ordersAndDelivery.Name = "Lbl_ordersAndDelivery";
+            this.Lbl_ordersAndDelivery.Size = new System.Drawing.Size(156, 23);
+            this.Lbl_ordersAndDelivery.TabIndex = 10;
+            this.Lbl_ordersAndDelivery.Text = "הזמנות ומשלוחים";
             // 
             // panel4
             // 
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.make_order);
-            this.panel4.Controls.Add(this.button8);
+            this.panel4.Controls.Add(this.Btn_addOrder);
+            this.panel4.Controls.Add(this.Btn_manageOrders);
             this.panel4.Location = new System.Drawing.Point(310, 146);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(206, 347);
             this.panel4.TabIndex = 9;
             // 
-            // make_order
+            // Btn_addOrder
             // 
-            this.make_order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.make_order.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.make_order.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.make_order.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.make_order.ForeColor = System.Drawing.Color.White;
-            this.make_order.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.make_order.Location = new System.Drawing.Point(14, 138);
-            this.make_order.Name = "make_order";
-            this.make_order.Size = new System.Drawing.Size(173, 38);
-            this.make_order.TabIndex = 13;
-            this.make_order.Text = "ביצוע הזמנה";
-            this.make_order.UseVisualStyleBackColor = false;
-            this.make_order.Click += new System.EventHandler(this.make_order_Click);
+            this.Btn_addOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_addOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_addOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_addOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_addOrder.ForeColor = System.Drawing.Color.White;
+            this.Btn_addOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_addOrder.Location = new System.Drawing.Point(14, 138);
+            this.Btn_addOrder.Name = "Btn_addOrder";
+            this.Btn_addOrder.Size = new System.Drawing.Size(173, 38);
+            this.Btn_addOrder.TabIndex = 13;
+            this.Btn_addOrder.Text = "ביצוע הזמנה";
+            this.Btn_addOrder.UseVisualStyleBackColor = false;
+            this.Btn_addOrder.Click += new System.EventHandler(this.Btn_addOrder_Click);
             // 
-            // button8
+            // Btn_manageOrders
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button8.Location = new System.Drawing.Point(14, 53);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(173, 38);
-            this.button8.TabIndex = 12;
-            this.button8.Text = "ניהול הזמנות";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.Btn_manageOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_manageOrders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_manageOrders.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_manageOrders.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_manageOrders.ForeColor = System.Drawing.Color.White;
+            this.Btn_manageOrders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_manageOrders.Location = new System.Drawing.Point(14, 53);
+            this.Btn_manageOrders.Name = "Btn_manageOrders";
+            this.Btn_manageOrders.Size = new System.Drawing.Size(173, 38);
+            this.Btn_manageOrders.TabIndex = 12;
+            this.Btn_manageOrders.Text = "ניהול הזמנות";
+            this.Btn_manageOrders.UseVisualStyleBackColor = false;
+            this.Btn_manageOrders.Click += new System.EventHandler(this.Btn_manageOrders_Click);
             // 
-            // label6
+            // Lbl_information
             // 
-            this.label6.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(181, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 23);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "מידע";
+            this.Lbl_information.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_information.ForeColor = System.Drawing.Color.White;
+            this.Lbl_information.Location = new System.Drawing.Point(181, 132);
+            this.Lbl_information.Name = "Lbl_information";
+            this.Lbl_information.Size = new System.Drawing.Size(64, 23);
+            this.Lbl_information.TabIndex = 10;
+            this.Lbl_information.Text = "מידע";
             // 
             // panel5
             // 
             this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.information);
-            this.panel5.Controls.Add(this.stocktaking);
+            this.panel5.Controls.Add(this.Btn_incomeAndOutcome);
+            this.panel5.Controls.Add(this.Btn_inStockReport);
             this.panel5.Location = new System.Drawing.Point(64, 146);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(206, 347);
             this.panel5.TabIndex = 9;
             // 
-            // information
+            // Btn_incomeAndOutcome
             // 
-            this.information.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.information.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.information.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.information.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.information.ForeColor = System.Drawing.Color.White;
-            this.information.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.information.Location = new System.Drawing.Point(15, 138);
-            this.information.Name = "information";
-            this.information.Size = new System.Drawing.Size(173, 38);
-            this.information.TabIndex = 13;
-            this.information.Text = "דו\"חות והכנסות";
-            this.information.UseVisualStyleBackColor = false;
+            this.Btn_incomeAndOutcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_incomeAndOutcome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_incomeAndOutcome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_incomeAndOutcome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_incomeAndOutcome.ForeColor = System.Drawing.Color.White;
+            this.Btn_incomeAndOutcome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_incomeAndOutcome.Location = new System.Drawing.Point(15, 138);
+            this.Btn_incomeAndOutcome.Name = "Btn_incomeAndOutcome";
+            this.Btn_incomeAndOutcome.Size = new System.Drawing.Size(173, 38);
+            this.Btn_incomeAndOutcome.TabIndex = 13;
+            this.Btn_incomeAndOutcome.Text = "דו\"חות והכנסות";
+            this.Btn_incomeAndOutcome.UseVisualStyleBackColor = false;
             // 
-            // stocktaking
+            // Btn_inStockReport
             // 
-            this.stocktaking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.stocktaking.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stocktaking.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.stocktaking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.stocktaking.ForeColor = System.Drawing.Color.White;
-            this.stocktaking.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.stocktaking.Location = new System.Drawing.Point(15, 53);
-            this.stocktaking.Name = "stocktaking";
-            this.stocktaking.Size = new System.Drawing.Size(173, 38);
-            this.stocktaking.TabIndex = 12;
-            this.stocktaking.Text = "ספירת מלאי";
-            this.stocktaking.UseVisualStyleBackColor = false;
+            this.Btn_inStockReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_inStockReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_inStockReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_inStockReport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_inStockReport.ForeColor = System.Drawing.Color.White;
+            this.Btn_inStockReport.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_inStockReport.Location = new System.Drawing.Point(15, 53);
+            this.Btn_inStockReport.Name = "Btn_inStockReport";
+            this.Btn_inStockReport.Size = new System.Drawing.Size(173, 38);
+            this.Btn_inStockReport.TabIndex = 12;
+            this.Btn_inStockReport.Text = "ספירת מלאי";
+            this.Btn_inStockReport.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // Lbl_welcome
             // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(462, 79);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(428, 22);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "ברוכים הבאים";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_welcome.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_welcome.ForeColor = System.Drawing.Color.White;
+            this.Lbl_welcome.Location = new System.Drawing.Point(549, 90);
+            this.Lbl_welcome.Name = "Lbl_welcome";
+            this.Lbl_welcome.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_welcome.Size = new System.Drawing.Size(341, 22);
+            this.Lbl_welcome.TabIndex = 11;
+            this.Lbl_welcome.Text = "ברוכים הבאים";
+            this.Lbl_welcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
@@ -412,17 +414,17 @@ namespace Electricity_shop
             this.panel8.Size = new System.Drawing.Size(1331, 10);
             this.panel8.TabIndex = 14;
             // 
-            // panel9
+            // Upper_panel
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Location = new System.Drawing.Point(0, -4);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1331, 12);
-            this.panel9.TabIndex = 15;
-            this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseDown);
-            this.panel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseMove);
-            this.panel9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseUp);
+            this.Upper_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Upper_panel.Location = new System.Drawing.Point(0, -4);
+            this.Upper_panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Upper_panel.Name = "Upper_panel";
+            this.Upper_panel.Size = new System.Drawing.Size(1331, 12);
+            this.Upper_panel.TabIndex = 15;
+            this.Upper_panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseDown);
+            this.Upper_panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseMove);
+            this.Upper_panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseUp);
             // 
             // button11
             // 
@@ -437,19 +439,19 @@ namespace Electricity_shop
             this.button11.Text = "יציאה";
             this.button11.UseVisualStyleBackColor = false;
             // 
-            // exit
+            // Btn_close
             // 
-            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.exit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exit.ForeColor = System.Drawing.Color.White;
-            this.exit.Location = new System.Drawing.Point(64, 516);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(125, 40);
-            this.exit.TabIndex = 16;
-            this.exit.Text = "יציאה";
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.button12_Click);
+            this.Btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_close.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_close.ForeColor = System.Drawing.Color.White;
+            this.Btn_close.Location = new System.Drawing.Point(64, 516);
+            this.Btn_close.Name = "Btn_close";
+            this.Btn_close.Size = new System.Drawing.Size(125, 40);
+            this.Btn_close.TabIndex = 16;
+            this.Btn_close.Text = "יציאה";
+            this.Btn_close.UseVisualStyleBackColor = false;
+            this.Btn_close.Click += new System.EventHandler(this.Btn_close_Click);
             // 
             // panel7
             // 
@@ -460,37 +462,37 @@ namespace Electricity_shop
             this.panel7.Size = new System.Drawing.Size(9, 576);
             this.panel7.TabIndex = 17;
             // 
-            // main
+            // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1334, 575);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.exit);
-            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.Btn_close);
+            this.Controls.Add(this.Upper_panel);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Lbl_welcome);
+            this.Controls.Add(this.Lbl_information);
+            this.Controls.Add(this.Lbl_ordersAndDelivery);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Lbl_suppliers);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Lbl_customers);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Lbl_products);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Pic_socket);
+            this.Controls.Add(this.Lbl_heading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "main";
+            this.Name = "Frm_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "main";
-            this.Load += new System.EventHandler(this.main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Frm_main_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_socket)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -502,35 +504,35 @@ namespace Electricity_shop
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Btn_exit;
+        private System.Windows.Forms.Label Lbl_heading;
+        private System.Windows.Forms.PictureBox Pic_socket;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Lbl_products;
+        private System.Windows.Forms.Label Lbl_customers;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Lbl_suppliers;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Lbl_ordersAndDelivery;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Lbl_information;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button entry;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button make_order;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button information;
-        private System.Windows.Forms.Button stocktaking;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button Btn_addProduct;
+        private System.Windows.Forms.Button Btn_manageProducts;
+        private System.Windows.Forms.Button Btn_addCustomer;
+        private System.Windows.Forms.Button Btn_manageCustomers;
+        private System.Windows.Forms.Button Btn_addSupplier;
+        private System.Windows.Forms.Button Btn_manageSuppliers;
+        private System.Windows.Forms.Button Btn_addOrder;
+        private System.Windows.Forms.Button Btn_manageOrders;
+        private System.Windows.Forms.Button Btn_incomeAndOutcome;
+        private System.Windows.Forms.Button Btn_inStockReport;
+        private System.Windows.Forms.Label Lbl_welcome;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel Upper_panel;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button Btn_close;
         private System.Windows.Forms.Panel panel7;
     }
 }

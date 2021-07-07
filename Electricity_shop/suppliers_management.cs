@@ -38,7 +38,7 @@ namespace Electricity_shop
 
         private void openMain(object obj)
         {
-            Application.Run(new main());
+            Application.Run(new Frm_main());
         }
 
        

@@ -9,170 +9,170 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class main : Form
+    public partial class Frm_main : Form
     {
 
         bool drag = false;
         Point sp = new Point(0, 0);
 
-        public main()
+        public Frm_main()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
        
 
-        private void button1_MouseHover_1(object sender, EventArgs e)
+        private void Btn_exit_MouseHover_1(object sender, EventArgs e)
         {
-            button1.BackColor = Color.White;
+            Btn_exit.BackColor = Color.White;
         }
 
-        private void button1_MouseLeave_1(object sender, EventArgs e)
+        private void Btn_exit_MouseLeave_1(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(34, 36, 49);
+            Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Btn_manageOrders_Click(object sender, EventArgs e)
         {
             this.Close();
             Thread th;
-            th = new Thread(openOrderManagement);
+            th = new Thread(OpenOrderManagement);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openOrderManagement(object obj)
+        private void OpenOrderManagement(object obj)
         {
             Application.Run(new orders_management());
         }
 
-        private void entry_Click(object sender, EventArgs e)
+        private void Btn_manageProducts_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
-            th = new Thread(openProductManagement);
+            th = new Thread(OpenProductManagement);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openProductManagement(object obj)
+        private void OpenProductManagement(object obj)
         {
             Application.Run(new Frm_products_management());
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_addProduct_Click(object sender, EventArgs e)
         {
             
             Thread th;
             this.Close();
-            th = new Thread(openProductAdd);
+            th = new Thread(OpenProductAdd);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
            
         }
 
-        private void openProductAdd(object obj)
+        private void OpenProductAdd(object obj)
         {
             Application.Run(new Frm_addProduct());
             
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void Btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Btn_addSupplier_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
-            th = new Thread(openAddSupplier);
+            th = new Thread(OpenAddSupplier);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openAddSupplier(object obj)
+        private void OpenAddSupplier(object obj)
         {
             Application.Run(new add_supplier());
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Btn_manageCustomers_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
-            th = new Thread(openCustomeMmanagement);
+            th = new Thread(OpenCustomeMmanagement);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
 
         }
 
-        private void openCustomeMmanagement(object obj)
+        private void OpenCustomeMmanagement(object obj)
         {
             Application.Run(new FrmCustomers_management());
         }
 
-        private void openAddCustomer(object obj)
+        private void OpenAddCustomer(object obj)
         {
             Application.Run(new Frm_addCustomer());
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Btn_manageSuppliers_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
-            th = new Thread(openSupplierManagement);
+            th = new Thread(OpenSupplierManagement);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openSupplierManagement(object obj)
+        private void OpenSupplierManagement(object obj)
         {
             Application.Run(new suppliers_management());
         }
 
-        private void main_Load(object sender, EventArgs e)
+        private void Frm_main_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_addCustomer_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
-            th = new Thread(openAddCustomer);
+            th = new Thread(OpenAddCustomer);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void make_order_Click(object sender, EventArgs e)
+        private void Btn_addOrder_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
-            th = new Thread(openAddOorder);
+            th = new Thread(OpenAddOorder);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openAddOorder(object obj)
+        private void OpenAddOorder(object obj)
         {
             Application.Run(new add_order());
         }
 
-        private void panel9_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_panel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel9_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -181,7 +181,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel9_MouseUp(object sender, MouseEventArgs e)
+        private void Upper_panel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }

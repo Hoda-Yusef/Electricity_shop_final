@@ -17,7 +17,7 @@ namespace Electricity_shop
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new main());
+            Application.Run(new Frm_main());
         }
     }
 }

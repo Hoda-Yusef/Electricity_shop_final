@@ -119,7 +119,7 @@ namespace Electricity_shop
 
         private void Opennewform(object obj)
         {
-            Application.Run(new main());
+            Application.Run(new Frm_main());
         }
 
         private void Upper_panel_MouseDown(object sender, MouseEventArgs e)
