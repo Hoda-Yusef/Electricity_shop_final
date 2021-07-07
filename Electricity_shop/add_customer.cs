@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Electricity_shop
 {
     
-    public partial class add_customer : Form
+    public partial class Frm_addCustomer : Form
     {
         private readonly DBSQL mySQL;
         Thread th;
@@ -21,7 +21,7 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection lastName1 = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection addrees1 = new AutoCompleteStringCollection();
 
-        public add_customer()
+        public Frm_addCustomer()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -30,39 +30,39 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
         
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)
         {
             
             this.Close();
-            th = new Thread(openMain);
+            th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openMain(object obj)
+        private void OpenMain(object obj)
         {
             Application.Run(new main());
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             
             this.Close();
-            th = new Thread(openMain);
+            th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void add_button_Click(object sender, EventArgs e)
+        private void Btn_addCustomer_Click(object sender, EventArgs e)
         {
             bool same = false;
 
-            if(ID_text.Text!="" && check_id()==true && first_name.Text!=""&&last_name.Text!=""
-                &&phone_number.Text!="" && check_phoneNumber()==true && address.Text!="")
+            if(Txt_customerId.Text!="" && Check_id()==true && Txt_firstName.Text!=""&&Txt_lastName.Text!=""
+                &&Txt_phoneNumber.Text!="" && Check_phoneNumber()==true && Txt_address.Text!="")
             {
                 customer[] Customer = mySQL.GetCustomerData();
                 customer cust = new customer();
-                string idTmp = ID_text.Text;
+                string idTmp = Txt_customerId.Text;
 
                 for (int i = 0; i < Customer.Length; i++)
                 {
@@ -75,11 +75,11 @@ namespace Electricity_shop
 
                 if(same)
                 {
-                    same_customer(cust);
+                    Same_customer(cust);
                 }
                 else
                 {
-                    new_customer(cust);
+                    New_customer(cust);
                 }
             }
             else
@@ -88,42 +88,42 @@ namespace Electricity_shop
         }
 
       
-        private void new_customer(customer cust)
+        private void New_customer(customer cust)
         {
-            cust.Id =ID_text.Text;
-            cust.First_name = first_name.Text;
-            cust.Last_name = last_name.Text;
-            cust.Phone_number = phone_number.Text;
-            cust.Address = address.Text;
+            cust.Id =Txt_customerId.Text;
+            cust.First_name = Txt_firstName.Text;
+            cust.Last_name = Txt_lastName.Text;
+            cust.Phone_number = Txt_phoneNumber.Text;
+            cust.Address = Txt_address.Text;
             mySQL.InsertCustomer(cust);
 
             MessageBox.Show("לקוח הוסף בהצלחה");
-            clear_boxes();
+            Clear_boxes();
         }
 
-        private void same_customer(customer cust)
+        private void Same_customer(customer cust)
         {
-            cust.Id= ID_text.Text;
-            cust.First_name = first_name.Text;
-            cust.Last_name = last_name.Text;
-            cust.Phone_number= phone_number.Text;
-            cust.Address = address.Text;
+            cust.Id= Txt_customerId.Text;
+            cust.First_name = Txt_firstName.Text;
+            cust.Last_name = Txt_lastName.Text;
+            cust.Phone_number= Txt_phoneNumber.Text;
+            cust.Address = Txt_address.Text;
             mySQL.UpdateCustomer(cust);
 
             MessageBox.Show("לקוח קיים , עודכן בהצלחה");
-            clear_boxes();
+            Clear_boxes();
         }
 
-        private void clear_boxes()
+        private void Clear_boxes()
         {
-            ID_text.Text = string.Empty;
-            first_name.Text = string.Empty;
-            last_name.Text = string.Empty;
-            phone_number.Text = string.Empty;
-            address.Text = string.Empty;
+            Txt_customerId.Text = string.Empty;
+            Txt_firstName.Text = string.Empty;
+            Txt_lastName.Text = string.Empty;
+            Txt_phoneNumber.Text = string.Empty;
+            Txt_address.Text = string.Empty;
         }
 
-        private void add_customer_Load(object sender, EventArgs e)
+        private void Frm_addCustomer_Load(object sender, EventArgs e)
         {
             customer[] Customer = mySQL.GetCustomerData();
 
@@ -136,58 +136,58 @@ namespace Electricity_shop
                 addrees1.Add(Customer[i].Address);
 
             }
-            ID_text.AutoCompleteCustomSource = id1;
-            first_name.AutoCompleteCustomSource = firstName1;
-            last_name.AutoCompleteCustomSource = lastName1;
-            address.AutoCompleteCustomSource = addrees1;
+            Txt_customerId.AutoCompleteCustomSource = id1;
+            Txt_firstName.AutoCompleteCustomSource = firstName1;
+            Txt_lastName.AutoCompleteCustomSource = lastName1;
+            Txt_address.AutoCompleteCustomSource = addrees1;
         }
 
-        private bool check_id()
+        private bool Check_id()
         {
-            return (this.ID_text.Text.Length == 9);
+            return (this.Txt_customerId.Text.Length == 9);
         }
-        private void ID_text_Leave(object sender, EventArgs e)
+        private void Txt_customerId_Leave(object sender, EventArgs e)
         {
             // בודקים תקינות קלט
-            if (check_id() == false && count == 0)
+            if (Check_id() == false && count == 0)
             {
                 count++;
                 idErrorProvider = new ErrorProvider();
-                idErrorProvider.SetError(ID_text, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+                idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
             }
             else
             {
-                if (check_id() == true && count == 0)
+                if (Check_id() == true && count == 0)
                 {
                     //לא מבצעים פעולות
                     // נשאר count=0
                 }
                 else
                 {
-                    if (check_id() == true)
+                    if (Check_id() == true)
                     {
-                        idErrorProvider.SetError(ID_text, "");
+                        idErrorProvider.SetError(Txt_customerId, "");
                     }
                     else
                     {
-                        idErrorProvider.SetError(ID_text, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+                        idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
                     }
                 }
                 // בודקים אם לקוח קיים לפי תעודת זהות
-                if (ID_text.Text != "")
+                if (Txt_customerId.Text != "")
                 {
                     customer[] Customer = mySQL.GetCustomerData();
-                    string idTmp = ID_text.Text;
+                    string idTmp = Txt_customerId.Text;
 
                     for (int i = 0; i < Customer.Length; i++)
                     {
                         if (idTmp == Customer[i].Id.ToString())
                         {
-                            ID_text.Text = Customer[i].Id.ToString();
-                            first_name.Text = Customer[i].First_name;
-                            last_name.Text = Customer[i].Last_name;
-                            phone_number.Text = Customer[i].Phone_number;
-                            address.Text = Customer[i].Address;
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_firstName.Text = Customer[i].First_name;
+                            Txt_lastName.Text = Customer[i].Last_name;
+                            Txt_phoneNumber.Text = Customer[i].Phone_number;
+                            Txt_address.Text = Customer[i].Address;
 
                         }
                     }
@@ -199,7 +199,7 @@ namespace Electricity_shop
             }
         }
 
-        private void ID_text_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -209,7 +209,7 @@ namespace Electricity_shop
             }
         }
 
-        private void phone_number_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -219,29 +219,29 @@ namespace Electricity_shop
             }
         }
 
-        private bool check_phoneNumber()
+        private bool Check_phoneNumber()
         {
-            return (phone_number.Text.Length == 10);
+            return (Txt_phoneNumber.Text.Length == 10);
         }
 
 
-        private void phone_number_Leave(object sender, EventArgs e)
+        private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
 
             // בודקים אם הנתונים בשדה לא תקינים ופעם ראשונה פונקציה phone_number_leave מופעלת
-            if (check_phoneNumber() == false && count == 0)
+            if (Check_phoneNumber() == false && count == 0)
             {
                 // מקדמים מונה כניסות/הפעלות של פונקציה phone_number_leave
                 count++;
                 // מגדירים שגאיה בהתאם
                 idErrorProvider = new ErrorProvider();
-                idErrorProvider.SetError(phone_number, "מספר פלאפון חייב להכיל 10 ספרות");
+                idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
             }
             // לא פעם ראשונה phone_number_leave מופעלת
             else
             {
                 // פעם ראשונה מפעילים phone_number_leave ונתונים בשדה תקינים
-                if (check_phoneNumber() == true && count == 0)
+                if (Check_phoneNumber() == true && count == 0)
                 {
                     //לא מבצעים פעולות
                     // נשאר count=0
@@ -251,14 +251,14 @@ namespace Electricity_shop
                     // לא פעם ראשונה מפעילים phone_number_leave
                     // אם מגיעים לתנאי הזה יישארו שתי אןפציות
                     // 1) נתונים תקינים בשדה
-                    if (check_phoneNumber() == true)
+                    if (Check_phoneNumber() == true)
                     {
-                        idErrorProvider.SetError(phone_number, "");
+                        idErrorProvider.SetError(Txt_phoneNumber, "");
                     }
                     // 2) נתונים שגויים
                     else
                     {
-                        idErrorProvider.SetError(phone_number, "מספר פלאפון חייב להכיל 10 ספרות");
+                        idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
                     }
                 }
             }

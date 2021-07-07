@@ -76,9 +76,9 @@ namespace Electricity_shop
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1300, -2);
+            this.button1.Location = new System.Drawing.Point(1299, -2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 25);
+            this.button1.Size = new System.Drawing.Size(32, 28);
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -400,16 +400,16 @@ namespace Electricity_shop
             this.panel6.Location = new System.Drawing.Point(-4, -2);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(9, 581);
+            this.panel6.Size = new System.Drawing.Size(13, 581);
             this.panel6.TabIndex = 12;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel8.Location = new System.Drawing.Point(1, 571);
+            this.panel8.Location = new System.Drawing.Point(1, 569);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1331, 8);
+            this.panel8.Size = new System.Drawing.Size(1331, 10);
             this.panel8.TabIndex = 14;
             // 
             // panel9
@@ -418,7 +418,7 @@ namespace Electricity_shop
             this.panel9.Location = new System.Drawing.Point(0, -4);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1331, 26);
+            this.panel9.Size = new System.Drawing.Size(1331, 12);
             this.panel9.TabIndex = 15;
             this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseDown);
             this.panel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseMove);

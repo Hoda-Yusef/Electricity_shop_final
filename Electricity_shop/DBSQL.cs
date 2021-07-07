@@ -916,11 +916,11 @@ namespace Electricity_shop
                 for (int i = 0; i < Customer.Length; i++)
                 {
                     Customer[i] = new customer();
-                    Customer[i].Id = dt.Rows[i][0].ToString();
-                    Customer[i].First_name = dt.Rows[i][1].ToString();
-                    Customer[i].Last_name = dt.Rows[i][2].ToString();
-                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
-                    Customer[i].Address = dt.Rows[i][4].ToString();
+                    Customer[i].Id = dt.Rows[i][1].ToString();
+                    Customer[i].First_name = dt.Rows[i][2].ToString();
+                    Customer[i].Last_name = dt.Rows[i][3].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][4].ToString();
+                    Customer[i].Address = dt.Rows[i][5].ToString();
 
                 }
             }
@@ -956,11 +956,11 @@ namespace Electricity_shop
                 for (int i = 0; i < Customer.Length; i++)
                 {
                     Customer[i] = new customer();
-                    Customer[i].Id = dt.Rows[i][0].ToString();
-                    Customer[i].First_name = dt.Rows[i][1].ToString();
-                    Customer[i].Last_name = dt.Rows[i][2].ToString();
-                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
-                    Customer[i].Address = dt.Rows[i][4].ToString();
+                    Customer[i].Id = dt.Rows[i][1].ToString();
+                    Customer[i].First_name = dt.Rows[i][2].ToString();
+                    Customer[i].Last_name = dt.Rows[i][3].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][4].ToString();
+                    Customer[i].Address = dt.Rows[i][5].ToString();
 
                 }
             }
@@ -996,11 +996,11 @@ namespace Electricity_shop
                 for (int i = 0; i < Customer.Length; i++)
                 {
                     Customer[i] = new customer();
-                    Customer[i].Id = dt.Rows[i][0].ToString();
-                    Customer[i].First_name = dt.Rows[i][1].ToString();
-                    Customer[i].Last_name = dt.Rows[i][2].ToString();
-                    Customer[i].Phone_number = dt.Rows[i][3].ToString();
-                    Customer[i].Address = dt.Rows[i][4].ToString();
+                    Customer[i].Id = dt.Rows[i][1].ToString();
+                    Customer[i].First_name = dt.Rows[i][2].ToString();
+                    Customer[i].Last_name = dt.Rows[i][3].ToString();
+                    Customer[i].Phone_number = dt.Rows[i][4].ToString();
+                    Customer[i].Address = dt.Rows[i][5].ToString();
 
                 }
             }
@@ -1304,12 +1304,12 @@ namespace Electricity_shop
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
                 "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE serial_number =@serial_number";
+                "address=@address WHERE customer_serial_number =@customer_serial_number";
 
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
-                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@customer_serial_number", Item.Serial_number);
                 command.Parameters.AddWithValue("@id", Item.Id);
                 command.Parameters.AddWithValue("@first_name", Item.First_name);
                 command.Parameters.AddWithValue("@last_name", Item.Last_name);

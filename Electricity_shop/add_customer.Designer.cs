@@ -1,7 +1,7 @@
 ﻿
 namespace Electricity_shop
 {
-    partial class add_customer
+    partial class Frm_addCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -29,22 +29,22 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(add_customer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_addCustomer));
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.add_button = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.address = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.phone_number = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.last_name = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.first_name = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ID_text = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Btn_cancel = new System.Windows.Forms.Button();
+            this.Btn_addCustomer = new System.Windows.Forms.Button();
+            this.Lbl_address = new System.Windows.Forms.Label();
+            this.Txt_address = new System.Windows.Forms.TextBox();
+            this.Lbl_phoneNumber = new System.Windows.Forms.Label();
+            this.Txt_phoneNumber = new System.Windows.Forms.TextBox();
+            this.Lbl_lastName = new System.Windows.Forms.Label();
+            this.Txt_lastName = new System.Windows.Forms.TextBox();
+            this.Lbl_firstName = new System.Windows.Forms.Label();
+            this.Txt_firstName = new System.Windows.Forms.TextBox();
+            this.Lbl_customerId = new System.Windows.Forms.Label();
+            this.Txt_customerId = new System.Windows.Forms.TextBox();
+            this.Lbl_addCustomer = new System.Windows.Forms.Label();
+            this.Btn_exit = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,199 +55,199 @@ namespace Electricity_shop
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
-            this.panel5.Controls.Add(this.button2);
-            this.panel5.Controls.Add(this.add_button);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.address);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.phone_number);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.last_name);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.first_name);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.ID_text);
+            this.panel5.Controls.Add(this.Btn_cancel);
+            this.panel5.Controls.Add(this.Btn_addCustomer);
+            this.panel5.Controls.Add(this.Lbl_address);
+            this.panel5.Controls.Add(this.Txt_address);
+            this.panel5.Controls.Add(this.Lbl_phoneNumber);
+            this.panel5.Controls.Add(this.Txt_phoneNumber);
+            this.panel5.Controls.Add(this.Lbl_lastName);
+            this.panel5.Controls.Add(this.Txt_lastName);
+            this.panel5.Controls.Add(this.Lbl_firstName);
+            this.panel5.Controls.Add(this.Txt_firstName);
+            this.panel5.Controls.Add(this.Lbl_customerId);
+            this.panel5.Controls.Add(this.Txt_customerId);
             this.panel5.Location = new System.Drawing.Point(26, 101);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(784, 376);
             this.panel5.TabIndex = 46;
             // 
-            // button2
+            // Btn_cancel
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(32, 292);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 38);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "ביטול";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_cancel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_cancel.ForeColor = System.Drawing.Color.White;
+            this.Btn_cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_cancel.Location = new System.Drawing.Point(32, 292);
+            this.Btn_cancel.Name = "Btn_cancel";
+            this.Btn_cancel.Size = new System.Drawing.Size(124, 38);
+            this.Btn_cancel.TabIndex = 48;
+            this.Btn_cancel.Text = "ביטול";
+            this.Btn_cancel.UseVisualStyleBackColor = false;
+            this.Btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
             // 
-            // add_button
+            // Btn_addCustomer
             // 
-            this.add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.add_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.add_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.add_button.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.add_button.ForeColor = System.Drawing.Color.White;
-            this.add_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.add_button.Location = new System.Drawing.Point(175, 292);
-            this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(124, 38);
-            this.add_button.TabIndex = 47;
-            this.add_button.Text = "הוספה";
-            this.add_button.UseVisualStyleBackColor = false;
-            this.add_button.Click += new System.EventHandler(this.add_button_Click);
+            this.Btn_addCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_addCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_addCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_addCustomer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_addCustomer.ForeColor = System.Drawing.Color.White;
+            this.Btn_addCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_addCustomer.Location = new System.Drawing.Point(175, 292);
+            this.Btn_addCustomer.Name = "Btn_addCustomer";
+            this.Btn_addCustomer.Size = new System.Drawing.Size(124, 38);
+            this.Btn_addCustomer.TabIndex = 47;
+            this.Btn_addCustomer.Text = "הוספה";
+            this.Btn_addCustomer.UseVisualStyleBackColor = false;
+            this.Btn_addCustomer.Click += new System.EventHandler(this.Btn_addCustomer_Click);
             // 
-            // label6
+            // Lbl_address
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label6.Location = new System.Drawing.Point(188, 41);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(80, 20);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "כתובת";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_address.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_address.Location = new System.Drawing.Point(188, 41);
+            this.Lbl_address.Name = "Lbl_address";
+            this.Lbl_address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_address.Size = new System.Drawing.Size(80, 20);
+            this.Lbl_address.TabIndex = 45;
+            this.Lbl_address.Text = "כתובת";
+            this.Lbl_address.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // address
+            // Txt_address
             // 
-            this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.address.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.address.ForeColor = System.Drawing.Color.White;
-            this.address.Location = new System.Drawing.Point(61, 56);
-            this.address.Name = "address";
-            this.address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.address.Size = new System.Drawing.Size(225, 32);
-            this.address.TabIndex = 44;
+            this.Txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_address.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_address.ForeColor = System.Drawing.Color.White;
+            this.Txt_address.Location = new System.Drawing.Point(61, 56);
+            this.Txt_address.Name = "Txt_address";
+            this.Txt_address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_address.Size = new System.Drawing.Size(225, 32);
+            this.Txt_address.TabIndex = 44;
             // 
-            // label5
+            // Lbl_phoneNumber
             // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label5.Location = new System.Drawing.Point(599, 315);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(127, 20);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "מספר טלפון";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_phoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_phoneNumber.Location = new System.Drawing.Point(599, 315);
+            this.Lbl_phoneNumber.Name = "Lbl_phoneNumber";
+            this.Lbl_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_phoneNumber.Size = new System.Drawing.Size(127, 20);
+            this.Lbl_phoneNumber.TabIndex = 43;
+            this.Lbl_phoneNumber.Text = "מספר טלפון";
+            this.Lbl_phoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // phone_number
+            // Txt_phoneNumber
             // 
-            this.phone_number.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.phone_number.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.phone_number.ForeColor = System.Drawing.Color.White;
-            this.phone_number.Location = new System.Drawing.Point(519, 329);
-            this.phone_number.Name = "phone_number";
-            this.phone_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.phone_number.Size = new System.Drawing.Size(225, 32);
-            this.phone_number.TabIndex = 42;
-            this.phone_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_number_KeyPress);
-            this.phone_number.Leave += new System.EventHandler(this.phone_number_Leave);
+            this.Txt_phoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_phoneNumber.ForeColor = System.Drawing.Color.White;
+            this.Txt_phoneNumber.Location = new System.Drawing.Point(519, 329);
+            this.Txt_phoneNumber.Name = "Txt_phoneNumber";
+            this.Txt_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_phoneNumber.Size = new System.Drawing.Size(225, 32);
+            this.Txt_phoneNumber.TabIndex = 42;
+            this.Txt_phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_phoneNumber_KeyPress);
+            this.Txt_phoneNumber.Leave += new System.EventHandler(this.Txt_phoneNumber_Leave);
             // 
-            // label4
+            // Lbl_lastName
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label4.Location = new System.Drawing.Point(615, 228);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(111, 20);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "שם משפחה";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_lastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_lastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_lastName.Location = new System.Drawing.Point(615, 228);
+            this.Lbl_lastName.Name = "Lbl_lastName";
+            this.Lbl_lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_lastName.Size = new System.Drawing.Size(111, 20);
+            this.Lbl_lastName.TabIndex = 41;
+            this.Lbl_lastName.Text = "שם משפחה";
+            this.Lbl_lastName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // last_name
+            // Txt_lastName
             // 
-            this.last_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.last_name.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.last_name.ForeColor = System.Drawing.Color.White;
-            this.last_name.Location = new System.Drawing.Point(519, 244);
-            this.last_name.Name = "last_name";
-            this.last_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.last_name.Size = new System.Drawing.Size(225, 32);
-            this.last_name.TabIndex = 40;
+            this.Txt_lastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_lastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_lastName.ForeColor = System.Drawing.Color.White;
+            this.Txt_lastName.Location = new System.Drawing.Point(519, 244);
+            this.Txt_lastName.Name = "Txt_lastName";
+            this.Txt_lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_lastName.Size = new System.Drawing.Size(225, 32);
+            this.Txt_lastName.TabIndex = 40;
             // 
-            // label3
+            // Lbl_firstName
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(615, 139);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(111, 20);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "שם פרטי";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_firstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_firstName.Location = new System.Drawing.Point(615, 139);
+            this.Lbl_firstName.Name = "Lbl_firstName";
+            this.Lbl_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_firstName.Size = new System.Drawing.Size(111, 20);
+            this.Lbl_firstName.TabIndex = 39;
+            this.Lbl_firstName.Text = "שם פרטי";
+            this.Lbl_firstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // first_name
+            // Txt_firstName
             // 
-            this.first_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.first_name.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.first_name.ForeColor = System.Drawing.Color.White;
-            this.first_name.Location = new System.Drawing.Point(519, 151);
-            this.first_name.Name = "first_name";
-            this.first_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.first_name.Size = new System.Drawing.Size(225, 32);
-            this.first_name.TabIndex = 38;
+            this.Txt_firstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_firstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_firstName.ForeColor = System.Drawing.Color.White;
+            this.Txt_firstName.Location = new System.Drawing.Point(519, 151);
+            this.Txt_firstName.Name = "Txt_firstName";
+            this.Txt_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_firstName.Size = new System.Drawing.Size(225, 32);
+            this.Txt_firstName.TabIndex = 38;
             // 
-            // label2
+            // Lbl_customerId
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(615, 43);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(111, 21);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "תעודת זהות";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_customerId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_customerId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_customerId.Location = new System.Drawing.Point(615, 43);
+            this.Lbl_customerId.Name = "Lbl_customerId";
+            this.Lbl_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_customerId.Size = new System.Drawing.Size(111, 21);
+            this.Lbl_customerId.TabIndex = 37;
+            this.Lbl_customerId.Text = "תעודת זהות";
+            this.Lbl_customerId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ID_text
+            // Txt_customerId
             // 
-            this.ID_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ID_text.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ID_text.ForeColor = System.Drawing.Color.White;
-            this.ID_text.Location = new System.Drawing.Point(519, 56);
-            this.ID_text.Name = "ID_text";
-            this.ID_text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ID_text.Size = new System.Drawing.Size(225, 32);
-            this.ID_text.TabIndex = 36;
-            this.ID_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ID_text_KeyPress);
-            this.ID_text.Leave += new System.EventHandler(this.ID_text_Leave);
+            this.Txt_customerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_customerId.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_customerId.ForeColor = System.Drawing.Color.White;
+            this.Txt_customerId.Location = new System.Drawing.Point(519, 56);
+            this.Txt_customerId.Name = "Txt_customerId";
+            this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_customerId.Size = new System.Drawing.Size(225, 32);
+            this.Txt_customerId.TabIndex = 36;
+            this.Txt_customerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customerId_KeyPress);
+            this.Txt_customerId.Leave += new System.EventHandler(this.Txt_customerId_Leave);
             // 
-            // label1
+            // Lbl_addCustomer
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(259, 21);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(283, 54);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "הוספת לקוח";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_addCustomer.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_addCustomer.ForeColor = System.Drawing.Color.White;
+            this.Lbl_addCustomer.Location = new System.Drawing.Point(259, 21);
+            this.Lbl_addCustomer.Name = "Lbl_addCustomer";
+            this.Lbl_addCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_addCustomer.Size = new System.Drawing.Size(283, 54);
+            this.Lbl_addCustomer.TabIndex = 45;
+            this.Lbl_addCustomer.Text = "הוספת לקוח";
+            this.Lbl_addCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // Btn_exit
             // 
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(799, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 38);
-            this.button3.TabIndex = 52;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
+            this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_exit.Location = new System.Drawing.Point(799, 0);
+            this.Btn_exit.Name = "Btn_exit";
+            this.Btn_exit.Size = new System.Drawing.Size(34, 38);
+            this.Btn_exit.TabIndex = 52;
+            this.Btn_exit.UseVisualStyleBackColor = true;
+            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
             // 
             // panel4
             // 
@@ -285,7 +285,7 @@ namespace Electricity_shop
             this.panel3.Size = new System.Drawing.Size(9, 522);
             this.panel3.TabIndex = 60;
             // 
-            // add_customer
+            // Frm_addCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -295,14 +295,14 @@ namespace Electricity_shop
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Lbl_addCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "add_customer";
+            this.Name = "Frm_addCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "add_customer";
-            this.Load += new System.EventHandler(this.add_customer_Load);
+            this.Load += new System.EventHandler(this.Frm_addCustomer_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -312,20 +312,20 @@ namespace Electricity_shop
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button add_button;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox address;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox phone_number;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox last_name;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox first_name;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ID_text;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Btn_cancel;
+        private System.Windows.Forms.Button Btn_addCustomer;
+        private System.Windows.Forms.Label Lbl_address;
+        private System.Windows.Forms.TextBox Txt_address;
+        private System.Windows.Forms.Label Lbl_phoneNumber;
+        private System.Windows.Forms.TextBox Txt_phoneNumber;
+        private System.Windows.Forms.Label Lbl_lastName;
+        private System.Windows.Forms.TextBox Txt_lastName;
+        private System.Windows.Forms.Label Lbl_firstName;
+        private System.Windows.Forms.TextBox Txt_firstName;
+        private System.Windows.Forms.Label Lbl_customerId;
+        private System.Windows.Forms.TextBox Txt_customerId;
+        private System.Windows.Forms.Label Lbl_addCustomer;
+        private System.Windows.Forms.Button Btn_exit;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;

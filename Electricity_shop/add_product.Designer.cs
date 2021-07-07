@@ -389,7 +389,7 @@ namespace Electricity_shop
             this.frameColorUp.Location = new System.Drawing.Point(-6, -3);
             this.frameColorUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frameColorUp.Name = "frameColorUp";
-            this.frameColorUp.Size = new System.Drawing.Size(945, 38);
+            this.frameColorUp.Size = new System.Drawing.Size(945, 12);
             this.frameColorUp.TabIndex = 61;
             this.frameColorUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frameColorUp_MouseDown);
             this.frameColorUp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frameColorUp_MouseMove);
@@ -407,10 +407,10 @@ namespace Electricity_shop
             // frameColorLeft
             // 
             this.frameColorLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.frameColorLeft.Location = new System.Drawing.Point(-3, -2);
+            this.frameColorLeft.Location = new System.Drawing.Point(-3, 1);
             this.frameColorLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frameColorLeft.Name = "frameColorLeft";
-            this.frameColorLeft.Size = new System.Drawing.Size(10, 716);
+            this.frameColorLeft.Size = new System.Drawing.Size(11, 713);
             this.frameColorLeft.TabIndex = 63;
             // 
             // frameColorRight

@@ -116,12 +116,12 @@ namespace Electricity_shop
 
         private void openCustomeMmanagement(object obj)
         {
-            Application.Run(new customers_management());
+            Application.Run(new FrmCustomers_management());
         }
 
         private void openAddCustomer(object obj)
         {
-            Application.Run(new add_customer());
+            Application.Run(new Frm_addCustomer());
         }
 
         private void button6_Click(object sender, EventArgs e)

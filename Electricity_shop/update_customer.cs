@@ -11,14 +11,14 @@ using System.Threading;
 
 namespace Electricity_shop
 {
-    public partial class update_customer : Form
+    public partial class Frm_update_customer : Form
     {
         private System.Windows.Forms.ErrorProvider idErrorProvider;
         customer load_customers = new customer();
-        DBSQL mySQL;
+        readonly DBSQL mySQL;
         int count = 0;
 
-        public update_customer()
+        public Frm_update_customer()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -27,44 +27,45 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
             main mainForm = new main();
             mainForm.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
             main mainForm = new main();
             mainForm.Show();
         }
 
-        private void update_customer_Load(object sender, EventArgs e)
+        private void Frm_update_customer_Load(object sender, EventArgs e)
         {
-            load_customers = mySQL.GetCustomerDataByID(id.Text);
+            load_customers = mySQL.GetCustomerDataByID(Txt_customerId.Text);
         }
 
 
-        private void fill_obj(customer person)
+        private void Fill_obj(customer person)
         {
-            person.Id = id.Text;
-            person.First_name = first_name.Text;
-            person.Last_name = last_name.Text;
-            person.Phone_number = phone_number.Text;
-            person.Address = address.Text;
+            person.Id = Txt_customerId.Text;
+            person.First_name = Txt_firstName.Text;
+            person.Last_name = Txt_lastName.Text;
+            person.Phone_number = Txt_phoneNumber.Text;
+            person.Address = Txt_address.Text;
         }
 
 
 
-        private void btn_updateCustomer_Click(object sender, EventArgs e)
+        private void Btn_updateCustomer_Click(object sender, EventArgs e)
         {
-            if (id.Text != "" && check_id()==true && first_name.Text != "" && last_name.Text != ""
-                && phone_number.Text != "" && check_phoneNumber()==true
-                 && address.Text != "")
+
+            if (Txt_customerId.Text != "" && Check_id() == true && Txt_firstName.Text != "" && Txt_lastName.Text != ""
+                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true
+                 && Txt_address.Text != "")
             {
-                fill_obj(load_customers);
+                Fill_obj(load_customers);
                 mySQL.UpdateCustomerBySerial(load_customers);
                 MessageBox.Show("לקוח עודכן בהצלחה");
                 this.Close();
@@ -75,26 +76,26 @@ namespace Electricity_shop
         }
 
         // פונקציה בודקת תקינות תעודת זהות של הלקוח
-        private bool check_id()
+        private bool Check_id()
         {
-            return (this.id.Text.Length == 9);
+            return (this.Txt_customerId.Text.Length == 9);
         }
-        private void id_Leave(object sender, EventArgs e)
+        private void Txt_customerId_Leave(object sender, EventArgs e)
         {
             // בודקים אם הנתונים בשדה לא תקינים ופעם ראשונה פונקציה id_leave מופעלת
-            if (check_id() == false && count == 0)
+            if (Check_id() == false && count == 0)
             {
                 // מקדמים מונה כניסות/הפעלות של פונקציה id_leave
                 count++;
                 // מגדירים שגאיה בהתאם
                 idErrorProvider = new ErrorProvider();
-                idErrorProvider.SetError(id, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+                idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
             }
             // לא פעם ראשונה id_leave מופעלת
             else
             {
                 // פעם ראשונה מפעילים id_leave ונתונים בשדה תקינים
-                if (check_id() == true && count == 0)
+                if (Check_id() == true && count == 0)
                 {
                     //לא מבצעים פעולות
                     // נשאר count=0
@@ -104,41 +105,61 @@ namespace Electricity_shop
                     // לא פעם ראשונה מפעילים id_leave
                     // אם מגיעים לתנאי הזה יישארו שתי אןפציות
                     // 1) נתונים תקינים בשדה
-                    if (check_id() == true)
+                    if (Check_id() == true)
                     {
-                        idErrorProvider.SetError(id, "");
+                        idErrorProvider.SetError(Txt_customerId, "");
                     }
                     // 2) נתונים שגויים
                     else
                     {
                         //idErrorProvider = new ErrorProvider();
-                        idErrorProvider.SetError(id, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+                        idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+                    }
+                }
+            }
+            // בודקים אם לקוח קיים לפי תעודת זהות
+            if (Txt_customerId.Text != "")
+            {
+                customer[] Customer = mySQL.GetCustomerData();
+                string idTmp = Txt_customerId.Text;
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    if (idTmp == Customer[i].Id.ToString() && load_customers.Phone_number.ToString() != Customer[i].Phone_number.ToString())
+                    {
+                        MessageBox.Show("תעודת זהות שייכת ללקוח אחר");
+                        Txt_customerId.Text = Customer[i].Id.ToString();
+                        Txt_firstName.Text = Customer[i].First_name;
+                        Txt_lastName.Text = Customer[i].Last_name;
+                        Txt_phoneNumber.Text = Customer[i].Phone_number;
+                        Txt_address.Text = Customer[i].Address;
+
                     }
                 }
             }
         }
 
-        private bool check_phoneNumber()
+        private bool Check_phoneNumber()
         {
-            return (phone_number.Text.Length == 10);
+            return (Txt_phoneNumber.Text.Length == 10);
         }
-        private void phone_number_Leave(object sender, EventArgs e)
+        private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
 
             // בודקים אם הנתונים בשדה לא תקינים ופעם ראשונה פונקציה phone_number_leave מופעלת
-            if (check_phoneNumber() == false && count == 0)
+            if (Check_phoneNumber() == false && count == 0)
             {
                 // מקדמים מונה כניסות/הפעלות של פונקציה phone_number_leave
                 count++;
                 // מגדירים שגאיה בהתאם
                 idErrorProvider = new ErrorProvider();
-                idErrorProvider.SetError(phone_number, "מספר פלאפון חייב להכיל 10 ספרות");
+                idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
             }
             // לא פעם ראשונה phone_number_leave מופעלת
             else
             {
                 // פעם ראשונה מפעילים phone_number_leave ונתונים בשדה תקינים
-                if (check_phoneNumber() == true && count == 0)
+                if (Check_phoneNumber() == true && count == 0)
                 {
                     //לא מבצעים פעולות
                     // נשאר count=0
@@ -148,41 +169,61 @@ namespace Electricity_shop
                     // לא פעם ראשונה מפעילים phone_number_leave
                     // אם מגיעים לתנאי הזה יישארו שתי אןפציות
                     // 1) נתונים תקינים בשדה
-                    if (check_phoneNumber() == true)
+                    if (Check_phoneNumber() == true)
                     {
-                        idErrorProvider.SetError(phone_number, "");
+                        idErrorProvider.SetError(Txt_phoneNumber, "");
                     }
                     // 2) נתונים שגויים
                     else
                     {
-                        idErrorProvider.SetError(phone_number, "מספר פלאפון חייב להכיל 10 ספרות");
+                        idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
+                    }
+                }
+                // בודקים אם לקוח קיים לפי מספר פלאפון
+                if (Txt_phoneNumber.Text != "")
+                {
+                    customer[] Customer = mySQL.GetCustomerData();
+                    string phoneTmp = Txt_phoneNumber.Text;
+
+                    for (int i = 0; i < Customer.Length; i++)
+                    {
+                        if (phoneTmp == Customer[i].Phone_number.ToString() && load_customers.Id.ToString() != Customer[i].Id.ToString())
+                        {
+                            MessageBox.Show("מספר פלאפון שייכת ללקוח אחר");
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_firstName.Text = Customer[i].First_name;
+                            Txt_lastName.Text = Customer[i].Last_name;
+                            Txt_phoneNumber.Text = Customer[i].Phone_number;
+                            Txt_address.Text = Customer[i].Address;
+
+                        }
                     }
                 }
             }
         }
 
-        private void update_customer_MouseMove(object sender, MouseEventArgs e)
+        private void Frm_update_customer_MouseMove(object sender, MouseEventArgs e)
         {
 
-            if (check_id() == false && check_phoneNumber() == false)
+            if (Check_id() == false && Check_phoneNumber() == false)
             {
                 MessageBox.Show("תעודת זהות ומספר פלאפון לא תקינים");
             }
             else
             {
-                if (check_phoneNumber() == false)
+                if (Check_phoneNumber() == false)
                 {
                     MessageBox.Show("מספר פלאפון לא תקין");
                 }
                 else
                 {
-                    if (check_id() == false)
+                    if (Check_id() == false)
                         MessageBox.Show("תעודת זהות לא תקינה");
                 }
             }
         }
 
-        private void id_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 

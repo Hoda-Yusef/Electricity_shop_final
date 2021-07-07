@@ -9,20 +9,19 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class customers_management : Form
+    public partial class FrmCustomers_management : Form
     {
-        private DBSQL mySQL;
+        private readonly DBSQL mySQL;
         Thread th;
         customer[] Customer;
-
-        AutoCompleteStringCollection IdAuto = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection phoneNumberAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection IdAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection phoneNumberAuto = new AutoCompleteStringCollection();
         /*
         AutoCompleteStringCollection lastNameAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection addressAuto = new AutoCompleteStringCollection();
         */
-        public customers_management()
+        public FrmCustomers_management()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -32,42 +31,42 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid_by_Id()
+        private void Fill_grid_by_Id()
         {
 
-            Customer = mySQL.GetCustomerDataById2(Id.Text);
+            Customer = mySQL.GetCustomerDataById2(Txt_customerId.Text);
 
-            fill_grid(Customer);
-            if (customers_grid.Rows.Count != 0)
-                customers_grid.Rows[0].Cells[0].Selected = false;
+            Fill_grid(Customer);
+            if (Grd_customers.Rows.Count != 0)
+                Grd_customers.Rows[0].Cells[0].Selected = false;
 
         }
 
-        private void fill_grid_by_firstName()
+        private void Fill_grid_by_firstName()
         {
-            Customer = mySQL.GetCustomerDataByFN(firstName.Text);
-            fill_grid(Customer);
-            if (customers_grid.Rows.Count != 0)
-                customers_grid.Rows[0].Cells[0].Selected = false;
+            Customer = mySQL.GetCustomerDataByFN(Txt_firstName.Text);
+            Fill_grid(Customer);
+            if (Grd_customers.Rows.Count != 0)
+                Grd_customers.Rows[0].Cells[0].Selected = false;
         }
 
 
-        private void fill_grid_by_phoneN()
+        private void Fill_grid_by_phoneN()
         {
-            Customer = mySQL.GetCustomerDataByphoneN(phoneNumber.Text);
-            fill_grid(Customer);
-            if (customers_grid.Rows.Count != 0)
-                customers_grid.Rows[0].Cells[0].Selected = false;
+            Customer = mySQL.GetCustomerDataByphoneN(Txt_phoneNumber.Text);
+            Fill_grid(Customer);
+            if (Grd_customers.Rows.Count != 0)
+                Grd_customers.Rows[0].Cells[0].Selected = false;
         }
 
-        private void fill_grid(customer[] Customer)
+        private void Fill_grid(customer[] Customer)
         {
-            customers_grid.Rows.Clear();
+            Grd_customers.Rows.Clear();
             if (Customer != null)
             {
                 for (int i = 0; i < Customer.Length; i++)
                 {
-                    customers_grid.Rows.Add(new object[]
+                    Grd_customers.Rows.Add(new object[]
                     {
                     Customer[i].Id,
                     Customer[i].First_name,
@@ -78,35 +77,28 @@ namespace Electricity_shop
                 }
             }
             else
-                customers_grid.Rows.Clear();
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            th = new Thread(openMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                Grd_customers.Rows.Clear();
         }
 
-        private void openMain(object obj)
+        private void OpenMain(object obj)
         {
             Application.Run(new main());
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Btn_toMain_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(openMain);
+            th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void customers_management_Load(object sender, EventArgs e)
+        private void FrmCustomers_management_Load(object sender, EventArgs e)
         {
             customer[] Customer = mySQL.GetCustomerData();
             for(int i=0;i<Customer.Length;i++)
             {
-                customers_grid.Rows.Add(new object[]
+                Grd_customers.Rows.Add(new object[]
                     {
                         Customer[i].Id,
                         Customer[i].First_name,
@@ -123,17 +115,17 @@ namespace Electricity_shop
                 phoneNumberAuto.Add(Customer[i].Phone_number.ToString());
             }
 
-            Id.AutoCompleteCustomSource = IdAuto;
-            firstName.AutoCompleteCustomSource = firstNameAuto;
-            phoneNumber.AutoCompleteCustomSource = phoneNumberAuto;
+            Txt_customerId.AutoCompleteCustomSource = IdAuto;
+            Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
+            Txt_phoneNumber.AutoCompleteCustomSource = phoneNumberAuto;
         }
 
-        private void Id_TextChanged(object sender, EventArgs e)
+        private void Txt_customerId_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_Id();
+            Fill_grid_by_Id();
         }
        
-        private void Id_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only digits are welcomed :)
             char ch = e.KeyChar;
@@ -144,12 +136,12 @@ namespace Electricity_shop
             }
         }
         
-        private void firstName_TextChanged(object sender, EventArgs e)
+        private void Txt_firstName_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_firstName();
+            Fill_grid_by_firstName();
         }
         
-        private void firstName_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Only characters are welcomed :)
             char ch = e.KeyChar;
@@ -160,7 +152,7 @@ namespace Electricity_shop
             }
         }
 
-        private void phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only digits are welcomed :)
             char ch = e.KeyChar;
@@ -171,31 +163,39 @@ namespace Electricity_shop
             }
         }
         
-        private void phoneNumber_TextChanged(object sender, EventArgs e)
+        private void Txt_phoneNumber_TextChanged(object sender, EventArgs e)
         {
-            fill_grid_by_phoneN();
+            Fill_grid_by_phoneN();
         }
 
-        private void btn_update_Click(object sender, EventArgs e)
+        private void Btn_update_Click(object sender, EventArgs e)
         {
-            update_customer uCustomer = new update_customer();
-            uCustomer.id.Text= customers_grid.CurrentRow.Cells[0].Value.ToString();
-            uCustomer.first_name.Text = customers_grid.CurrentRow.Cells[1].Value.ToString();
-            uCustomer.last_name.Text = customers_grid.CurrentRow.Cells[2].Value.ToString();
-            uCustomer.phone_number.Text = customers_grid.CurrentRow.Cells[3].Value.ToString();
-            uCustomer.address.Text = customers_grid.CurrentRow.Cells[4].Value.ToString();
+            Frm_update_customer uCustomer = new Frm_update_customer();
+            uCustomer.Txt_customerId.Text= Grd_customers.CurrentRow.Cells[0].Value.ToString();
+            uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
+            uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();
+            uCustomer.Txt_phoneNumber.Text = Grd_customers.CurrentRow.Cells[3].Value.ToString();
+            uCustomer.Txt_address.Text = Grd_customers.CurrentRow.Cells[4].Value.ToString();
             uCustomer.ShowDialog();
 
             this.Close();
-            th = new Thread(openSelf);
+            th = new Thread(OpenSelf);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
 
         }
 
-        private void openSelf(object obj)
+        private void OpenSelf(object obj)
         {
-            Application.Run(new customers_management());
+            Application.Run(new FrmCustomers_management());
+        }
+
+        private void Btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(OpenMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }
