@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class update_supplier : Form
+    public partial class Frm_updateSupplier : Form
     {
         private System.Windows.Forms.ErrorProvider phoneErrorProvider;
         supplier load_supplier = new supplier();
-        supplier updated_supplier = new supplier();
-        DBSQL mySQL;
-        Thread th;
+        readonly supplier updated_supplier = new supplier();
+        readonly DBSQL mySQL;
         int count = 0;
-        public update_supplier()
+
+        public Frm_updateSupplier()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -26,19 +26,13 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void firstNameTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -47,7 +41,7 @@ namespace Electricity_shop
             }
         }
 
-        private void lastNameTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -56,7 +50,7 @@ namespace Electricity_shop
             }
         }
 
-        private void addressTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -65,7 +59,7 @@ namespace Electricity_shop
             }
         }
 
-        private void phoneNumberTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -74,7 +68,7 @@ namespace Electricity_shop
             }
         }
 
-        private void deptTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -83,7 +77,7 @@ namespace Electricity_shop
             }
         }
 
-        private void paidTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_paidToSupplier_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -92,7 +86,7 @@ namespace Electricity_shop
             }
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void Btn_cancelUpdating_Click(object sender, EventArgs e)
         {
             this.Close();
             Frm_main mainForm = new Frm_main();
@@ -100,54 +94,54 @@ namespace Electricity_shop
         }
 
 
-        private bool check_phone_number()
+        private bool Check_phone_number()
         {
-            return (this.phoneNumberTBox.Text.Length == 10);
+            return (this.Txt_phoneNumber.Text.Length == 10);
         }
 
-        private void phoneNumberTBox_Leave(object sender, EventArgs e)
+        private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
             // בודקים תקינות קלט
-            if (check_phone_number() == false && count == 0)
+            if (Check_phone_number() == false && count == 0)
             {
                 count++;
                 phoneErrorProvider = new ErrorProvider();
-                phoneErrorProvider.SetError(phoneNumberTBox, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
+                phoneErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
             }
             else
             {
-                if (check_phone_number() == true && count == 0)
+                if (Check_phone_number() == true && count == 0)
                 {
                     //לא מבצעים פעולות
                     // נשאר count=0
                 }
                 else
                 {
-                    if (check_phone_number() == true)
+                    if (Check_phone_number() == true)
                     {
-                        phoneErrorProvider.SetError(phoneNumberTBox, "");
+                        phoneErrorProvider.SetError(Txt_phoneNumber, "");
                     }
                     else
                     {
-                        phoneErrorProvider.SetError(phoneNumberTBox, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
+                        phoneErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
                     }
                 }
             }
         }
 
-        private bool check_phoneNumber()
+        private bool Check_phoneNumber()
         {
-            return (phoneNumberTBox.Text.Length == 10);
+            return (Txt_phoneNumber.Text.Length == 10);
         }
        
         
         
-        private void update_button_Click(object sender, EventArgs e)
+        private void Btn_updateSupplier_Click(object sender, EventArgs e)
         {
-            if ((firstNameTBox.Text != "" || lastNameTBox.Text != "") && addressTBox.Text != ""
-                && phoneNumberTBox.Text != "" && check_phoneNumber() == true)
+            if ((Txt_firstName.Text != "" || Txt_lastName.Text != "") && Txt_address.Text != ""
+                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true)
             {
-                fill_obj(load_supplier);
+                Fill_obj(load_supplier);
                 mySQL.UpdateSupplierBySerial(load_supplier);
                 MessageBox.Show("ספק עודכן בהצלחה");
                 this.Close();
@@ -162,20 +156,20 @@ namespace Electricity_shop
             Application.Run(new suppliers_management());
         }
         */
-        private void fill_obj(supplier person)
+        private void Fill_obj(supplier person)
         {
-                person.FirstName = firstNameTBox.Text;
-                person.LasttName = lastNameTBox.Text;
-                person.Phone_number = phoneNumberTBox.Text;
-                person.Address = addressTBox.Text;
-                person.Dept = Convert.ToInt32(deptTBox.Text);
-                person.Paid = Convert.ToInt32(paidTBox.Text);
+                person.FirstName = Txt_firstName.Text;
+                person.LasttName = Txt_lastName.Text;
+                person.Phone_number = Txt_phoneNumber.Text;
+                person.Address = Txt_address.Text;
+                person.Dept = Convert.ToInt32(Txt_supplierDept.Text);
+                person.Paid = Convert.ToInt32(Txt_paidToSupplier.Text);
 
         }
 
-        private void update_supplier_Load(object sender, EventArgs e)
+        private void Frm_updateSupplier_Load(object sender, EventArgs e)
         {
-            load_supplier = mySQL.GetSupplierDataByPhone(phoneNumberTBox.Text);
+            load_supplier = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);
         }
     }
 }

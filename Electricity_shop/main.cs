@@ -101,7 +101,7 @@ namespace Electricity_shop
 
         private void OpenAddSupplier(object obj)
         {
-            Application.Run(new add_supplier());
+            Application.Run(new Frm_addSupplier());
         }
 
         private void Btn_manageCustomers_Click(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace Electricity_shop
 
         private void OpenSupplierManagement(object obj)
         {
-            Application.Run(new suppliers_management());
+            Application.Run(new Frm_suppliersManagement());
         }
 
         private void Frm_main_Load(object sender, EventArgs e)

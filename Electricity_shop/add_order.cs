@@ -56,12 +56,12 @@ namespace Electricity_shop
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void opennewform(object obj)
+        private void Opennewform(object obj)
         {
             Application.Run(new Frm_main());
         }
@@ -70,7 +70,7 @@ namespace Electricity_shop
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }

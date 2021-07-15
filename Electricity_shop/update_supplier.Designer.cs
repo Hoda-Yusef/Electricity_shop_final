@@ -1,7 +1,7 @@
 ﻿
 namespace Electricity_shop
 {
-    partial class update_supplier
+    partial class Frm_updateSupplier
     {
         /// <summary>
         /// Required designer variable.
@@ -29,55 +29,55 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(update_supplier));
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_updateSupplier));
+            this.Lbl_updateSupplier = new System.Windows.Forms.Label();
+            this.Btn_exit = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lastNameTBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.deptTBox = new System.Windows.Forms.TextBox();
-            this.cancel = new System.Windows.Forms.Button();
-            this.update_button = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.paidTBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.phoneNumberTBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.addressTBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.firstNameTBox = new System.Windows.Forms.TextBox();
+            this.Lbl_lastName = new System.Windows.Forms.Label();
+            this.Txt_lastName = new System.Windows.Forms.TextBox();
+            this.Lbl_supplierDept = new System.Windows.Forms.Label();
+            this.Txt_supplierDept = new System.Windows.Forms.TextBox();
+            this.Btn_cancelUpdating = new System.Windows.Forms.Button();
+            this.Btn_updateSupplier = new System.Windows.Forms.Button();
+            this.Lbl_payedToSupplier = new System.Windows.Forms.Label();
+            this.Txt_paidToSupplier = new System.Windows.Forms.TextBox();
+            this.Lbl_phoneNumber = new System.Windows.Forms.Label();
+            this.Txt_phoneNumber = new System.Windows.Forms.TextBox();
+            this.Lbl_address = new System.Windows.Forms.Label();
+            this.Txt_address = new System.Windows.Forms.TextBox();
+            this.Lbl_firstName = new System.Windows.Forms.Label();
+            this.Txt_firstName = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // Lbl_updateSupplier
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(256, 0);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(283, 54);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "עדכון ספק";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_updateSupplier.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_updateSupplier.ForeColor = System.Drawing.Color.White;
+            this.Lbl_updateSupplier.Location = new System.Drawing.Point(256, 0);
+            this.Lbl_updateSupplier.Name = "Lbl_updateSupplier";
+            this.Lbl_updateSupplier.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_updateSupplier.Size = new System.Drawing.Size(283, 54);
+            this.Lbl_updateSupplier.TabIndex = 50;
+            this.Lbl_updateSupplier.Text = "עדכון ספק";
+            this.Lbl_updateSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // Btn_exit
             // 
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(815, -1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 38);
-            this.button3.TabIndex = 51;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
+            this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_exit.Location = new System.Drawing.Point(815, -1);
+            this.Btn_exit.Name = "Btn_exit";
+            this.Btn_exit.Size = new System.Drawing.Size(34, 38);
+            this.Btn_exit.TabIndex = 51;
+            this.Btn_exit.UseVisualStyleBackColor = true;
+            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
             // 
             // panel4
             // 
@@ -118,205 +118,205 @@ namespace Electricity_shop
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.lastNameTBox);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.deptTBox);
-            this.panel5.Controls.Add(this.cancel);
-            this.panel5.Controls.Add(this.update_button);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.paidTBox);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.phoneNumberTBox);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.addressTBox);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.firstNameTBox);
+            this.panel5.Controls.Add(this.Lbl_lastName);
+            this.panel5.Controls.Add(this.Txt_lastName);
+            this.panel5.Controls.Add(this.Lbl_supplierDept);
+            this.panel5.Controls.Add(this.Txt_supplierDept);
+            this.panel5.Controls.Add(this.Btn_cancelUpdating);
+            this.panel5.Controls.Add(this.Btn_updateSupplier);
+            this.panel5.Controls.Add(this.Lbl_payedToSupplier);
+            this.panel5.Controls.Add(this.Txt_paidToSupplier);
+            this.panel5.Controls.Add(this.Lbl_phoneNumber);
+            this.panel5.Controls.Add(this.Txt_phoneNumber);
+            this.panel5.Controls.Add(this.Lbl_address);
+            this.panel5.Controls.Add(this.Txt_address);
+            this.panel5.Controls.Add(this.Lbl_firstName);
+            this.panel5.Controls.Add(this.Txt_firstName);
             this.panel5.Location = new System.Drawing.Point(34, 56);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(784, 378);
             this.panel5.TabIndex = 61;
             // 
-            // label3
+            // Lbl_lastName
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(613, 128);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(113, 21);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "שם משפחה";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_lastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_lastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_lastName.Location = new System.Drawing.Point(613, 128);
+            this.Lbl_lastName.Name = "Lbl_lastName";
+            this.Lbl_lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_lastName.Size = new System.Drawing.Size(113, 21);
+            this.Lbl_lastName.TabIndex = 62;
+            this.Lbl_lastName.Text = "שם משפחה";
+            this.Lbl_lastName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lastNameTBox
+            // Txt_lastName
             // 
-            this.lastNameTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.lastNameTBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lastNameTBox.ForeColor = System.Drawing.Color.White;
-            this.lastNameTBox.Location = new System.Drawing.Point(519, 141);
-            this.lastNameTBox.Name = "lastNameTBox";
-            this.lastNameTBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lastNameTBox.Size = new System.Drawing.Size(225, 32);
-            this.lastNameTBox.TabIndex = 61;
-            this.lastNameTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lastNameTBox_KeyPress);
+            this.Txt_lastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_lastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_lastName.ForeColor = System.Drawing.Color.White;
+            this.Txt_lastName.Location = new System.Drawing.Point(519, 141);
+            this.Txt_lastName.Name = "Txt_lastName";
+            this.Txt_lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_lastName.Size = new System.Drawing.Size(225, 32);
+            this.Txt_lastName.TabIndex = 61;
+            this.Txt_lastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_lastName_KeyPress);
             // 
-            // label7
+            // Lbl_supplierDept
             // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label7.Location = new System.Drawing.Point(175, 38);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(99, 20);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "חוב לספק";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_supplierDept.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_supplierDept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_supplierDept.Location = new System.Drawing.Point(175, 38);
+            this.Lbl_supplierDept.Name = "Lbl_supplierDept";
+            this.Lbl_supplierDept.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_supplierDept.Size = new System.Drawing.Size(99, 20);
+            this.Lbl_supplierDept.TabIndex = 50;
+            this.Lbl_supplierDept.Text = "חוב לספק";
+            this.Lbl_supplierDept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // deptTBox
+            // Txt_supplierDept
             // 
-            this.deptTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.deptTBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deptTBox.ForeColor = System.Drawing.Color.White;
-            this.deptTBox.Location = new System.Drawing.Point(58, 56);
-            this.deptTBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.deptTBox.Name = "deptTBox";
-            this.deptTBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.deptTBox.Size = new System.Drawing.Size(225, 32);
-            this.deptTBox.TabIndex = 49;
-            this.deptTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.deptTBox_KeyPress);
+            this.Txt_supplierDept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_supplierDept.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_supplierDept.ForeColor = System.Drawing.Color.White;
+            this.Txt_supplierDept.Location = new System.Drawing.Point(58, 56);
+            this.Txt_supplierDept.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Txt_supplierDept.Name = "Txt_supplierDept";
+            this.Txt_supplierDept.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_supplierDept.Size = new System.Drawing.Size(225, 32);
+            this.Txt_supplierDept.TabIndex = 49;
+            this.Txt_supplierDept.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_supplierDept_KeyPress);
             // 
-            // cancel
+            // Btn_cancelUpdating
             // 
-            this.cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cancel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cancel.ForeColor = System.Drawing.Color.White;
-            this.cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cancel.Location = new System.Drawing.Point(42, 275);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(116, 38);
-            this.cancel.TabIndex = 48;
-            this.cancel.Text = "ביטול";
-            this.cancel.UseVisualStyleBackColor = false;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            this.Btn_cancelUpdating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_cancelUpdating.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_cancelUpdating.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_cancelUpdating.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_cancelUpdating.ForeColor = System.Drawing.Color.White;
+            this.Btn_cancelUpdating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_cancelUpdating.Location = new System.Drawing.Point(42, 275);
+            this.Btn_cancelUpdating.Name = "Btn_cancelUpdating";
+            this.Btn_cancelUpdating.Size = new System.Drawing.Size(116, 38);
+            this.Btn_cancelUpdating.TabIndex = 48;
+            this.Btn_cancelUpdating.Text = "ביטול";
+            this.Btn_cancelUpdating.UseVisualStyleBackColor = false;
+            this.Btn_cancelUpdating.Click += new System.EventHandler(this.Btn_cancelUpdating_Click);
             // 
-            // update_button
+            // Btn_updateSupplier
             // 
-            this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.update_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.update_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.update_button.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.update_button.ForeColor = System.Drawing.Color.White;
-            this.update_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.update_button.Location = new System.Drawing.Point(175, 275);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(116, 38);
-            this.update_button.TabIndex = 47;
-            this.update_button.Text = "עדכן";
-            this.update_button.UseVisualStyleBackColor = false;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
+            this.Btn_updateSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_updateSupplier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_updateSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_updateSupplier.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_updateSupplier.ForeColor = System.Drawing.Color.White;
+            this.Btn_updateSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_updateSupplier.Location = new System.Drawing.Point(175, 275);
+            this.Btn_updateSupplier.Name = "Btn_updateSupplier";
+            this.Btn_updateSupplier.Size = new System.Drawing.Size(116, 38);
+            this.Btn_updateSupplier.TabIndex = 47;
+            this.Btn_updateSupplier.Text = "עדכן";
+            this.Btn_updateSupplier.UseVisualStyleBackColor = false;
+            this.Btn_updateSupplier.Click += new System.EventHandler(this.Btn_updateSupplier_Click);
             // 
-            // label6
+            // Lbl_payedToSupplier
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label6.Location = new System.Drawing.Point(158, 141);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(110, 20);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "שולם לספק";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_payedToSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_payedToSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_payedToSupplier.Location = new System.Drawing.Point(158, 141);
+            this.Lbl_payedToSupplier.Name = "Lbl_payedToSupplier";
+            this.Lbl_payedToSupplier.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_payedToSupplier.Size = new System.Drawing.Size(110, 20);
+            this.Lbl_payedToSupplier.TabIndex = 45;
+            this.Lbl_payedToSupplier.Text = "שולם לספק";
+            this.Lbl_payedToSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // paidTBox
+            // Txt_paidToSupplier
             // 
-            this.paidTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.paidTBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.paidTBox.ForeColor = System.Drawing.Color.White;
-            this.paidTBox.Location = new System.Drawing.Point(58, 158);
-            this.paidTBox.Name = "paidTBox";
-            this.paidTBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.paidTBox.Size = new System.Drawing.Size(225, 32);
-            this.paidTBox.TabIndex = 60;
-            this.paidTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paidTBox_KeyPress);
+            this.Txt_paidToSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_paidToSupplier.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_paidToSupplier.ForeColor = System.Drawing.Color.White;
+            this.Txt_paidToSupplier.Location = new System.Drawing.Point(58, 158);
+            this.Txt_paidToSupplier.Name = "Txt_paidToSupplier";
+            this.Txt_paidToSupplier.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_paidToSupplier.Size = new System.Drawing.Size(225, 32);
+            this.Txt_paidToSupplier.TabIndex = 60;
+            this.Txt_paidToSupplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_paidToSupplier_KeyPress);
             // 
-            // label5
+            // Lbl_phoneNumber
             // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label5.Location = new System.Drawing.Point(599, 304);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(127, 20);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "מספר טלפון";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_phoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_phoneNumber.Location = new System.Drawing.Point(599, 304);
+            this.Lbl_phoneNumber.Name = "Lbl_phoneNumber";
+            this.Lbl_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_phoneNumber.Size = new System.Drawing.Size(127, 20);
+            this.Lbl_phoneNumber.TabIndex = 43;
+            this.Lbl_phoneNumber.Text = "מספר טלפון";
+            this.Lbl_phoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // phoneNumberTBox
+            // Txt_phoneNumber
             // 
-            this.phoneNumberTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.phoneNumberTBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.phoneNumberTBox.ForeColor = System.Drawing.Color.White;
-            this.phoneNumberTBox.Location = new System.Drawing.Point(519, 314);
-            this.phoneNumberTBox.Name = "phoneNumberTBox";
-            this.phoneNumberTBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.phoneNumberTBox.Size = new System.Drawing.Size(225, 32);
-            this.phoneNumberTBox.TabIndex = 42;
-            this.phoneNumberTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTBox_KeyPress);
-            this.phoneNumberTBox.Leave += new System.EventHandler(this.phoneNumberTBox_Leave);
+            this.Txt_phoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_phoneNumber.ForeColor = System.Drawing.Color.White;
+            this.Txt_phoneNumber.Location = new System.Drawing.Point(519, 317);
+            this.Txt_phoneNumber.Name = "Txt_phoneNumber";
+            this.Txt_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_phoneNumber.Size = new System.Drawing.Size(225, 32);
+            this.Txt_phoneNumber.TabIndex = 42;
+            this.Txt_phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_phoneNumber_KeyPress);
+            this.Txt_phoneNumber.Leave += new System.EventHandler(this.Txt_phoneNumber_Leave);
             // 
-            // label4
+            // Lbl_address
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label4.Location = new System.Drawing.Point(643, 218);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(83, 20);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "כתובת";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_address.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_address.Location = new System.Drawing.Point(643, 218);
+            this.Lbl_address.Name = "Lbl_address";
+            this.Lbl_address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_address.Size = new System.Drawing.Size(83, 20);
+            this.Lbl_address.TabIndex = 41;
+            this.Lbl_address.Text = "כתובת";
+            this.Lbl_address.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // addressTBox
+            // Txt_address
             // 
-            this.addressTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.addressTBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addressTBox.ForeColor = System.Drawing.Color.White;
-            this.addressTBox.Location = new System.Drawing.Point(519, 230);
-            this.addressTBox.Name = "addressTBox";
-            this.addressTBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.addressTBox.Size = new System.Drawing.Size(225, 32);
-            this.addressTBox.TabIndex = 40;
-            this.addressTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addressTBox_KeyPress);
+            this.Txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_address.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_address.ForeColor = System.Drawing.Color.White;
+            this.Txt_address.Location = new System.Drawing.Point(519, 230);
+            this.Txt_address.Name = "Txt_address";
+            this.Txt_address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_address.Size = new System.Drawing.Size(225, 32);
+            this.Txt_address.TabIndex = 40;
+            this.Txt_address.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_address_KeyPress);
             // 
-            // label2
+            // Lbl_firstName
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(613, 40);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(113, 21);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "שם פרטי";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_firstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_firstName.Location = new System.Drawing.Point(613, 40);
+            this.Lbl_firstName.Name = "Lbl_firstName";
+            this.Lbl_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_firstName.Size = new System.Drawing.Size(113, 21);
+            this.Lbl_firstName.TabIndex = 37;
+            this.Lbl_firstName.Text = "שם פרטי";
+            this.Lbl_firstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // firstNameTBox
+            // Txt_firstName
             // 
-            this.firstNameTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.firstNameTBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.firstNameTBox.ForeColor = System.Drawing.Color.White;
-            this.firstNameTBox.Location = new System.Drawing.Point(519, 56);
-            this.firstNameTBox.Name = "firstNameTBox";
-            this.firstNameTBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.firstNameTBox.Size = new System.Drawing.Size(225, 32);
-            this.firstNameTBox.TabIndex = 36;
-            this.firstNameTBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTBox_KeyPress);
+            this.Txt_firstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_firstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_firstName.ForeColor = System.Drawing.Color.White;
+            this.Txt_firstName.Location = new System.Drawing.Point(519, 56);
+            this.Txt_firstName.Name = "Txt_firstName";
+            this.Txt_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_firstName.Size = new System.Drawing.Size(225, 32);
+            this.Txt_firstName.TabIndex = 36;
+            this.Txt_firstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_firstName_KeyPress);
             // 
-            // update_supplier
+            // Frm_updateSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -327,12 +327,12 @@ namespace Electricity_shop
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Btn_exit);
+            this.Controls.Add(this.Lbl_updateSupplier);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "update_supplier";
+            this.Name = "Frm_updateSupplier";
             this.Text = "update_supplier";
-            this.Load += new System.EventHandler(this.update_supplier_Load);
+            this.Load += new System.EventHandler(this.Frm_updateSupplier_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -340,26 +340,26 @@ namespace Electricity_shop
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label Lbl_updateSupplier;
+        private System.Windows.Forms.Button Btn_exit;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox lastNameTBox;
-        private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.TextBox deptTBox;
-        private System.Windows.Forms.Button cancel;
-        private System.Windows.Forms.Button update_button;
-        private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox paidTBox;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox phoneNumberTBox;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox addressTBox;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox firstNameTBox;
+        private System.Windows.Forms.Label Lbl_lastName;
+        public System.Windows.Forms.TextBox Txt_lastName;
+        private System.Windows.Forms.Label Lbl_supplierDept;
+        public System.Windows.Forms.TextBox Txt_supplierDept;
+        private System.Windows.Forms.Button Btn_cancelUpdating;
+        private System.Windows.Forms.Button Btn_updateSupplier;
+        private System.Windows.Forms.Label Lbl_payedToSupplier;
+        public System.Windows.Forms.TextBox Txt_paidToSupplier;
+        private System.Windows.Forms.Label Lbl_phoneNumber;
+        public System.Windows.Forms.TextBox Txt_phoneNumber;
+        private System.Windows.Forms.Label Lbl_address;
+        public System.Windows.Forms.TextBox Txt_address;
+        private System.Windows.Forms.Label Lbl_firstName;
+        public System.Windows.Forms.TextBox Txt_firstName;
     }
 }

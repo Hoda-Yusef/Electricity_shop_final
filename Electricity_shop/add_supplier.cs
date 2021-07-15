@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class add_supplier : Form
+    public partial class Frm_addSupplier : Form
     {
-        private DBSQL mySQL;
+        private readonly DBSQL mySQL;
         Thread th;
         int count = 0;
         private System.Windows.Forms.ErrorProvider phoneErrorProvider;
-        AutoCompleteStringCollection SFirstName = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection SLastName = new AutoCompleteStringCollection();
-        public add_supplier()
+        readonly AutoCompleteStringCollection SFirstName = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection SLastName = new AutoCompleteStringCollection();
+        public Frm_addSupplier()
         {
 
             InitializeComponent();
@@ -27,31 +27,31 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
        
-        private void opennewform(object obj)
+        private void Opennewform(object obj)
         {
             Application.Run(new Frm_main());
         }
         
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void add_button_Click(object sender, EventArgs e)
+        private void Btn_addSupplier_Click(object sender, EventArgs e)
         {
             bool same = false;
 
-            if ((firstNameTBox.Text != "" || lastNameTBox.Text != "") && addressTBox.Text != "" && phoneNumberTBox.Text != ""
-                && check_phone_number() == true)
+            if ((Txt_firstName.Text != "" || Txt_lastName.Text != "") && Txt_address.Text != "" && Txt_phoneNumber.Text != ""
+                && Check_phone_number() == true)
             {
                 supplier[] Supplier = mySQL.GetSupplierData();
                 supplier supp = new supplier();
                
-                string nameTmp = phoneNumberTBox.Text;
+                string nameTmp = Txt_phoneNumber.Text;
 
                 for (int i = 0; i < Supplier.Length; i++)
                 {
@@ -66,19 +66,19 @@ namespace Electricity_shop
                 {
                     MessageBox.Show("ספק קייםת ניתן לעדכן פרטיו");
                     
-                    update_supplier uSupplier = new update_supplier();
-                    supp = mySQL.GetSupplierDataByPhone(phoneNumberTBox.Text);
-                    uSupplier.firstNameTBox.Text = supp.FirstName;     
-                    uSupplier.lastNameTBox.Text =supp.LasttName ;
-                    uSupplier.addressTBox.Text =supp.Address ;
-                    uSupplier.phoneNumberTBox.Text =supp.Phone_number; 
-                    uSupplier.deptTBox.Text =supp.Dept.ToString();
-                    uSupplier.paidTBox.Text =supp.Paid.ToString();
+                    Frm_updateSupplier uSupplier = new Frm_updateSupplier();
+                    supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);
+                    uSupplier.Txt_firstName.Text = supp.FirstName;     
+                    uSupplier.Txt_lastName.Text =supp.LasttName ;
+                    uSupplier.Txt_address.Text =supp.Address ;
+                    uSupplier.Txt_phoneNumber.Text =supp.Phone_number; 
+                    uSupplier.Txt_supplierDept.Text =supp.Dept.ToString();
+                    uSupplier.Txt_paidToSupplier.Text =supp.Paid.ToString();
                     uSupplier.ShowDialog();
                     this.Close();
                     uSupplier.Close();
                     
-                    th = new Thread(open_supManagment);
+                    th = new Thread(Open_supManagment);
                     th.TrySetApartmentState(ApartmentState.STA);
                     th.Start();
                    
@@ -86,10 +86,10 @@ namespace Electricity_shop
                 }
                 else
                 {
-                    new_supplier(supp);
+                    New_supplier(supp);
                    
                     this.Close();
-                    th = new Thread(open_supManagment);
+                    th = new Thread(Open_supManagment);
                     th.TrySetApartmentState(ApartmentState.STA);
                     th.Start();
                 }
@@ -100,82 +100,82 @@ namespace Electricity_shop
             }
         }
 
-        private void open_supManagment(object obj)
+        private void Open_supManagment(object obj)
         {
-            Application.Run(new suppliers_management());
+            Application.Run(new Frm_suppliersManagement());
         }
 
-        private void new_supplier(supplier supp)
+        private void New_supplier(supplier supp)
         {
-            if (deptTBox.Text != "" && paidTBox.Text != "")
+            if (Txt_supplierDept.Text != "" && Txt_payedForSupplier.Text != "")
             {
-                supp.FirstName = firstNameTBox.Text;
-                supp.LasttName = lastNameTBox.Text;
-                supp.Address = addressTBox.Text;
-                supp.Phone_number = phoneNumberTBox.Text;
-                supp.Dept = Convert.ToInt32(deptTBox.Text);
-                supp.Paid = Convert.ToInt32(paidTBox.Text);
+                supp.FirstName = Txt_firstName.Text;
+                supp.LasttName = Txt_lastName.Text;
+                supp.Address = Txt_address.Text;
+                supp.Phone_number = Txt_phoneNumber.Text;
+                supp.Dept = Convert.ToInt32(Txt_supplierDept.Text);
+                supp.Paid = Convert.ToInt32(Txt_payedForSupplier.Text);
                 mySQL.InsertSupplier(supp);
 
                 MessageBox.Show("ספק הוסף בהצלחה");
-                clear_boxes();
+                Clear_boxes();
             }
             else
             {
 
-                if (deptTBox.Text == "" && paidTBox.Text == "")
+                if (Txt_supplierDept.Text == "" && Txt_payedForSupplier.Text == "")
                 {
-                    supp.FirstName = firstNameTBox.Text;
-                    supp.Address = addressTBox.Text;
-                    supp.Phone_number = phoneNumberTBox.Text;
+                    supp.FirstName = Txt_firstName.Text;
+                    supp.Address = Txt_address.Text;
+                    supp.Phone_number = Txt_phoneNumber.Text;
                     mySQL.InsertSupplier(supp);
 
                     MessageBox.Show("ספק הוסף בהצלחה");
-                    clear_boxes();
+                    Clear_boxes();
                 }
 
                 else
                 {
-                    if (deptTBox.Text != "" && paidTBox.Text == "")
+                    if (Txt_supplierDept.Text != "" && Txt_payedForSupplier.Text == "")
                     {
-                        supp.FirstName = firstNameTBox.Text;
-                        supp.LasttName = lastNameTBox.Text;
-                        supp.Address = addressTBox.Text;
-                        supp.Phone_number = phoneNumberTBox.Text;
-                        supp.Dept = Convert.ToInt32(deptTBox.Text);
+                        supp.FirstName = Txt_firstName.Text;
+                        supp.LasttName = Txt_lastName.Text;
+                        supp.Address = Txt_address.Text;
+                        supp.Phone_number = Txt_phoneNumber.Text;
+                        supp.Dept = Convert.ToInt32(Txt_supplierDept.Text);
                         mySQL.InsertSupplier(supp);
 
                         MessageBox.Show("ספק הוסף בהצלחה");
-                        clear_boxes();
+                        Clear_boxes();
                     }
 
                     else
                     {
-                        supp.FirstName = firstNameTBox.Text;
-                        supp.LasttName = lastNameTBox.Text;
-                        supp.Address = addressTBox.Text;
-                        supp.Phone_number = phoneNumberTBox.Text;
-                        supp.Paid = Convert.ToInt32(paidTBox.Text);
+                        supp.FirstName = Txt_firstName.Text;
+                        supp.LasttName = Txt_lastName.Text;
+                        supp.Address = Txt_address.Text;
+                        supp.Phone_number = Txt_phoneNumber.Text;
+                        supp.Paid = Convert.ToInt32(Txt_payedForSupplier.Text);
                         mySQL.InsertSupplier(supp);
 
                         MessageBox.Show("ספק הוסף בהצלחה");
-                        clear_boxes();
+                        Clear_boxes();
                     }
                 }
             }
         }
 
-        private void clear_boxes()
+        private void Clear_boxes()
         {
-            firstNameTBox.Text = string.Empty;
-            lastNameTBox.Text = string.Empty;
-            phoneNumberTBox.Text = string.Empty;
-            addressTBox.Text = string.Empty;
-            deptTBox.Text = string.Empty;
-            paidTBox.Text = string.Empty;
+            Txt_firstName.Text = string.Empty;
+            Txt_lastName.Text = string.Empty;
+            Txt_phoneNumber.Text = string.Empty;
+            Txt_address.Text = string.Empty;
+            Txt_supplierDept.Text = string.Empty;
+            Txt_payedForSupplier.Text = string.Empty;
         }
 
-        private void add_supplier_Load(object sender, EventArgs e)
+        private void Frm_addSupplier_Load(object sender, EventArgs e)
         {
             supplier[] Supplier = mySQL.GetSupplierData();
 
@@ -187,11 +187,11 @@ namespace Electricity_shop
 
 
             }
-            firstNameTBox.AutoCompleteCustomSource = SFirstName;
-            lastNameTBox.AutoCompleteCustomSource = SLastName;
+            Txt_firstName.AutoCompleteCustomSource = SFirstName;
+            Txt_lastName.AutoCompleteCustomSource = SLastName;
         }
 
-        private void phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -201,7 +201,7 @@ namespace Electricity_shop
             }
         }
 
-        private void dept_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -211,7 +211,7 @@ namespace Electricity_shop
             }
         }
 
-        private void paid_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_payedForSupplier_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -221,7 +221,7 @@ namespace Electricity_shop
             }
         }
 
-        private void firstNameTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -231,7 +231,7 @@ namespace Electricity_shop
             }
         }
 
-        private void lastNameTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -241,7 +241,7 @@ namespace Electricity_shop
             }
         }
 
-        private void addressTBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -251,46 +251,46 @@ namespace Electricity_shop
             }
         }
 
-        private bool check_phone_number()
+        private bool Check_phone_number()
         {
-            return (this.phoneNumberTBox.Text.Length == 10);
+            return (this.Txt_phoneNumber.Text.Length == 10);
         }
 
-        private void phoneNumberTBox_Leave(object sender, EventArgs e)
+        private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
 
             // בודקים תקינות קלט
-            if (check_phone_number() == false && count == 0)
+            if (Check_phone_number() == false && count == 0)
             {
                 count++;
                 phoneErrorProvider = new ErrorProvider();
-                phoneErrorProvider.SetError(phoneNumberTBox, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
+                phoneErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
             }
             else
             {
-                if (check_phone_number() == true && count == 0)
+                if (Check_phone_number() == true && count == 0)
                 {
                     //לא מבצעים פעולות
                     // נשאר count=0
                 }
                 else
                 {
-                    if (check_phone_number() == true)
+                    if (Check_phone_number() == true)
                     {
-                        phoneErrorProvider.SetError(phoneNumberTBox, "");
+                        phoneErrorProvider.SetError(Txt_phoneNumber, "");
                     }
                     else
                     {
-                        phoneErrorProvider.SetError(phoneNumberTBox, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
+                        phoneErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
                     }
                 }
             }
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(opennewform);
+            th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }

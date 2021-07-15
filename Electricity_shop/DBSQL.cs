@@ -1012,7 +1012,7 @@ namespace Electricity_shop
         {
             DataSet ds = new DataSet();
             supplier[] Suppliers = null;
-            string cmdStr = "SELECT * FROM supplier WHERE last_name LIKE '" + name + "%'";
+            string cmdStr = "SELECT * FROM supplier WHERE first_name LIKE '" + name + "%'";
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
                 ds = GetMultipleQuery(command);
