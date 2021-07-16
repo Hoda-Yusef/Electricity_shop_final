@@ -228,7 +228,7 @@ namespace Electricity_shop
             // 
             this.Lbl_addCustomer.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_addCustomer.ForeColor = System.Drawing.Color.White;
-            this.Lbl_addCustomer.Location = new System.Drawing.Point(259, 21);
+            this.Lbl_addCustomer.Location = new System.Drawing.Point(273, 21);
             this.Lbl_addCustomer.Name = "Lbl_addCustomer";
             this.Lbl_addCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_addCustomer.Size = new System.Drawing.Size(283, 54);
@@ -242,7 +242,7 @@ namespace Electricity_shop
             this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exit.Location = new System.Drawing.Point(799, 0);
+            this.Btn_exit.Location = new System.Drawing.Point(810, -3);
             this.Btn_exit.Name = "Btn_exit";
             this.Btn_exit.Size = new System.Drawing.Size(34, 38);
             this.Btn_exit.TabIndex = 52;
@@ -255,16 +255,16 @@ namespace Electricity_shop
             this.panel4.Location = new System.Drawing.Point(-8, -3);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(894, 8);
+            this.panel4.Size = new System.Drawing.Size(818, 11);
             this.panel4.TabIndex = 57;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel1.Location = new System.Drawing.Point(-10, 518);
+            this.panel1.Location = new System.Drawing.Point(-10, 514);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(894, 8);
+            this.panel1.Size = new System.Drawing.Size(894, 12);
             this.panel1.TabIndex = 58;
             // 
             // panel2
@@ -273,16 +273,16 @@ namespace Electricity_shop
             this.panel2.Location = new System.Drawing.Point(-4, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(9, 522);
+            this.panel2.Size = new System.Drawing.Size(13, 522);
             this.panel2.TabIndex = 59;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(831, 2);
+            this.panel3.Location = new System.Drawing.Point(834, 33);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(9, 522);
+            this.panel3.Size = new System.Drawing.Size(10, 493);
             this.panel3.TabIndex = 60;
             // 
             // Frm_addCustomer
@@ -290,7 +290,7 @@ namespace Electricity_shop
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(837, 523);
+            this.ClientSize = new System.Drawing.Size(844, 523);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

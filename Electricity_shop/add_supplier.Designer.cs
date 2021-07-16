@@ -72,16 +72,16 @@ namespace Electricity_shop
             this.panel1.Location = new System.Drawing.Point(-4, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(9, 500);
+            this.panel1.Size = new System.Drawing.Size(14, 500);
             this.panel1.TabIndex = 41;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(4, 453);
+            this.panel3.Location = new System.Drawing.Point(-1, 470);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(867, 8);
+            this.panel3.Size = new System.Drawing.Size(864, 10);
             this.panel3.TabIndex = 42;
             // 
             // panel5
@@ -101,7 +101,7 @@ namespace Electricity_shop
             this.panel5.Controls.Add(this.Txt_address);
             this.panel5.Controls.Add(this.Lbl_firstName);
             this.panel5.Controls.Add(this.Txt_firstName);
-            this.panel5.Location = new System.Drawing.Point(38, 54);
+            this.panel5.Location = new System.Drawing.Point(41, 75);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(784, 376);
@@ -293,7 +293,7 @@ namespace Electricity_shop
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Btn_exit.Location = new System.Drawing.Point(832, -1);
             this.Btn_exit.Name = "Btn_exit";
-            this.Btn_exit.Size = new System.Drawing.Size(34, 38);
+            this.Btn_exit.Size = new System.Drawing.Size(39, 38);
             this.Btn_exit.TabIndex = 51;
             this.Btn_exit.UseVisualStyleBackColor = true;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
@@ -301,10 +301,10 @@ namespace Electricity_shop
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel2.Location = new System.Drawing.Point(864, -4);
+            this.panel2.Location = new System.Drawing.Point(861, 36);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(9, 500);
+            this.panel2.Size = new System.Drawing.Size(10, 460);
             this.panel2.TabIndex = 42;
             // 
             // panel4
@@ -313,7 +313,7 @@ namespace Electricity_shop
             this.panel4.Location = new System.Drawing.Point(0, -4);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(867, 8);
+            this.panel4.Size = new System.Drawing.Size(835, 12);
             this.panel4.TabIndex = 43;
             // 
             // Frm_addSupplier
@@ -321,12 +321,12 @@ namespace Electricity_shop
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(869, 457);
+            this.ClientSize = new System.Drawing.Size(869, 477);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Lbl_addSupplier);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

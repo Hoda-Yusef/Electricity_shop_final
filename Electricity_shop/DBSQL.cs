@@ -1214,10 +1214,10 @@ namespace Electricity_shop
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
                 "product_model=@product_model,product_manufacturer=@product_manufacturer," +
                 "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE product_serial_number=" + Item.Product_serial_number + "";
+                "amount=@amount,product_info=@product_info WHERE product_serial_number=@product_serial_number";
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
-                command.Parameters.AddWithValue("@product_serial_number", Item.Product_serial_number);
+               // command.Parameters.AddWithValue("@product_serial_number", Item.Product_serial_number);
                 command.Parameters.AddWithValue("@barcode", Item.Barcode);
                 command.Parameters.AddWithValue("@product_category", Item.Category);
                 command.Parameters.AddWithValue("@product_model", Item.Model);
@@ -1304,7 +1304,7 @@ namespace Electricity_shop
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
                 "last_name=@last_name,phone_number=@phone_number," +
-                "address=@address WHERE customer_serial_number =@customer_serial_number";
+                "address=@address WHERE customer_serial_number=" +Item.Serial_number+ "";
 
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))

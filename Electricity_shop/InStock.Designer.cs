@@ -36,10 +36,10 @@ namespace Electricity_shop
             this.panel4 = new System.Windows.Forms.Panel();
             this.Btn_exit = new System.Windows.Forms.Button();
             this.Lbl_inStockDocument = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Lbl_secondHeading = new System.Windows.Forms.Label();
             this.Btn_showDocument = new System.Windows.Forms.Button();
-            this.Btn_saveDocument = new System.Windows.Forms.Button();
+            this.Btn_makeDocument = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,15 +100,15 @@ namespace Electricity_shop
             this.Lbl_inStockDocument.TabIndex = 38;
             this.Lbl_inStockDocument.Text = "דוח ספירת מלאי";
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(331, 235);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 39;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
+            this.dateTimePicker.Location = new System.Drawing.Point(331, 235);
+            this.dateTimePicker.MaxDate = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
+            this.dateTimePicker.MinDate = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker.TabIndex = 39;
+            this.dateTimePicker.Value = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
             // 
             // Lbl_secondHeading
             // 
@@ -134,18 +134,18 @@ namespace Electricity_shop
             this.Btn_showDocument.Text = "הצג דו\"ח";
             this.Btn_showDocument.UseVisualStyleBackColor = false;
             // 
-            // Btn_saveDocument
+            // Btn_makeDocument
             // 
-            this.Btn_saveDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.Btn_saveDocument.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Btn_saveDocument.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_saveDocument.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_saveDocument.Location = new System.Drawing.Point(478, 332);
-            this.Btn_saveDocument.Name = "Btn_saveDocument";
-            this.Btn_saveDocument.Size = new System.Drawing.Size(110, 39);
-            this.Btn_saveDocument.TabIndex = 42;
-            this.Btn_saveDocument.Text = "צור דו\"ח";
-            this.Btn_saveDocument.UseVisualStyleBackColor = false;
+            this.Btn_makeDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Btn_makeDocument.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_makeDocument.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_makeDocument.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_makeDocument.Location = new System.Drawing.Point(478, 332);
+            this.Btn_makeDocument.Name = "Btn_makeDocument";
+            this.Btn_makeDocument.Size = new System.Drawing.Size(110, 39);
+            this.Btn_makeDocument.TabIndex = 42;
+            this.Btn_makeDocument.Text = "צור דו\"ח";
+            this.Btn_makeDocument.UseVisualStyleBackColor = false;
             // 
             // Frm_InStock
             // 
@@ -153,10 +153,10 @@ namespace Electricity_shop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Btn_saveDocument);
+            this.Controls.Add(this.Btn_makeDocument);
             this.Controls.Add(this.Btn_showDocument);
             this.Controls.Add(this.Lbl_secondHeading);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.Lbl_inStockDocument);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel4);
@@ -179,9 +179,9 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button Btn_exit;
         private System.Windows.Forms.Label Lbl_inStockDocument;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label Lbl_secondHeading;
         private System.Windows.Forms.Button Btn_showDocument;
-        private System.Windows.Forms.Button Btn_saveDocument;
+        private System.Windows.Forms.Button Btn_makeDocument;
     }
 }

@@ -29,10 +29,11 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_suppliersManagement));
             this.Grd_suppliers = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,34 +52,39 @@ namespace Electricity_shop
             this.Btn_clearTextBoxes = new System.Windows.Forms.Button();
             this.Txt_firstName = new System.Windows.Forms.TextBox();
             this.Btn_exit = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_suppliers)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grd_suppliers
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grd_suppliers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grd_suppliers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Grd_suppliers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grd_suppliers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.Grd_suppliers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grd_suppliers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.Grd_suppliers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.Grd_suppliers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grd_suppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.Grd_suppliers.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grd_suppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Grd_suppliers.ColumnHeadersHeight = 40;
             this.Grd_suppliers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
             this.Column3,
@@ -86,26 +92,34 @@ namespace Electricity_shop
             this.Column5,
             this.Column1,
             this.Column6});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grd_suppliers.DefaultCellStyle = dataGridViewCellStyle3;
             this.Grd_suppliers.EnableHeadersVisualStyles = false;
-            this.Grd_suppliers.Location = new System.Drawing.Point(37, 85);
+            this.Grd_suppliers.Location = new System.Drawing.Point(34, 108);
             this.Grd_suppliers.Name = "Grd_suppliers";
             this.Grd_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grd_suppliers.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grd_suppliers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Grd_suppliers.RowHeadersVisible = false;
             this.Grd_suppliers.RowHeadersWidth = 4;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Grd_suppliers.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Grd_suppliers.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Grd_suppliers.RowTemplate.Height = 25;
             this.Grd_suppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grd_suppliers.Size = new System.Drawing.Size(931, 466);
@@ -159,7 +173,7 @@ namespace Electricity_shop
             this.Txt_manageSuppliers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Txt_manageSuppliers.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Txt_manageSuppliers.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Txt_manageSuppliers.Location = new System.Drawing.Point(511, 10);
+            this.Txt_manageSuppliers.Location = new System.Drawing.Point(513, 31);
             this.Txt_manageSuppliers.Name = "Txt_manageSuppliers";
             this.Txt_manageSuppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Txt_manageSuppliers.Size = new System.Drawing.Size(228, 43);
@@ -177,7 +191,7 @@ namespace Electricity_shop
             this.panel1.Controls.Add(this.Btn_updateSupplier);
             this.panel1.Controls.Add(this.Btn_clearTextBoxes);
             this.panel1.Controls.Add(this.Txt_firstName);
-            this.panel1.Location = new System.Drawing.Point(984, 85);
+            this.panel1.Location = new System.Drawing.Point(995, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 466);
             this.panel1.TabIndex = 24;
@@ -287,19 +301,55 @@ namespace Electricity_shop
             this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exit.Location = new System.Drawing.Point(1181, 1);
+            this.Btn_exit.Location = new System.Drawing.Point(1225, 1);
             this.Btn_exit.Name = "Btn_exit";
-            this.Btn_exit.Size = new System.Drawing.Size(34, 38);
+            this.Btn_exit.Size = new System.Drawing.Size(37, 38);
             this.Btn_exit.TabIndex = 38;
             this.Btn_exit.UseVisualStyleBackColor = true;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel2.Location = new System.Drawing.Point(-2, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1227, 10);
+            this.panel2.TabIndex = 40;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel3.Location = new System.Drawing.Point(1252, 39);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 569);
+            this.panel3.TabIndex = 41;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel4.Location = new System.Drawing.Point(-1, 598);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1254, 10);
+            this.panel4.TabIndex = 41;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel5.Location = new System.Drawing.Point(-1, 11);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 587);
+            this.panel5.TabIndex = 42;
             // 
             // Frm_suppliersManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1213, 591);
+            this.ClientSize = new System.Drawing.Size(1263, 610);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Txt_manageSuppliers);
@@ -336,5 +386,9 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_firstName;
         private System.Windows.Forms.Label Lbl_lastName;
         public System.Windows.Forms.DataGridView Grd_suppliers;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }

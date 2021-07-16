@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Electricity_shop
 {
     
-    public partial class product_cart : Form
+    public partial class Frm_productsInCart : Form
     {
         private DBSQL mySQL;
         Thread th;
@@ -20,7 +20,7 @@ namespace Electricity_shop
         Product Product;
         
 
-        public product_cart()
+        public Frm_productsInCart()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -29,7 +29,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)
         {
             mySQL.clearCart();
             Thread th;
@@ -46,10 +46,10 @@ namespace Electricity_shop
 
         private void OpenAddOrder(object obj)
         {
-            Application.Run(new add_order());
+            Application.Run(new Frm_addOrder());
         }
 
-        private void add_to_cart_Click(object sender, EventArgs e)
+        private void Btn_AddToCart_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
@@ -72,7 +72,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void product_cart_Load(object sender, EventArgs e)
+        private void Frm_productsInCart_Load(object sender, EventArgs e)
         {
             Product[] Products = mySQL.GetProductData();
             Cart[] Cart = mySQL.getCartData();
@@ -83,7 +83,7 @@ namespace Electricity_shop
                 {
                     if(Cart[i].Product_barcode==Products[j].Barcode)
                     {
-                        products_grid.Rows.Add(new object[]
+                        Grd_productsList.Rows.Add(new object[]
                     {
                         Products[j].Barcode,
                     Products[j].Category,
@@ -100,7 +100,7 @@ namespace Electricity_shop
 
             statusBar();
             int num = mySQL.GetOrderMaxNumber();
-            order_number.Text =num.ToString();
+            Lbl_showOrderNumber.Text =num.ToString();
             
             
         }
@@ -109,20 +109,20 @@ namespace Electricity_shop
         {
             int sum=0,sum_products=0;
 
-            products_count.Text = products_grid.Rows.Count.ToString();
+            Lbl_showNumberOfProducts.Text = Grd_productsList.Rows.Count.ToString();
 
-            for(int i=0;i<products_grid.Rows.Count;i++)
+            for(int i=0;i<Grd_productsList.Rows.Count;i++)
             {
-                sum += Convert.ToInt32(products_grid.Rows[i].Cells[4].Value.ToString());
-                sum_products += Convert.ToInt32(products_grid.Rows[i].Cells[5].Value.ToString());
+                sum += Convert.ToInt32(Grd_productsList.Rows[i].Cells[4].Value.ToString());
+                sum_products += Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value.ToString());
             }
-            total.Text = sum.ToString();
-            total_sum_products.Text = sum_products.ToString();
+            Lbl_showTotalPrice.Text = sum.ToString();
+            Lbl_showTotalNumberOfProducts.Text = sum_products.ToString();
         }
 
-        private void remove_Click(object sender, EventArgs e)
+        private void Btn_remove_Click(object sender, EventArgs e)
         {
-            string item = products_grid.CurrentRow.Cells[0].Value.ToString();//מסיר מוצר מעגלה
+            string item = Grd_productsList.CurrentRow.Cells[0].Value.ToString();//מסיר מוצר מעגלה
             mySQL.deleteItemFromCart(item);
 
             Thread th;
@@ -135,16 +135,16 @@ namespace Electricity_shop
 
         private void openCartProduct(object obj)
         {
-            Application.Run(new product_cart());
+            Application.Run(new Frm_productsInCart());
         }
 
-        private void panel8_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel8_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -153,21 +153,21 @@ namespace Electricity_shop
             }
         }
 
-        private void panel8_MouseUp(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
-        private void OK_Click(object sender, EventArgs e)//לחיצה על אישור
+        private void Btn_ok_Click(object sender, EventArgs e)//לחיצה על אישור
         {
             bool outOfStock = false; 
 
-            for(int i=0;i<products_grid.Rows.Count;i++)
+            for(int i=0;i<Grd_productsList.Rows.Count;i++)
             {
-               Product= mySQL.GetProductDataByBarcode(products_grid.Rows[i].Cells[0].Value.ToString());//  שליפת מידע של מוצרים לפי ברקוד הנמצא בעגלה
+               Product= mySQL.GetProductDataByBarcode(Grd_productsList.Rows[i].Cells[0].Value.ToString());//  שליפת מידע של מוצרים לפי ברקוד הנמצא בעגלה
 
                 int general_amount = Convert.ToInt32(Product.Amount);//לוקח כמות כללית מטבלת מוצרים
-                int cart_amount= Convert.ToInt32(products_grid.Rows[i].Cells[5].Value.ToString());//לוקח את הכמות של מוצר שנמצא בעגלה
+                int cart_amount= Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value.ToString());//לוקח את הכמות של מוצר שנמצא בעגלה
 
 
                 if ((general_amount - cart_amount) < 0)//בודק אם ניתן לבצע הזמנה לפי הכמות הנדרשת מול הכמות הכללית של מוצר
@@ -179,14 +179,14 @@ namespace Electricity_shop
 
             if(!outOfStock)//אם יש מלאי לכל המוצרים בעגלה
             {
-                for(int i=0;i<products_grid.Rows.Count;i++)//עובר על כל השורות בטבלת המוצרים בעגלה
+                for(int i=0;i<Grd_productsList.Rows.Count;i++)//עובר על כל השורות בטבלת המוצרים בעגלה
                 {
-                    Product = mySQL.GetProductDataByBarcode(products_grid.Rows[i].Cells[0].Value.ToString());//שליפת מידע על מוצר לפי ברקוד
+                    Product = mySQL.GetProductDataByBarcode(Grd_productsList.Rows[i].Cells[0].Value.ToString());//שליפת מידע על מוצר לפי ברקוד
 
-                    mySQL.InsertToProductOrder(Product.Product_serial_number,Convert.ToInt32(order_number.Text),
-                        Convert.ToInt32(products_grid.Rows[i].Cells[5].Value));//מוסיפים את מספר הזמנה ומספר סידורי של מוצר וכמות לטבלה מקשרת
+                    mySQL.InsertToProductOrder(Product.Product_serial_number,Convert.ToInt32(Lbl_showOrderNumber.Text),
+                        Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value));//מוסיפים את מספר הזמנה ומספר סידורי של מוצר וכמות לטבלה מקשרת
 
-                    mySQL.UpdateProductAmountByBarcode(Product.Amount - Convert.ToInt32(products_grid.Rows[i].Cells[5].Value) , Product.Barcode);//מעדכנים את הכמות של מוצרים במלאי בהתאם
+                    mySQL.UpdateProductAmountByBarcode(Product.Amount - Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value) , Product.Barcode);//מעדכנים את הכמות של מוצרים במלאי בהתאם
                 }
                 MessageBox.Show("הזמנה התווספה בהצלחה");
                 mySQL.clearCart();//מרקנים את ההעגלה
@@ -202,12 +202,18 @@ namespace Electricity_shop
             
         }
 
-        private void products_grid_CellEndEdit(object sender, DataGridViewCellEventArgs e)//שיטה שמעדכנת את הכמות של מוצר בתוך העגלה
+        private void Grd_productsList_CellEndEdit(object sender, DataGridViewCellEventArgs e)//שיטה שמעדכנת את הכמות של מוצר בתוך העגלה
         {
-            mySQL.UpdateCartAmount(Convert.ToInt32(products_grid.CurrentRow.Cells[5].Value),products_grid.CurrentRow.Cells[0].Value.ToString());
+            mySQL.UpdateCartAmount(Convert.ToInt32(Grd_productsList.CurrentRow.Cells[5].Value),Grd_productsList.CurrentRow.Cells[0].Value.ToString());
             MessageBox.Show("כמות עודכנה");
         }
 
-        
+        private void Btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openMain);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
     }
 }

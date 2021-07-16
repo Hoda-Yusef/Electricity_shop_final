@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class show_products : Form
+    public partial class Frm_productsList : Form
     {
 
         private DBSQL mySQL;
        
         bool drag = false;
         Point sp = new Point(0, 0);
-        public show_products()
+        public Frm_productsList()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -24,18 +24,18 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        private void back_Click(object sender, EventArgs e)
+        private void Btn_goBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -44,16 +44,16 @@ namespace Electricity_shop
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
-        private void show_products_Load(object sender, EventArgs e)
+        private void Frm_productsList_Load(object sender, EventArgs e)
         {
             int Total_price=0,total_amount=0;
 
-            string show = show_order_number.Text;
+            string show = Lbl_showOrderNumber.Text;
 
             product_order[] Product_order = mySQL.GetProduct_orderDataByOrderNumber(show);
 
@@ -63,7 +63,7 @@ namespace Electricity_shop
                 {
                     Product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
 
-                    product_grid.Rows.Add(new object[]
+                    Grd_productsList.Rows.Add(new object[]
                     {
                     Product.Barcode,
                     Product.Category,
@@ -81,10 +81,17 @@ namespace Electricity_shop
             else
                 MessageBox.Show("אין מוצרים להזמנה");
 
-            products_amount.Text = product_grid.Rows.Count.ToString();
-            total_sum_products.Text = total_amount.ToString();
-            total_price.Text = Total_price.ToString();
+            Lbl_showProductsNumber.Text = Grd_productsList.Rows.Count.ToString();
+            Lbl_showTotalAmount.Text = total_amount.ToString();
+            Lbl_showTotalPrice.Text = Total_price.ToString();
            
+        }
+
+        private void Btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Frm_main mainForm = new Frm_main();
+            mainForm.Show();
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class orders_management : Form
+    public partial class Frm_ordersManagement : Form
     {
         private DBSQL mySQL;
         bool drag = false;
@@ -22,7 +22,7 @@ namespace Electricity_shop
 
 
 
-        public orders_management()
+        public Frm_ordersManagement()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -45,21 +45,9 @@ namespace Electricity_shop
             button1.BackColor = Color.FromArgb(34, 36, 49);
         }
 
-        
-
-        private void orders_grid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        public void update_grid_row()
-        {
-           
-        }
-
        
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
             Thread th;
@@ -74,13 +62,13 @@ namespace Electricity_shop
             Application.Run(new Frm_main());
         }
 
-        private void panel8_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel8_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if(drag)
             {
@@ -89,22 +77,22 @@ namespace Electricity_shop
             }
         }
 
-        private void panel8_MouseUp(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
-        private void button3_MouseMove(object sender, MouseEventArgs e)
+        private void Btn_exit_MouseMove(object sender, MouseEventArgs e)
         {
-            button3.BackColor = Color.White;
+            Btn_exit.BackColor = Color.White;
         }
 
-        private void button3_MouseLeave(object sender, EventArgs e)
+        private void Btn_exit_MouseLeave(object sender, EventArgs e)
         {
-            button3.BackColor = Color.FromArgb(34, 36, 49);
+            Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_backToMain_Click(object sender, EventArgs e)
         {
             this.Close();
             Thread th;
@@ -113,7 +101,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void orders_management_Load(object sender, EventArgs e)
+        private void Frm_ordersManagement_Load(object sender, EventArgs e)
         {
             orders[] Orders = mySQL.GetOrdersData();
             customer Customer;
@@ -122,7 +110,7 @@ namespace Electricity_shop
             {
               Customer=  mySQL.GetCustomerDataByID(Orders[i].Customer_id);
 
-                orders_grid.Rows.Add(new object[]
+                Grd_orders.Rows.Add(new object[]
                 {
                     Orders[i].Order_number,
                     Customer.Id,
@@ -138,9 +126,9 @@ namespace Electricity_shop
             }
         }
 
-        private void update_status_Click(object sender, EventArgs e)//עדכון סטטוס
+        private void Btn_updateStatus_Click(object sender, EventArgs e)//עדכון סטטוס
         {
-            Orders = mySQL.GetOrdersDataByOrderNumber(orders_grid.CurrentRow.Cells[0].Value.ToString());
+            Orders = mySQL.GetOrdersDataByOrderNumber(Grd_orders.CurrentRow.Cells[0].Value.ToString());
 
             if(Orders.Status ==1)//משנים את הסטטוס לסופק
             {
@@ -166,10 +154,10 @@ namespace Electricity_shop
 
         private void openSelf(object obj)
         {
-            Application.Run(new orders_management());
+            Application.Run(new Frm_ordersManagement());
         }
 
-        private void IDBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -182,21 +170,21 @@ namespace Electricity_shop
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             date_changed = true;
-            Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+            Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
             fill_grid(Orders_customers);
         }
 
-        private void lastNameBox_TextChanged(object sender, EventArgs e)
+        private void Txt_customersLastName_TextChanged(object sender, EventArgs e)
         {
             if (date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
                 fill_grid(Orders_customers);
             }
             else
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
@@ -204,39 +192,39 @@ namespace Electricity_shop
 
         private void fill_grid_by_last_name()
         {
-            Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+            Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
             fill_grid(Orders_customers);
         }
 
-        private void firstNameBox_TextChanged(object sender, EventArgs e)
+        private void Txt_customersFirstName_TextChanged(object sender, EventArgs e)
         {
             if (date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
                 fill_grid(Orders_customers);
             }
             else
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
         }
 
        
-        private void IDBox_TextChanged(object sender, EventArgs e)
+        private void Txt_customerId_TextChanged(object sender, EventArgs e)
         {
             if(date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, dateTimePicker.Text);
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
                 fill_grid(Orders_customers);
             }
             else
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(IDBox.Text, firstNameBox.Text, lastNameBox.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
@@ -247,12 +235,12 @@ namespace Electricity_shop
 
         private void fill_grid(orders_customers[] Orders_customers)
         {
-            orders_grid.Rows.Clear();
+            Grd_orders.Rows.Clear();
             if (Orders_customers != null)
             {
                 for (int i = 0; i < Orders_customers.Length; i++)
                 {
-                    orders_grid.Rows.Add(new object[]
+                    Grd_orders.Rows.Add(new object[]
                     {
                     Orders_customers[i].Order_number,
                     Orders_customers[i].Customer_id,
@@ -267,26 +255,26 @@ namespace Electricity_shop
                 }
             }
             else
-                orders_grid.Rows.Clear();
+                Grd_orders.Rows.Clear();
         }
 
-        private void show_order_Click(object sender, EventArgs e)
+        private void Btn_showOrder_Click(object sender, EventArgs e)
         {
-            show_products Show_order = new show_products();
+            Frm_productsList Show_order = new Frm_productsList();
 
-            Show_order.show_order_number.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
+            Show_order.Lbl_showOrderNumber.Text = Grd_orders.CurrentRow.Cells[0].Value.ToString();
             Show_order.ShowDialog();
         }
 
-        private void Update_order_Click(object sender, EventArgs e)
+        private void Btn_updateOrder_Click(object sender, EventArgs e)
         {
             //update_order update_Order = new update_order();
 
             //update_Order.show_order_number.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
             //update_Order.ShowDialog();
 
-             mySQL.InsertOrderNumberHolder(orders_grid.CurrentRow.Cells[0].Value.ToString());
-            order_number_holder=orders_grid.CurrentRow.Cells[0].Value.ToString();
+             mySQL.InsertOrderNumberHolder(Grd_orders.CurrentRow.Cells[0].Value.ToString());
+            order_number_holder=Grd_orders.CurrentRow.Cells[0].Value.ToString();
             this.Close();
             Thread th;
             th = new Thread(openUpdateOrder);
@@ -298,22 +286,23 @@ namespace Electricity_shop
         private void openUpdateOrder(object obj)
         {
 
-            Application.Run(new update_order(order_number_holder));
+            Application.Run(new Frm_updateOrder(order_number_holder));
 
 
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
-            IDBox.Text = string.Empty;
-            firstNameBox.Text = string.Empty;
-            lastNameBox.Text = string.Empty;
+            Txt_customerId.Text = string.Empty;
+            Txt_customersFirstName.Text = string.Empty;
+            Txt_customersLastName.Text = string.Empty;
             date_changed = false;
+            /*
             this.Close();
             Thread th;
             th = new Thread(openSelf);
             th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            th.Start();*/
 
         }
 

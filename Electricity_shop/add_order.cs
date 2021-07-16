@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class add_order : Form
+    public partial class Frm_addOrder : Form
     {
         Thread th;
         bool drag = false;
@@ -22,7 +22,7 @@ namespace Electricity_shop
         AutoCompleteStringCollection addressAuto = new AutoCompleteStringCollection();
 
 
-        public add_order()
+        public Frm_addOrder()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -38,22 +38,22 @@ namespace Electricity_shop
 
         private void set_AutoCompleteMode_text_boxes()
         {
-            id.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            id.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_customerId.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_customerId.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            firstName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            firstName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_customersFirstName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_customersFirstName.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            lastName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            lastName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_customersLastName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_customersLastName.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            address.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            address.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Txt_customersAddress.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_customersAddress.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
             th = new Thread(Opennewform);
@@ -67,7 +67,7 @@ namespace Electricity_shop
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
             th = new Thread(Opennewform);
@@ -75,7 +75,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void id_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -97,13 +97,13 @@ namespace Electricity_shop
 
 
 
-        private void panel9_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel9_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -112,7 +112,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel9_MouseUp(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
@@ -121,16 +121,16 @@ namespace Electricity_shop
 
         private void new_customer(customer cust)
         {
-            cust.Id = id.Text;
-            cust.First_name = firstName.Text;
-            cust.Last_name = lastName.Text;
-            cust.Phone_number = phoneNumber.Text;
-            cust.Address = address.Text;
+            cust.Id = Txt_customerId.Text;
+            cust.First_name = Txt_customersFirstName.Text;
+            cust.Last_name = Txt_customersLastName.Text;
+            cust.Phone_number = Txt_customersPhoneNumber.Text;
+            cust.Address = Txt_customersAddress.Text;
             mySQL.InsertCustomer(cust);
             MessageBox.Show("לקוח חדש ,עובר לבחירת מוצרים");
 
             orders Orders = new orders();
-            Orders.Customer_id = id.Text;
+            Orders.Customer_id = Txt_customerId.Text;
             Orders.Date = dateTimePicker.Text;
             Orders.Status = Convert.ToInt32(delivery.Checked);
             mySQL.InsertOrder(Orders);
@@ -139,7 +139,7 @@ namespace Electricity_shop
         private void same_customer(customer cust)
         {
             orders Orders = new orders();
-            Orders.Customer_id = id.Text;
+            Orders.Customer_id = Txt_customerId.Text;
             Orders.Date = dateTimePicker.Text;
             Orders.Status = Convert.ToInt32(delivery.Checked);
             mySQL.InsertOrder(Orders);
@@ -151,15 +151,15 @@ namespace Electricity_shop
             Application.Run(new cart_product_manu());
         }
 
-        private void OK_Click(object sender, EventArgs e)
+        private void Btn_ok_Click(object sender, EventArgs e)
         {
             bool same = false;
 
-            if (id.Text != "" && firstName.Text != "" && lastName.Text != "" && phoneNumber.Text != "" && address.Text != "")
+            if (Txt_customerId.Text != "" && Txt_customersFirstName.Text != "" && Txt_customersLastName.Text != "" && Txt_customersPhoneNumber.Text != "" && Txt_customersAddress.Text != "")
             {
                 customer[] Customer = mySQL.GetCustomerData();
                 customer Cust = new customer();
-                string idTmp = id.Text;
+                string idTmp = Txt_customerId.Text;
 
                 for (int i = 0; i < Customer.Length; i++)
                 {
@@ -194,7 +194,7 @@ namespace Electricity_shop
                 MessageBox.Show("נא למלא כל השדות");
         }
 
-            private void add_order_Load(object sender, EventArgs e)
+            private void Frm_addOrder_Load(object sender, EventArgs e)
         {
             customer[] Customer = mySQL.GetCustomerData();
 
@@ -208,18 +208,18 @@ namespace Electricity_shop
 
 
             }
-            id.AutoCompleteCustomSource = idAuto;
-            firstName.AutoCompleteCustomSource = firstNameAuto;
-            lastName.AutoCompleteCustomSource = lastNameAuto;
-            address.AutoCompleteCustomSource = addressAuto;
+            Txt_customerId.AutoCompleteCustomSource = idAuto;
+            Txt_customersFirstName.AutoCompleteCustomSource = firstNameAuto;
+            Txt_customersLastName.AutoCompleteCustomSource = lastNameAuto;
+            Txt_customersAddress.AutoCompleteCustomSource = addressAuto;
         }
 
-        private void id_Leave(object sender, EventArgs e)
+        private void Txt_customerId_Leave(object sender, EventArgs e)
         {
-            if (id.Text != "")
+            if (Txt_customerId.Text != "")
             {
                 customer[] Customer = mySQL.GetCustomerData();
-                string idTmp = id.Text;
+                string idTmp = Txt_customerId.Text;
 
                 for (int i = 0; i < Customer.Length; i++)
                 {
@@ -227,11 +227,11 @@ namespace Electricity_shop
                     {
 
 
-                        id.Text = Customer[i].Id.ToString();
-                        firstName.Text = Customer[i].First_name;
-                        lastName.Text = Customer[i].Last_name;
-                        address.Text = Customer[i].Address;
-                        phoneNumber.Text = Customer[i].Phone_number;
+                        Txt_customerId.Text = Customer[i].Id.ToString();
+                        Txt_customersFirstName.Text = Customer[i].First_name;
+                        Txt_customersLastName.Text = Customer[i].Last_name;
+                        Txt_customersAddress.Text = Customer[i].Address;
+                        Txt_customersPhoneNumber.Text = Customer[i].Phone_number;
 
                         MessageBox.Show("לקוח קיים");
                         read_only_true();
@@ -244,32 +244,40 @@ namespace Electricity_shop
 
         private void read_only_true()
         {
-            id.ReadOnly = true;
-            firstName.ReadOnly = true;
-            lastName.ReadOnly = true;
-            phoneNumber.ReadOnly = true;
-            address.ReadOnly = true;
+            Txt_customerId.ReadOnly = true;
+            Txt_customersFirstName.ReadOnly = true;
+            Txt_customersLastName.ReadOnly = true;
+            Txt_customersPhoneNumber.ReadOnly = true;
+            Txt_customersAddress.ReadOnly = true;
         }
 
         private void read_only_false()
         {
-            id.ReadOnly = false;
-            firstName.ReadOnly = false;
-            lastName.ReadOnly = false;
-            phoneNumber.ReadOnly = false;
-            address.ReadOnly = false;
+            Txt_customerId.ReadOnly = false;
+            Txt_customersFirstName.ReadOnly = false;
+            Txt_customersLastName.ReadOnly = false;
+            Txt_customersPhoneNumber.ReadOnly = false;
+            Txt_customersAddress.ReadOnly = false;
         }
 
-        private void clear_Click(object sender, EventArgs e)
+        private void Btn_clear_Click(object sender, EventArgs e)
         {
-            id.Text = string.Empty;
-            firstName.Text = string.Empty;
-            lastName.Text = string.Empty;
-            phoneNumber.Text = string.Empty;
-            address.Text = string.Empty;
+            Txt_customerId.Text = string.Empty;
+            Txt_customersFirstName.Text = string.Empty;
+            Txt_customersLastName.Text = string.Empty;
+            Txt_customersPhoneNumber.Text = string.Empty;
+            Txt_customersAddress.Text = string.Empty;
             read_only_false();
         }
 
-       
+        private void Txt_customersPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

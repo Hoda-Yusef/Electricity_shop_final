@@ -402,6 +402,8 @@ namespace Electricity_shop
 
                 }
             }
+
+      
     }
     }
 

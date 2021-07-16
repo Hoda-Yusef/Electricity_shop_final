@@ -48,7 +48,7 @@ namespace Electricity_shop
 
         private void OpenOrderManagement(object obj)
         {
-            Application.Run(new orders_management());
+            Application.Run(new Frm_ordersManagement());
         }
 
         private void Btn_manageProducts_Click(object sender, EventArgs e)
@@ -163,7 +163,7 @@ namespace Electricity_shop
 
         private void OpenAddOorder(object obj)
         {
-            Application.Run(new add_order());
+            Application.Run(new Frm_addOrder());
         }
 
         private void Upper_panel_MouseDown(object sender, MouseEventArgs e)

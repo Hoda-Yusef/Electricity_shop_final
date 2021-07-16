@@ -203,7 +203,7 @@ namespace Electricity_shop
        
         private void OpenProductCart(object obj)
         {
-            Application.Run(new product_cart());
+            Application.Run(new Frm_productsInCart());
         }
 
         private void exit_Click(object sender, EventArgs e)

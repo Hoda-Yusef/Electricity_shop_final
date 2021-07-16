@@ -61,7 +61,7 @@ namespace Electricity_shop
         private void Btn_updateCustomer_Click(object sender, EventArgs e)
         {
 
-            if (Txt_customerId.Text != "" && Check_id() == true && Txt_firstName.Text != "" && Txt_lastName.Text != ""
+            if (Check_id() == true && Txt_firstName.Text != "" && Txt_lastName.Text != ""
                 && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true
                  && Txt_address.Text != "")
             {
@@ -78,7 +78,7 @@ namespace Electricity_shop
         // פונקציה בודקת תקינות תעודת זהות של הלקוח
         private bool Check_id()
         {
-            return (this.Txt_customerId.Text.Length == 9);
+            return (this.Txt_customerId.Text.Length == 9 || this.Txt_customerId.Text.Length == 0);
         }
         private void Txt_customerId_Leave(object sender, EventArgs e)
         {

@@ -122,13 +122,13 @@ namespace Electricity_shop
             Application.Run(new Frm_main());
         }
 
-        private void Upper_panel_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void Upper_panel_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -137,7 +137,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Upper_panel_MouseUp(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         { 
             drag = false;
         }
@@ -286,5 +286,6 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
+
     }
 }

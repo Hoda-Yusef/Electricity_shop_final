@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    public partial class add_products_to_order : Form
+    public partial class Frm_addProductsToOrder : Form
     {
         private DBSQL mySQL;
         Thread th;
@@ -23,7 +23,7 @@ namespace Electricity_shop
         product_order[] Product_order;
         string order_number_holder;
 
-        public add_products_to_order()
+        public Frm_addProductsToOrder()
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -32,7 +32,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        public add_products_to_order(string orderNumber)
+        public Frm_addProductsToOrder(string orderNumber)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -43,13 +43,13 @@ namespace Electricity_shop
             order_number_holder = orderNumber;
         }
 
-        private void add_products_to_order_Load(object sender, EventArgs e)
+        private void Frm_addProductsToOrder_Load(object sender, EventArgs e)
         {
             Products = mySQL.GetProductData();
 
             for (int i = 0; i < Products.Length; i++)
             {
-                products_grid.Rows.Add(new object[]
+                Grd_productsList.Rows.Add(new object[]
                 {
                     Products[i].Category,
                     Products[i].Manufacturer,
@@ -64,93 +64,93 @@ namespace Electricity_shop
             }
         }
 
-        private void products_grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void Grd_productsList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            for (int i = 0; i < products_grid.Rows.Count; i++)
+            for (int i = 0; i < Grd_productsList.Rows.Count; i++)
             {
-                int amount = Convert.ToInt32(products_grid.Rows[i].Cells[5].Value);
+                int amount = Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value);
                 if (amount > 0 && amount <= 2)
                 {
-                    products_grid.Rows[i].DefaultCellStyle.ForeColor = Color.Orange;
+                    Grd_productsList.Rows[i].DefaultCellStyle.ForeColor = Color.Orange;
 
                 }
 
                 if (amount == 0)
                 {
-                    products_grid.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                    Grd_productsList.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
                 }
             }
         }
 
-        private void barcode_TextChanged(object sender, EventArgs e)
+        private void Txt_productBarcode_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_barcode();
         }
 
-        private void category_TextChanged(object sender, EventArgs e)
+        private void Txt_productCategory_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_category();
         }
 
-        private void manufacture_TextChanged(object sender, EventArgs e)
+        private void Txt_productManufacturer_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_manufacture();
         }
 
-        private void model_TextChanged(object sender, EventArgs e)
+        private void Txt_productModel_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_model();
         }
 
         private void fill_grid_by_barcode()
         {
-            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            if (Grd_productsList.Rows.Count != 0)
+                Grd_productsList.Rows[0].Cells[0].Selected = false;
 
         }
 
         private void fill_grid_by_category()
         {
-            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            if (Grd_productsList.Rows.Count != 0)
+                Grd_productsList.Rows[0].Cells[0].Selected = false;
 
         }
 
         private void fill_grid_by_manufacture()
         {
-            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
 
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            if (Grd_productsList.Rows.Count != 0)
+                Grd_productsList.Rows[0].Cells[0].Selected = false;
 
         }
 
         private void fill_grid_by_model()
         {
-            Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
+            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
-            if (products_grid.Rows.Count != 0)
-                products_grid.Rows[0].Cells[0].Selected = false;
+            if (Grd_productsList.Rows.Count != 0)
+                Grd_productsList.Rows[0].Cells[0].Selected = false;
 
         }
 
         private void fill_grid(Product[] Product)
         {
-            products_grid.Rows.Clear();
+            Grd_productsList.Rows.Clear();
             if (Product != null)
             {
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    products_grid.Rows.Add(new object[]
+                    Grd_productsList.Rows.Add(new object[]
                     {
                     Product[i].Category,
                     Product[i].Manufacturer,
@@ -165,10 +165,10 @@ namespace Electricity_shop
                 }
             }
             else
-                products_grid.Rows.Clear();
+                Grd_productsList.Rows.Clear();
         }
 
-        private void panel8_MouseDown(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             {
                 drag = true;
@@ -176,7 +176,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel8_MouseMove(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -185,12 +185,12 @@ namespace Electricity_shop
             }
         }
 
-        private void panel8_MouseUp(object sender, MouseEventArgs e)
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
-        private void add_products_to_order_KeyPress(object sender, KeyPressEventArgs e)
+        private void Frm_addProductsToOrder_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -200,16 +200,16 @@ namespace Electricity_shop
             }
         }
 
-        private void add_to_order_Click(object sender, EventArgs e)
+        private void Btn_addToOrder_Click(object sender, EventArgs e)
         {
             bool same = false;
             //ONH = mySQL.GetorderNumberHolder();//שולפים את מספר ההזמנה
                                              
-            Product = mySQL.GetProductDataByBarcode(products_grid.CurrentRow.Cells[3].Value.ToString());
+            Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
 
-            string item = products_grid.CurrentRow.Cells[3].Value.ToString();//שולפים את הברקוד מהטבלה 
-            int amount = (int)products_grid.CurrentRow.Cells[5].Value;//שולפים את הכמות הקיימת למוצר הנבחר
+            string item = Grd_productsList.CurrentRow.Cells[3].Value.ToString();//שולפים את הברקוד מהטבלה 
+            int amount = (int)Grd_productsList.CurrentRow.Cells[5].Value;//שולפים את הכמות הקיימת למוצר הנבחר
 
 
             for (int i = 0; i < Product_order.Length; i++)//לולאה בודקת אם המוצר שנבחר קיים כבר להזמנה
@@ -256,7 +256,7 @@ namespace Electricity_shop
             amountChoose.Value = 1;
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        private void Btn_backToOrder_Click(object sender, EventArgs e)
         {
             Thread th;
             this.Close();
@@ -267,15 +267,15 @@ namespace Electricity_shop
 
         private void OpenUpadteOrder(object obj)
         {
-            Application.Run(new update_order(order_number_holder));
+            Application.Run(new Frm_updateOrder(order_number_holder));
         }
 
         private void OpenSelf(object obj)
         {
-            Application.Run(new add_products_to_order(order_number_holder));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder));
         }
 
-        private void barcode_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_productBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -283,6 +283,22 @@ namespace Electricity_shop
             {
                 e.Handled = true;
             }
+        }
+
+        private void Btn_exitX_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(OpenSelf);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            Txt_productBarcode.Text = string.Empty;
+            Txt_productCategory.Text = string.Empty;
+            Txt_productManufacturer.Text = string.Empty;
+            Txt_productModel.Text = string.Empty;
         }
     }
 }

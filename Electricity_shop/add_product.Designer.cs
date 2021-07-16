@@ -42,11 +42,11 @@ namespace Electricity_shop
             this.Lbl_supplier = new System.Windows.Forms.Label();
             this.Txt_sellingPrice = new System.Windows.Forms.TextBox();
             this.Txt_costPrice = new System.Windows.Forms.TextBox();
-            this.Lbl_productAmount = new System.Windows.Forms.Label();
             this.Lbl_sellingPrice = new System.Windows.Forms.Label();
             this.Lbl_costPrice = new System.Windows.Forms.Label();
             this.Btn_exitX = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Lbl_amount = new System.Windows.Forms.Label();
             this.Btn_clearAll = new System.Windows.Forms.Button();
             this.Lbl_barcode = new System.Windows.Forms.Label();
             this.Txt_barcode = new System.Windows.Forms.TextBox();
@@ -91,7 +91,7 @@ namespace Electricity_shop
             this.Lbl_productInformation.AutoSize = true;
             this.Lbl_productInformation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_productInformation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_productInformation.Location = new System.Drawing.Point(221, 244);
+            this.Lbl_productInformation.Location = new System.Drawing.Point(227, 257);
             this.Lbl_productInformation.Name = "Lbl_productInformation";
             this.Lbl_productInformation.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_productInformation.Size = new System.Drawing.Size(91, 21);
@@ -207,24 +207,12 @@ namespace Electricity_shop
             this.Txt_costPrice.TabIndex = 12;
             this.Txt_costPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_costPrice_KeyPress);
             // 
-            // Lbl_productAmount
-            // 
-            this.Lbl_productAmount.AutoSize = true;
-            this.Lbl_productAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_productAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_productAmount.Location = new System.Drawing.Point(257, 162);
-            this.Lbl_productAmount.Name = "Lbl_productAmount";
-            this.Lbl_productAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_productAmount.Size = new System.Drawing.Size(47, 21);
-            this.Lbl_productAmount.TabIndex = 16;
-            this.Lbl_productAmount.Text = "כמות";
-            // 
             // Lbl_sellingPrice
             // 
             this.Lbl_sellingPrice.AutoSize = true;
             this.Lbl_sellingPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_sellingPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_sellingPrice.Location = new System.Drawing.Point(213, 92);
+            this.Lbl_sellingPrice.Location = new System.Drawing.Point(217, 92);
             this.Lbl_sellingPrice.Name = "Lbl_sellingPrice";
             this.Lbl_sellingPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_sellingPrice.Size = new System.Drawing.Size(95, 21);
@@ -236,7 +224,7 @@ namespace Electricity_shop
             this.Lbl_costPrice.AutoSize = true;
             this.Lbl_costPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_costPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_costPrice.Location = new System.Drawing.Point(213, 21);
+            this.Lbl_costPrice.Location = new System.Drawing.Point(226, 21);
             this.Lbl_costPrice.Name = "Lbl_costPrice";
             this.Lbl_costPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_costPrice.Size = new System.Drawing.Size(86, 21);
@@ -261,6 +249,7 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.panel1.Controls.Add(this.Lbl_amount);
             this.panel1.Controls.Add(this.Btn_clearAll);
             this.panel1.Controls.Add(this.Lbl_barcode);
             this.panel1.Controls.Add(this.Txt_barcode);
@@ -268,7 +257,6 @@ namespace Electricity_shop
             this.panel1.Controls.Add(this.Btn_cancel);
             this.panel1.Controls.Add(this.Btn_addProduct);
             this.panel1.Controls.Add(this.Lbl_supplier);
-            this.panel1.Controls.Add(this.Lbl_productAmount);
             this.panel1.Controls.Add(this.Txt_supplier);
             this.panel1.Controls.Add(this.Lbl_sellingPrice);
             this.panel1.Controls.Add(this.Lbl_manufacturer);
@@ -286,6 +274,18 @@ namespace Electricity_shop
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(895, 517);
             this.panel1.TabIndex = 53;
+            // 
+            // Lbl_amount
+            // 
+            this.Lbl_amount.AutoSize = true;
+            this.Lbl_amount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_amount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_amount.Location = new System.Drawing.Point(261, 167);
+            this.Lbl_amount.Name = "Lbl_amount";
+            this.Lbl_amount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_amount.Size = new System.Drawing.Size(47, 21);
+            this.Lbl_amount.TabIndex = 25;
+            this.Lbl_amount.Text = "כמות";
             // 
             // Btn_clearAll
             // 
@@ -456,7 +456,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_supplier;
         private System.Windows.Forms.TextBox Txt_sellingPrice;
         private System.Windows.Forms.TextBox Txt_costPrice;
-        private System.Windows.Forms.Label Lbl_productAmount;
         private System.Windows.Forms.Label Lbl_sellingPrice;
         private System.Windows.Forms.Label Lbl_costPrice;
         private System.Windows.Forms.Button Btn_exitX;
@@ -476,5 +475,6 @@ namespace Electricity_shop
         public System.Windows.Forms.TextBox Txt_supplier;
         public System.Windows.Forms.TextBox Txt_barcode;
         private System.Windows.Forms.Button Btn_clearAll;
+        private System.Windows.Forms.Label Lbl_amount;
     }
 }

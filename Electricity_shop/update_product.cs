@@ -23,7 +23,7 @@ namespace Electricity_shop
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
-            mySQL = DBSQL.Instance; 
+            mySQL = DBSQL.Instance;
         }
         /*
         private void Opennewform(object obj)
@@ -33,22 +33,22 @@ namespace Electricity_shop
         }
         */
         private void Btn_exit_Click(object sender, EventArgs e)
-        { 
+        {
             this.Close();
         }
 
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
-            if ((Check_barcode()==true || Txt_model.Text!="") && Txt_category.Text != "" && Txt_manufacturer.Text != "" 
+            if (((Check_barcode() == true || Txt_model.Text != "") || (Txt_barcode.Text.Length == 0 && Txt_model.Text != "")) && Txt_category.Text != "" && Txt_manufacturer.Text != ""
                  && Txt_cost_price.Text != "" && Txt_selling_price.Text != "" && Txt_amount.Text != "")
             {
-                    Fill_obj(load_products);
+                Fill_obj(load_products);
 
-                    mySQL.UpdateProductBySerial(load_products);
+                mySQL.UpdateProductBySerial(load_products);
 
-                    MessageBox.Show("מוצר עודכן בהצלחה");
-                    this.Close();
-               
+                MessageBox.Show("מוצר עודכן בהצלחה");
+                this.Close();
+
             }
             else
                 MessageBox.Show("יש למלא את כל השדות");
@@ -70,9 +70,9 @@ namespace Electricity_shop
             }
             else
             {
-                if(Txt_barcode.Text=="" && Txt_model.Text!="")
+                if (Txt_barcode.Text == "" && Txt_model.Text != "")
                 {
-                    //items.Barcode = barcode.Text;
+                    items.Barcode = "";
                     items.Category = Txt_category.Text;
                     items.Model = Txt_model.Text;
                     items.Manufacturer = Txt_manufacturer.Text;
@@ -86,7 +86,7 @@ namespace Electricity_shop
                 {
                     items.Barcode = Txt_barcode.Text;
                     items.Category = Txt_category.Text;
-                    //items.Model = model.Text;
+                    items.Model = "";
                     items.Manufacturer = Txt_manufacturer.Text;
                     items.Supplier = Txt_supplier.Text;
                     items.Cost_price = Convert.ToInt32(Txt_cost_price.Text);
@@ -117,16 +117,7 @@ namespace Electricity_shop
             }
         }
 
-        private void txt_amount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-
-            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
-            {
-                e.Handled = true;
-            }
-        }
-
+        /*
         private void Btn_exit_MouseMove(object sender, MouseEventArgs e)
         {
             Btn_exit.BackColor = Color.White;
@@ -136,10 +127,11 @@ namespace Electricity_shop
         {
             Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
+        */
 
         private void update_product_Load(object sender, EventArgs e)
         {
-          load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
+            load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
         }
 
         private void Txt_amount_TextChanged(object sender, EventArgs e)
@@ -160,11 +152,11 @@ namespace Electricity_shop
 
         private bool Check_barcode()
         {
-            return (Txt_barcode.Text.Length==13 || Txt_barcode.Text.Length==12 || Txt_barcode.Text.Length==0);
+            return (Txt_barcode.Text.Length == 13 || Txt_barcode.Text.Length == 12);
         }
 
         private void Txt_barcode_Leave(object sender, EventArgs e)
-        { 
+        {
             if (Check_barcode() == false && count == 0)
             {
                 count++;
@@ -208,5 +200,14 @@ namespace Electricity_shop
             }
         }
 
+        private void Txt_amount_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
