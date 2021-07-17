@@ -77,7 +77,7 @@ namespace Electricity_shop
             this.Grd_customers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -162,13 +162,13 @@ namespace Electricity_shop
             // 
             this.Lbl_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_phoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_phoneNumber.Location = new System.Drawing.Point(64, 204);
+            this.Lbl_phoneNumber.Location = new System.Drawing.Point(43, 204);
             this.Lbl_phoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_phoneNumber.Name = "Lbl_phoneNumber";
             this.Lbl_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_phoneNumber.Size = new System.Drawing.Size(110, 26);
+            this.Lbl_phoneNumber.Size = new System.Drawing.Size(132, 26);
             this.Lbl_phoneNumber.TabIndex = 32;
-            this.Lbl_phoneNumber.Text = "מספר פלאפון";
+            this.Lbl_phoneNumber.Text = "מספר טלפון";
             // 
             // Txt_phoneNumber
             // 
@@ -180,7 +180,7 @@ namespace Electricity_shop
             this.Txt_phoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_phoneNumber.Name = "Txt_phoneNumber";
             this.Txt_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_phoneNumber.Size = new System.Drawing.Size(154, 33);
+            this.Txt_phoneNumber.Size = new System.Drawing.Size(154, 39);
             this.Txt_phoneNumber.TabIndex = 31;
             this.Txt_phoneNumber.TextChanged += new System.EventHandler(this.Txt_phoneNumber_TextChanged);
             this.Txt_phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_phoneNumber_KeyPress);
@@ -189,11 +189,11 @@ namespace Electricity_shop
             // 
             this.Lbl_firstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_firstName.Location = new System.Drawing.Point(89, 124);
+            this.Lbl_firstName.Location = new System.Drawing.Point(56, 114);
             this.Lbl_firstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_firstName.Name = "Lbl_firstName";
             this.Lbl_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_firstName.Size = new System.Drawing.Size(85, 18);
+            this.Lbl_firstName.Size = new System.Drawing.Size(110, 27);
             this.Lbl_firstName.TabIndex = 30;
             this.Lbl_firstName.Text = "שם פרטי";
             // 
@@ -207,7 +207,7 @@ namespace Electricity_shop
             this.Txt_firstName.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_firstName.Name = "Txt_firstName";
             this.Txt_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_firstName.Size = new System.Drawing.Size(154, 33);
+            this.Txt_firstName.Size = new System.Drawing.Size(154, 39);
             this.Txt_firstName.TabIndex = 29;
             this.Txt_firstName.TextChanged += new System.EventHandler(this.Txt_firstName_TextChanged);
             this.Txt_firstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_firstName_KeyPress);
@@ -216,11 +216,11 @@ namespace Electricity_shop
             // 
             this.Lbl_Id.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_Id.Location = new System.Drawing.Point(73, 24);
+            this.Lbl_Id.Location = new System.Drawing.Point(46, 24);
             this.Lbl_Id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_Id.Name = "Lbl_Id";
             this.Lbl_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_Id.Size = new System.Drawing.Size(101, 26);
+            this.Lbl_Id.Size = new System.Drawing.Size(128, 26);
             this.Lbl_Id.TabIndex = 28;
             this.Lbl_Id.Text = "תעודת זהות";
             // 
@@ -266,7 +266,7 @@ namespace Electricity_shop
             this.Txt_customerId.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_customerId.Name = "Txt_customerId";
             this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customerId.Size = new System.Drawing.Size(154, 33);
+            this.Txt_customerId.Size = new System.Drawing.Size(154, 39);
             this.Txt_customerId.TabIndex = 5;
             this.Txt_customerId.TextChanged += new System.EventHandler(this.Txt_customerId_TextChanged);
             this.Txt_customerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customerId_KeyPress);
@@ -351,7 +351,7 @@ namespace Electricity_shop
             // 
             // FrmCustomers_management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1170, 634);
