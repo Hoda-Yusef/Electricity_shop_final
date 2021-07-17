@@ -185,5 +185,19 @@ namespace Electricity_shop
         {
             drag = false;
         }
+
+        private void Btn_inStockReport_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread th;
+            th = new Thread(OpenInStock);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void OpenInStock(object obj)
+        {
+            Application.Run(new Frm_InStock());
+        }
     }
 }
