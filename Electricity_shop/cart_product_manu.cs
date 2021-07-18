@@ -33,7 +33,7 @@ namespace Electricity_shop
             
         }
 
-        private void cart_product_manu_Load(object sender, EventArgs e)
+        private void cart_product_manu_Load(object sender, EventArgs e)//בעת פתיחה חלון נטען במוצרים
         {
             Products = mySQL.GetProductData();
 
@@ -58,7 +58,7 @@ namespace Electricity_shop
 
         
 
-        private void fill_grid_by_barcode()
+        private void fill_grid_by_barcode()//מסנן לפי ברקוד
         {
             Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
@@ -68,7 +68,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid_by_category()
+        private void fill_grid_by_category()//מסנן לפי קטגוריה
         {
             Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
@@ -78,7 +78,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid_by_manufacture()
+        private void fill_grid_by_manufacture()//מסנן לפי יצרן
         {
             Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
@@ -89,7 +89,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid_by_model()
+        private void fill_grid_by_model()//מסנן לפי מודל
         {
             Products = mySQL.GetProductDataFiltered(barcode.Text, category.Text, manufacture.Text, model.Text);
 
@@ -99,7 +99,7 @@ namespace Electricity_shop
 
         }
 
-        private void fill_grid(Product[] Product)
+        private void fill_grid(Product[] Product)//מתרענן בכל חיפוש במוצרים
         {
             products_grid.Rows.Clear();
             if (Product != null)
@@ -144,6 +144,7 @@ namespace Electricity_shop
             drag = false;
         }
 
+        //משנים צבע שורה של פריט לפי כמות המלאי
         private void products_grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             for (int i = 0; i < products_grid.Rows.Count; i++)
@@ -182,7 +183,7 @@ namespace Electricity_shop
             fill_grid_by_model();
         }
 
-        private void clear_Click(object sender, EventArgs e)
+        private void clear_Click(object sender, EventArgs e)//ניקוי שדות
         {
             barcode.Text = "";
             category.Text = "";
@@ -190,7 +191,7 @@ namespace Electricity_shop
             manufacture.Text = "";
         }
 
-        private void barcode_KeyPress(object sender, KeyPressEventArgs e)
+        private void barcode_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
         {
             char ch = e.KeyChar;
 
@@ -206,7 +207,7 @@ namespace Electricity_shop
             Application.Run(new Frm_productsInCart());
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        private void exit_Click(object sender, EventArgs e)//יציאה
         {
             Thread th;
             this.Close();
@@ -215,7 +216,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void add_to_cart_Click(object sender, EventArgs e)
+        private void add_to_cart_Click(object sender, EventArgs e)//בעת לחיצה על הוספת מוצר
         {
             bool same = false;
             string item = products_grid.CurrentRow.Cells[3].Value.ToString();
@@ -224,19 +225,23 @@ namespace Electricity_shop
 
             if (Cart != null)
             {
-                if (product_barcode == item)
+                for(int i=0;i<Cart.Length;i++)//לולאה בודקת אם מוצר קיים כבר בעגלה
                 {
-                    same = true;
+                    if (Cart[i].product_barcode == item)
+                    {
+                        same = true;
+                    }
                 }
+                
             }
             
-            if (same)
+            if (same)//בודקים אם קיים
             {
                 MessageBox.Show("מוצר קיים בעגלה", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                if (amount != 0)
+                if (amount != 0)//אם מוצר לא קיים בעגלה אז מוסיפים אותו
                 {
                     Product = mySQL.GetProductDataByBarcode(products_grid.CurrentRow.Cells[3].Value.ToString());
                     if (Product.Amount - Convert.ToInt32(amountChoose.Value) >= 0)
@@ -251,7 +256,7 @@ namespace Electricity_shop
                     MessageBox.Show("מוצר אזל מהמלאי", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            amountChoose.Value = 1;
+            amountChoose.Value = 1;//מחזירים את כמות הבחירה ל 1
         }
     }
 }

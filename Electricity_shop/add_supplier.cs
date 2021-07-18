@@ -27,13 +27,13 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
        
-        private void Opennewform(object obj)
+        private void Opennewform(object obj)//פותח חלון ראשי
         {
             Application.Run(new Frm_main());
         }
         
 
-        private void Btn_cancel_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)//לחיצת ביטול
         {
             this.Close();
             th = new Thread(Opennewform);
@@ -41,19 +41,19 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void Btn_addSupplier_Click(object sender, EventArgs e)
+        private void Btn_addSupplier_Click(object sender, EventArgs e)//לחיצת הוספה 
         {
             bool same = false;
 
             if ((Txt_firstName.Text != "" || Txt_lastName.Text != "") && Txt_address.Text != "" && Txt_phoneNumber.Text != ""
-                && Check_phone_number() == true)
+                && Check_phone_number() == true)//אם אין שדות ריקות
             {
                 supplier[] Supplier = mySQL.GetSupplierData();
                 supplier supp = new supplier();
                
                 string nameTmp = Txt_phoneNumber.Text;
 
-                for (int i = 0; i < Supplier.Length; i++)
+                for (int i = 0; i < Supplier.Length; i++)//לולאה בודקת אם ספק קיים במערכת 
                 {
                     if (nameTmp == Supplier[i].Phone_number)
                     {
@@ -62,12 +62,12 @@ namespace Electricity_shop
                     }
                 }
 
-                if (same)
+                if (same)//אם ספק קיים 
                 {
-                    MessageBox.Show("ספק קייםת ניתן לעדכן פרטיו");
+                    MessageBox.Show("ספק קיים. ניתן לעדכן פרטים");
                     
                     Frm_updateSupplier uSupplier = new Frm_updateSupplier();
-                    supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);
+                    supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);//שולף מידע על ספק לפי מספר טלפון
                     uSupplier.Txt_firstName.Text = supp.FirstName;     
                     uSupplier.Txt_lastName.Text =supp.LasttName ;
                     uSupplier.Txt_address.Text =supp.Address ;
@@ -86,7 +86,7 @@ namespace Electricity_shop
                 }
                 else
                 {
-                    New_supplier(supp);
+                    New_supplier(supp);//אם ספק חדש
                    
                     this.Close();
                     th = new Thread(Open_supManagment);
@@ -105,7 +105,7 @@ namespace Electricity_shop
             Application.Run(new Frm_suppliersManagement());
         }
 
-        private void New_supplier(supplier supp)
+        private void New_supplier(supplier supp)//אם ספק חדש יבדוק אם המשתמש הזין חוב וגם את התשלום
         {
             if (Txt_supplierDept.Text != "" && Txt_payedForSupplier.Text != "")
             {
@@ -165,7 +165,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Clear_boxes()
+        private void Clear_boxes()//ניקוי שדות
         {
             Txt_firstName.Text = string.Empty;
             Txt_lastName.Text = string.Empty;
@@ -175,7 +175,7 @@ namespace Electricity_shop
             Txt_payedForSupplier.Text = string.Empty;
         }
 
-        private void Frm_addSupplier_Load(object sender, EventArgs e)
+        private void Frm_addSupplier_Load(object sender, EventArgs e)//מילוי שדות אוטומטי
         {
             supplier[] Supplier = mySQL.GetSupplierData();
 
@@ -191,7 +191,7 @@ namespace Electricity_shop
             Txt_lastName.AutoCompleteCustomSource = SLastName;
         }
 
-        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים בשדה
         {
             char ch = e.KeyChar;
 
@@ -201,7 +201,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים בשדה
         {
             char ch = e.KeyChar;
 
@@ -211,7 +211,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_payedForSupplier_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_payedForSupplier_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים בשדה
         {
             char ch = e.KeyChar;
 
@@ -221,7 +221,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות בשדה
         {
             char ch = e.KeyChar;
 
@@ -231,7 +231,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות בשדה
         {
             char ch = e.KeyChar;
 
@@ -241,7 +241,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות בשדה
         {
             char ch = e.KeyChar;
 
@@ -287,7 +287,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
             this.Close();
             th = new Thread(Opennewform);

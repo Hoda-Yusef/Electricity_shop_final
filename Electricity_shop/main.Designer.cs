@@ -423,7 +423,7 @@ namespace Electricity_shop
             this.Upper_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Upper_panel.Location = new System.Drawing.Point(0, -5);
             this.Upper_panel.Name = "Upper_panel";
-            this.Upper_panel.Size = new System.Drawing.Size(1521, 16);
+            this.Upper_panel.Size = new System.Drawing.Size(1521, 39);
             this.Upper_panel.TabIndex = 15;
             this.Upper_panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseDown);
             this.Upper_panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseMove);

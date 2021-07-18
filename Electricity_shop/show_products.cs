@@ -26,9 +26,11 @@ namespace Electricity_shop
 
         private void Btn_goBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//סגירה
         }
 
+
+        //פאנל להזזת חלון
         private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
@@ -49,6 +51,7 @@ namespace Electricity_shop
             drag = false;
         }
 
+        //בעת פתיחת חלון הטבלה נטענת בפרטים של ההזמנה
         private void Frm_productsList_Load(object sender, EventArgs e)
         {
             int Total_price=0,total_amount=0;
@@ -74,24 +77,23 @@ namespace Electricity_shop
                     Product.Product_info
                     });
 
-                    total_amount += Convert.ToInt32(Product_order[i].Amount);
+                    total_amount = Convert.ToInt32(Product_order[i].Amount);
                     Total_price += Convert.ToInt32(Product.Selling_price)* total_amount;
                 }
             }
             else
-                MessageBox.Show("אין מוצרים להזמנה");
+                MessageBox.Show("אין מוצרים להזמנה");//אם אין מוצרים בהזמנה
 
-            Lbl_showProductsNumber.Text = Grd_productsList.Rows.Count.ToString();
-            Lbl_showTotalAmount.Text = total_amount.ToString();
-            Lbl_showTotalPrice.Text = Total_price.ToString();
+            Lbl_showProductsNumber.Text = Grd_productsList.Rows.Count.ToString();//סופר כמות מוצרים
+            Lbl_showTotalAmount.Text = total_amount.ToString();//סופר כמות היחידות של מוצרים
+            Lbl_showTotalPrice.Text = Total_price.ToString();//סופר את סכום של כל המוצרים
            
         }
 
-        private void Btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)//סגירה
         {
             this.Close();
-            Frm_main mainForm = new Frm_main();
-            mainForm.Show();
+            
         }
     }
 }

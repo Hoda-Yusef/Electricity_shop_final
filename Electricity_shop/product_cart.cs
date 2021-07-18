@@ -29,7 +29,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        private void Btn_cancel_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
             mySQL.clearCart();
             Thread th;
@@ -49,7 +49,7 @@ namespace Electricity_shop
             Application.Run(new Frm_addOrder());
         }
 
-        private void Btn_AddToCart_Click(object sender, EventArgs e)
+        private void Btn_AddToCart_Click(object sender, EventArgs e)//כפתור הוספת מוצר
         {
             Thread th;
             this.Close();
@@ -60,7 +60,7 @@ namespace Electricity_shop
 
         private void openCartProductManu(object obj)
         {
-            Application.Run(new cart_product_manu());
+            Application.Run(new cart_product_manu());//פותח רשימת מוצרים
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void Frm_productsInCart_Load(object sender, EventArgs e)
+        private void Frm_productsInCart_Load(object sender, EventArgs e)//בעת פתיחת החלון מציגים את כל המוצרים בעגלה
         {
             Product[] Products = mySQL.GetProductData();
             Cart[] Cart = mySQL.getCartData();
@@ -113,8 +113,9 @@ namespace Electricity_shop
 
             for(int i=0;i<Grd_productsList.Rows.Count;i++)
             {
-                sum += Convert.ToInt32(Grd_productsList.Rows[i].Cells[4].Value.ToString());
                 sum_products += Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value.ToString());
+                sum += Convert.ToInt32(Grd_productsList.Rows[i].Cells[4].Value.ToString())* Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value.ToString());
+                
             }
             Lbl_showTotalPrice.Text = sum.ToString();
             Lbl_showTotalNumberOfProducts.Text = sum_products.ToString();
@@ -206,6 +207,15 @@ namespace Electricity_shop
         {
             mySQL.UpdateCartAmount(Convert.ToInt32(Grd_productsList.CurrentRow.Cells[5].Value),Grd_productsList.CurrentRow.Cells[0].Value.ToString());
             MessageBox.Show("כמות עודכנה");
+            this.Close();
+            th = new Thread(openSelf);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openSelf(object obj)
+        {
+            Application.Run(new Frm_productsInCart());
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         private DBSQL mySQL;
 
+        //מילוי אוטומטי
         AutoCompleteStringCollection idAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection lastNameAuto = new AutoCompleteStringCollection();
@@ -36,7 +37,7 @@ namespace Electricity_shop
         }
 
 
-        private void set_AutoCompleteMode_text_boxes()
+        private void set_AutoCompleteMode_text_boxes()//מילוי אוטומטי
         {
             Txt_customerId.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             Txt_customerId.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -53,7 +54,7 @@ namespace Electricity_shop
 
         }
 
-        private void Btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
             this.Close();
             th = new Thread(Opennewform);
@@ -67,7 +68,7 @@ namespace Electricity_shop
         }
 
 
-        private void Btn_cancel_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
             this.Close();
             th = new Thread(Opennewform);
@@ -75,7 +76,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
         {
             char ch = e.KeyChar;
 
@@ -85,7 +86,7 @@ namespace Electricity_shop
             }
         }
 
-        private void phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void phoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
         {
             char ch = e.KeyChar;
 
@@ -119,14 +120,14 @@ namespace Electricity_shop
 
        
 
-        private void new_customer(customer cust)
+        private void new_customer(customer cust)//אם לקוח חדש 
         {
             cust.Id = Txt_customerId.Text;
             cust.First_name = Txt_customersFirstName.Text;
             cust.Last_name = Txt_customersLastName.Text;
             cust.Phone_number = Txt_customersPhoneNumber.Text;
             cust.Address = Txt_customersAddress.Text;
-            mySQL.InsertCustomer(cust);
+            mySQL.InsertCustomer(cust);//מכניס לקוח ל בסיסי נתונים
             MessageBox.Show("לקוח חדש ,עובר לבחירת מוצרים");
 
             orders Orders = new orders();
@@ -136,13 +137,13 @@ namespace Electricity_shop
             mySQL.InsertOrder(Orders);
         }
 
-        private void same_customer(customer cust)
+        private void same_customer(customer cust)//אם לקוח קיים
         {
             orders Orders = new orders();
             Orders.Customer_id = Txt_customerId.Text;
             Orders.Date = dateTimePicker.Text;
             Orders.Status = Convert.ToInt32(delivery.Checked);
-            mySQL.InsertOrder(Orders);
+            mySQL.InsertOrder(Orders);//מכניס לקוח לבסיסי נתונים
             MessageBox.Show("לקוח קיים ,עובר לבחירת מוצרים");
         }
 
@@ -151,17 +152,17 @@ namespace Electricity_shop
             Application.Run(new cart_product_manu());
         }
 
-        private void Btn_ok_Click(object sender, EventArgs e)
+        private void Btn_ok_Click(object sender, EventArgs e)//בעת לחיצה על אישור
         {
             bool same = false;
 
             if (Txt_customerId.Text != "" && Txt_customersFirstName.Text != "" && Txt_customersLastName.Text != "" && Txt_customersPhoneNumber.Text != "" && Txt_customersAddress.Text != "")
-            {
+            {//אם אין שדות ריקות 
                 customer[] Customer = mySQL.GetCustomerData();
                 customer Cust = new customer();
                 string idTmp = Txt_customerId.Text;
 
-                for (int i = 0; i < Customer.Length; i++)
+                for (int i = 0; i < Customer.Length; i++)//לולאה בודקת אם לקוח קיים
                 {
                     if (idTmp == Customer[i].Id.ToString())
                     {
@@ -171,13 +172,14 @@ namespace Electricity_shop
 
                 }
 
-                if (same)
+                if (same)//אם לקוח קיים
                 {
                     same_customer(Cust);
                     read_only_false();
                 }
                 else
                 {
+                    //אם לקוח חדש
                     new_customer(Cust);
                     read_only_false();
 
@@ -214,7 +216,7 @@ namespace Electricity_shop
             Txt_customersAddress.AutoCompleteCustomSource = addressAuto;
         }
 
-        private void Txt_customerId_Leave(object sender, EventArgs e)
+        private void Txt_customerId_Leave(object sender, EventArgs e)//כשעוזבים את שדה התעודת זהות המערכת בודקת אם לקוח קיים אם כן ממלא של שאר השדות בפרטים של אותו לקוח
         {
             if (Txt_customerId.Text != "")
             {
@@ -242,7 +244,7 @@ namespace Electricity_shop
             }
         }
 
-        private void read_only_true()
+        private void read_only_true()//נועל את השדות לקתיבה
         {
             Txt_customerId.ReadOnly = true;
             Txt_customersFirstName.ReadOnly = true;
@@ -251,7 +253,7 @@ namespace Electricity_shop
             Txt_customersAddress.ReadOnly = true;
         }
 
-        private void read_only_false()
+        private void read_only_false()//משחרר את השדות לכתיבה
         {
             Txt_customerId.ReadOnly = false;
             Txt_customersFirstName.ReadOnly = false;
@@ -260,7 +262,7 @@ namespace Electricity_shop
             Txt_customersAddress.ReadOnly = false;
         }
 
-        private void Btn_clear_Click(object sender, EventArgs e)
+        private void Btn_clear_Click(object sender, EventArgs e)//ניקוי שדות
         {
             Txt_customerId.Text = string.Empty;
             Txt_customersFirstName.Text = string.Empty;
@@ -270,7 +272,7 @@ namespace Electricity_shop
             read_only_false();
         }
 
-        private void Txt_customersPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customersPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
         {
             char ch = e.KeyChar;
 
