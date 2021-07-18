@@ -1214,7 +1214,7 @@ namespace Electricity_shop
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
                 "product_model=@product_model,product_manufacturer=@product_manufacturer," +
                 "product_supplier=@product_supplier,cost_price=@cost_price,selling_price=@selling_price," +
-                "amount=@amount,product_info=@product_info WHERE product_serial_number=@product_serial_number";
+                "amount=@amount,product_info=@product_info WHERE product_serial_number="+Item.Product_serial_number+"";
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
                // command.Parameters.AddWithValue("@product_serial_number", Item.Product_serial_number);
@@ -1324,12 +1324,12 @@ namespace Electricity_shop
         {
             string cmdStr = "UPDATE supplier SET first_name=@first_name," +
                 "last_name=@last_name,phone_number=@phone_number,address=@address," +
-                "dept=@dept,paid=@paid WHERE serial_number=@serial_number";
+                "dept=@dept,paid=@paid WHERE supplier_serial_number="+Item.Serial_number+"";
 
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
-                command.Parameters.AddWithValue("@serial_number", Item.Serial_number);
+                command.Parameters.AddWithValue("@supplier_serial_number", Item.Serial_number);
                 command.Parameters.AddWithValue("@first_name", Item.FirstName);
                 command.Parameters.AddWithValue("@last_name", Item.LasttName);
                 command.Parameters.AddWithValue("@phone_number", Item.Phone_number);
