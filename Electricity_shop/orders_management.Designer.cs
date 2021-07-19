@@ -234,7 +234,7 @@
             this.Upper_BluePanel.Controls.Add(this.panel6);
             this.Upper_BluePanel.Location = new System.Drawing.Point(3, 0);
             this.Upper_BluePanel.Name = "Upper_BluePanel";
-            this.Upper_BluePanel.Size = new System.Drawing.Size(1270, 13);
+            this.Upper_BluePanel.Size = new System.Drawing.Size(1451, 17);
             this.Upper_BluePanel.TabIndex = 15;
             this.Upper_BluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseDown);
             this.Upper_BluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseMove);

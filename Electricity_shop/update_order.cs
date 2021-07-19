@@ -30,7 +30,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        public Frm_updateOrder(string order_number)
+        public Frm_updateOrder(string order_number)//בנאי מקבל מספר הזמנה
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -63,13 +63,13 @@ namespace Electricity_shop
             drag = false;
         }
 
-        private void Frm_updateOrder_Load(object sender, EventArgs e)
+        private void Frm_updateOrder_Load(object sender, EventArgs e)//בעת פתיחת החלון
         {
             int Total_price = 0, total_amount = 0;
 
             Txt_show_order_number.Text = order_number_holder;
 
-            Orderss = mySQL.GetOrdersDataByOrderNumber(order_number_holder);
+            Orderss = mySQL.GetOrdersDataByOrderNumber(order_number_holder);//שולף מידע עבור מספר הזמנה
 
             product_order[] Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
 
@@ -77,7 +77,7 @@ namespace Electricity_shop
 
             if (Product_order != null)
             {
-                for (int i = 0; i < Product_order.Length; i++)
+                for (int i = 0; i < Product_order.Length; i++)//שולפים פרטים של מוצרים ומציגים אותם בטבלה של ההזמנה
                 {
                     Product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
 
@@ -92,12 +92,11 @@ namespace Electricity_shop
                     Product.Product_info
                     });
 
-                    total_amount += Convert.ToInt32(Product_order[i].Amount);
-                    Total_price += Convert.ToInt32(Product.Selling_price)*total_amount;
+                    total_amount = Convert.ToInt32(Product_order[i].Amount);//מחשב כמות כללית של מוצרים
+                    Total_price += Convert.ToInt32(Product.Selling_price)*total_amount;//מחשב סכום של מוצרים
                 }
             }
-            else
-                MessageBox.Show("אין מוצרים להזמנה");
+            
             if (Cbo_orderStatus != null)
             {
                 if (Orderss.Status == 1)
@@ -106,7 +105,7 @@ namespace Electricity_shop
                     Cbo_orderStatus.Text = "סופק";
             }
 
-            if (Orderss.Status == 0)
+            if (Orderss.Status == 0)//אם ההזמנ סופקה אז אין אפשרות למשתמש לשנות את הכמות
                 Grd_allOrders.Columns[5].ReadOnly = true;
 
             Lbl_showProducts_count.Text = Grd_allOrders.Rows.Count.ToString();
@@ -114,7 +113,7 @@ namespace Electricity_shop
             Lbl_showingTotalPrice.Text = Total_price.ToString();
         }
 
-        private void Btn_cancel_Click(object sender, EventArgs e)
+        private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
             mySQL.clearOrderNumberHolder();
             this.Close();
@@ -230,7 +229,7 @@ namespace Electricity_shop
         private void Grd_allOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             int sum = 0;
-
+            //כאשר משתמש משנה את הכמות בודק אם יש הכמות הנדרשת אם כן מחסרים את הכמות במלאי בהתאם או מוסיפים תלוי
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
             Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());
 
@@ -238,7 +237,7 @@ namespace Electricity_shop
             {
                 if(Product_order[i].Product_serial_number == Product.Product_serial_number)
                 {
-                    if ((Product.Amount + previosAmount) - Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value) >= 0)
+                    if ((Product.Amount + previosAmount) - Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value) >= 0)//בודקים אם יש הכמות הנדרשת
                     {
                         sum += (Product.Amount + previosAmount) - Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);
                         mySQL.UpdateProduct_orderAmount(Product.Product_serial_number.ToString(), order_number_holder, Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value));
@@ -253,7 +252,7 @@ namespace Electricity_shop
 
                     }
                     else
-                    {
+                    {//אם אין הכמות הנדרשת
                         MessageBox.Show("לא מספיק מלאי לכמות המבוקשת");
                         this.Close();
                         th = new Thread(openself);
@@ -268,7 +267,7 @@ namespace Electricity_shop
 
         private void Grd_allOrders_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            previosAmount = Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);
+            previosAmount = Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);//כאשר רוצים לשנה כמות אנו שומרים את הכמות הקודמת
         }
     }
 

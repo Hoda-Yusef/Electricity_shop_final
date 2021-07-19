@@ -421,7 +421,7 @@ namespace Electricity_shop
             this.Upper_panel.Location = new System.Drawing.Point(0, -4);
             this.Upper_panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Upper_panel.Name = "Upper_panel";
-            this.Upper_panel.Size = new System.Drawing.Size(1331, 12);
+            this.Upper_panel.Size = new System.Drawing.Size(1521, 16);
             this.Upper_panel.TabIndex = 15;
             this.Upper_panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseDown);
             this.Upper_panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_panel_MouseMove);

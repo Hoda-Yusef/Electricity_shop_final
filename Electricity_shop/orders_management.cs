@@ -47,7 +47,7 @@ namespace Electricity_shop
 
        
 
-        private void Btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
             this.Close();
             Thread th;
@@ -59,9 +59,10 @@ namespace Electricity_shop
 
         private void openMain(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main());//חזרה לחלון ראשי
         }
 
+        //פאנל להזזת חלון
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
@@ -77,6 +78,7 @@ namespace Electricity_shop
             }
         }
 
+        //פנל להזזת חלון
         private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -92,7 +94,7 @@ namespace Electricity_shop
             Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
-        private void Btn_backToMain_Click(object sender, EventArgs e)
+        private void Btn_backToMain_Click(object sender, EventArgs e)//יציאה לחלון ראשי
         {
             this.Close();
             Thread th;
@@ -101,7 +103,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void Frm_ordersManagement_Load(object sender, EventArgs e)
+        private void Frm_ordersManagement_Load(object sender, EventArgs e)//בעת פתיחת חלון טוען את הטבלה הזמנות מבסיס נתונים
         {
             orders[] Orders = mySQL.GetOrdersData();
             customer Customer;
@@ -157,7 +159,7 @@ namespace Electricity_shop
             Application.Run(new Frm_ordersManagement());
         }
 
-        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
         {
             char ch = e.KeyChar;
 
@@ -167,14 +169,14 @@ namespace Electricity_shop
             }
         }
 
-        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)//מסנון את הטבלה לפי הגדרת התאריך
         {
             date_changed = true;
             Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
             fill_grid(Orders_customers);
         }
 
-        private void Txt_customersLastName_TextChanged(object sender, EventArgs e)
+        private void Txt_customersLastName_TextChanged(object sender, EventArgs e)//מסנן את הטבלה לפי שם משפחה
         {
             if (date_changed)
             {
@@ -197,7 +199,7 @@ namespace Electricity_shop
             fill_grid(Orders_customers);
         }
 
-        private void Txt_customersFirstName_TextChanged(object sender, EventArgs e)
+        private void Txt_customersFirstName_TextChanged(object sender, EventArgs e)//מסנן טבלה לפי שם פרטי
         {
             if (date_changed)
             {
@@ -214,7 +216,7 @@ namespace Electricity_shop
         }
 
        
-        private void Txt_customerId_TextChanged(object sender, EventArgs e)
+        private void Txt_customerId_TextChanged(object sender, EventArgs e)//מסנן טבלה לפי תעודת זהות
         {
             if(date_changed)
             {
@@ -233,7 +235,7 @@ namespace Electricity_shop
 
         
 
-        private void fill_grid(orders_customers[] Orders_customers)
+        private void fill_grid(orders_customers[] Orders_customers)//טוען את הטבלה בפרטים חדשים לפי שדות החיפוש
         {
             Grd_orders.Rows.Clear();
             if (Orders_customers != null)
@@ -258,7 +260,7 @@ namespace Electricity_shop
                 Grd_orders.Rows.Clear();
         }
 
-        private void Btn_showOrder_Click(object sender, EventArgs e)
+        private void Btn_showOrder_Click(object sender, EventArgs e)//כפתור להצגת הזמנה 
         {
             Frm_productsList Show_order = new Frm_productsList();
 
@@ -266,13 +268,9 @@ namespace Electricity_shop
             Show_order.ShowDialog();
         }
 
-        private void Btn_updateOrder_Click(object sender, EventArgs e)
+        private void Btn_updateOrder_Click(object sender, EventArgs e)//כפתור לעידכון הזמנה
         {
-            //update_order update_Order = new update_order();
-
-            //update_Order.show_order_number.Text = orders_grid.CurrentRow.Cells[0].Value.ToString();
-            //update_Order.ShowDialog();
-
+         
              mySQL.InsertOrderNumberHolder(Grd_orders.CurrentRow.Cells[0].Value.ToString());
             order_number_holder=Grd_orders.CurrentRow.Cells[0].Value.ToString();
             this.Close();
@@ -286,49 +284,21 @@ namespace Electricity_shop
         private void openUpdateOrder(object obj)
         {
 
-            Application.Run(new Frm_updateOrder(order_number_holder));
+            Application.Run(new Frm_updateOrder(order_number_holder));//פתחית חלון עידכון של הזמנה
 
 
         }
 
-        private void BtnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)//ניקוי שדות
         {
             Txt_customerId.Text = string.Empty;
             Txt_customersFirstName.Text = string.Empty;
             Txt_customersLastName.Text = string.Empty;
             date_changed = false;
-            /*
-            this.Close();
-            Thread th;
-            th = new Thread(openSelf);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();*/
+            
 
         }
 
         
-
-
-
-
-
-
-
-
-
-        //private void orders_grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
-        //{
-        //    if (e.RowIndex > -1)
-        //        orders_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(0, 90, 184);
-        //}
-
-        //private void orders_grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex > -1)
-        //    {
-        //        orders_grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(34, 36, 70);
-        //        orders_grid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(34, 36, 49);
-        //    }
-        //}
     }
 }

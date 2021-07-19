@@ -11,11 +11,11 @@ namespace Electricity_shop
 {
     public partial class Frm_updateSupplier : Form
     {
-        private System.Windows.Forms.ErrorProvider phoneErrorProvider;
+        private System.Windows.Forms.ErrorProvider phoneErrorProvider;//סימן שגיאה
         supplier load_supplier = new supplier();
         readonly supplier updated_supplier = new supplier();
         readonly DBSQL mySQL;
-        int count = 0;
+        int count = 0;//מונה את הספרות במספר טלפון
 
         public Frm_updateSupplier()
         {
@@ -26,13 +26,13 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-        private void Btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
             this.Close();
 
         }
 
-        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים אפשר להזין
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -41,7 +41,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים אפשר להזין
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -50,7 +50,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים אפשר להזין
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -59,7 +59,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות אפשר להזין
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -68,7 +68,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות אפשר להזין
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -77,7 +77,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_paidToSupplier_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_paidToSupplier_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות אפשר להזין
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -86,7 +86,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Btn_cancelUpdating_Click(object sender, EventArgs e)
+        private void Btn_cancelUpdating_Click(object sender, EventArgs e)//ביטול עידכון
         {
             this.Close();
             Frm_main mainForm = new Frm_main();
@@ -94,12 +94,12 @@ namespace Electricity_shop
         }
 
 
-        private bool Check_phone_number()
+        private bool Check_phone_number()//בודק אם מספר הטלפון נכון
         {
             return (this.Txt_phoneNumber.Text.Length == 10);
         }
 
-        private void Txt_phoneNumber_Leave(object sender, EventArgs e)
+        private void Txt_phoneNumber_Leave(object sender, EventArgs e)//בודק אם מספר הטלפון נכון בעל 10 ספרות
         {
             // בודקים תקינות קלט
             if (Check_phone_number() == false && count == 0)
@@ -158,27 +158,22 @@ namespace Electricity_shop
        
         
         
-        private void Btn_updateSupplier_Click(object sender, EventArgs e)
+        private void Btn_updateSupplier_Click(object sender, EventArgs e)//בעת לחיצה על עדכן
         {
             if ((Txt_firstName.Text != "" || Txt_lastName.Text != "") && Txt_address.Text != ""
-                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true)
+                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true)//בודק אם לא נשאר שדות ריקות
             {
                 Fill_obj(load_supplier);
-                mySQL.UpdateSupplierBySerial(load_supplier);
+                mySQL.UpdateSupplierBySerial(load_supplier);// אם הכל תקין  אז מעדכן את בסיסי נתונים
                 MessageBox.Show("ספק עודכן בהצלחה");
                 this.Close();
             }
             else
-                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");
+                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");//אם לא מציג הודעה מתאימה
           
         }
-        /*
-        private void openManagement(object obj)
-        {
-            Application.Run(new suppliers_management());
-        }
-        */
-        private void Fill_obj(supplier person)
+       
+        private void Fill_obj(supplier person)//ממילא פרטים של ספק בתוך אובייקט
         {
                 person.FirstName = Txt_firstName.Text;
                 person.LasttName = Txt_lastName.Text;
