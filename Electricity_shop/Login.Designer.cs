@@ -3,7 +3,7 @@ using System;
 
 namespace Electricity_shop
 {
-    partial class Login
+    partial class Frm_login
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,16 +31,16 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Btn_exit = new System.Windows.Forms.Button();
             this.user = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_username = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Txt_password = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.PictureBox();
-            this.entry = new System.Windows.Forms.Button();
+            this.Btn_entry = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -58,16 +58,16 @@ namespace Electricity_shop
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // button1
+            // Btn_exit
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
-            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            resources.ApplyResources(this.Btn_exit, "Btn_exit");
+            this.Btn_exit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Btn_exit.Name = "Btn_exit";
+            this.Btn_exit.UseVisualStyleBackColor = true;
+            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
+            this.Btn_exit.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.Btn_exit.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.Btn_exit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
             // 
             // user
             // 
@@ -75,14 +75,14 @@ namespace Electricity_shop
             this.user.Name = "user";
             this.user.TabStop = false;
             // 
-            // textBox1
+            // Txt_username
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.Txt_username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.Txt_username, "Txt_username");
+            this.Txt_username.ForeColor = System.Drawing.SystemColors.Info;
+            this.Txt_username.Name = "Txt_username";
+            this.Txt_username.Click += new System.EventHandler(this.Txt_username_Click);
             // 
             // panel1
             // 
@@ -96,14 +96,14 @@ namespace Electricity_shop
             resources.ApplyResources(this.panel, "panel");
             this.panel.Name = "panel";
             // 
-            // textBox2
+            // Txt_password
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
+            this.Txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Txt_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.Txt_password, "Txt_password");
+            this.Txt_password.ForeColor = System.Drawing.SystemColors.Info;
+            this.Txt_password.Name = "Txt_password";
+            this.Txt_password.Click += new System.EventHandler(this.Txt_password_Click);
             // 
             // password
             // 
@@ -111,15 +111,15 @@ namespace Electricity_shop
             this.password.Name = "password";
             this.password.TabStop = false;
             // 
-            // entry
+            // Btn_entry
             // 
-            this.entry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.entry.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.entry, "entry");
-            this.entry.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.entry.Name = "entry";
-            this.entry.UseVisualStyleBackColor = false;
-            this.entry.Click += new System.EventHandler(this.entry_Click);
+            this.Btn_entry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_entry.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.Btn_entry, "Btn_entry");
+            this.Btn_entry.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_entry.Name = "Btn_entry";
+            this.Btn_entry.UseVisualStyleBackColor = false;
+            this.Btn_entry.Click += new System.EventHandler(this.entry_Click);
             // 
             // panel9
             // 
@@ -151,7 +151,7 @@ namespace Electricity_shop
             this.password_user_wrong_message.ForeColor = System.Drawing.Color.Red;
             this.password_user_wrong_message.Name = "password_user_wrong_message";
             // 
-            // Login
+            // Frm_login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,22 +161,22 @@ namespace Electricity_shop
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.entry);
+            this.Controls.Add(this.Btn_entry);
             this.Controls.Add(this.panel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Txt_password);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Txt_username);
             this.Controls.Add(this.password);
             this.Controls.Add(this.user);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Login";
+            this.Name = "Frm_login";
             this.ShowInTaskbar = false;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Frm_login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.password)).EndInit();
@@ -185,10 +185,7 @@ namespace Electricity_shop
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -198,14 +195,14 @@ namespace Electricity_shop
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_exit;
         private System.Windows.Forms.PictureBox user;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_username;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Txt_password;
         private System.Windows.Forms.PictureBox password;
-        private System.Windows.Forms.Button entry;
+        private System.Windows.Forms.Button Btn_entry;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

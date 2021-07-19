@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using MySql.Data;
@@ -245,6 +247,45 @@ namespace Electricity_shop
                 }
             }
             return Orders;
+
+        }
+
+        public user[] GetUsersData()
+        {
+            DataSet ds = new DataSet();
+            user[] User = null;
+            string cmdStr = "SELECT * FROM user";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                User = new user[dt.Rows.Count];
+
+                for (int i = 0; i < User.Length; i++)
+                {
+                    User[i] = new user();
+                    User[i].Username = dt.Rows[i][1].ToString();
+                    User[i].Password = dt.Rows[i][2].ToString();
+                    
+
+                }
+            }
+            return User;
 
         }
 
@@ -537,6 +578,47 @@ namespace Electricity_shop
             DataSet ds = new DataSet();
             Product Product = null;
             string cmdStr = "SELECT * FROM product WHERE barcode=" + barcode + "";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+            if (dt.Rows.Count > 0)
+            {
+
+                Product = new Product();
+                Product.Product_serial_number = Convert.ToInt32(dt.Rows[0][0]);
+                Product.Barcode = dt.Rows[0][1].ToString();
+                Product.Category = dt.Rows[0][2].ToString();
+                Product.Model = dt.Rows[0][3].ToString();
+                Product.Manufacturer = dt.Rows[0][4].ToString();
+                Product.Supplier = dt.Rows[0][5].ToString();
+                Product.Cost_price = Convert.ToInt32(dt.Rows[0][6]);
+                Product.Selling_price = Convert.ToInt32(dt.Rows[0][7]);
+                Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
+                Product.Product_info = dt.Rows[0][9].ToString();
+
+            }
+            return Product;
+
+        }
+
+        public Product GetProductDataByModel(string model)
+        {
+            DataSet ds = new DataSet();
+            Product Product = null;
+            string cmdStr = "SELECT * FROM product WHERE product_model='" + model + "'";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {

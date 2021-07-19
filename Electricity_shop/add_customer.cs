@@ -1,9 +1,6 @@
-﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;*/
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -268,6 +265,15 @@ namespace Electricity_shop
                     }
                 }
             }
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            Txt_address.Text = string.Empty;
+            Txt_customerId.Text = string.Empty;
+            Txt_firstName.Text = string.Empty;
+            Txt_lastName.Text = string.Empty;
+            Txt_phoneNumber.Text = string.Empty;
         }
     }
 }

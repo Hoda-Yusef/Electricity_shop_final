@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,8 +79,8 @@ namespace Electricity_shop
                     Product.Product_info
                     });
 
-                    total_amount = Convert.ToInt32(Product_order[i].Amount);
-                    Total_price += Convert.ToInt32(Product.Selling_price)* total_amount;
+                    total_amount += Convert.ToInt32(Product_order[i].Amount);
+                    Total_price += Convert.ToInt32(Product.Selling_price)* Product_order[i].Amount;
                 }
             }
             else

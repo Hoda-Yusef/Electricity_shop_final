@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -25,7 +27,7 @@ namespace Electricity_shop
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
             //בודקים תקינות נתוהים שנקלטו
-            if (Check_barcode() == true && ((Check_barcode() == true || Txt_model.Text != "") || (Txt_barcode.Text.Length == 0 && Txt_model.Text != "")) && Txt_category.Text != "" && Txt_manufacturer.Text != ""
+            if ( Txt_model.Text != "" || (Txt_barcode.Text.Length == 0 && Txt_model.Text != "") && Txt_category.Text != "" && Txt_manufacturer.Text != ""
                  && Txt_cost_price.Text != "" && Txt_selling_price.Text != "" && Txt_amount.Text != "")
             {
                 //במידה ותקינים אז מעדכנים אותם בבסיס נתונים והשינויים נשמרים
@@ -108,7 +110,12 @@ namespace Electricity_shop
         //טעינת טופס נוכחי
         private void update_product_Load(object sender, EventArgs e)
         {
-            load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
+            if (Txt_barcode.Text != "")
+            {
+                load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
+            }
+            else
+                load_products = mySQL.GetProductDataByModel(Txt_model.Text);
         }
         //שינוי כמות מוצר
         private void Txt_amount_TextChanged(object sender, EventArgs e)
@@ -173,7 +180,7 @@ namespace Electricity_shop
                 {
                     if (barcodeTmp == product[i].Barcode.ToString())
                     {
-                        MessageBox.Show("מוצר קיים");
+                        
                         Txt_barcode.Text = product[i].Barcode.ToString();
                         Txt_category.Text = product[i].Category;
                         Txt_model.Text = product[i].Model;

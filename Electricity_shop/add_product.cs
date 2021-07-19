@@ -1,10 +1,7 @@
-﻿//using iTextSharp.text.pdf;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
 using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
 using System.Drawing;
-//using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 

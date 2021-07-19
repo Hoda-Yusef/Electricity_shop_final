@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -291,10 +293,23 @@ namespace Electricity_shop
 
         private void BtnClear_Click(object sender, EventArgs e)//ניקוי שדות
         {
-            Txt_customerId.Text = string.Empty;
-            Txt_customersFirstName.Text = string.Empty;
-            Txt_customersLastName.Text = string.Empty;
-            date_changed = false;
+            if(!date_changed)
+            {
+                Txt_customerId.Text = string.Empty;
+                Txt_customersFirstName.Text = string.Empty;
+                Txt_customersLastName.Text = string.Empty;
+                date_changed = false;
+            }
+            else
+            {
+                this.Close();
+                Thread th;
+                th = new Thread(openSelf);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+
+            
             
 
         }

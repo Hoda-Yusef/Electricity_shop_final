@@ -1,3 +1,5 @@
+//Hoda Khier + Yusef Aborokon 44/5
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace Electricity_shop
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_login());
         }
     }
 }

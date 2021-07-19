@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Threading;
 using System.Windows.Forms;
 using iTextSharp.text;
@@ -142,7 +144,7 @@ namespace Electricity_shop
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\users\\hp\\source\\repos\\Electricity_shop\\bin\\debug\\";
+                openFileDialog.InitialDirectory = "C:\\Users\\yusef\\Desktop\\Education\\C#\\final\\Electricity_shop\\bin\\Debug\\";
                 // מציג דוח ספיציפי בעל שם של התאריך שנבחר
                 openFileDialog.Filter = "txt files ("+dateTimePicker1.Text.ToString()+ ".pdf)|" + dateTimePicker1.Text.ToString() + ".pdf";
                 openFileDialog.FilterIndex = 2;

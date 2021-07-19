@@ -197,5 +197,12 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            Txt_firstName.Text = string.Empty;
+            Txt_phoneNumber.Text = string.Empty;
+            Txt_customerId.Text = string.Empty;
+        }
     }
 }

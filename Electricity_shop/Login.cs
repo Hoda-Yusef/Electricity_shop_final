@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,74 +13,43 @@ using System.Threading;
 
 namespace Electricity_shop
 {
-    public partial class Login : Form
+    public partial class Frm_login : Form
     {
         Thread th;
-        public Login()
+        user[] Users;
+        private DBSQL mySQL;
+
+        public Frm_login()
         {
             InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            
-                
-        }
-
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            if(textBox1.Text=="שם משתמש")
-                textBox1.Clear();
-
-            panel.BackColor = Color.FromArgb(0, 113, 184);
-            panel1.BackColor = Color.White;
-
-           
-
-
-        }
-
-        private void textBox2_Click(object sender, EventArgs e)
-        {
-            textBox2.Clear();
-
-            if (textBox1.Text == "")
-            {
-                textBox1.Text = "שם משתמש";
-            }
-
-            textBox2.PasswordChar = '*';
-            panel1.BackColor = Color.FromArgb(0, 113, 184);
-            panel.BackColor = Color.White;
-
-            
-            
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+       
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            button1.BackColor = Color.White;
+            Btn_exit.BackColor = Color.White;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(34, 36, 49);
+            Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
         private void entry_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox1.Text != "שם משתמש" && textBox2.Text != "" && textBox2.Text != "סיסמה")
+            //בודק אם המשתמש הזין את שם משתמש וסיסמה
+            if (Txt_username.Text != "" && Txt_username.Text != "שם משתמש" && Txt_password.Text != "" && Txt_password.Text != "סיסמה")
             {
-                if ((textBox1.Text == "yusef123" && textBox2.Text == "y123") || 
-                    (textBox1.Text == "hoda182" || textBox2.Text == "18298"))
+                //בודק אם שם משתמש וסיסימה תואמים ממה שמוגדר בבסיס נתונים
+                if (Txt_username.Text==Users[0].Username && Txt_password.Text == Users[0].Password
+                    || Txt_username.Text == Users[1].Username && Txt_password.Text == Users[1].Password)
                 {
+                    //אם כן עוברים לחלון ראשי
                     this.Close();
                     th = new Thread(opennewform);
                     th.TrySetApartmentState(ApartmentState.STA);
@@ -96,12 +67,45 @@ namespace Electricity_shop
 
         private void opennewform(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main());//פתיחת חלון ראשי
         }
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.BackColor = Color.White;
+            Btn_exit.BackColor = Color.White;
+        }
+
+        private void Txt_username_Click(object sender, EventArgs e)
+        {
+            if (Txt_username.Text == "שם משתמש")
+                Txt_username.Clear();
+
+            panel.BackColor = Color.FromArgb(0, 113, 184);
+            panel1.BackColor = Color.White;
+        }
+
+        private void Txt_password_Click(object sender, EventArgs e)
+        {
+            Txt_password.Clear();
+
+            if (Txt_username.Text == "")
+            {
+                Txt_username.Text = "שם משתמש";
+            }
+
+            Txt_password.PasswordChar = '*';
+            panel1.BackColor = Color.FromArgb(0, 113, 184);
+            panel.BackColor = Color.White;
+        }
+
+        private void Btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Frm_login_Load(object sender, EventArgs e)
+        {
+            Users = mySQL.GetUsersData();//טעינת שמות משתמשים וסיסמאות
         }
     }
 }

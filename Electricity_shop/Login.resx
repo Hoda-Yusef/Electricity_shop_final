@@ -57,12 +57,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QUHBS0WDV+6DQAAB/BJREFU
@@ -106,25 +106,24 @@
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>183, 53</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 72</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
-  <data name="pictureBox1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -132,13 +131,13 @@
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="Btn_exit.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="Btn_exit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Btn_exit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QQSFRU595AWwgAABd1JREFU
@@ -170,31 +169,31 @@
         g/QeypIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="Btn_exit.Location" type="System.Drawing.Point, System.Drawing">
     <value>370, 0</value>
   </data>
-  <data name="button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="Btn_exit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="Btn_exit.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 51</value>
   </data>
-  <data name="button1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="Btn_exit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;Btn_exit.Name" xml:space="preserve">
+    <value>Btn_exit</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Btn_exit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Btn_exit.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Btn_exit.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="user.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="user.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QQSFR4CpW8mLQAABEFJREFU
@@ -225,20 +224,20 @@
   <data name="user.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="user.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="user.Location" type="System.Drawing.Point, System.Drawing">
     <value>325, 183</value>
   </data>
-  <data name="user.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="user.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 35</value>
   </data>
-  <data name="user.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="user.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;user.Name" xml:space="preserve">
     <value>user</value>
   </data>
   <data name="&gt;&gt;user.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;user.Parent" xml:space="preserve">
     <value>$this</value>
@@ -246,56 +245,56 @@
   <data name="&gt;&gt;user.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="Txt_username.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="Txt_username.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 187</value>
   </data>
-  <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="Txt_username.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="Txt_username.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 27</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="Txt_username.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="Txt_username.Text" xml:space="preserve">
     <value>שם משתמש</value>
   </data>
-  <data name="textBox1.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="Txt_username.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;Txt_username.Name" xml:space="preserve">
+    <value>Txt_username</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Txt_username.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Txt_username.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Txt_username.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 343</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 1</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -303,23 +302,23 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="panel.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 224</value>
   </data>
   <data name="panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="panel.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 1</value>
   </data>
-  <data name="panel.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="&gt;&gt;panel.Name" xml:space="preserve">
     <value>panel</value>
   </data>
   <data name="&gt;&gt;panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -327,40 +326,40 @@
   <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="textBox2.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="Txt_password.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="Txt_password.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 307</value>
   </data>
-  <data name="textBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="Txt_password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="Txt_password.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 27</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="Txt_password.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="textBox2.Text" xml:space="preserve">
+  <data name="Txt_password.Text" xml:space="preserve">
     <value>סיסמה</value>
   </data>
-  <data name="textBox2.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="Txt_password.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;Txt_password.Name" xml:space="preserve">
+    <value>Txt_password</value>
   </data>
-  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Txt_password.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Txt_password.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Txt_password.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="password.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="password.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QQSFgsIcEmXfgAABHJJREFU
@@ -392,20 +391,20 @@
   <data name="password.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="password.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="password.Location" type="System.Drawing.Point, System.Drawing">
     <value>325, 297</value>
   </data>
-  <data name="password.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="password.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 41</value>
   </data>
-  <data name="password.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="password.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="&gt;&gt;password.Name" xml:space="preserve">
     <value>password</value>
   </data>
   <data name="&gt;&gt;password.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;password.Parent" xml:space="preserve">
     <value>$this</value>
@@ -413,53 +412,53 @@
   <data name="&gt;&gt;password.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="entry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="Btn_entry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
-  <data name="entry.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="Btn_entry.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
-  <data name="entry.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="Btn_entry.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 402</value>
   </data>
-  <data name="entry.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="Btn_entry.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="entry.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="Btn_entry.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 51</value>
   </data>
-  <data name="entry.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="Btn_entry.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="entry.Text" xml:space="preserve">
+  <data name="Btn_entry.Text" xml:space="preserve">
     <value>כניסה</value>
   </data>
-  <data name="&gt;&gt;entry.Name" xml:space="preserve">
-    <value>entry</value>
+  <data name="&gt;&gt;Btn_entry.Name" xml:space="preserve">
+    <value>Btn_entry</value>
   </data>
-  <data name="&gt;&gt;entry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Btn_entry.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;entry.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Btn_entry.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;entry.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Btn_entry.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="panel9.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel9.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, -5</value>
   </data>
-  <data name="panel9.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
     <value>409, 11</value>
   </data>
-  <data name="panel9.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel9.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="&gt;&gt;panel9.Name" xml:space="preserve">
     <value>panel9</value>
   </data>
   <data name="&gt;&gt;panel9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel9.Parent" xml:space="preserve">
     <value>$this</value>
@@ -467,20 +466,20 @@
   <data name="&gt;&gt;panel9.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 499</value>
   </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>409, 11</value>
   </data>
-  <data name="panel2.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -488,20 +487,20 @@
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>-6, 1</value>
   </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>10, 503</value>
   </data>
-  <data name="panel3.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -509,20 +508,20 @@
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>406, -3</value>
   </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>10, 503</value>
   </data>
-  <data name="panel4.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="&gt;&gt;panel4.Name" xml:space="preserve">
     <value>panel4</value>
   </data>
   <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -530,26 +529,26 @@
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="password_user_wrong_message.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="password_user_wrong_message.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="password_user_wrong_message.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="password_user_wrong_message.Location" type="System.Drawing.Point, System.Drawing">
     <value>133, 346</value>
   </data>
   <data name="password_user_wrong_message.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="password_user_wrong_message.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="password_user_wrong_message.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 25</value>
   </data>
-  <data name="password_user_wrong_message.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="password_user_wrong_message.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
   <data name="&gt;&gt;password_user_wrong_message.Name" xml:space="preserve">
     <value>password_user_wrong_message</value>
   </data>
   <data name="&gt;&gt;password_user_wrong_message.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;password_user_wrong_message.Parent" xml:space="preserve">
     <value>$this</value>
@@ -557,19 +556,19 @@
   <data name="&gt;&gt;password_user_wrong_message.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing.Primitives">
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 20</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>411, 503</value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABAPY6AQD2OgEAAAAAAAAA
         AABhXVQdY15UvGNeVP9jXlT+Yl1T/2JdU/9hXFL/YVxS/2BbUf9gW1H/YFtQ/2BbUP9fWlD/X1pQ/15Z
@@ -1708,9 +1707,9 @@
     <value>login</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Login</value>
+    <value>Frm_login</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -1,9 +1,7 @@
-﻿using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
+﻿//Hoda Khier + Yusef Aborokon 44/5
+
+using System;
 using System.Drawing;
-//using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -38,13 +36,13 @@ namespace Electricity_shop
             Txt_barcode.AutoCompleteMode = AutoCompleteMode.None;
             Txt_barcode.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            Txt_category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_category.AutoCompleteMode = AutoCompleteMode.Suggest;
             Txt_category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            Txt_model.AutoCompleteMode = AutoCompleteMode.None;
+            Txt_model.AutoCompleteMode = AutoCompleteMode.Suggest;
             Txt_model.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            Txt_manufacturer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_manufacturer.AutoCompleteMode = AutoCompleteMode.Suggest;
             Txt_manufacturer.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
 
