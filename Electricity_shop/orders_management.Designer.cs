@@ -122,8 +122,8 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grd_orders.DefaultCellStyle = dataGridViewCellStyle5;
             this.Grd_orders.EnableHeadersVisualStyles = false;
-            this.Grd_orders.Location = new System.Drawing.Point(27, 131);
-            this.Grd_orders.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Grd_orders.Location = new System.Drawing.Point(24, 98);
+            this.Grd_orders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Grd_orders.Name = "Grd_orders";
             this.Grd_orders.ReadOnly = true;
             this.Grd_orders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -131,7 +131,7 @@
             this.Grd_orders.RowHeadersWidth = 4;
             this.Grd_orders.RowTemplate.Height = 40;
             this.Grd_orders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grd_orders.Size = new System.Drawing.Size(1149, 640);
+            this.Grd_orders.Size = new System.Drawing.Size(1005, 480);
             this.Grd_orders.TabIndex = 21;
             // 
             // Column5
@@ -219,10 +219,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1954, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.button1.Location = new System.Drawing.Point(1710, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 51);
+            this.button1.Size = new System.Drawing.Size(34, 38);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
@@ -233,9 +233,8 @@
             this.Upper_BluePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Upper_BluePanel.Controls.Add(this.panel6);
             this.Upper_BluePanel.Location = new System.Drawing.Point(3, 0);
-            this.Upper_BluePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Upper_BluePanel.Name = "Upper_BluePanel";
-            this.Upper_BluePanel.Size = new System.Drawing.Size(1451, 17);
+            this.Upper_BluePanel.Size = new System.Drawing.Size(1270, 13);
             this.Upper_BluePanel.TabIndex = 15;
             this.Upper_BluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseDown);
             this.Upper_BluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseMove);
@@ -245,18 +244,18 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel6.Controls.Add(this.panel9);
-            this.panel6.Location = new System.Drawing.Point(1414, 29);
+            this.panel6.Location = new System.Drawing.Point(1237, 22);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(10, 908);
+            this.panel6.Size = new System.Drawing.Size(9, 681);
             this.panel6.TabIndex = 19;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Location = new System.Drawing.Point(8, 865);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel9.Location = new System.Drawing.Point(7, 649);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1363, 11);
+            this.panel9.Size = new System.Drawing.Size(1193, 8);
             this.panel9.TabIndex = 16;
             // 
             // Btn_exit
@@ -267,10 +266,9 @@
             this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exit.Location = new System.Drawing.Point(1421, 0);
-            this.Btn_exit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_exit.Location = new System.Drawing.Point(1243, 0);
             this.Btn_exit.Name = "Btn_exit";
-            this.Btn_exit.Size = new System.Drawing.Size(42, 43);
+            this.Btn_exit.Size = new System.Drawing.Size(37, 32);
             this.Btn_exit.TabIndex = 53;
             this.Btn_exit.UseVisualStyleBackColor = false;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
@@ -280,47 +278,47 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel1.Location = new System.Drawing.Point(-2, 1516);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel1.Location = new System.Drawing.Point(-2, 1137);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2010, 20);
+            this.panel1.Size = new System.Drawing.Size(1759, 15);
             this.panel1.TabIndex = 16;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel7.Location = new System.Drawing.Point(1995, -7);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel7.Location = new System.Drawing.Point(1746, -5);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(10, 879);
+            this.panel7.Size = new System.Drawing.Size(9, 659);
             this.panel7.TabIndex = 17;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(-5, 0);
+            this.panel2.Location = new System.Drawing.Point(-4, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(15, 820);
+            this.panel2.Size = new System.Drawing.Size(13, 615);
             this.panel2.TabIndex = 18;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel4.Location = new System.Drawing.Point(8, 865);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel4.Location = new System.Drawing.Point(7, 649);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1363, 11);
+            this.panel4.Size = new System.Drawing.Size(1193, 8);
             this.panel4.TabIndex = 16;
             // 
             // Lbl_ordersManagement
             // 
             this.Lbl_ordersManagement.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_ordersManagement.ForeColor = System.Drawing.Color.White;
-            this.Lbl_ordersManagement.Location = new System.Drawing.Point(533, 43);
+            this.Lbl_ordersManagement.Location = new System.Drawing.Point(466, 32);
             this.Lbl_ordersManagement.Name = "Lbl_ordersManagement";
             this.Lbl_ordersManagement.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_ordersManagement.Size = new System.Drawing.Size(323, 72);
+            this.Lbl_ordersManagement.Size = new System.Drawing.Size(283, 54);
             this.Lbl_ordersManagement.TabIndex = 19;
             this.Lbl_ordersManagement.Text = "ניהול הזמנות";
             this.Lbl_ordersManagement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,10 +339,10 @@
             this.panel3.Controls.Add(this.Btn_updateOrder);
             this.panel3.Controls.Add(this.Lbl_customerId);
             this.panel3.Controls.Add(this.Txt_customerId);
-            this.panel3.Location = new System.Drawing.Point(1191, 131);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.panel3.Location = new System.Drawing.Point(1042, 98);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(244, 655);
+            this.panel3.Size = new System.Drawing.Size(214, 492);
             this.panel3.TabIndex = 20;
             // 
             // dateTimePicker
@@ -357,9 +355,10 @@
             this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(26, 277);
+            this.dateTimePicker.Location = new System.Drawing.Point(23, 208);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(199, 34);
+            this.dateTimePicker.Size = new System.Drawing.Size(175, 29);
             this.dateTimePicker.TabIndex = 33;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
@@ -371,10 +370,10 @@
             this.BtnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnClear.ForeColor = System.Drawing.Color.White;
             this.BtnClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnClear.Location = new System.Drawing.Point(26, 340);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.BtnClear.Location = new System.Drawing.Point(23, 255);
+            this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(199, 51);
+            this.BtnClear.Size = new System.Drawing.Size(174, 38);
             this.BtnClear.TabIndex = 32;
             this.BtnClear.Text = "נקה";
             this.BtnClear.UseVisualStyleBackColor = false;
@@ -384,10 +383,10 @@
             // 
             this.Lbl_customersLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersLastName.Location = new System.Drawing.Point(78, 185);
+            this.Lbl_customersLastName.Location = new System.Drawing.Point(68, 139);
             this.Lbl_customersLastName.Name = "Lbl_customersLastName";
             this.Lbl_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customersLastName.Size = new System.Drawing.Size(127, 32);
+            this.Lbl_customersLastName.Size = new System.Drawing.Size(111, 24);
             this.Lbl_customersLastName.TabIndex = 30;
             this.Lbl_customersLastName.Text = "שם משפחה";
             // 
@@ -396,11 +395,11 @@
             this.Txt_customersLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customersLastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customersLastName.ForeColor = System.Drawing.Color.White;
-            this.Txt_customersLastName.Location = new System.Drawing.Point(26, 209);
-            this.Txt_customersLastName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.Txt_customersLastName.Location = new System.Drawing.Point(23, 157);
+            this.Txt_customersLastName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Txt_customersLastName.Name = "Txt_customersLastName";
             this.Txt_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customersLastName.Size = new System.Drawing.Size(199, 38);
+            this.Txt_customersLastName.Size = new System.Drawing.Size(175, 32);
             this.Txt_customersLastName.TabIndex = 29;
             this.Txt_customersLastName.TextChanged += new System.EventHandler(this.Txt_customersLastName_TextChanged);
             // 
@@ -408,10 +407,10 @@
             // 
             this.Lbl_customersFirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersFirstName.Location = new System.Drawing.Point(110, 95);
+            this.Lbl_customersFirstName.Location = new System.Drawing.Point(96, 71);
             this.Lbl_customersFirstName.Name = "Lbl_customersFirstName";
             this.Lbl_customersFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customersFirstName.Size = new System.Drawing.Size(95, 32);
+            this.Lbl_customersFirstName.Size = new System.Drawing.Size(83, 24);
             this.Lbl_customersFirstName.TabIndex = 28;
             this.Lbl_customersFirstName.Text = "שם פרטי";
             // 
@@ -420,11 +419,11 @@
             this.Txt_customersFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customersFirstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customersFirstName.ForeColor = System.Drawing.Color.White;
-            this.Txt_customersFirstName.Location = new System.Drawing.Point(26, 120);
-            this.Txt_customersFirstName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.Txt_customersFirstName.Location = new System.Drawing.Point(23, 90);
+            this.Txt_customersFirstName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Txt_customersFirstName.Name = "Txt_customersFirstName";
             this.Txt_customersFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customersFirstName.Size = new System.Drawing.Size(199, 38);
+            this.Txt_customersFirstName.Size = new System.Drawing.Size(175, 32);
             this.Txt_customersFirstName.TabIndex = 27;
             this.Txt_customersFirstName.TextChanged += new System.EventHandler(this.Txt_customersFirstName_TextChanged);
             // 
@@ -436,10 +435,10 @@
             this.Btn_showOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_showOrder.ForeColor = System.Drawing.Color.White;
             this.Btn_showOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_showOrder.Location = new System.Drawing.Point(26, 401);
-            this.Btn_showOrder.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Btn_showOrder.Location = new System.Drawing.Point(23, 301);
+            this.Btn_showOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_showOrder.Name = "Btn_showOrder";
-            this.Btn_showOrder.Size = new System.Drawing.Size(199, 51);
+            this.Btn_showOrder.Size = new System.Drawing.Size(174, 38);
             this.Btn_showOrder.TabIndex = 26;
             this.Btn_showOrder.Text = "הצגת מוצרים";
             this.Btn_showOrder.UseVisualStyleBackColor = false;
@@ -453,10 +452,10 @@
             this.Btn_backToMain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_backToMain.ForeColor = System.Drawing.Color.White;
             this.Btn_backToMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_backToMain.Location = new System.Drawing.Point(26, 584);
-            this.Btn_backToMain.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Btn_backToMain.Location = new System.Drawing.Point(23, 438);
+            this.Btn_backToMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_backToMain.Name = "Btn_backToMain";
-            this.Btn_backToMain.Size = new System.Drawing.Size(199, 51);
+            this.Btn_backToMain.Size = new System.Drawing.Size(174, 38);
             this.Btn_backToMain.TabIndex = 25;
             this.Btn_backToMain.Text = "חזרה לראשי";
             this.Btn_backToMain.UseVisualStyleBackColor = false;
@@ -470,10 +469,10 @@
             this.Btn_updateStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateStatus.ForeColor = System.Drawing.Color.White;
             this.Btn_updateStatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateStatus.Location = new System.Drawing.Point(26, 523);
-            this.Btn_updateStatus.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Btn_updateStatus.Location = new System.Drawing.Point(23, 392);
+            this.Btn_updateStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_updateStatus.Name = "Btn_updateStatus";
-            this.Btn_updateStatus.Size = new System.Drawing.Size(199, 51);
+            this.Btn_updateStatus.Size = new System.Drawing.Size(174, 38);
             this.Btn_updateStatus.TabIndex = 24;
             this.Btn_updateStatus.Text = "עדכון סטטוס";
             this.Btn_updateStatus.UseVisualStyleBackColor = false;
@@ -487,10 +486,10 @@
             this.Btn_updateOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateOrder.ForeColor = System.Drawing.Color.White;
             this.Btn_updateOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateOrder.Location = new System.Drawing.Point(26, 461);
-            this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Btn_updateOrder.Location = new System.Drawing.Point(23, 346);
+            this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_updateOrder.Name = "Btn_updateOrder";
-            this.Btn_updateOrder.Size = new System.Drawing.Size(199, 51);
+            this.Btn_updateOrder.Size = new System.Drawing.Size(174, 38);
             this.Btn_updateOrder.TabIndex = 23;
             this.Btn_updateOrder.Text = "עדכון הזמנה";
             this.Btn_updateOrder.UseVisualStyleBackColor = false;
@@ -500,10 +499,10 @@
             // 
             this.Lbl_customerId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customerId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customerId.Location = new System.Drawing.Point(78, 15);
+            this.Lbl_customerId.Location = new System.Drawing.Point(68, 11);
             this.Lbl_customerId.Name = "Lbl_customerId";
             this.Lbl_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customerId.Size = new System.Drawing.Size(126, 32);
+            this.Lbl_customerId.Size = new System.Drawing.Size(110, 24);
             this.Lbl_customerId.TabIndex = 22;
             this.Lbl_customerId.Text = "תעודת זהות";
             // 
@@ -512,11 +511,11 @@
             this.Txt_customerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customerId.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customerId.ForeColor = System.Drawing.Color.White;
-            this.Txt_customerId.Location = new System.Drawing.Point(26, 32);
-            this.Txt_customerId.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.Txt_customerId.Location = new System.Drawing.Point(23, 24);
+            this.Txt_customerId.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Txt_customerId.Name = "Txt_customerId";
             this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customerId.Size = new System.Drawing.Size(199, 38);
+            this.Txt_customerId.Size = new System.Drawing.Size(175, 32);
             this.Txt_customerId.TabIndex = 0;
             this.Txt_customerId.TextChanged += new System.EventHandler(this.Txt_customerId_TextChanged);
             this.Txt_customerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customerId_KeyPress);
@@ -524,36 +523,35 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel5.Location = new System.Drawing.Point(3, 809);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel5.Location = new System.Drawing.Point(3, 607);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(2005, 13);
+            this.panel5.Size = new System.Drawing.Size(1754, 10);
             this.panel5.TabIndex = 16;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(1451, 44);
+            this.panel10.Location = new System.Drawing.Point(1270, 33);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(11, 776);
+            this.panel10.Size = new System.Drawing.Size(10, 582);
             this.panel10.TabIndex = 19;
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel11.Location = new System.Drawing.Point(8, 865);
-            this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel11.Location = new System.Drawing.Point(7, 649);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1363, 11);
+            this.panel11.Size = new System.Drawing.Size(1193, 8);
             this.panel11.TabIndex = 16;
             // 
             // Frm_ordersManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1461, 825);
+            this.ClientSize = new System.Drawing.Size(1283, 616);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.Upper_BluePanel);
@@ -567,7 +565,6 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Frm_ordersManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

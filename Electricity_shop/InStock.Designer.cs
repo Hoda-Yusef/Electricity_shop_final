@@ -113,11 +113,12 @@ namespace Electricity_shop
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker1.Location = new System.Drawing.Point(418, 147);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2021, 7, 18, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(280, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(280, 29);
             this.dateTimePicker1.TabIndex = 39;
             this.dateTimePicker1.Value = new System.DateTime(2021, 7, 15, 0, 0, 0, 0);
             // 
@@ -144,6 +145,7 @@ namespace Electricity_shop
             this.Btn_showDocument.TabIndex = 41;
             this.Btn_showDocument.Text = "הצג דו\"ח";
             this.Btn_showDocument.UseVisualStyleBackColor = false;
+            this.Btn_showDocument.Click += new System.EventHandler(this.Btn_showDocument_Click);
             // 
             // Btn_saveDocument
             // 

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Threading;
+
 
 namespace Electricity_shop
 {
@@ -26,27 +19,27 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
         }
-
+        //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
             Frm_main mainForm = new Frm_main();
             mainForm.Show();
         }
-
+        //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
             Frm_main mainForm = new Frm_main();
             mainForm.Show();
         }
-
+        //טעינת טופס נוכחי
         private void Frm_update_customer_Load(object sender, EventArgs e)
         {
             load_customers = mySQL.GetCustomerDataByID(Txt_customerId.Text);
         }
 
-
+        //הגדרת תכונות אובייקט שמועבר לפונקציה לפי ערכים בשדות הטקסט בהתאמה
         private void Fill_obj(customer person)
         {
             person.Id = Txt_customerId.Text;
@@ -57,19 +50,21 @@ namespace Electricity_shop
         }
 
 
-
+        //לחיצה על כפתור עדכן
         private void Btn_updateCustomer_Click(object sender, EventArgs e)
         {
-
+            //בודקים תקינות קלט בכל השדות
             if (Check_id() == true && Txt_firstName.Text != "" && Txt_lastName.Text != ""
                 && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true
                  && Txt_address.Text != "")
             {
+                //מוסיפים לקוח 
                 Fill_obj(load_customers);
                 mySQL.UpdateCustomerBySerial(load_customers);
                 MessageBox.Show("לקוח עודכן בהצלחה");
                 this.Close();
             }
+            //קלט לא תקין
             else
                 MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");
 
@@ -138,11 +133,12 @@ namespace Electricity_shop
                 }
             }
         }
-
+        //פונקציה בודקת תקינות מספר פלאפון
         private bool Check_phoneNumber()
         {
             return (Txt_phoneNumber.Text.Length == 10);
         }
+        //עזיבת שדה מספר פלאפון
         private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
 
@@ -202,31 +198,36 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת עכבר על פני הטופס
         private void Frm_update_customer_MouseMove(object sender, MouseEventArgs e)
         {
-
+            //בודקים תקינות תעודת זהות ומספר פלאפון
             if (Check_id() == false && Check_phoneNumber() == false)
             {
+                //שניהם לא תקינים
                 MessageBox.Show("תעודת זהות ומספר פלאפון לא תקינים");
             }
             else
             {
                 if (Check_phoneNumber() == false)
                 {
+                    //מספר פלאפון לא תקין
                     MessageBox.Show("מספר פלאפון לא תקין");
                 }
                 else
                 {
+                    //ת.ז לא תקינה
                     if (Check_id() == false)
                         MessageBox.Show("תעודת זהות לא תקינה");
                 }
             }
         }
 
+        //הגדרת סוג תו שניתן לכתוב בשדה תעודת זהות של הלקוח
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
+            //רק מספרים
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;

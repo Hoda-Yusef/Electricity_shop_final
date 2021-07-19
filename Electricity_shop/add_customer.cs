@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
+using System.Text;*/
 using System.Threading;
 using System.Windows.Forms;
 
@@ -29,34 +29,32 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
         }
-        
+        //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
-            
             this.Close();
             th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
-
+        //פתיחת טופס ראשי
         private void OpenMain(object obj)
         {
             Application.Run(new Frm_main());
         }
-
+        //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            
             this.Close();
             th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
-
+        //לחיצה על כפתור הוספה
         private void Btn_addCustomer_Click(object sender, EventArgs e)
         {
             bool same = false;
-
+            //בודקים תקינות קלט
             if(Txt_customerId.Text!="" && Check_id()==true && Txt_firstName.Text!=""&&Txt_lastName.Text!=""
                 &&Txt_phoneNumber.Text!="" && Check_phoneNumber()==true && Txt_address.Text!="")
             {
@@ -66,28 +64,31 @@ namespace Electricity_shop
 
                 for (int i = 0; i < Customer.Length; i++)
                 {
+                    //בודקים אם הלקוח קיים
                     if (idTmp == Customer[i].Id.ToString())
                     {
                         same = true;
-                        
                     }
                 }
 
                 if(same)
                 {
+                    //לקוח קיים מציגים את פרטיו בתיבות הטקסט בהתאם
                     Same_customer(cust);
                 }
                 else
                 {
+                    //לקוח חדש
                     New_customer(cust);
                 }
             }
+            //חסר נתונים או נתונים לא תקינים
             else
                 MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות,יש למלא את כל השדות");
          
         }
 
-      
+      //פונקציה יוצרת לקוח חדש
         private void New_customer(customer cust)
         {
             cust.Id =Txt_customerId.Text;
@@ -100,7 +101,8 @@ namespace Electricity_shop
             MessageBox.Show("לקוח הוסף בהצלחה");
             Clear_boxes();
         }
-
+        //פונקציה מציגה פרטי לקוח קייםבתיבות טקסט המתאימות
+        //אפשר לעדכן פרטים אלה 
         private void Same_customer(customer cust)
         {
             cust.Id= Txt_customerId.Text;
@@ -113,7 +115,7 @@ namespace Electricity_shop
             MessageBox.Show("לקוח קיים , עודכן בהצלחה");
             Clear_boxes();
         }
-
+        //פונקציה מנקה את כל השדות
         private void Clear_boxes()
         {
             Txt_customerId.Text = string.Empty;
@@ -122,12 +124,13 @@ namespace Electricity_shop
             Txt_phoneNumber.Text = string.Empty;
             Txt_address.Text = string.Empty;
         }
-
+        //טעינת טופס נוכחי
         private void Frm_addCustomer_Load(object sender, EventArgs e)
         {
+            //שומרים נתוני כל הלקוחות הקיימים במערכת
             customer[] Customer = mySQL.GetCustomerData();
 
-
+            //מגדירים אופציות בשדות למילוי אוטומטי
             for (int i = 0; i < Customer.Length; i++)
             {
                 id1.Add(Customer[i].Id.ToString());
@@ -141,11 +144,13 @@ namespace Electricity_shop
             Txt_lastName.AutoCompleteCustomSource = lastName1;
             Txt_address.AutoCompleteCustomSource = addrees1;
         }
-
+        //פונקציה בודקת תעודת זהות של הלקוח
+        //מחזירה אמת אם תקינה ושקר אחרת
         private bool Check_id()
         {
             return (this.Txt_customerId.Text.Length == 9);
         }
+        //עזיבת שדה תעודת זהות של הלקוח
         private void Txt_customerId_Leave(object sender, EventArgs e)
         {
             // בודקים תקינות קלט
@@ -198,33 +203,34 @@ namespace Electricity_shop
                 }
             }
         }
-
+        //הגדרת סוג תו שאפשר לקלוט
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
+            //רק מספרים
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
             }
         }
-
+        //הגדרת סוג תו שאפשר לקלוט
         private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
+            //רק מספרים
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
             }
         }
-
+        //פונקציה בודקת תקינות מספר פלאפון של הלקוח
+        //אם תקין תחזיר אמת ושקר אחרת
         private bool Check_phoneNumber()
         {
             return (Txt_phoneNumber.Text.Length == 10);
         }
 
-
+        //עזיבת שדה מספר פלאפון
         private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
 

@@ -285,6 +285,28 @@ namespace Electricity_shop
                     }
                 }
             }
+
+            // בודקים אם ספק קיים לפי מספר פלאפון
+            if (Txt_phoneNumber.Text != "")
+            {
+                supplier[] Suppliers = mySQL.GetSupplierData();
+                string phoneTmp = Txt_phoneNumber.Text;
+
+                for (int i = 0; i < Suppliers.Length; i++)
+                {
+                    if (phoneTmp == Suppliers[i].Phone_number.ToString())
+                    {
+                        MessageBox.Show("ספק קיים");
+                        Txt_firstName.Text = Suppliers[i].FirstName;
+                        Txt_lastName.Text = Suppliers[i].LasttName;
+                        Txt_phoneNumber.Text = Suppliers[i].Phone_number;
+                        Txt_address.Text = Suppliers[i].Address;
+                        Txt_supplierDept.Text = Suppliers[i].Dept.ToString();
+                        Txt_payedForSupplier.Text = Suppliers[i].Paid.ToString();
+
+                    }
+                }
+            }
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)

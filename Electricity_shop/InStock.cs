@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using iTextSharp.text.html;
-using iTextSharp.text.html.simpleparser;
 using System.IO;
 using Font = iTextSharp.text.Font;
 
@@ -22,7 +12,7 @@ namespace Electricity_shop
     {
         Thread th;
         private DBSQL mySQL;
-        Product[] product;
+        readonly Product[] product;
         Document doc = new Document();
 
         public Frm_InStock()
@@ -39,6 +29,8 @@ namespace Electricity_shop
             Application.Run(new Frm_main());
         }
 
+        // לחיצה על כפתור ה X
+
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -46,14 +38,16 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
-
+        // יוצרים דו'ח ספירת מלאי עדכני לגבי מוצרים בחנות
         private void Btn_saveDocument_Click(object sender, EventArgs e)
         {
-            iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream("products.pdf", FileMode.Create));
+            // יוצרים קובץ בשם
+            iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream(dateTimePicker1.Text.ToString()+".pdf", FileMode.Create));
             doc.Open();
             // יוצרים טבלה
             PdfPTable table = new PdfPTable(Grd_products_stock.Columns.Count);
             table.RunDirection = PdfWriter.RUN_DIRECTION_NO_BIDI;
+            table.HorizontalAlignment = Element.ALIGN_CENTER;
             //מגדירים גופן
             Font font = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
             Font headerFont = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
@@ -75,7 +69,7 @@ namespace Electricity_shop
             doc.Add(myPar2);
             doc.Add(myPar3);
 
-
+            // הגדרת כותרות בטבלה + צבע 
             for (int j = 0; j < Grd_products_stock.Columns.Count; j++)
             {
                 headerFont.Color = BaseColor.RED;
@@ -89,6 +83,7 @@ namespace Electricity_shop
 
             table.HeaderRows = 1;
 
+            // הגדרת תוכן הטבלה
             for (int i = 0; i < Grd_products_stock.Rows.Count; i++)
             {
                 for (int k = 0; k < Grd_products_stock.Columns.Count; k++)
@@ -98,15 +93,12 @@ namespace Electricity_shop
                         font.Color = BaseColor.BLACK;
                         table.WidthPercentage = 90;
                         table.HorizontalAlignment = Element.ALIGN_MIDDLE;
-                        //table.VerticalAlignment = Element.ALIGN_MIDDLE;
                         PdfPCell myCell = new PdfPCell();
                         myCell.FixedHeight = 20;
                         myCell.HorizontalAlignment = Element.ALIGN_CENTER;
                         myCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                         myCell.Phrase = new Phrase(Grd_products_stock[k, i].Value.ToString(),font);
                         table.AddCell(myCell);
-                        // table.AddCell(new Phrase(Grd_products_stock[k, i].Value.ToString()));
-                        //table.AddCell(new Phrase("HI"));
                     }
                 }
             }
@@ -118,7 +110,9 @@ namespace Electricity_shop
             MessageBox.Show("נוצר דוח בהצלחה");
 
         }
-
+        // לחיצה על כפתור צור דו'ח
+        // יוצרים קובץ PDF וכותבים לו מידע עדכני לגבי כמות מוצרים 
+        // דו'ח ספירת מלאי
         private void Frm_InStock_Load(object sender, EventArgs e)
         {
             Product[] Product = mySQL.GetProductData();
@@ -136,6 +130,40 @@ namespace Electricity_shop
                    
                 }); 
             }
+        }
+        // לחיצה על כפתור הצג דו'ח
+        // מגדירים מסלול שנמצאים בו הדוחות
+        //מחפשים שם דוח בשם התאריך שנבחר: אם קיים אז המשתמש יכול לפתוח אותו
+        // אחרת תופיע תיקייה ריקה
+        private void Btn_showDocument_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\users\\hp\\source\\repos\\Electricity_shop\\bin\\debug\\";
+                // מציג דוח ספיציפי בעל שם של התאריך שנבחר
+                openFileDialog.Filter = "txt files ("+dateTimePicker1.Text.ToString()+ ".pdf)|" + dateTimePicker1.Text.ToString() + ".pdf";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+
+            //MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
     }
 }

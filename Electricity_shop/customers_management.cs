@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
+using System.Text;*/
 using System.Threading;
 using System.Windows.Forms;
 
@@ -17,10 +17,7 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection IdAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection phoneNumberAuto = new AutoCompleteStringCollection();
-        /*
-        AutoCompleteStringCollection lastNameAuto = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection addressAuto = new AutoCompleteStringCollection();
-        */
+      
         public FrmCustomers_management()
         {
             InitializeComponent();
@@ -30,7 +27,8 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
 
         }
-
+        //למלא טבלה בטופס לפי תעודת זהות של הלקוח
+        //נציג פרטי לקוח בטבלה בעל תעודת זהות הנקלטת
         private void Fill_grid_by_Id()
         {
 
@@ -41,7 +39,7 @@ namespace Electricity_shop
                 Grd_customers.Rows[0].Cells[0].Selected = false;
 
         }
-
+        //למלא טבלה לפי שם פרטי של הלקוח
         private void Fill_grid_by_firstName()
         {
             Customer = mySQL.GetCustomerDataByFN(Txt_firstName.Text);
@@ -50,7 +48,7 @@ namespace Electricity_shop
                 Grd_customers.Rows[0].Cells[0].Selected = false;
         }
 
-
+        //למלא טבלה לפי מספר פלאפון של הלקוח
         private void Fill_grid_by_phoneN()
         {
             Customer = mySQL.GetCustomerDataByphoneN(Txt_phoneNumber.Text);
@@ -58,7 +56,7 @@ namespace Electricity_shop
             if (Grd_customers.Rows.Count != 0)
                 Grd_customers.Rows[0].Cells[0].Selected = false;
         }
-
+        //למלא טבלה לפי לקוח המועבר לפונקציה
         private void Fill_grid(customer[] Customer)
         {
             Grd_customers.Rows.Clear();
@@ -79,12 +77,12 @@ namespace Electricity_shop
             else
                 Grd_customers.Rows.Clear();
         }
-
+        //פתיחת טופס ראשי
         private void OpenMain(object obj)
         {
             Application.Run(new Frm_main());
         }
-
+        //לחיצה על כפתור חזרה לראשי
         private void Btn_toMain_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -92,12 +90,14 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
-
+        //טעינת טופס נוכחי
         private void FrmCustomers_management_Load(object sender, EventArgs e)
         {
+            //שומרים את המידע של כל הלקוחות הקיימים במערכת
             customer[] Customer = mySQL.GetCustomerData();
             for(int i=0;i<Customer.Length;i++)
             {
+                //מציגים אותם בטבלה
                 Grd_customers.Rows.Add(new object[]
                     {
                         Customer[i].Id,
@@ -114,17 +114,17 @@ namespace Electricity_shop
                 firstNameAuto.Add(Customer[i].First_name.ToString());
                 phoneNumberAuto.Add(Customer[i].Phone_number.ToString());
             }
-
+            // הגדרת שדות החיפוש למילוי אוטומטי
             Txt_customerId.AutoCompleteCustomSource = IdAuto;
             Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
             Txt_phoneNumber.AutoCompleteCustomSource = phoneNumberAuto;
         }
-
+        // שינוי בקלט בשדה תעודת זהות של הלקוח
         private void Txt_customerId_TextChanged(object sender, EventArgs e)
         {
             Fill_grid_by_Id();
         }
-       
+       //הגדרת איזה סוג של תו ניתן לכתוב לשדה תעודת זהות
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only digits are welcomed :)
@@ -135,12 +135,12 @@ namespace Electricity_shop
                 e.Handled = true;
             }
         }
-        
+        //התאמת תוצאה בטבלה לפי שם שנקלט בשדה שם פרטי
         private void Txt_firstName_TextChanged(object sender, EventArgs e)
         {
             Fill_grid_by_firstName();
         }
-        
+        //הגדרת איזה סוג של תו ניתן לכתוב לשדה שם פרטי
         private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Only characters are welcomed :)
@@ -151,7 +151,7 @@ namespace Electricity_shop
                 e.Handled = true;
             }
         }
-
+        //הגדרת איזה סוג של תו ניתן לכתוב לשדה מספר פלאפון
         private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only digits are welcomed :)
@@ -162,12 +162,12 @@ namespace Electricity_shop
                 e.Handled = true;
             }
         }
-        
+        //התאמת תוצאה בטבלה לפי שם שנקלט בשדה מספר פלאפון
         private void Txt_phoneNumber_TextChanged(object sender, EventArgs e)
         {
             Fill_grid_by_phoneN();
         }
-
+        //לחיצה על כפתור עדכון
         private void Btn_update_Click(object sender, EventArgs e)
         {
             Frm_update_customer uCustomer = new Frm_update_customer();
@@ -184,12 +184,12 @@ namespace Electricity_shop
             th.Start();
 
         }
-
+        // פתיחת טופס נוכחי בחזרה
         private void OpenSelf(object obj)
         {
             Application.Run(new FrmCustomers_management());
         }
-
+        //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();

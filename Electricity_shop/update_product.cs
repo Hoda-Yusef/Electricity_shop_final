@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
@@ -25,23 +20,15 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
         }
-        /*
-        private void Opennewform(object obj)
-        {
-            Application.Run(new Frm_products_management());
-            
-        }
-        */
-        private void Btn_exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
+        //לחיצה על כפתור עדכן
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
-            if (((Check_barcode() == true || Txt_model.Text != "") || (Txt_barcode.Text.Length == 0 && Txt_model.Text != "")) && Txt_category.Text != "" && Txt_manufacturer.Text != ""
+            //בודקים תקינות נתוהים שנקלטו
+            if (Check_barcode() == true && ((Check_barcode() == true || Txt_model.Text != "") || (Txt_barcode.Text.Length == 0 && Txt_model.Text != "")) && Txt_category.Text != "" && Txt_manufacturer.Text != ""
                  && Txt_cost_price.Text != "" && Txt_selling_price.Text != "" && Txt_amount.Text != "")
             {
+                //במידה ותקינים אז מעדכנים אותם בבסיס נתונים והשינויים נשמרים
                 Fill_obj(load_products);
 
                 mySQL.UpdateProductBySerial(load_products);
@@ -50,10 +37,12 @@ namespace Electricity_shop
                 this.Close();
 
             }
+            //אחרת נציג הודעה מתאימה
             else
                 MessageBox.Show("יש למלא את כל השדות");
         }
 
+        //נמלא תכונות אובייקט שקיבלנו כפרמטר בערכי תיבות הטקסט בהתאמה 
         private void Fill_obj(Product items)
         {
             if (Txt_model.Text != "" && Txt_barcode.Text != "")
@@ -96,65 +85,55 @@ namespace Electricity_shop
                 }
             }
         }
-
+        //הגדרת סוג תו
         private void Txt_cost_price_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
+            //רק מספרים
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
             }
         }
-
+        //הגדרת סוג תו
         private void Txt_selling_price_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
+            //רק מספרים
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
             }
         }
-
-        /*
-        private void Btn_exit_MouseMove(object sender, MouseEventArgs e)
-        {
-            Btn_exit.BackColor = Color.White;
-        }
-
-        private void Btn_exit_MouseLeave(object sender, EventArgs e)
-        {
-            Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
-        }
-        */
-
+        //טעינת טופס נוכחי
         private void update_product_Load(object sender, EventArgs e)
         {
             load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
         }
-
+        //שינוי כמות מוצר
         private void Txt_amount_TextChanged(object sender, EventArgs e)
         {
             if (Txt_amount.Text != "")
             {
+                //כמות>0 וגם קטן או שווה ל2 צובעים כתום
                 if (Convert.ToInt32(Txt_amount.Text) > 0 && Convert.ToInt32(Txt_amount.Text) <= 2)
                     Txt_amount.ForeColor = Color.Orange;
-
+                //כמות שווה לאפס צובעים אדום
                 if (Convert.ToInt32(Txt_amount.Text) == 0)
                     Txt_amount.ForeColor = Color.Red;
-
+                //אחרת לבן
                 if (Convert.ToInt32(Txt_amount.Text) > 2)
                     Txt_amount.ForeColor = Color.White;
             }
 
         }
-
+        //פונקציה בודקת אם ברקוד תקין מחזירה אמת
+        //אחרת מחזירה שקר
         private bool Check_barcode()
         {
             return (Txt_barcode.Text.Length == 13 || Txt_barcode.Text.Length == 12);
         }
-
+        //עזיבת תיבת טקסט של ברקוד מוצר
         private void Txt_barcode_Leave(object sender, EventArgs e)
         {
             if (Check_barcode() == false && count == 0)
@@ -183,31 +162,96 @@ namespace Electricity_shop
                     }
                 }
             }
-        }
 
+            // בודקים אם מוצר קיים לפי ברקוד
+            if (Txt_barcode.Text != "")
+            {
+                Product[] product = mySQL.GetProductData();
+                string barcodeTmp = Txt_barcode.Text;
+
+                for (int i = 0; i < product.Length; i++)
+                {
+                    if (barcodeTmp == product[i].Barcode.ToString())
+                    {
+                        MessageBox.Show("מוצר קיים");
+                        Txt_barcode.Text = product[i].Barcode.ToString();
+                        Txt_category.Text = product[i].Category;
+                        Txt_model.Text = product[i].Model;
+                        Txt_manufacturer.Text = product[i].Manufacturer;
+                        Txt_supplier.Text = product[i].Supplier;
+                        Txt_cost_price.Text = product[i].Cost_price.ToString();
+                        Txt_selling_price.Text = product[i].Selling_price.ToString();
+                        Txt_amount.Text = product[i].Amount.ToString();
+                        Txt_productInfo.Text = product[i].Product_info;
+
+                    }
+                }
+            }
+        }
+        //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //הגדרת סוג תו שברצוננו לקלוט
         private void Txt_barcode_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-
+            //רק מספרים
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            {
+                e.Handled = true;
+            }
+        }
+        //הגדרת סוג תו שברצוננו לקלוט
+        private void Txt_amount_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            //רק מספרים
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
             }
         }
 
-        private void Txt_amount_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void Txt_model_Leave(object sender, EventArgs e)
         {
-            char ch = e.KeyChar;
+            // בודקים אם מוצר קיים לפי דגם
 
-            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
+            if (Txt_model.Text != "")
             {
-                e.Handled = true;
+                Product[] Product = mySQL.GetProductData();
+                string modelTmp = Txt_model.Text;
+                string upperCaseString = modelTmp.ToUpper();
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    // במקרה ונתון שנקלט זהה לדגם קיים
+                    if (modelTmp == Product[i].Model.ToString() || upperCaseString == Product[i].Model.ToString())
+                    {
+                        int temporary_serial_number = Product[i].Product_serial_number;
+                        load_products = mySQL.GetProductDataBySerialNumber(temporary_serial_number.ToString());
+                        Txt_barcode.Text = load_products.Barcode.ToString();
+                        Txt_category.Text = load_products.Category.ToString();
+                        Txt_model.Text = load_products.Model.ToString();
+                        Txt_manufacturer.Text = load_products.Manufacturer.ToString();
+                        Txt_supplier.Text = load_products.Supplier.ToString();
+                        Txt_cost_price.Text = load_products.Cost_price.ToString();
+                        Txt_selling_price.Text = load_products.Selling_price.ToString();
+                        Txt_amount.Text = load_products.Amount.ToString();
+                        Txt_productInfo.Text = load_products.Product_info.ToString();
+                    }
+
+                }
+
             }
+        }
+        // לחיצה על כפתור X
+        private void Btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Frm_products_management mainForm = new Frm_products_management();
+            mainForm.Show();
         }
     }
 }
