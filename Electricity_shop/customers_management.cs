@@ -1,16 +1,14 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;*/
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Electricity_shop
 {
     public partial class FrmCustomers_management : Form
     {
+        bool drag = false;
+        Point sp = new Point(0, 0);
         private readonly DBSQL mySQL;
         Thread th;
         customer[] Customer;
@@ -93,6 +91,7 @@ namespace Electricity_shop
         //טעינת טופס נוכחי
         private void FrmCustomers_management_Load(object sender, EventArgs e)
         {
+            Grd_customers.RowTemplate.Height = 35;
             //שומרים את המידע של כל הלקוחות הקיימים במערכת
             customer[] Customer = mySQL.GetCustomerData();
             for(int i=0;i<Customer.Length;i++)
@@ -203,6 +202,26 @@ namespace Electricity_shop
             Txt_firstName.Text = string.Empty;
             Txt_phoneNumber.Text = string.Empty;
             Txt_customerId.Text = string.Empty;
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

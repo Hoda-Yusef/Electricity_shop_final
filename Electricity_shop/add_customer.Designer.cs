@@ -82,10 +82,10 @@ namespace Electricity_shop
             this.Btn_clear.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_clear.ForeColor = System.Drawing.Color.White;
             this.Btn_clear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_clear.Location = new System.Drawing.Point(257, 396);
+            this.Btn_clear.Location = new System.Drawing.Point(311, 396);
             this.Btn_clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_clear.Name = "Btn_clear";
-            this.Btn_clear.Size = new System.Drawing.Size(107, 51);
+            this.Btn_clear.Size = new System.Drawing.Size(129, 51);
             this.Btn_clear.TabIndex = 49;
             this.Btn_clear.Text = "ניקוי";
             this.Btn_clear.UseVisualStyleBackColor = false;
@@ -99,10 +99,10 @@ namespace Electricity_shop
             this.Btn_cancel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_cancel.ForeColor = System.Drawing.Color.White;
             this.Btn_cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_cancel.Location = new System.Drawing.Point(31, 396);
+            this.Btn_cancel.Location = new System.Drawing.Point(16, 396);
             this.Btn_cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_cancel.Name = "Btn_cancel";
-            this.Btn_cancel.Size = new System.Drawing.Size(107, 51);
+            this.Btn_cancel.Size = new System.Drawing.Size(129, 51);
             this.Btn_cancel.TabIndex = 48;
             this.Btn_cancel.Text = "ביטול";
             this.Btn_cancel.UseVisualStyleBackColor = false;
@@ -116,10 +116,10 @@ namespace Electricity_shop
             this.Btn_addCustomer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_addCustomer.ForeColor = System.Drawing.Color.White;
             this.Btn_addCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_addCustomer.Location = new System.Drawing.Point(144, 396);
+            this.Btn_addCustomer.Location = new System.Drawing.Point(163, 396);
             this.Btn_addCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_addCustomer.Name = "Btn_addCustomer";
-            this.Btn_addCustomer.Size = new System.Drawing.Size(107, 51);
+            this.Btn_addCustomer.Size = new System.Drawing.Size(129, 51);
             this.Btn_addCustomer.TabIndex = 47;
             this.Btn_addCustomer.Text = "הוספה";
             this.Btn_addCustomer.UseVisualStyleBackColor = false;
@@ -265,12 +265,13 @@ namespace Electricity_shop
             // 
             this.Btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exit.Location = new System.Drawing.Point(926, -4);
+            this.Btn_exit.Location = new System.Drawing.Point(928, -1);
             this.Btn_exit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_exit.Name = "Btn_exit";
-            this.Btn_exit.Size = new System.Drawing.Size(39, 51);
+            this.Btn_exit.Size = new System.Drawing.Size(39, 39);
             this.Btn_exit.TabIndex = 52;
             this.Btn_exit.UseVisualStyleBackColor = true;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
@@ -278,10 +279,14 @@ namespace Electricity_shop
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel4.Location = new System.Drawing.Point(-9, -4);
+            this.panel4.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panel4.Location = new System.Drawing.Point(-9, -8);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(935, 15);
+            this.panel4.Size = new System.Drawing.Size(974, 29);
             this.panel4.TabIndex = 57;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
+            this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
+            this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseUp);
             // 
             // panel1
             // 
@@ -302,9 +307,9 @@ namespace Electricity_shop
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(953, 44);
+            this.panel3.Location = new System.Drawing.Point(953, -1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(11, 657);
+            this.panel3.Size = new System.Drawing.Size(12, 702);
             this.panel3.TabIndex = 60;
             // 
             // Frm_addCustomer
@@ -313,11 +318,11 @@ namespace Electricity_shop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(965, 697);
+            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.Lbl_addCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

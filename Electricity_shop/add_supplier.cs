@@ -13,6 +13,8 @@ namespace Electricity_shop
 {
     public partial class Frm_addSupplier : Form
     {
+        bool drag = false;
+        Point sp = new Point(0, 0);
         private readonly DBSQL mySQL;
         Thread th;
         int count = 0;
@@ -317,6 +319,36 @@ namespace Electricity_shop
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)//ניקוי שדות
+        {
+            Txt_address.Text = string.Empty;
+            Txt_firstName.Text = string.Empty;
+            Txt_lastName.Text = string.Empty;
+            Txt_phoneNumber.Text = string.Empty;
+            Txt_supplierDept.Text = string.Empty;
+            Txt_payedForSupplier.Text = string.Empty;
+        }
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

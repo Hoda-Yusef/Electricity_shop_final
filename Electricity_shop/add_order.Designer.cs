@@ -86,9 +86,10 @@
             // Upper_BluePanel
             // 
             this.Upper_BluePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Upper_BluePanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.Upper_BluePanel.Location = new System.Drawing.Point(-1, -5);
             this.Upper_BluePanel.Name = "Upper_BluePanel";
-            this.Upper_BluePanel.Size = new System.Drawing.Size(920, 24);
+            this.Upper_BluePanel.Size = new System.Drawing.Size(908, 28);
             this.Upper_BluePanel.TabIndex = 37;
             this.Upper_BluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseDown);
             this.Upper_BluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseMove);

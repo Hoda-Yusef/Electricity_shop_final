@@ -14,6 +14,8 @@ namespace Electricity_shop
 {
     public partial class Frm_suppliersManagement : Form
     {
+        bool drag = false;
+        Point sp = new Point(0, 0);
         Thread th;
         private DBSQL mySQL;
         private supplier[] Supplier;
@@ -177,6 +179,26 @@ namespace Electricity_shop
         private void Txt_lastName_TextChanged(object sender, EventArgs e)//כאשר משתמש מחפש שם משפחה של ספק
         {
             Fill_grid_by_lastName();
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Electricity_shop
 {
     public partial class Frm_updateSupplier : Form
     {
+        bool drag = false;
+        Point sp = new Point(0, 0);
         private System.Windows.Forms.ErrorProvider phoneErrorProvider;//סימן שגיאה
         supplier load_supplier = new supplier();
         readonly supplier updated_supplier = new supplier();
@@ -189,6 +191,26 @@ namespace Electricity_shop
         private void Frm_updateSupplier_Load(object sender, EventArgs e)
         {
             load_supplier = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);
+        }
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }
