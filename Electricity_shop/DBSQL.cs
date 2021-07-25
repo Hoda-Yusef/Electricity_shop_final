@@ -500,6 +500,48 @@ namespace Electricity_shop
 
         }
 
+
+        public product_order[] GetProductDataByOrderNumber()
+        {
+            DataSet ds = new DataSet();
+            product_order[] Product = null;
+            string cmdStr = "SELECT * FROM product_order";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+           
+            if (dt.Rows.Count > 0)
+            {
+                Product = new product_order[dt.Rows.Count];
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    Product[i] = new product_order();
+                    Product[i].Id = Convert.ToInt32(dt.Rows[i][0]);
+                    Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][1]);
+                    Product[i].Order_serial_number = Convert.ToInt32(dt.Rows[i][2]);
+                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][3]);
+                }
+            }
+            return Product;
+
+        }
+
+
+
         public Cart[] getCartData()
         {
             DataSet ds = new DataSet();

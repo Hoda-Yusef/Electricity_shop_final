@@ -13,13 +13,18 @@ namespace Electricity_shop
 {
     public partial class Frm_main : Form
     {
-
+        private int mostSailedProductCounter = 0;
+        private readonly DBSQL mySQL;
         bool drag = false;
         Point sp = new Point(0, 0);
 
         public Frm_main()
         {
             InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)
@@ -200,6 +205,29 @@ namespace Electricity_shop
         private void OpenInStock(object obj)
         {
             Application.Run(new Frm_InStock());
+        }
+
+        private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
+        { 
+            int temporaryCounter = 0;
+            product_order[] temporaryOrders = mySQL.GetProductDataByOrderNumber();
+
+            for (int i=0;i< temporaryOrders.Length-1;i++)
+            {
+                temporaryCounter = 0;
+                for (int j = 0; j < temporaryOrders.Length-1; j++)
+                {
+                    if (temporaryOrders[i].Product_serial_number == temporaryOrders[j].Product_serial_number)
+                    {
+                        temporaryCounter += temporaryOrders[j].Amount;
+                    }
+                }
+                if (temporaryCounter > mostSailedProductCounter)
+                {
+                    mostSailedProductCounter = temporaryCounter;
+                }
+            }
+            MessageBox.Show("number: "+mostSailedProductCounter+"");
         }
     }
 }
