@@ -168,25 +168,30 @@ namespace Electricity_shop
         //בחירת מוצר ולחיצה על כפתור עדכן
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
-            //עוברים לטופס עדכון מוצר
-            Frm_updateProduct updateProduct = new Frm_updateProduct();
-            //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
-            updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
-            updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();
-            updateProduct.Txt_model.Text = Grd_products.CurrentRow.Cells[2].Value.ToString();
-            updateProduct.Txt_barcode.Text = Grd_products.CurrentRow.Cells[3].Value.ToString();
-            updateProduct.Txt_supplier.Text = Grd_products.CurrentRow.Cells[4].Value.ToString();
-            updateProduct.Txt_amount.Text = Grd_products.CurrentRow.Cells[5].Value.ToString();
-            updateProduct.Txt_cost_price.Text = Grd_products.CurrentRow.Cells[6].Value.ToString();
-            updateProduct.Txt_selling_price.Text = Grd_products.CurrentRow.Cells[7].Value.ToString();
-            updateProduct.Txt_productInfo.Text = Grd_products.CurrentRow.Cells[8].Value.ToString();
+            if (Grd_products.CurrentRow != null)
+            {
+                //עוברים לטופס עדכון מוצר
+                Frm_updateProduct updateProduct = new Frm_updateProduct();
+                //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
+                updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
+                updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();
+                updateProduct.Txt_model.Text = Grd_products.CurrentRow.Cells[2].Value.ToString();
+                updateProduct.Txt_barcode.Text = Grd_products.CurrentRow.Cells[3].Value.ToString();
+                updateProduct.Txt_supplier.Text = Grd_products.CurrentRow.Cells[4].Value.ToString();
+                updateProduct.Txt_amount.Text = Grd_products.CurrentRow.Cells[5].Value.ToString();
+                updateProduct.Txt_cost_price.Text = Grd_products.CurrentRow.Cells[6].Value.ToString();
+                updateProduct.Txt_selling_price.Text = Grd_products.CurrentRow.Cells[7].Value.ToString();
+                updateProduct.Txt_productInfo.Text = Grd_products.CurrentRow.Cells[8].Value.ToString();
 
-            updateProduct.ShowDialog();
+                updateProduct.ShowDialog();
 
-            this.Close();
-            th = new Thread(OpenSelf);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                th = new Thread(OpenSelf);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+                MessageBox.Show("מוצר לא נבחר");
 
         }
         //פותחים טופס נוכחי בחזרה
@@ -228,10 +233,13 @@ namespace Electricity_shop
             //שומרים נתוני כל המוצרים שקיימים במערכת
             Product[] Product = mySQL.GetProductData();
             //מציגים אותם בטבלה
-            for (int i = 0; i < Product.Length; i++)
+
+            if (Product != null)
             {
-                Grd_products.Rows.Add(new object[]
+                for (int i = 0; i < Product.Length; i++)
                 {
+                    Grd_products.Rows.Add(new object[]
+                    {
                     Product[i].Category,
                     Product[i].Manufacturer,
                     Product[i].Model,
@@ -241,25 +249,26 @@ namespace Electricity_shop
                     Product[i].Cost_price,
                     Product[i].Selling_price,
                     Product[i].Product_info
-                });
+                    });
+                }
+
+                //אופציות לטיבות הטקסט מצד ימין -חיפושים
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    barcodeAuto.Add(Product[i].Barcode.ToString());
+                    categoryAuto.Add(Product[i].Category);
+                    modelAuto.Add(Product[i].Model);
+                    manufactureAuto.Add(Product[i].Manufacturer);
+                }
+
+                if (Grd_products.Rows.Count != 0)
+                    Grd_products.Rows[0].Cells[0].Selected = false;
+
+                Txt_barcode.AutoCompleteCustomSource = barcodeAuto;
+                Txt_manufacturer.AutoCompleteCustomSource = manufactureAuto;
+                Txt_model.AutoCompleteCustomSource = modelAuto;
+                Txt_category.AutoCompleteCustomSource = categoryAuto;
             }
-
-            //אופציות לטיבות הטקסט מצד ימין -חיפושים
-            for (int i = 0; i < Product.Length; i++)
-            {
-                barcodeAuto.Add(Product[i].Barcode.ToString());
-                categoryAuto.Add(Product[i].Category);
-                modelAuto.Add(Product[i].Model);
-                manufactureAuto.Add(Product[i].Manufacturer);
-            }
-
-            if (Grd_products.Rows.Count != 0)
-                Grd_products.Rows[0].Cells[0].Selected = false;
-
-            Txt_barcode.AutoCompleteCustomSource = barcodeAuto;
-            Txt_manufacturer.AutoCompleteCustomSource = manufactureAuto;
-            Txt_model.AutoCompleteCustomSource = modelAuto;
-            Txt_category.AutoCompleteCustomSource = categoryAuto;
         }
         //לחיצה על כפתור נקה
         private void Btn_clear_Click(object sender, EventArgs e)

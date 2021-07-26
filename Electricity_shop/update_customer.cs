@@ -2,6 +2,8 @@
 
 using System;
 using System.Windows.Forms;
+using System.Drawing;
+
 
 
 namespace Electricity_shop
@@ -12,6 +14,8 @@ namespace Electricity_shop
         customer load_customers = new customer();
         readonly DBSQL mySQL;
         int count = 0;
+        bool drag = false;
+        Point sp = new Point(0, 0);
 
         public Frm_update_customer()
         {
@@ -234,6 +238,26 @@ namespace Electricity_shop
             {
                 e.Handled = true;
             }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

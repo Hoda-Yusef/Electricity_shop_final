@@ -74,9 +74,9 @@ namespace Electricity_shop
             th.Start();
         }
 
-       // פונקציית עזר
-       // בודקת תקינות ברקוד מוצר מחזירה אמת במקרה ותקין
-       // אחרת יוחזר שקר
+        // פונקציית עזר
+        // בודקת תקינות ברקוד מוצר מחזירה אמת במקרה ותקין
+        // אחרת יוחזר שקר
         private bool Check_barcode()
         {
             return (Txt_barcode.Text.Length == 13 || Txt_barcode.Text.Length == 12 || Txt_barcode.Text.Length == 0);
@@ -102,20 +102,22 @@ namespace Electricity_shop
         {
             Product[] Product = mySQL.GetProductData();
 
-
-            for (int i = 0; i < Product.Length; i++)
+            if (Product != null)
             {
-                barcode.Add(Product[i].Barcode);
-                category.Add(Product[i].Category);
-                model.Add(Product[i].Model);
-                manufacturer.Add(Product[i].Manufacturer);
-                supplier.Add(Product[i].Supplier);
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    barcode.Add(Product[i].Barcode);
+                    category.Add(Product[i].Category);
+                    model.Add(Product[i].Model);
+                    manufacturer.Add(Product[i].Manufacturer);
+                    supplier.Add(Product[i].Supplier);
+                }
+                Txt_barcode.AutoCompleteCustomSource = barcode;
+                Txt_supplier.AutoCompleteCustomSource = supplier;
+                Txt_model.AutoCompleteCustomSource = model;
+                Txt_manufacturer.AutoCompleteCustomSource = manufacturer;
+                Txt_category.AutoCompleteCustomSource = category;
             }
-            Txt_barcode.AutoCompleteCustomSource = barcode;
-            Txt_supplier.AutoCompleteCustomSource = supplier;
-            Txt_model.AutoCompleteCustomSource = model;
-            Txt_manufacturer.AutoCompleteCustomSource = manufacturer;
-            Txt_category.AutoCompleteCustomSource = category;
         }
         //מגדירים כל השדות ריקים
         private void Clear_boxes()
@@ -131,8 +133,8 @@ namespace Electricity_shop
             Txt_productInformation.Clear();
         }
 
-// פונקציה יוצרת אוביקט חדש מסוג מוצר
-//ומוסיפה אותו לבסיס הנתונים
+        // פונקציה יוצרת אוביקט חדש מסוג מוצר
+        //ומוסיפה אותו לבסיס הנתונים
         private void New_product(Product Prod)
         {
             Prod.Barcode = Txt_barcode.Text;
@@ -193,33 +195,36 @@ namespace Electricity_shop
             }
         }
 
-//אחרי עזיבת תיבת הטקסט של ברקוד
-//מבצעים כמה בדיקות:
+        //אחרי עזיבת תיבת הטקסט של ברקוד
+        //מבצעים כמה בדיקות:
         private void Txt_barcode_Leave(object sender, EventArgs e)
         {
-            // בודקים אם לקוח קיים לפי תעודת זהות
             if (Txt_barcode.Text != "")
             {
                 Product[] Product = mySQL.GetProductData();
                 string temporary_barcode = Txt_barcode.Text;
 
-                for (int i = 0; i < Product.Length; i++)
+                if (Product != null)
                 {
-                    if (temporary_barcode == Product[i].Barcode.ToString())
-                    {
-                        MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
-                        load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
-                        Txt_barcode.Text = load_products.Barcode.ToString();
-                        Txt_category.Text = load_products.Category.ToString();
-                        Txt_model.Text = load_products.Model.ToString();
-                        Txt_manufacturer.Text = load_products.Manufacturer.ToString();
-                        Txt_supplier.Text = load_products.Supplier.ToString();
-                        Txt_costPrice.Text = load_products.Cost_price.ToString();
-                        Txt_sellingPrice.Text = load_products.Selling_price.ToString();
-                        //productAmount.Value = load_products.Amount;
-                        Txt_productInformation.Text = load_products.Product_info.ToString();
-                        Read_only_true();
 
+                    for (int i = 0; i < Product.Length; i++)
+                    {
+                        if (temporary_barcode == Product[i].Barcode.ToString())
+                        {
+                            MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
+                            load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
+                            Txt_barcode.Text = load_products.Barcode.ToString();
+                            Txt_category.Text = load_products.Category.ToString();
+                            Txt_model.Text = load_products.Model.ToString();
+                            Txt_manufacturer.Text = load_products.Manufacturer.ToString();
+                            Txt_supplier.Text = load_products.Supplier.ToString();
+                            Txt_costPrice.Text = load_products.Cost_price.ToString();
+                            Txt_sellingPrice.Text = load_products.Selling_price.ToString();
+                            //productAmount.Value = load_products.Amount;
+                            Txt_productInformation.Text = load_products.Product_info.ToString();
+                            Read_only_true();
+
+                        }
                     }
                 }
             }
@@ -274,12 +279,16 @@ namespace Electricity_shop
                 Product Prod = new Product();
                 string barcodeTmp = Txt_barcode.Text;
 
-                for (int i = 0; i < Product.Length; i++)
+                if (Product != null)
                 {
-                    if (barcodeTmp == Product[i].Barcode.ToString())
+
+                    for (int i = 0; i < Product.Length; i++)
                     {
-                        //ברקוד שנקלט שייך למוצר קיים במערכת
-                        same = true;
+                        if (barcodeTmp == Product[i].Barcode.ToString())
+                        {
+                            //ברקוד שנקלט שייך למוצר קיים במערכת
+                            same = true;
+                        }
                     }
                 }
                 // במידה והמוצר קיים אז ניתן להוסיף כמות
@@ -320,33 +329,34 @@ namespace Electricity_shop
                 string modelTmp = Txt_model.Text;
                 string upperCaseString = modelTmp.ToUpper();
 
-                for (int i = 0; i < Product.Length; i++)
+                if (Product != null)
                 {
-                    // במקרה ונתון שנקלט זהה לדגם קיים
-                    if (modelTmp == Product[i].Model.ToString() || upperCaseString == Product[i].Model.ToString())
+
+                    for (int i = 0; i < Product.Length; i++)
                     {
-                        // מציגים הודעה מתאימה 
-                        MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
-                        int temporary_serial_number = Product[i].Product_serial_number;
-                        load_products = mySQL.GetProductDataBySerialNumber(temporary_serial_number.ToString());
-                        Txt_barcode.Text = load_products.Barcode.ToString();
-                        Txt_category.Text = load_products.Category.ToString();
-                        Txt_model.Text = load_products.Model.ToString();
-                        Txt_manufacturer.Text = load_products.Manufacturer.ToString();
-                        Txt_supplier.Text = load_products.Supplier.ToString();
-                        Txt_costPrice.Text = load_products.Cost_price.ToString();
-                        Txt_sellingPrice.Text = load_products.Selling_price.ToString();
-                        //productAmount.Value = load_products.Amount;
-                        Txt_productInformation.Text = load_products.Product_info.ToString();
-                        Read_only_true();
+                        // במקרה ונתון שנקלט זהה לדגם קיים
+                        if (modelTmp == Product[i].Model.ToString() || upperCaseString == Product[i].Model.ToString())
+                        {
+                            // מציגים הודעה מתאימה 
+                            MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
+                            int temporary_serial_number = Product[i].Product_serial_number;
+                            load_products = mySQL.GetProductDataBySerialNumber(temporary_serial_number.ToString());
+                            Txt_barcode.Text = load_products.Barcode.ToString();
+                            Txt_category.Text = load_products.Category.ToString();
+                            Txt_model.Text = load_products.Model.ToString();
+                            Txt_manufacturer.Text = load_products.Manufacturer.ToString();
+                            Txt_supplier.Text = load_products.Supplier.ToString();
+                            Txt_costPrice.Text = load_products.Cost_price.ToString();
+                            Txt_sellingPrice.Text = load_products.Selling_price.ToString();
+                            //productAmount.Value = load_products.Amount;
+                            Txt_productInformation.Text = load_products.Product_info.ToString();
+                            Read_only_true();
+                        }
                     }
-
-                    }
-
                 }
             }
-
-      
+        }
     }
-    }
+}
+    
 

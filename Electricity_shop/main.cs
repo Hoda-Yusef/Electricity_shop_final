@@ -206,28 +206,5 @@ namespace Electricity_shop
         {
             Application.Run(new Frm_InStock());
         }
-
-        private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
-        { 
-            int temporaryCounter = 0;
-            product_order[] temporaryOrders = mySQL.GetProductDataByOrderNumber();
-
-            for (int i=0;i< temporaryOrders.Length-1;i++)
-            {
-                temporaryCounter = 0;
-                for (int j = 0; j < temporaryOrders.Length-1; j++)
-                {
-                    if (temporaryOrders[i].Product_serial_number == temporaryOrders[j].Product_serial_number)
-                    {
-                        temporaryCounter += temporaryOrders[j].Amount;
-                    }
-                }
-                if (temporaryCounter > mostSailedProductCounter)
-                {
-                    mostSailedProductCounter = temporaryCounter;
-                }
-            }
-            MessageBox.Show("number: "+mostSailedProductCounter+"");
-        }
     }
 }

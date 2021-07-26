@@ -1,6 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -9,6 +10,8 @@ namespace Electricity_shop
     
     public partial class Frm_addCustomer : Form
     {
+        bool drag = false;
+        Point sp = new Point(0, 0);
         private readonly DBSQL mySQL;
         Thread th;
         int count = 0;
@@ -274,6 +277,26 @@ namespace Electricity_shop
             Txt_firstName.Text = string.Empty;
             Txt_lastName.Text = string.Empty;
             Txt_phoneNumber.Text = string.Empty;
+        }
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Electricity_shop
 {
     public partial class Frm_updateProduct : Form
     {
+        
         private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
         Product load_products;
         DBSQL mySQL;
         int count = 0;
-        private Point sp = new Point(0, 0);
 
         public Frm_updateProduct()
         {
@@ -260,5 +260,7 @@ namespace Electricity_shop
             Frm_products_management mainForm = new Frm_products_management();
             mainForm.Show();
         }
+
+        
     }
 }

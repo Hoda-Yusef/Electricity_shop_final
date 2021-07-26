@@ -75,10 +75,11 @@ namespace Electricity_shop
             // 
             this.Upper_BluePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Upper_BluePanel.Controls.Add(this.button3);
+            this.Upper_BluePanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.Upper_BluePanel.Location = new System.Drawing.Point(10, 0);
             this.Upper_BluePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Upper_BluePanel.Name = "Upper_BluePanel";
-            this.Upper_BluePanel.Size = new System.Drawing.Size(1275, 27);
+            this.Upper_BluePanel.Size = new System.Drawing.Size(1312, 22);
             this.Upper_BluePanel.TabIndex = 67;
             this.Upper_BluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseDown);
             this.Upper_BluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseMove);
@@ -251,9 +252,9 @@ namespace Electricity_shop
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(1310, 37);
+            this.panel9.Location = new System.Drawing.Point(1310, -3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(15, 752);
+            this.panel9.Size = new System.Drawing.Size(15, 792);
             this.panel9.TabIndex = 69;
             // 
             // panel10
@@ -444,10 +445,10 @@ namespace Electricity_shop
             this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exit.Location = new System.Drawing.Point(1286, -3);
+            this.Btn_exit.Location = new System.Drawing.Point(1282, -3);
             this.Btn_exit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_exit.Name = "Btn_exit";
-            this.Btn_exit.Size = new System.Drawing.Size(39, 43);
+            this.Btn_exit.Size = new System.Drawing.Size(40, 42);
             this.Btn_exit.TabIndex = 97;
             this.Btn_exit.UseVisualStyleBackColor = true;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
