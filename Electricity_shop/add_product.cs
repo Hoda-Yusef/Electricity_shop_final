@@ -96,6 +96,20 @@ namespace Electricity_shop
             Txt_productInformation.ReadOnly = true;
         }
 
+        //ביטול השדות לקריאה בלבד
+
+        private void Read_only_false()
+        {
+            Txt_barcode.ReadOnly = false;
+            Txt_category.ReadOnly = false;
+            Txt_model.ReadOnly = false;
+            Txt_manufacturer.ReadOnly = false;
+            Txt_supplier.ReadOnly = false;
+            Txt_costPrice.ReadOnly = false;
+            Txt_sellingPrice.ReadOnly = false;
+            Txt_productInformation.ReadOnly = false;
+        }
+
         //טעינת טופס
         // שומרים את המידע של כל המוצרים הקיימים במערכת במערך מסוג מוצר
         private void Frm_addProduct_Load(object sender, EventArgs e)
@@ -317,6 +331,7 @@ namespace Electricity_shop
         private void Btn_clearAll_Click(object sender, EventArgs e)
         {
             Clear_boxes();
+            Read_only_false();
         }
 
         //אחרי עזיבת תיבת הטקסט של דגם

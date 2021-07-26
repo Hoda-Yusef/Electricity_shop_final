@@ -110,7 +110,7 @@ namespace Electricity_shop
             this.panel4.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panel4.Location = new System.Drawing.Point(0, -4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1359, 25);
+            this.panel4.Size = new System.Drawing.Size(1332, 25);
             this.panel4.TabIndex = 56;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);

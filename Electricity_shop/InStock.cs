@@ -43,73 +43,83 @@ namespace Electricity_shop
         // יוצרים דו'ח ספירת מלאי עדכני לגבי מוצרים בחנות
         private void Btn_saveDocument_Click(object sender, EventArgs e)
         {
-            // יוצרים קובץ בשם
-            iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream(dateTimePicker1.Text.ToString()+".pdf", FileMode.Create));
-            doc.Open();
-            // יוצרים טבלה
-            PdfPTable table = new PdfPTable(Grd_products_stock.Columns.Count);
-            table.RunDirection = PdfWriter.RUN_DIRECTION_NO_BIDI;
-            table.HorizontalAlignment = Element.ALIGN_CENTER;
-            //מגדירים גופן
-            Font font = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
-            Font headerFont = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
-            Font headerFont2 = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN,24);
-            Paragraph myPar1 = new Paragraph("Inventory Count Report\n", headerFont2);
-            myPar1.Alignment = Element.ALIGN_CENTER;
-            //מגדירים כותרת ראשונה
-            Paragraph myPar = new Paragraph("Trade In Electricity Shop\n", headerFont2);
-            myPar.Alignment = Element.ALIGN_CENTER;
-            //כותרת שנייה
-            Paragraph myPar2 = new Paragraph("Dalyat Al-Carmel", headerFont2);
-            myPar2.Alignment = Element.ALIGN_CENTER;
 
-            Paragraph myPar3 = new Paragraph("Since 2005\n\n\n\n\n",headerFont);
-            myPar3.Alignment = Element.ALIGN_CENTER;
-
-            doc.Add(myPar1);
-            doc.Add(myPar);
-            doc.Add(myPar2);
-            doc.Add(myPar3);
-
-            // הגדרת כותרות בטבלה + צבע 
-            for (int j = 0; j < Grd_products_stock.Columns.Count; j++)
+            //בודקים אם קובץ נוצר לפי התאריך שנבחר
+            if (File.Exists(dateTimePicker1.Text.ToString() + ".pdf"))
             {
-                headerFont.Color = BaseColor.RED;
-                PdfPCell headerCell = new PdfPCell();
-                headerCell.FixedHeight = 20;
-                headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                headerCell.Phrase = new Phrase(Grd_products_stock.Columns[j].HeaderText, headerFont);
-                table.AddCell(headerCell);
+                MessageBox.Show("דוח קיים");
             }
 
-            table.HeaderRows = 1;
-
-            // הגדרת תוכן הטבלה
-            for (int i = 0; i < Grd_products_stock.Rows.Count; i++)
+            else
             {
-                for (int k = 0; k < Grd_products_stock.Columns.Count; k++)
+                // יוצרים קובץ בשם
+                iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream(dateTimePicker1.Text.ToString() + ".pdf", FileMode.Create));
+                doc.Open();
+                // יוצרים טבלה
+                PdfPTable table = new PdfPTable(Grd_products_stock.Columns.Count);
+                table.RunDirection = PdfWriter.RUN_DIRECTION_NO_BIDI;
+                table.HorizontalAlignment = Element.ALIGN_CENTER;
+                //מגדירים גופן
+                Font font = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
+                Font headerFont = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
+                Font headerFont2 = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 24);
+                Paragraph myPar1 = new Paragraph("Inventory Count Report\n", headerFont2);
+                myPar1.Alignment = Element.ALIGN_CENTER;
+                //מגדירים כותרת ראשונה
+                Paragraph myPar = new Paragraph("Trade In Electricity Shop\n", headerFont2);
+                myPar.Alignment = Element.ALIGN_CENTER;
+                //כותרת שנייה
+                Paragraph myPar2 = new Paragraph("Dalyat Al-Carmel", headerFont2);
+                myPar2.Alignment = Element.ALIGN_CENTER;
+
+                Paragraph myPar3 = new Paragraph("Since 2005\n\n\n\n\n", headerFont);
+                myPar3.Alignment = Element.ALIGN_CENTER;
+
+                doc.Add(myPar1);
+                doc.Add(myPar);
+                doc.Add(myPar2);
+                doc.Add(myPar3);
+
+                // הגדרת כותרות בטבלה + צבע 
+                for (int j = 0; j < Grd_products_stock.Columns.Count; j++)
                 {
-                    if (Grd_products_stock[k, i].Value != null)
+                    headerFont.Color = BaseColor.RED;
+                    PdfPCell headerCell = new PdfPCell();
+                    headerCell.FixedHeight = 20;
+                    headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    headerCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    headerCell.Phrase = new Phrase(Grd_products_stock.Columns[j].HeaderText, headerFont);
+                    table.AddCell(headerCell);
+                }
+
+                table.HeaderRows = 1;
+
+                // הגדרת תוכן הטבלה
+                for (int i = 0; i < Grd_products_stock.Rows.Count; i++)
+                {
+                    for (int k = 0; k < Grd_products_stock.Columns.Count; k++)
                     {
-                        font.Color = BaseColor.BLACK;
-                        table.WidthPercentage = 90;
-                        table.HorizontalAlignment = Element.ALIGN_MIDDLE;
-                        PdfPCell myCell = new PdfPCell();
-                        myCell.FixedHeight = 20;
-                        myCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                        myCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                        myCell.Phrase = new Phrase(Grd_products_stock[k, i].Value.ToString(),font);
-                        table.AddCell(myCell);
+                        if (Grd_products_stock[k, i].Value != null)
+                        {
+                            font.Color = BaseColor.BLACK;
+                            table.WidthPercentage = 90;
+                            table.HorizontalAlignment = Element.ALIGN_MIDDLE;
+                            PdfPCell myCell = new PdfPCell();
+                            myCell.FixedHeight = 20;
+                            myCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            myCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                            myCell.Phrase = new Phrase(Grd_products_stock[k, i].Value.ToString(), font);
+                            table.AddCell(myCell);
+                        }
                     }
                 }
+
+                doc.Add(table);
+
+                doc.Close();
+
+                MessageBox.Show("נוצר דוח בהצלחה");
             }
-
-            doc.Add(table);
-
-            doc.Close();
-
-            MessageBox.Show("נוצר דוח בהצלחה");
 
         }
         // לחיצה על כפתור צור דו'ח
@@ -144,7 +154,7 @@ namespace Electricity_shop
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "C:\\Users\\yusef\\Desktop\\Education\\C#\\final\\Electricity_shop\\bin\\Debug\\";
+                openFileDialog.InitialDirectory = "C:\\Users\\yusef\\Desktop\\Education\\C#\\final\\Electricity_shop\\bin\\Debug\\netcoreapp3.1\\";
                 // מציג דוח ספיציפי בעל שם של התאריך שנבחר
                 openFileDialog.Filter = "txt files ("+dateTimePicker1.Text.ToString()+ ".pdf)|" + dateTimePicker1.Text.ToString() + ".pdf";
                 openFileDialog.FilterIndex = 2;
