@@ -120,7 +120,7 @@ namespace Electricity_shop
             this.Btn_addCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_addCustomer.Name = "Btn_addCustomer";
             this.Btn_addCustomer.Size = new System.Drawing.Size(129, 51);
-            this.Btn_addCustomer.TabIndex = 47;
+            this.Btn_addCustomer.TabIndex = 6;
             this.Btn_addCustomer.Text = "הוספה";
             this.Btn_addCustomer.UseVisualStyleBackColor = false;
             this.Btn_addCustomer.Click += new System.EventHandler(this.Btn_addCustomer_Click);
@@ -147,7 +147,7 @@ namespace Electricity_shop
             this.Txt_address.Name = "Txt_address";
             this.Txt_address.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Txt_address.Size = new System.Drawing.Size(257, 38);
-            this.Txt_address.TabIndex = 44;
+            this.Txt_address.TabIndex = 5;
             // 
             // Lbl_phoneNumber
             // 
@@ -171,7 +171,7 @@ namespace Electricity_shop
             this.Txt_phoneNumber.Name = "Txt_phoneNumber";
             this.Txt_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Txt_phoneNumber.Size = new System.Drawing.Size(257, 38);
-            this.Txt_phoneNumber.TabIndex = 42;
+            this.Txt_phoneNumber.TabIndex = 4;
             this.Txt_phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_phoneNumber_KeyPress);
             this.Txt_phoneNumber.Leave += new System.EventHandler(this.Txt_phoneNumber_Leave);
             // 
@@ -197,7 +197,7 @@ namespace Electricity_shop
             this.Txt_lastName.Name = "Txt_lastName";
             this.Txt_lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Txt_lastName.Size = new System.Drawing.Size(257, 38);
-            this.Txt_lastName.TabIndex = 40;
+            this.Txt_lastName.TabIndex = 3;
             // 
             // Lbl_firstName
             // 
@@ -221,7 +221,7 @@ namespace Electricity_shop
             this.Txt_firstName.Name = "Txt_firstName";
             this.Txt_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Txt_firstName.Size = new System.Drawing.Size(257, 38);
-            this.Txt_firstName.TabIndex = 38;
+            this.Txt_firstName.TabIndex = 2;
             // 
             // Lbl_customerId
             // 
@@ -245,7 +245,7 @@ namespace Electricity_shop
             this.Txt_customerId.Name = "Txt_customerId";
             this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Txt_customerId.Size = new System.Drawing.Size(257, 38);
-            this.Txt_customerId.TabIndex = 36;
+            this.Txt_customerId.TabIndex = 1;
             this.Txt_customerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customerId_KeyPress);
             this.Txt_customerId.Leave += new System.EventHandler(this.Txt_customerId_Leave);
             // 

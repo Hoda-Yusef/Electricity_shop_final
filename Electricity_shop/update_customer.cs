@@ -124,17 +124,20 @@ namespace Electricity_shop
                 customer[] Customer = mySQL.GetCustomerData();
                 string idTmp = Txt_customerId.Text;
 
-                for (int i = 0; i < Customer.Length; i++)
+                if (Customer != null)
                 {
-                    if (idTmp == Customer[i].Id.ToString() && load_customers.Phone_number.ToString() != Customer[i].Phone_number.ToString())
+                    for (int i = 0; i < Customer.Length; i++)
                     {
-                        MessageBox.Show("תעודת זהות שייכת ללקוח אחר");
-                        Txt_customerId.Text = Customer[i].Id.ToString();
-                        Txt_firstName.Text = Customer[i].First_name;
-                        Txt_lastName.Text = Customer[i].Last_name;
-                        Txt_phoneNumber.Text = Customer[i].Phone_number;
-                        Txt_address.Text = Customer[i].Address;
+                        if (idTmp == Customer[i].Id.ToString() && load_customers.Phone_number.ToString() != Customer[i].Phone_number.ToString())
+                        {
+                            MessageBox.Show("תעודת זהות שייכת ללקוח אחר");
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_firstName.Text = Customer[i].First_name;
+                            Txt_lastName.Text = Customer[i].Last_name;
+                            Txt_phoneNumber.Text = Customer[i].Phone_number;
+                            Txt_address.Text = Customer[i].Address;
 
+                        }
                     }
                 }
             }
@@ -187,17 +190,21 @@ namespace Electricity_shop
                     customer[] Customer = mySQL.GetCustomerData();
                     string phoneTmp = Txt_phoneNumber.Text;
 
-                    for (int i = 0; i < Customer.Length; i++)
+                    if (Customer != null)
                     {
-                        if (phoneTmp == Customer[i].Phone_number.ToString() && load_customers.Id.ToString() != Customer[i].Id.ToString())
-                        {
-                            MessageBox.Show("מספר פלאפון שייכת ללקוח אחר");
-                            Txt_customerId.Text = Customer[i].Id.ToString();
-                            Txt_firstName.Text = Customer[i].First_name;
-                            Txt_lastName.Text = Customer[i].Last_name;
-                            Txt_phoneNumber.Text = Customer[i].Phone_number;
-                            Txt_address.Text = Customer[i].Address;
 
+                        for (int i = 0; i < Customer.Length; i++)
+                        {
+                            if (phoneTmp == Customer[i].Phone_number.ToString() && load_customers.Id.ToString() != Customer[i].Id.ToString())
+                            {
+                                MessageBox.Show("מספר פלאפון שייכת ללקוח אחר");
+                                Txt_customerId.Text = Customer[i].Id.ToString();
+                                Txt_firstName.Text = Customer[i].First_name;
+                                Txt_lastName.Text = Customer[i].Last_name;
+                                Txt_phoneNumber.Text = Customer[i].Phone_number;
+                                Txt_address.Text = Customer[i].Address;
+
+                            }
                         }
                     }
                 }

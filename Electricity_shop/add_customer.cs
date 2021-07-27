@@ -62,12 +62,15 @@ namespace Electricity_shop
                 customer cust = new customer();
                 string idTmp = Txt_customerId.Text;
 
-                for (int i = 0; i < Customer.Length; i++)
+                if (Customer != null)
                 {
-                    //בודקים אם הלקוח קיים
-                    if (idTmp == Customer[i].Id.ToString())
+                    for (int i = 0; i < Customer.Length; i++)
                     {
-                        same = true;
+                        //בודקים אם הלקוח קיים
+                        if (idTmp == Customer[i].Id.ToString())
+                        {
+                            same = true;
+                        }
                     }
                 }
 
@@ -130,19 +133,22 @@ namespace Electricity_shop
             //שומרים נתוני כל הלקוחות הקיימים במערכת
             customer[] Customer = mySQL.GetCustomerData();
 
-            //מגדירים אופציות בשדות למילוי אוטומטי
-            for (int i = 0; i < Customer.Length; i++)
+            if (Customer != null)
             {
-                id1.Add(Customer[i].Id.ToString());
-                firstName1.Add(Customer[i].First_name);
-                lastName1.Add(Customer[i].Last_name);
-                addrees1.Add(Customer[i].Address);
+                //מגדירים אופציות בשדות למילוי אוטומטי
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    id1.Add(Customer[i].Id.ToString());
+                    firstName1.Add(Customer[i].First_name);
+                    lastName1.Add(Customer[i].Last_name);
+                    addrees1.Add(Customer[i].Address);
 
+                }
+                Txt_customerId.AutoCompleteCustomSource = id1;
+                Txt_firstName.AutoCompleteCustomSource = firstName1;
+                Txt_lastName.AutoCompleteCustomSource = lastName1;
+                Txt_address.AutoCompleteCustomSource = addrees1;
             }
-            Txt_customerId.AutoCompleteCustomSource = id1;
-            Txt_firstName.AutoCompleteCustomSource = firstName1;
-            Txt_lastName.AutoCompleteCustomSource = lastName1;
-            Txt_address.AutoCompleteCustomSource = addrees1;
         }
         //פונקציה בודקת תעודת זהות של הלקוח
         //מחזירה אמת אם תקינה ושקר אחרת
@@ -184,16 +190,20 @@ namespace Electricity_shop
                     customer[] Customer = mySQL.GetCustomerData();
                     string idTmp = Txt_customerId.Text;
 
-                    for (int i = 0; i < Customer.Length; i++)
+                    if (Customer != null)
                     {
-                        if (idTmp == Customer[i].Id.ToString())
-                        {
-                            Txt_customerId.Text = Customer[i].Id.ToString();
-                            Txt_firstName.Text = Customer[i].First_name;
-                            Txt_lastName.Text = Customer[i].Last_name;
-                            Txt_phoneNumber.Text = Customer[i].Phone_number;
-                            Txt_address.Text = Customer[i].Address;
 
+                        for (int i = 0; i < Customer.Length; i++)
+                        {
+                            if (idTmp == Customer[i].Id.ToString())
+                            {
+                                Txt_customerId.Text = Customer[i].Id.ToString();
+                                Txt_firstName.Text = Customer[i].First_name;
+                                Txt_lastName.Text = Customer[i].Last_name;
+                                Txt_phoneNumber.Text = Customer[i].Phone_number;
+                                Txt_address.Text = Customer[i].Address;
+
+                            }
                         }
                     }
                 }

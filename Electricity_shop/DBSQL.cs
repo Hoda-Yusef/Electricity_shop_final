@@ -839,13 +839,41 @@ namespace Electricity_shop
 
         }
 
-        public Product[] GetProductDataFiltered(string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
+        public Product[] GetProductDataFiltered(string stock_amount, string barcodeItem, string categoryItem, string manufactureItem, string modelItem)
         {
+            string cmdStr;
             DataSet ds = new DataSet();
             Product[] Product = null;
-            string cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
-                " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
-                "AND product_model LIKE '" + modelItem + "%'";
+
+            if (stock_amount == "הכל")
+            {
+                 cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
+                    " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+                    "AND product_model LIKE '" + modelItem + "%'";
+            }
+            else
+                if (stock_amount == "זמין במלאי")
+            {
+                 cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
+                    " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+                    "AND product_model LIKE '" + modelItem + "%' AND amount > 0";
+            }
+            else
+                if(stock_amount == "לא זמין במלאי")
+            {
+                 cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
+                    " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+                    "AND product_model LIKE '" + modelItem + "%' AND amount = 0";
+            }
+            else
+            {
+                
+                 cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
+                    " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+                    "AND product_model LIKE '" + modelItem + "%'";
+            }
+
+            
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -1249,37 +1277,7 @@ namespace Electricity_shop
 
         }
 
-        public order_number_holder GetorderNumberHolder()
-        {
-            DataSet ds = new DataSet();
-            order_number_holder Order_number_holder = null;
-            string cmdStr = "SELECT * FROM order_number_holder";
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                ds = GetMultipleQuery(command);
-            }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-
-                Order_number_holder = new order_number_holder();
-                Order_number_holder.Order_number = Convert.ToInt32(dt.Rows[0][0]);
-             
-            }
-            return Order_number_holder;
-
-        }
+        
       /*
         public void UpdateProductByBarcode(product Item)
         {

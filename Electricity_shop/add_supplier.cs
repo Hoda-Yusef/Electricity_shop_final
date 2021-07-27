@@ -57,12 +57,15 @@ namespace Electricity_shop
                
                 string nameTmp = Txt_phoneNumber.Text;
 
-                for (int i = 0; i < Supplier.Length; i++)//לולאה בודקת אם ספק קיים במערכת 
+                if (Supplier != null)
                 {
-                    if (nameTmp == Supplier[i].Phone_number)
+                    for (int i = 0; i < Supplier.Length; i++)//לולאה בודקת אם ספק קיים במערכת 
                     {
-                        same = true;
+                        if (nameTmp == Supplier[i].Phone_number)
+                        {
+                            same = true;
 
+                        }
                     }
                 }
 
@@ -130,6 +133,7 @@ namespace Electricity_shop
                 if (Txt_supplierDept.Text == "" && Txt_payedForSupplier.Text == "")
                 {
                     supp.FirstName = Txt_firstName.Text;
+                    supp.LasttName = Txt_lastName.Text;
                     supp.Address = Txt_address.Text;
                     supp.Phone_number = Txt_phoneNumber.Text;
                     mySQL.InsertSupplier(supp);
@@ -183,16 +187,18 @@ namespace Electricity_shop
         {
             supplier[] Supplier = mySQL.GetSupplierData();
 
-
-            for (int i = 0; i < Supplier.Length; i++)
+            if (Supplier != null)
             {
-                SFirstName.Add(Supplier[i].FirstName);
-                SLastName.Add(Supplier[i].LasttName);
+                for (int i = 0; i < Supplier.Length; i++)
+                {
+                    SFirstName.Add(Supplier[i].FirstName);
+                    SLastName.Add(Supplier[i].LasttName);
 
 
+                }
+                Txt_firstName.AutoCompleteCustomSource = SFirstName;
+                Txt_lastName.AutoCompleteCustomSource = SLastName;
             }
-            Txt_firstName.AutoCompleteCustomSource = SFirstName;
-            Txt_lastName.AutoCompleteCustomSource = SLastName;
         }
 
         private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים בשדה
@@ -296,18 +302,22 @@ namespace Electricity_shop
                 supplier[] Suppliers = mySQL.GetSupplierData();
                 string phoneTmp = Txt_phoneNumber.Text;
 
-                for (int i = 0; i < Suppliers.Length; i++)
+                if (Suppliers != null)
                 {
-                    if (phoneTmp == Suppliers[i].Phone_number.ToString())
-                    {
-                        MessageBox.Show("ספק קיים");
-                        Txt_firstName.Text = Suppliers[i].FirstName;
-                        Txt_lastName.Text = Suppliers[i].LasttName;
-                        Txt_phoneNumber.Text = Suppliers[i].Phone_number;
-                        Txt_address.Text = Suppliers[i].Address;
-                        Txt_supplierDept.Text = Suppliers[i].Dept.ToString();
-                        Txt_payedForSupplier.Text = Suppliers[i].Paid.ToString();
 
+                    for (int i = 0; i < Suppliers.Length; i++)
+                    {
+                        if (phoneTmp == Suppliers[i].Phone_number.ToString())
+                        {
+                            MessageBox.Show("ספק קיים");
+                            Txt_firstName.Text = Suppliers[i].FirstName;
+                            Txt_lastName.Text = Suppliers[i].LasttName;
+                            Txt_phoneNumber.Text = Suppliers[i].Phone_number;
+                            Txt_address.Text = Suppliers[i].Address;
+                            Txt_supplierDept.Text = Suppliers[i].Dept.ToString();
+                            Txt_payedForSupplier.Text = Suppliers[i].Paid.ToString();
+
+                        }
                     }
                 }
             }

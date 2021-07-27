@@ -94,29 +94,33 @@ namespace Electricity_shop
             Grd_customers.RowTemplate.Height = 35;
             //שומרים את המידע של כל הלקוחות הקיימים במערכת
             customer[] Customer = mySQL.GetCustomerData();
-            for(int i=0;i<Customer.Length;i++)
+
+            if (Customer != null)
             {
-                //מציגים אותם בטבלה
-                Grd_customers.Rows.Add(new object[]
-                    {
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    //מציגים אותם בטבלה
+                    Grd_customers.Rows.Add(new object[]
+                        {
                         Customer[i].Id,
                         Customer[i].First_name,
                         Customer[i].Last_name,
                         Customer[i].Phone_number,
                         Customer[i].Address
-                    });
-            }
+                        });
+                }
 
-            for (int i= 0;i<Customer.Length;i++)
-            {
-                IdAuto.Add(Customer[i].Id.ToString());  
-                firstNameAuto.Add(Customer[i].First_name.ToString());
-                phoneNumberAuto.Add(Customer[i].Phone_number.ToString());
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    IdAuto.Add(Customer[i].Id.ToString());
+                    firstNameAuto.Add(Customer[i].First_name.ToString());
+                    phoneNumberAuto.Add(Customer[i].Phone_number.ToString());
+                }
+                // הגדרת שדות החיפוש למילוי אוטומטי
+                Txt_customerId.AutoCompleteCustomSource = IdAuto;
+                Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
+                Txt_phoneNumber.AutoCompleteCustomSource = phoneNumberAuto;
             }
-            // הגדרת שדות החיפוש למילוי אוטומטי
-            Txt_customerId.AutoCompleteCustomSource = IdAuto;
-            Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
-            Txt_phoneNumber.AutoCompleteCustomSource = phoneNumberAuto;
         }
         // שינוי בקלט בשדה תעודת זהות של הלקוח
         private void Txt_customerId_TextChanged(object sender, EventArgs e)
@@ -222,6 +226,22 @@ namespace Electricity_shop
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
+        }
+
+        private void Grd_customers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Frm_update_customer uCustomer = new Frm_update_customer();
+            uCustomer.Txt_customerId.Text = Grd_customers.CurrentRow.Cells[0].Value.ToString();
+            uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
+            uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();
+            uCustomer.Txt_phoneNumber.Text = Grd_customers.CurrentRow.Cells[3].Value.ToString();
+            uCustomer.Txt_address.Text = Grd_customers.CurrentRow.Cells[4].Value.ToString();
+            uCustomer.ShowDialog();
+
+            this.Close();
+            th = new Thread(OpenSelf);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }
