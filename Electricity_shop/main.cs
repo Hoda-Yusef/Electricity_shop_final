@@ -13,13 +13,18 @@ namespace Electricity_shop
 {
     public partial class Frm_main : Form
     {
-
+        private int mostSailedProductCounter = 0;
+        private readonly DBSQL mySQL;
         bool drag = false;
         Point sp = new Point(0, 0);
 
         public Frm_main()
         {
             InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)
@@ -200,20 +205,6 @@ namespace Electricity_shop
         private void OpenInStock(object obj)
         {
             Application.Run(new Frm_InStock());
-        }
-
-        private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread th;
-            th = new Thread(OpenDocuments);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-
-        private void OpenDocuments(object obj)
-        {
-            Application.Run(new Frm_documents());
         }
     }
 }

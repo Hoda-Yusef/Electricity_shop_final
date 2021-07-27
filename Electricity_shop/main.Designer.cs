@@ -370,7 +370,7 @@ namespace Electricity_shop
             this.Btn_incomeAndOutcome.Name = "Btn_incomeAndOutcome";
             this.Btn_incomeAndOutcome.Size = new System.Drawing.Size(198, 51);
             this.Btn_incomeAndOutcome.TabIndex = 13;
-            this.Btn_incomeAndOutcome.Text = "דו\"חות והכנסות";
+            this.Btn_incomeAndOutcome.Text = "דו\"ח רווח והפסד";
             this.Btn_incomeAndOutcome.UseVisualStyleBackColor = false;
             this.Btn_incomeAndOutcome.Click += new System.EventHandler(this.Btn_incomeAndOutcome_Click);
             // 
@@ -387,7 +387,7 @@ namespace Electricity_shop
             this.Btn_inStockReport.Name = "Btn_inStockReport";
             this.Btn_inStockReport.Size = new System.Drawing.Size(198, 51);
             this.Btn_inStockReport.TabIndex = 12;
-            this.Btn_inStockReport.Text = "ספירת מלאי";
+            this.Btn_inStockReport.Text = "דו\"ח ספירת מלאי";
             this.Btn_inStockReport.UseVisualStyleBackColor = false;
             this.Btn_inStockReport.Click += new System.EventHandler(this.Btn_inStockReport_Click);
             // 
