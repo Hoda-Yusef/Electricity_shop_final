@@ -201,6 +201,7 @@
             this.Txt_customersPhoneNumber.Size = new System.Drawing.Size(257, 38);
             this.Txt_customersPhoneNumber.TabIndex = 4;
             this.Txt_customersPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customersPhoneNumber_KeyPress);
+            this.Txt_customersPhoneNumber.Leave += new System.EventHandler(this.Txt_customersPhoneNumber_Leave);
             // 
             // Lbl_customersLastName
             // 

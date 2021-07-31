@@ -1177,7 +1177,44 @@ namespace Electricity_shop
 
         }
 
-        public customer[] GetCustomerDataByphoneN(string phone)
+        public customer GetCustomerDataByphoneN(string phone)
+        {
+            DataSet ds = new DataSet();
+            customer Customer = null;
+            string cmdStr = "SELECT * FROM customer WHERE phone_number=" + phone + "";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                
+                    Customer = new customer();
+                    Customer.Id = dt.Rows[0][1].ToString();
+                    Customer.First_name = dt.Rows[0][2].ToString();
+                    Customer.Last_name = dt.Rows[0][3].ToString();
+                    Customer.Phone_number = dt.Rows[0][4].ToString();
+                    Customer.Address = dt.Rows[0][5].ToString();
+
+                
+            }
+            return Customer;
+
+        }
+
+        public customer[] GetCustomerDataByphoneNumber(string phone)
         {
             DataSet ds = new DataSet();
             customer[] Customer = null;
@@ -1210,8 +1247,8 @@ namespace Electricity_shop
                     Customer[i].Last_name = dt.Rows[i][3].ToString();
                     Customer[i].Phone_number = dt.Rows[i][4].ToString();
                     Customer[i].Address = dt.Rows[i][5].ToString();
-
                 }
+
             }
             return Customer;
 

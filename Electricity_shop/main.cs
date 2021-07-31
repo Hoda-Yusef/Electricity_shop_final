@@ -18,6 +18,7 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
         orders[] Orders;
+        customer[] Customers;
 
         public Frm_main()
         {
@@ -162,14 +163,15 @@ namespace Electricity_shop
             Lbl_orders_wait_number.Text = mySQL.countWaitingOrders().ToString();
 
             Orders = mySQL.GetOrdersData();
+            Customers = mySQL.GetCustomerData();
 
-            if(Orders != null)
+            if(Orders != null && Customers != null)
             {
-                for(int i=0;i<Orders.Length;i++)
+                for(int i=0;i<Customers.Length;i++)
                 {
                     for(int j=0;j<Orders.Length;j++)
                     {
-                        if(Orders[i].Customer_id == Orders[j].Customer_id)
+                        if(Customers[i].Id == Orders[j].Customer_id)
                         {
                             count++;
                         }
@@ -257,6 +259,15 @@ namespace Electricity_shop
         private void OpenDocuments(object obj)
         {
             Application.Run(new Frm_documents());
+        }
+
+        private void Btn_incomeAndOutcome_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread th;
+            th = new Thread(OpenDocuments);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }

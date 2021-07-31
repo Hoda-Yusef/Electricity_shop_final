@@ -42,6 +42,8 @@ namespace Electricity_shop
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker_to = new System.Windows.Forms.DateTimePicker();
+            this.Pic_createPDF = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_createPDF)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_exit
@@ -76,7 +78,7 @@ namespace Electricity_shop
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(-2, 673);
+            this.panel3.Location = new System.Drawing.Point(-2, 753);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(954, 14);
@@ -88,7 +90,7 @@ namespace Electricity_shop
             this.panel2.Location = new System.Drawing.Point(944, -6);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 683);
+            this.panel2.Size = new System.Drawing.Size(10, 767);
             this.panel2.TabIndex = 40;
             // 
             // panel4
@@ -97,7 +99,7 @@ namespace Electricity_shop
             this.panel4.Location = new System.Drawing.Point(-2, -6);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 691);
+            this.panel4.Size = new System.Drawing.Size(10, 769);
             this.panel4.TabIndex = 42;
             // 
             // Lbl_inStockDocument
@@ -117,10 +119,10 @@ namespace Electricity_shop
             this.Lbl_info.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Lbl_info.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Lbl_info.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Lbl_info.Location = new System.Drawing.Point(186, 156);
+            this.Lbl_info.Location = new System.Drawing.Point(194, 156);
             this.Lbl_info.Name = "Lbl_info";
             this.Lbl_info.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_info.Size = new System.Drawing.Size(615, 495);
+            this.Lbl_info.Size = new System.Drawing.Size(581, 576);
             this.Lbl_info.TabIndex = 44;
             this.Lbl_info.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -147,7 +149,7 @@ namespace Electricity_shop
             this.Btn_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Btn_search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_search.Location = new System.Drawing.Point(80, 97);
+            this.Btn_search.Location = new System.Drawing.Point(45, 97);
             this.Btn_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_search.Name = "Btn_search";
             this.Btn_search.Size = new System.Drawing.Size(117, 51);
@@ -195,12 +197,22 @@ namespace Electricity_shop
             this.dateTimePicker_to.Size = new System.Drawing.Size(178, 34);
             this.dateTimePicker_to.TabIndex = 49;
             // 
+            // Pic_createPDF
+            // 
+            this.Pic_createPDF.Image = global::Electricity_shop.Properties.Resources.doc;
+            this.Pic_createPDF.Location = new System.Drawing.Point(799, 599);
+            this.Pic_createPDF.Name = "Pic_createPDF";
+            this.Pic_createPDF.Size = new System.Drawing.Size(125, 133);
+            this.Pic_createPDF.TabIndex = 51;
+            this.Pic_createPDF.TabStop = false;
+            // 
             // Frm_documents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(952, 683);
+            this.ClientSize = new System.Drawing.Size(952, 761);
+            this.Controls.Add(this.Pic_createPDF);
             this.Controls.Add(this.dateTimePicker_to);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -217,6 +229,7 @@ namespace Electricity_shop
             this.Name = "Frm_documents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "documents";
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_createPDF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +249,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker_to;
+        private System.Windows.Forms.PictureBox Pic_createPDF;
     }
 }
