@@ -127,6 +127,7 @@ namespace Electricity_shop
             this.Grd_suppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grd_suppliers.Size = new System.Drawing.Size(942, 466);
             this.Grd_suppliers.TabIndex = 22;
+            this.Grd_suppliers.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Grd_suppliers_CellMouseDoubleClick);
             // 
             // Column2
             // 
@@ -141,35 +142,6 @@ namespace Electricity_shop
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 120F;
-            this.Column4.HeaderText = "מספר פלאפון";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "כתובת";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "שולם לספק";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "חוב לספק";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // Txt_manageSuppliers
             // 
@@ -243,13 +215,13 @@ namespace Electricity_shop
             // Txt_lastName
             // 
             this.Txt_lastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            this.Txt_lastName.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_lastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_lastName.ForeColor = System.Drawing.Color.White;
             this.Txt_lastName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Txt_lastName.Location = new System.Drawing.Point(15, 128);
             this.Txt_lastName.Name = "Txt_lastName";
             this.Txt_lastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_lastName.Size = new System.Drawing.Size(175, 33);
+            this.Txt_lastName.Size = new System.Drawing.Size(199, 39);
             this.Txt_lastName.TabIndex = 11;
             this.Txt_lastName.TextChanged += new System.EventHandler(this.Txt_lastName_TextChanged);
             this.Txt_lastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_lastName_KeyPress);
@@ -288,13 +260,13 @@ namespace Electricity_shop
             // Txt_firstName
             // 
             this.Txt_firstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            this.Txt_firstName.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_firstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_firstName.ForeColor = System.Drawing.Color.White;
             this.Txt_firstName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Txt_firstName.Location = new System.Drawing.Point(15, 48);
             this.Txt_firstName.Name = "Txt_firstName";
             this.Txt_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_firstName.Size = new System.Drawing.Size(175, 33);
+            this.Txt_firstName.Size = new System.Drawing.Size(199, 39);
             this.Txt_firstName.TabIndex = 5;
             this.Txt_firstName.TextChanged += new System.EventHandler(this.Txt_firstName_TextChanged);
             this.Txt_firstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_firstName_KeyPress);

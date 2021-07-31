@@ -373,7 +373,7 @@ namespace Electricity_shop
             this.Btn_addProduct.Location = new System.Drawing.Point(179, 366);
             this.Btn_addProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_addProduct.Name = "Btn_addProduct";
-            this.Btn_addProduct.Size = new System.Drawing.Size(126, 46);
+            this.Btn_addProduct.Size = new System.Drawing.Size(144, 62);
             this.Btn_addProduct.TabIndex = 19;
             this.Btn_addProduct.Text = "הוספה";
             this.Btn_addProduct.UseVisualStyleBackColor = false;

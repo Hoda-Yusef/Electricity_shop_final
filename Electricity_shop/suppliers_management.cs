@@ -81,27 +81,31 @@ namespace Electricity_shop
         private void Frm_suppliersManagement_Load(object sender, EventArgs e)//מילוי טבלה בעת פתיחה 
         {
             supplier[] Supplier = mySQL.GetSupplierData();
-            for (int i = 0; i < Supplier.Length; i++)
+
+            if (Supplier != null)
             {
-                Grd_suppliers.Rows.Add(new object[]
-                    {
+                for (int i = 0; i < Supplier.Length; i++)
+                {
+                    Grd_suppliers.Rows.Add(new object[]
+                        {
                         Supplier[i].FirstName,
                         Supplier[i].LasttName,
                         Supplier[i].Phone_number,
                         Supplier[i].Address,
                         Supplier[i].Dept,
                         Supplier[i].Paid
-                    });
-            }
+                        });
+                }
 
-            for (int i = 0; i < Supplier.Length; i++)
-            {
-                firstNameAuto.Add(Supplier[i].FirstName.ToString());
-                last_nameAuto.Add(Supplier[i].Phone_number.ToString());
-            }
+                for (int i = 0; i < Supplier.Length; i++)
+                {
+                    firstNameAuto.Add(Supplier[i].FirstName.ToString());
+                    last_nameAuto.Add(Supplier[i].Phone_number.ToString());
+                }
 
-            Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
-            Txt_lastName.AutoCompleteCustomSource = last_nameAuto;
+                Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
+                Txt_lastName.AutoCompleteCustomSource = last_nameAuto;
+            }
         }
 
         private void Btn_clearTextBoxes_Click(object sender, EventArgs e)//כפתור ניקוי שדות
@@ -136,6 +140,7 @@ namespace Electricity_shop
         private void Fill_grid(supplier[] Sup)//כשעושים חיפוש לספק מסווים הטבלה מתעדכנת מחדש
         {
             Grd_suppliers.Rows.Clear();
+            
             if (Sup != null)
             {
                 for (int i = 0; i < Sup.Length; i++)
@@ -199,6 +204,23 @@ namespace Electricity_shop
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
+        }
+
+        private void Grd_suppliers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Frm_updateSupplier uSupplier = new Frm_updateSupplier();
+            uSupplier.Txt_firstName.Text = Grd_suppliers.CurrentRow.Cells[0].Value.ToString();
+            uSupplier.Txt_lastName.Text = Grd_suppliers.CurrentRow.Cells[1].Value.ToString();
+            uSupplier.Txt_address.Text = Grd_suppliers.CurrentRow.Cells[3].Value.ToString();
+            uSupplier.Txt_phoneNumber.Text = Grd_suppliers.CurrentRow.Cells[2].Value.ToString();
+            uSupplier.Txt_supplierDept.Text = Grd_suppliers.CurrentRow.Cells[5].Value.ToString();
+            uSupplier.Txt_paidToSupplier.Text = Grd_suppliers.CurrentRow.Cells[4].Value.ToString();
+            uSupplier.ShowDialog();//עובר לדף העידכון
+
+            this.Close();
+            th = new Thread(OpenSelf);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
     }
 }

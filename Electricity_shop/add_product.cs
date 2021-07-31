@@ -17,11 +17,11 @@ namespace Electricity_shop
         //int inx;
         private readonly DBSQL mySQL;
         private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
-        readonly AutoCompleteStringCollection barcode = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection category = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection model = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection manufacturer = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection supplier = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection barcodeAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection manufacturerAuto = new AutoCompleteStringCollection();
+        readonly AutoCompleteStringCollection supplierAuto = new AutoCompleteStringCollection();
 
         public Frm_addProduct()
         {
@@ -38,13 +38,13 @@ namespace Electricity_shop
         // השלמה אוטומטית של מאפיינים מסויימים שקבענו
         private void Set_AutoCompleteMode_text_boxes()
         {
-            Txt_category.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_category.AutoCompleteMode = AutoCompleteMode.Suggest;
             Txt_category.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            Txt_manufacturer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_manufacturer.AutoCompleteMode = AutoCompleteMode.Suggest;
             Txt_manufacturer.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            Txt_supplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_supplier.AutoCompleteMode = AutoCompleteMode.Suggest;
             Txt_supplier.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
@@ -120,17 +120,17 @@ namespace Electricity_shop
             {
                 for (int i = 0; i < Product.Length; i++)
                 {
-                    barcode.Add(Product[i].Barcode);
-                    category.Add(Product[i].Category);
-                    model.Add(Product[i].Model);
-                    manufacturer.Add(Product[i].Manufacturer);
-                    supplier.Add(Product[i].Supplier);
+                    barcodeAuto.Add(Product[i].Barcode);
+                    categoryAuto.Add(Product[i].Category);
+                    modelAuto.Add(Product[i].Model);
+                    manufacturerAuto.Add(Product[i].Manufacturer);
+                    supplierAuto.Add(Product[i].Supplier);
                 }
-                Txt_barcode.AutoCompleteCustomSource = barcode;
-                Txt_supplier.AutoCompleteCustomSource = supplier;
-                Txt_model.AutoCompleteCustomSource = model;
-                Txt_manufacturer.AutoCompleteCustomSource = manufacturer;
-                Txt_category.AutoCompleteCustomSource = category;
+                Txt_barcode.AutoCompleteCustomSource = barcodeAuto;
+                Txt_supplier.AutoCompleteCustomSource = supplierAuto;
+                Txt_model.AutoCompleteCustomSource = modelAuto;
+                Txt_manufacturer.AutoCompleteCustomSource = manufacturerAuto;
+                Txt_category.AutoCompleteCustomSource = categoryAuto;
             }
         }
         //מגדירים כל השדות ריקים

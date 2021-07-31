@@ -309,11 +309,14 @@ namespace Electricity_shop
                 th.Start();
             }
 
-            
-            
-
         }
 
-        
+        private void Grd_orders_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Frm_productsList Show_order = new Frm_productsList();
+
+            Show_order.Lbl_showOrderNumber.Text = Grd_orders.CurrentRow.Cells[0].Value.ToString();
+            Show_order.ShowDialog();
+        }
     }
 }

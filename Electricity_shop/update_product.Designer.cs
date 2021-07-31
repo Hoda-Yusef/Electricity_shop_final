@@ -139,7 +139,7 @@ namespace Electricity_shop
             // Txt_productInfo
             // 
             this.Txt_productInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_productInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_productInfo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_productInfo.ForeColor = System.Drawing.SystemColors.Window;
             this.Txt_productInfo.Location = new System.Drawing.Point(57, 367);
             this.Txt_productInfo.Multiline = true;
@@ -192,7 +192,7 @@ namespace Electricity_shop
             // Txt_barcode
             // 
             this.Txt_barcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_barcode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_barcode.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_barcode.ForeColor = System.Drawing.Color.White;
             this.Txt_barcode.Location = new System.Drawing.Point(575, 67);
             this.Txt_barcode.Multiline = true;
@@ -228,7 +228,7 @@ namespace Electricity_shop
             // 
             this.Txt_supplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Txt_supplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_supplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_supplier.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_supplier.ForeColor = System.Drawing.Color.White;
             this.Txt_supplier.Location = new System.Drawing.Point(575, 457);
             this.Txt_supplier.Multiline = true;
@@ -263,7 +263,7 @@ namespace Electricity_shop
             // 
             this.Txt_amount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Txt_amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_amount.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Txt_amount.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_amount.ForeColor = System.Drawing.Color.White;
             this.Txt_amount.Location = new System.Drawing.Point(117, 273);
             this.Txt_amount.Multiline = true;
@@ -277,7 +277,7 @@ namespace Electricity_shop
             // Txt_manufacturer
             // 
             this.Txt_manufacturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_manufacturer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_manufacturer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_manufacturer.ForeColor = System.Drawing.SystemColors.Window;
             this.Txt_manufacturer.Location = new System.Drawing.Point(575, 367);
             this.Txt_manufacturer.Multiline = true;
@@ -290,7 +290,7 @@ namespace Electricity_shop
             // 
             this.Txt_selling_price.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Txt_selling_price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_selling_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_selling_price.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_selling_price.ForeColor = System.Drawing.Color.White;
             this.Txt_selling_price.Location = new System.Drawing.Point(117, 168);
             this.Txt_selling_price.Multiline = true;
@@ -303,7 +303,7 @@ namespace Electricity_shop
             // Txt_model
             // 
             this.Txt_model.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_model.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_model.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_model.ForeColor = System.Drawing.SystemColors.Window;
             this.Txt_model.Location = new System.Drawing.Point(575, 273);
             this.Txt_model.Multiline = true;
@@ -317,7 +317,7 @@ namespace Electricity_shop
             // 
             this.Txt_cost_price.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Txt_cost_price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_cost_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_cost_price.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_cost_price.ForeColor = System.Drawing.Color.White;
             this.Txt_cost_price.Location = new System.Drawing.Point(117, 67);
             this.Txt_cost_price.Multiline = true;
@@ -331,7 +331,7 @@ namespace Electricity_shop
             // 
             this.Txt_category.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Txt_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_category.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_category.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_category.ForeColor = System.Drawing.Color.White;
             this.Txt_category.Location = new System.Drawing.Point(575, 168);
             this.Txt_category.Multiline = true;

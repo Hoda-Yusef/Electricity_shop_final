@@ -79,14 +79,17 @@ namespace Electricity_shop
             Product[] Products = mySQL.GetProductData();
             Cart[] Cart = mySQL.getCartData();
 
-            for(int i=0;i<Cart.Length;i++)
+            if (Products != null && Cart != null)
             {
-                for(int j=0;j<Products.Length;j++)
+
+                for (int i = 0; i < Cart.Length; i++)
                 {
-                    if(Cart[i].Product_barcode==Products[j].Barcode)
+                    for (int j = 0; j < Products.Length; j++)
                     {
-                        Grd_productsList.Rows.Add(new object[]
-                    {
+                        if (Cart[i].Product_barcode == Products[j].Barcode)
+                        {
+                            Grd_productsList.Rows.Add(new object[]
+                        {
                         Products[j].Barcode,
                     Products[j].Category,
                     Products[j].Manufacturer,
@@ -94,8 +97,9 @@ namespace Electricity_shop
                     Products[j].Selling_price,
                     Cart[i].Amount,
                     Products[j].Product_info,
-                    
-                    });
+
+                        });
+                        }
                     }
                 }
             }

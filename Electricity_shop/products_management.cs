@@ -27,6 +27,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
 
+
             Set_AutoCompleteMode_text_boxes();
 
         }
@@ -51,7 +52,7 @@ namespace Electricity_shop
         // למלא טבלה בטופס לפי ברקוד
         private void Fill_grid_by_barcode()
         {
-            product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -62,7 +63,7 @@ namespace Electricity_shop
         // למלא טבלה בטופס לפי קטגוריה
         private void Fill_grid_by_category()
         {
-            product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -73,7 +74,7 @@ namespace Electricity_shop
         //למלא טבלה בטופס לפי יצרן
         private void Fill_grid_by_manufacture()
         {
-            product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
 
@@ -84,12 +85,21 @@ namespace Electricity_shop
         //למלא טבלה בטופס לפי דגם מוצר
         private void Fill_grid_by_model()
         {
-           product = mySQL.GetProductDataFiltered(Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+           product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
                 Grd_products.Rows[0].Cells[0].Selected = false;
 
+        }
+
+        private void stock_amount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            product = mySQL.GetProductDataFiltered(stock_amount.Text,Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+
+            Fill_grid(product);
+            if (Grd_products.Rows.Count != 0)
+                Grd_products.Rows[0].Cells[0].Selected = false;
         }
 
         // מילוי טבלה בטופס לפי רשימת מוצרים שמקבלת הפונקציה כפרמטר
@@ -227,6 +237,9 @@ namespace Electricity_shop
         {
             Fill_grid_by_model();
         }
+
+       
+
         //טעינת טופס נוכחי
         private void Frm_products_management_Load(object sender, EventArgs e)
         {
@@ -298,5 +311,33 @@ namespace Electricity_shop
             th.Start();
         }
 
+        //כאשר לוחצים לחיצה כפולה עוברים לעידכון מוצר ספציפי
+        private void Grd_products_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //עוברים לטופס עדכון מוצר
+            Frm_updateProduct updateProduct = new Frm_updateProduct();
+            //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
+            updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
+            updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();
+            updateProduct.Txt_model.Text = Grd_products.CurrentRow.Cells[2].Value.ToString();
+            updateProduct.Txt_barcode.Text = Grd_products.CurrentRow.Cells[3].Value.ToString();
+            updateProduct.Txt_supplier.Text = Grd_products.CurrentRow.Cells[4].Value.ToString();
+            updateProduct.Txt_amount.Text = Grd_products.CurrentRow.Cells[5].Value.ToString();
+            updateProduct.Txt_cost_price.Text = Grd_products.CurrentRow.Cells[6].Value.ToString();
+            updateProduct.Txt_selling_price.Text = Grd_products.CurrentRow.Cells[7].Value.ToString();
+            updateProduct.Txt_productInfo.Text = Grd_products.CurrentRow.Cells[8].Value.ToString();
+
+            updateProduct.ShowDialog();
+
+            this.Close();
+            th = new Thread(OpenSelf);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void stock_amount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

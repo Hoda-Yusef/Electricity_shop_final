@@ -18,7 +18,6 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         private DBSQL mySQL;
         orders Orderss;
-        order_number_holder ONH;
         product_order[] Product_order;
         Product Product;
         int previosAmount;
@@ -269,7 +268,8 @@ namespace Electricity_shop
 
         private void Grd_allOrders_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            previosAmount = Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);//כאשר רוצים לשנה כמות אנו שומרים את הכמות הקודמת
+            //כאשר רוצים לשנות כמות אנו שומרים את הכמות הקודמת
+            previosAmount = Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);
         }
     }
 

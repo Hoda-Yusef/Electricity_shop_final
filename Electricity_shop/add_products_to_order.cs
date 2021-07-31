@@ -20,7 +20,6 @@ namespace Electricity_shop
 
         Product[] Products;
         Product Product;
-        order_number_holder ONH;
 
         product_order[] Product_order;
         string order_number_holder;
@@ -51,8 +50,10 @@ namespace Electricity_shop
 
             for (int i = 0; i < Products.Length; i++)
             {
-                Grd_productsList.Rows.Add(new object[]
+                if (Products[i].Amount > 0)//הצגת רק את המוצרים שזמינים במלאי
                 {
+                    Grd_productsList.Rows.Add(new object[]
+                    {
                     Products[i].Category,
                     Products[i].Manufacturer,
                     Products[i].Model,
@@ -62,7 +63,8 @@ namespace Electricity_shop
                     Products[i].Cost_price,
                     Products[i].Selling_price,
                     Products[i].Product_info
-                });
+                    });
+                }
             }
         }
 
@@ -106,7 +108,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_barcode()
         {
-            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+           Products = mySQL.GetProductDataFiltered("זמין במלאי",Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
             if (Grd_productsList.Rows.Count != 0)
@@ -116,7 +118,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_category()
         {
-            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+            Products = mySQL.GetProductDataFiltered("זמין במלאי",Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
             if (Grd_productsList.Rows.Count != 0)
@@ -126,7 +128,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_manufacture()
         {
-            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+           Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
 
@@ -137,7 +139,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_model()
         {
-            Products = mySQL.GetProductDataFiltered(Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+           Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
             if (Grd_productsList.Rows.Count != 0)

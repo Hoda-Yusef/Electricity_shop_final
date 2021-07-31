@@ -147,10 +147,10 @@
             // 
             this.Lbl_customersAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersAddress.Location = new System.Drawing.Point(264, 143);
+            this.Lbl_customersAddress.Location = new System.Drawing.Point(264, 150);
             this.Lbl_customersAddress.Name = "Lbl_customersAddress";
             this.Lbl_customersAddress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customersAddress.Size = new System.Drawing.Size(79, 39);
+            this.Lbl_customersAddress.Size = new System.Drawing.Size(79, 28);
             this.Lbl_customersAddress.TabIndex = 61;
             this.Lbl_customersAddress.Text = "כתובת";
             // 
@@ -182,7 +182,7 @@
             // 
             this.Lbl_customersPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersPhoneNumber.Location = new System.Drawing.Point(196, 39);
+            this.Lbl_customersPhoneNumber.Location = new System.Drawing.Point(198, 38);
             this.Lbl_customersPhoneNumber.Name = "Lbl_customersPhoneNumber";
             this.Lbl_customersPhoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_customersPhoneNumber.Size = new System.Drawing.Size(147, 27);
@@ -206,7 +206,7 @@
             // 
             this.Lbl_customersLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersLastName.Location = new System.Drawing.Point(610, 271);
+            this.Lbl_customersLastName.Location = new System.Drawing.Point(610, 267);
             this.Lbl_customersLastName.Name = "Lbl_customersLastName";
             this.Lbl_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_customersLastName.Size = new System.Drawing.Size(127, 27);
@@ -262,7 +262,7 @@
             this.delivery.Location = new System.Drawing.Point(102, 321);
             this.delivery.Name = "delivery";
             this.delivery.Size = new System.Drawing.Size(39, 24);
-            this.delivery.TabIndex = 54;
+            this.delivery.TabIndex = 5;
             // 
             // Lbl_customerId
             // 
@@ -318,7 +318,7 @@
             this.Btn_ok.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_ok.Name = "Btn_ok";
             this.Btn_ok.Size = new System.Drawing.Size(179, 63);
-            this.Btn_ok.TabIndex = 47;
+            this.Btn_ok.TabIndex = 7;
             this.Btn_ok.Text = "אישור";
             this.Btn_ok.UseVisualStyleBackColor = false;
             this.Btn_ok.Click += new System.EventHandler(this.Btn_ok_Click);
