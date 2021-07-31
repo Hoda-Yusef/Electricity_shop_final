@@ -263,7 +263,7 @@ namespace Electricity_shop
             // 
             this.Txt_amount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Txt_amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Txt_amount.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_amount.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Txt_amount.ForeColor = System.Drawing.Color.White;
             this.Txt_amount.Location = new System.Drawing.Point(117, 273);
             this.Txt_amount.Multiline = true;

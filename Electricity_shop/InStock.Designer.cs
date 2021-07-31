@@ -56,11 +56,15 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel1.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1243, 33);
+            this.panel1.Size = new System.Drawing.Size(1243, 17);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // panel2
             // 
@@ -119,7 +123,7 @@ namespace Electricity_shop
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(478, 196);
+            this.dateTimePicker1.Location = new System.Drawing.Point(478, 174);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker1.MaxDate = new System.DateTime(3100, 12, 26, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2021, 7, 25, 0, 0, 0, 0);
@@ -131,11 +135,11 @@ namespace Electricity_shop
             // Lbl_secondHeading
             // 
             this.Lbl_secondHeading.AutoSize = true;
-            this.Lbl_secondHeading.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_secondHeading.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_secondHeading.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Lbl_secondHeading.Location = new System.Drawing.Point(481, 121);
+            this.Lbl_secondHeading.Location = new System.Drawing.Point(509, 111);
             this.Lbl_secondHeading.Name = "Lbl_secondHeading";
-            this.Lbl_secondHeading.Size = new System.Drawing.Size(318, 50);
+            this.Lbl_secondHeading.Size = new System.Drawing.Size(257, 41);
             this.Lbl_secondHeading.TabIndex = 40;
             this.Lbl_secondHeading.Text = "בחר/י תאריך רצוי";
             // 
@@ -145,7 +149,7 @@ namespace Electricity_shop
             this.Btn_showDocument.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_showDocument.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_showDocument.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_showDocument.Location = new System.Drawing.Point(275, 181);
+            this.Btn_showDocument.Location = new System.Drawing.Point(275, 159);
             this.Btn_showDocument.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_showDocument.Name = "Btn_showDocument";
             this.Btn_showDocument.Size = new System.Drawing.Size(126, 52);
@@ -160,7 +164,7 @@ namespace Electricity_shop
             this.Btn_saveDocument.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_saveDocument.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_saveDocument.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_saveDocument.Location = new System.Drawing.Point(881, 181);
+            this.Btn_saveDocument.Location = new System.Drawing.Point(881, 159);
             this.Btn_saveDocument.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_saveDocument.Name = "Btn_saveDocument";
             this.Btn_saveDocument.Size = new System.Drawing.Size(126, 52);
@@ -210,7 +214,7 @@ namespace Electricity_shop
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grd_products_stock.DefaultCellStyle = dataGridViewCellStyle3;
             this.Grd_products_stock.EnableHeadersVisualStyles = false;
-            this.Grd_products_stock.Location = new System.Drawing.Point(61, 256);
+            this.Grd_products_stock.Location = new System.Drawing.Point(61, 225);
             this.Grd_products_stock.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Grd_products_stock.Name = "Grd_products_stock";
             this.Grd_products_stock.ReadOnly = true;
@@ -219,7 +223,7 @@ namespace Electricity_shop
             this.Grd_products_stock.RowHeadersWidth = 5;
             this.Grd_products_stock.RowTemplate.Height = 40;
             this.Grd_products_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grd_products_stock.Size = new System.Drawing.Size(1137, 379);
+            this.Grd_products_stock.Size = new System.Drawing.Size(1137, 427);
             this.Grd_products_stock.TabIndex = 43;
             // 
             // Column1
@@ -290,6 +294,7 @@ namespace Electricity_shop
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Frm_InStock";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InStock";
             this.Load += new System.EventHandler(this.Frm_InStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grd_products_stock)).EndInit();

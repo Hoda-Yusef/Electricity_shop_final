@@ -34,19 +34,31 @@ namespace Electricity_shop
             this.Lbl_heading = new System.Windows.Forms.Label();
             this.Pic_socket = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Lbl_about_to_end_number = new System.Windows.Forms.Label();
+            this.Lbl_about_to_end = new System.Windows.Forms.Label();
+            this.Lbl_out_of_stock_number = new System.Windows.Forms.Label();
+            this.Lbl_out_of_stock = new System.Windows.Forms.Label();
             this.Btn_addProduct = new System.Windows.Forms.Button();
             this.Btn_manageProducts = new System.Windows.Forms.Button();
             this.Lbl_products = new System.Windows.Forms.Label();
             this.Lbl_customers = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Lbl_active_customers_number = new System.Windows.Forms.Label();
+            this.Lbl_active_customers = new System.Windows.Forms.Label();
+            this.Lbl_customers_number = new System.Windows.Forms.Label();
+            this.Lbl_customer = new System.Windows.Forms.Label();
             this.Btn_addCustomer = new System.Windows.Forms.Button();
             this.Btn_manageCustomers = new System.Windows.Forms.Button();
             this.Lbl_suppliers = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Lbl_suppliers_number = new System.Windows.Forms.Label();
+            this.Lbl_supplier = new System.Windows.Forms.Label();
             this.Btn_addSupplier = new System.Windows.Forms.Button();
             this.Btn_manageSuppliers = new System.Windows.Forms.Button();
             this.Lbl_ordersAndDelivery = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Lbl_orders_wait_number = new System.Windows.Forms.Label();
+            this.Lbl_orders_wait = new System.Windows.Forms.Label();
             this.Btn_addOrder = new System.Windows.Forms.Button();
             this.Btn_manageOrders = new System.Windows.Forms.Button();
             this.Lbl_information = new System.Windows.Forms.Label();
@@ -113,12 +125,64 @@ namespace Electricity_shop
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.Lbl_about_to_end_number);
+            this.panel1.Controls.Add(this.Lbl_about_to_end);
+            this.panel1.Controls.Add(this.Lbl_out_of_stock_number);
+            this.panel1.Controls.Add(this.Lbl_out_of_stock);
             this.panel1.Controls.Add(this.Btn_addProduct);
             this.panel1.Controls.Add(this.Btn_manageProducts);
             this.panel1.Location = new System.Drawing.Point(1195, 195);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(235, 462);
             this.panel1.TabIndex = 5;
+            // 
+            // Lbl_about_to_end_number
+            // 
+            this.Lbl_about_to_end_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_about_to_end_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
+            this.Lbl_about_to_end_number.Location = new System.Drawing.Point(-1, 385);
+            this.Lbl_about_to_end_number.Name = "Lbl_about_to_end_number";
+            this.Lbl_about_to_end_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_about_to_end_number.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_about_to_end_number.TabIndex = 21;
+            this.Lbl_about_to_end_number.Text = "0";
+            this.Lbl_about_to_end_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_about_to_end
+            // 
+            this.Lbl_about_to_end.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_about_to_end.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
+            this.Lbl_about_to_end.Location = new System.Drawing.Point(-1, 356);
+            this.Lbl_about_to_end.Name = "Lbl_about_to_end";
+            this.Lbl_about_to_end.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_about_to_end.Size = new System.Drawing.Size(235, 29);
+            this.Lbl_about_to_end.TabIndex = 20;
+            this.Lbl_about_to_end.Text = "כמעט זמין במלאי";
+            this.Lbl_about_to_end.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_out_of_stock_number
+            // 
+            this.Lbl_out_of_stock_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_out_of_stock_number.ForeColor = System.Drawing.Color.Red;
+            this.Lbl_out_of_stock_number.Location = new System.Drawing.Point(3, 301);
+            this.Lbl_out_of_stock_number.Name = "Lbl_out_of_stock_number";
+            this.Lbl_out_of_stock_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_out_of_stock_number.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_out_of_stock_number.TabIndex = 19;
+            this.Lbl_out_of_stock_number.Text = "0";
+            this.Lbl_out_of_stock_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_out_of_stock
+            // 
+            this.Lbl_out_of_stock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_out_of_stock.ForeColor = System.Drawing.Color.Red;
+            this.Lbl_out_of_stock.Location = new System.Drawing.Point(-1, 272);
+            this.Lbl_out_of_stock.Name = "Lbl_out_of_stock";
+            this.Lbl_out_of_stock.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_out_of_stock.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_out_of_stock.TabIndex = 18;
+            this.Lbl_out_of_stock.Text = "לא זמין במלאי";
+            this.Lbl_out_of_stock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Btn_addProduct
             // 
@@ -181,12 +245,64 @@ namespace Electricity_shop
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.Lbl_active_customers_number);
+            this.panel2.Controls.Add(this.Lbl_active_customers);
+            this.panel2.Controls.Add(this.Lbl_customers_number);
+            this.panel2.Controls.Add(this.Lbl_customer);
             this.panel2.Controls.Add(this.Btn_addCustomer);
             this.panel2.Controls.Add(this.Btn_manageCustomers);
             this.panel2.Location = new System.Drawing.Point(913, 195);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(235, 462);
             this.panel2.TabIndex = 9;
+            // 
+            // Lbl_active_customers_number
+            // 
+            this.Lbl_active_customers_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_active_customers_number.ForeColor = System.Drawing.Color.Lime;
+            this.Lbl_active_customers_number.Location = new System.Drawing.Point(-1, 385);
+            this.Lbl_active_customers_number.Name = "Lbl_active_customers_number";
+            this.Lbl_active_customers_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_active_customers_number.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_active_customers_number.TabIndex = 25;
+            this.Lbl_active_customers_number.Text = "0";
+            this.Lbl_active_customers_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_active_customers
+            // 
+            this.Lbl_active_customers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_active_customers.ForeColor = System.Drawing.Color.Lime;
+            this.Lbl_active_customers.Location = new System.Drawing.Point(3, 356);
+            this.Lbl_active_customers.Name = "Lbl_active_customers";
+            this.Lbl_active_customers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_active_customers.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_active_customers.TabIndex = 24;
+            this.Lbl_active_customers.Text = "לקוחות פעילים";
+            this.Lbl_active_customers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_customers_number
+            // 
+            this.Lbl_customers_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_customers_number.ForeColor = System.Drawing.Color.White;
+            this.Lbl_customers_number.Location = new System.Drawing.Point(-1, 301);
+            this.Lbl_customers_number.Name = "Lbl_customers_number";
+            this.Lbl_customers_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_customers_number.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_customers_number.TabIndex = 23;
+            this.Lbl_customers_number.Text = "0";
+            this.Lbl_customers_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_customer
+            // 
+            this.Lbl_customer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_customer.ForeColor = System.Drawing.Color.White;
+            this.Lbl_customer.Location = new System.Drawing.Point(3, 272);
+            this.Lbl_customer.Name = "Lbl_customer";
+            this.Lbl_customer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_customer.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_customer.TabIndex = 22;
+            this.Lbl_customer.Text = "מספר לקוחות";
+            this.Lbl_customer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Btn_addCustomer
             // 
@@ -226,10 +342,10 @@ namespace Electricity_shop
             // 
             this.Lbl_suppliers.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_suppliers.ForeColor = System.Drawing.Color.White;
-            this.Lbl_suppliers.Location = new System.Drawing.Point(739, 180);
+            this.Lbl_suppliers.Location = new System.Drawing.Point(739, 176);
             this.Lbl_suppliers.Name = "Lbl_suppliers";
             this.Lbl_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_suppliers.Size = new System.Drawing.Size(96, 41);
+            this.Lbl_suppliers.Size = new System.Drawing.Size(96, 31);
             this.Lbl_suppliers.TabIndex = 10;
             this.Lbl_suppliers.Text = "ספקים";
             // 
@@ -238,12 +354,38 @@ namespace Electricity_shop
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Lbl_suppliers_number);
+            this.panel3.Controls.Add(this.Lbl_supplier);
             this.panel3.Controls.Add(this.Btn_addSupplier);
             this.panel3.Controls.Add(this.Btn_manageSuppliers);
             this.panel3.Location = new System.Drawing.Point(627, 195);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(235, 462);
             this.panel3.TabIndex = 9;
+            // 
+            // Lbl_suppliers_number
+            // 
+            this.Lbl_suppliers_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_suppliers_number.ForeColor = System.Drawing.Color.White;
+            this.Lbl_suppliers_number.Location = new System.Drawing.Point(-5, 330);
+            this.Lbl_suppliers_number.Name = "Lbl_suppliers_number";
+            this.Lbl_suppliers_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_suppliers_number.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_suppliers_number.TabIndex = 25;
+            this.Lbl_suppliers_number.Text = "0";
+            this.Lbl_suppliers_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_supplier
+            // 
+            this.Lbl_supplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_supplier.ForeColor = System.Drawing.Color.White;
+            this.Lbl_supplier.Location = new System.Drawing.Point(-1, 301);
+            this.Lbl_supplier.Name = "Lbl_supplier";
+            this.Lbl_supplier.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_supplier.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_supplier.TabIndex = 24;
+            this.Lbl_supplier.Text = "מספר ספקים";
+            this.Lbl_supplier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Btn_addSupplier
             // 
@@ -294,12 +436,38 @@ namespace Electricity_shop
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.Lbl_orders_wait_number);
+            this.panel4.Controls.Add(this.Lbl_orders_wait);
             this.panel4.Controls.Add(this.Btn_addOrder);
             this.panel4.Controls.Add(this.Btn_manageOrders);
             this.panel4.Location = new System.Drawing.Point(354, 195);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(235, 462);
             this.panel4.TabIndex = 9;
+            // 
+            // Lbl_orders_wait_number
+            // 
+            this.Lbl_orders_wait_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_orders_wait_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
+            this.Lbl_orders_wait_number.Location = new System.Drawing.Point(-1, 330);
+            this.Lbl_orders_wait_number.Name = "Lbl_orders_wait_number";
+            this.Lbl_orders_wait_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_orders_wait_number.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_orders_wait_number.TabIndex = 23;
+            this.Lbl_orders_wait_number.Text = "0";
+            this.Lbl_orders_wait_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_orders_wait
+            // 
+            this.Lbl_orders_wait.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_orders_wait.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
+            this.Lbl_orders_wait.Location = new System.Drawing.Point(-1, 301);
+            this.Lbl_orders_wait.Name = "Lbl_orders_wait";
+            this.Lbl_orders_wait.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_orders_wait.Size = new System.Drawing.Size(235, 29);
+            this.Lbl_orders_wait.TabIndex = 22;
+            this.Lbl_orders_wait.Text = "הזמנות לא סופקו";
+            this.Lbl_orders_wait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Btn_addOrder
             // 
@@ -395,7 +563,7 @@ namespace Electricity_shop
             // 
             this.Lbl_welcome.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Lbl_welcome.ForeColor = System.Drawing.Color.White;
-            this.Lbl_welcome.Location = new System.Drawing.Point(627, 120);
+            this.Lbl_welcome.Location = new System.Drawing.Point(587, 106);
             this.Lbl_welcome.Name = "Lbl_welcome";
             this.Lbl_welcome.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_welcome.Size = new System.Drawing.Size(390, 29);
@@ -540,5 +708,17 @@ namespace Electricity_shop
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button Btn_close;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label Lbl_about_to_end_number;
+        private System.Windows.Forms.Label Lbl_about_to_end;
+        private System.Windows.Forms.Label Lbl_out_of_stock_number;
+        private System.Windows.Forms.Label Lbl_out_of_stock;
+        private System.Windows.Forms.Label Lbl_active_customers_number;
+        private System.Windows.Forms.Label Lbl_active_customers;
+        private System.Windows.Forms.Label Lbl_customers_number;
+        private System.Windows.Forms.Label Lbl_customer;
+        private System.Windows.Forms.Label Lbl_suppliers_number;
+        private System.Windows.Forms.Label Lbl_supplier;
+        private System.Windows.Forms.Label Lbl_orders_wait_number;
+        private System.Windows.Forms.Label Lbl_orders_wait;
     }
 }

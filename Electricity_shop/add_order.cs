@@ -202,20 +202,23 @@ namespace Electricity_shop
         {
             customer[] Customer = mySQL.GetCustomerData();
 
-
-            for (int i = 0; i < Customer.Length; i++)
+            if (Customer != null)
             {
-                idAuto.Add(Customer[i].Id);
-                firstNameAuto.Add(Customer[i].First_name);
-                lastNameAuto.Add(Customer[i].Last_name);
-                addressAuto.Add(Customer[i].Address);
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    idAuto.Add(Customer[i].Id);
+                    firstNameAuto.Add(Customer[i].First_name);
+                    lastNameAuto.Add(Customer[i].Last_name);
+                    addressAuto.Add(Customer[i].Address);
 
 
+                }
+                Txt_customerId.AutoCompleteCustomSource = idAuto;
+                Txt_customersFirstName.AutoCompleteCustomSource = firstNameAuto;
+                Txt_customersLastName.AutoCompleteCustomSource = lastNameAuto;
+                Txt_customersAddress.AutoCompleteCustomSource = addressAuto;
             }
-            Txt_customerId.AutoCompleteCustomSource = idAuto;
-            Txt_customersFirstName.AutoCompleteCustomSource = firstNameAuto;
-            Txt_customersLastName.AutoCompleteCustomSource = lastNameAuto;
-            Txt_customersAddress.AutoCompleteCustomSource = addressAuto;
         }
 
         private void Txt_customerId_Leave(object sender, EventArgs e)//כשעוזבים את שדה התעודת זהות המערכת בודקת אם לקוח קיים אם כן ממלא של שאר השדות בפרטים של אותו לקוח
@@ -282,6 +285,11 @@ namespace Electricity_shop
             {
                 e.Handled = true;
             }
+        }
+
+        private void dateTimePicker_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

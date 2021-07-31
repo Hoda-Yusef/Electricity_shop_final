@@ -215,15 +215,16 @@ namespace Electricity_shop
             string item = Grd_productsList.CurrentRow.Cells[3].Value.ToString();//שולפים את הברקוד מהטבלה 
             int amount = (int)Grd_productsList.CurrentRow.Cells[5].Value;//שולפים את הכמות הקיימת למוצר הנבחר
 
-
-            for (int i = 0; i < Product_order.Length; i++)//לולאה בודקת אם המוצר שנבחר קיים כבר להזמנה
+            if (Product_order != null)
             {
-                if (Product_order[i].Product_serial_number == Product.Product_serial_number)
+                for (int i = 0; i < Product_order.Length; i++)//לולאה בודקת אם המוצר שנבחר קיים כבר להזמנה
                 {
-                    same = true;
+                    if (Product_order[i].Product_serial_number == Product.Product_serial_number)
+                    {
+                        same = true;
+                    }
                 }
             }
-
             insert_to_order(same,item,amount);
 
             

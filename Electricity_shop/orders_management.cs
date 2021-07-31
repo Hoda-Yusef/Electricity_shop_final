@@ -182,7 +182,7 @@ namespace Electricity_shop
         {
             if (date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
+                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
@@ -194,13 +194,7 @@ namespace Electricity_shop
             }
         }
 
-        private void fill_grid_by_last_name()
-        {
-            Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
-
-            fill_grid(Orders_customers);
-        }
-
+        
         private void Txt_customersFirstName_TextChanged(object sender, EventArgs e)//מסנן טבלה לפי שם פרטי
         {
             if (date_changed)

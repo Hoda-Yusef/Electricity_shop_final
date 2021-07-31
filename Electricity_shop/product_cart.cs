@@ -34,6 +34,7 @@ namespace Electricity_shop
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
             mySQL.clearCart();
+            mySQL.deleteOrderByOrderNumber(Lbl_showOrderNumber.Text);
             Thread th;
             this.Close();
             th = new Thread(openMain);
