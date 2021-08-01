@@ -102,7 +102,7 @@ namespace Electricity_shop
                     command.Connection = connection;
                     try
                     {
-                        result = (int)command.ExecuteScalar();
+                        result = Convert.ToInt32(command.ExecuteScalar());
                     }
 
                     catch (Exception e)

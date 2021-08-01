@@ -7,6 +7,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using Font = iTextSharp.text.Font;
+using System.Drawing;
 
 namespace Electricity_shop
 {
@@ -16,6 +17,8 @@ namespace Electricity_shop
         private DBSQL mySQL;
         readonly Product[] product;
         Document doc = new Document();
+        bool drag = false;
+        Point sp = new Point(0, 0);
 
         public Frm_InStock()
         {
@@ -134,18 +137,21 @@ namespace Electricity_shop
         {
             Product[] Product = mySQL.GetProductData();
 
-            for (int i = 0; i < Product.Length; i++)
+            if (Product != null)
             {
-                Grd_products_stock.Rows.Add(new object[]
+                for (int i = 0; i < Product.Length; i++)
                 {
+                    Grd_products_stock.Rows.Add(new object[]
+                    {
                     Product[i].Barcode,
                     Product[i].Manufacturer,
                     Product[i].Model,
                     Product[i].Amount,
                     Product[i].Cost_price,
                     Product[i].Selling_price,
-                   
-                }); 
+
+                    });
+                }
             }
         }
         // לחיצה על כפתור הצג דו'ח
@@ -181,6 +187,26 @@ namespace Electricity_shop
             }
 
             //MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

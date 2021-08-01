@@ -23,6 +23,7 @@ namespace Electricity_shop
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection lastNameAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection addressAuto = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection phoneAuto = new AutoCompleteStringCollection();
 
 
         public Frm_addOrder()
@@ -52,6 +53,9 @@ namespace Electricity_shop
 
             Txt_customersAddress.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             Txt_customersAddress.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            Txt_customersPhoneNumber.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Txt_customersPhoneNumber.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
 
         }
@@ -202,20 +206,25 @@ namespace Electricity_shop
         {
             customer[] Customer = mySQL.GetCustomerData();
 
-
-            for (int i = 0; i < Customer.Length; i++)
+            if (Customer != null)
             {
-                idAuto.Add(Customer[i].Id);
-                firstNameAuto.Add(Customer[i].First_name);
-                lastNameAuto.Add(Customer[i].Last_name);
-                addressAuto.Add(Customer[i].Address);
+
+                for (int i = 0; i < Customer.Length; i++)
+                {
+                    idAuto.Add(Customer[i].Id);
+                    firstNameAuto.Add(Customer[i].First_name);
+                    lastNameAuto.Add(Customer[i].Last_name);
+                    addressAuto.Add(Customer[i].Address);
+                    phoneAuto.Add(Customer[i].Phone_number);
 
 
+                }
+                Txt_customerId.AutoCompleteCustomSource = idAuto;
+                Txt_customersFirstName.AutoCompleteCustomSource = firstNameAuto;
+                Txt_customersLastName.AutoCompleteCustomSource = lastNameAuto;
+                Txt_customersAddress.AutoCompleteCustomSource = addressAuto;
+                Txt_customersPhoneNumber.AutoCompleteCustomSource = phoneAuto;
             }
-            Txt_customerId.AutoCompleteCustomSource = idAuto;
-            Txt_customersFirstName.AutoCompleteCustomSource = firstNameAuto;
-            Txt_customersLastName.AutoCompleteCustomSource = lastNameAuto;
-            Txt_customersAddress.AutoCompleteCustomSource = addressAuto;
         }
 
         private void Txt_customerId_Leave(object sender, EventArgs e)//כשעוזבים את שדה התעודת זהות המערכת בודקת אם לקוח קיים אם כן ממלא של שאר השדות בפרטים של אותו לקוח
@@ -281,6 +290,33 @@ namespace Electricity_shop
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void dateTimePicker_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void Txt_customersPhoneNumber_Leave(object sender, EventArgs e)
+        {
+            if (Txt_customersPhoneNumber.Text != "")
+            {
+                customer Customer = mySQL.GetCustomerDataByphoneN(Txt_customersPhoneNumber.Text);
+
+                if (Customer != null)
+                {
+
+                    Txt_customerId.Text = Customer.Id.ToString();
+                    Txt_customersFirstName.Text = Customer.First_name;
+                    Txt_customersLastName.Text = Customer.Last_name;
+                    Txt_customersAddress.Text = Customer.Address;
+                    Txt_customersPhoneNumber.Text = Customer.Phone_number;
+
+                    MessageBox.Show("לקוח קיים");
+                    read_only_true();
+
+                }  
             }
         }
     }

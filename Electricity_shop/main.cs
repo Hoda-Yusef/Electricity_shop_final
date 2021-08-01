@@ -17,6 +17,8 @@ namespace Electricity_shop
         private readonly DBSQL mySQL;
         bool drag = false;
         Point sp = new Point(0, 0);
+        orders[] Orders;
+        customer[] Customers;
 
         public Frm_main()
         {
@@ -147,7 +149,45 @@ namespace Electricity_shop
 
         private void Frm_main_Load(object sender, EventArgs e)
         {
+            int count = 0;
+            int countMany = 0;
 
+            Lbl_out_of_stock_number.Text = mySQL.countOutStockProducts().ToString();
+
+            Lbl_about_to_end_number.Text= mySQL.countAboutToEnd().ToString();
+
+            Lbl_customers_number.Text = mySQL.countCustomers().ToString();
+
+            Lbl_suppliers_number.Text = mySQL.countSupplies().ToString();
+
+            Lbl_orders_wait_number.Text = mySQL.countWaitingOrders().ToString();
+
+            Orders = mySQL.GetOrdersData();
+            Customers = mySQL.GetCustomerData();
+
+            if(Orders != null && Customers != null)
+            {
+                for(int i=0;i<Customers.Length;i++)
+                {
+                    for(int j=0;j<Orders.Length;j++)
+                    {
+                        if(Customers[i].Id == Orders[j].Customer_id)
+                        {
+                            count++;
+                        }
+                    }
+                    if(count >2)
+                    {
+                        countMany++;
+                    }
+                    count = 0;
+                }
+            }
+
+            Lbl_active_customers_number.Text = countMany.ToString();
+
+
+            
         }
 
         private void Btn_addCustomer_Click(object sender, EventArgs e)
@@ -205,20 +245,6 @@ namespace Electricity_shop
         private void OpenInStock(object obj)
         {
             Application.Run(new Frm_InStock());
-        }
-
-
-        private void OpenReport(object obj)
-        {
-            Application.Run(new Frm_documents());
-        }
-        private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread th;
-            th = new Thread(OpenReport);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Electricity_shop
         //למלא טבלה לפי מספר פלאפון של הלקוח
         private void Fill_grid_by_phoneN()
         {
-            Customer = mySQL.GetCustomerDataByphoneN(Txt_phoneNumber.Text);
+            Customer = mySQL.GetCustomerDataByphoneNumber(Txt_phoneNumber.Text);
             Fill_grid(Customer);
             if (Grd_customers.Rows.Count != 0)
                 Grd_customers.Rows[0].Cells[0].Selected = false;

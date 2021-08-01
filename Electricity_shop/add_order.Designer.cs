@@ -201,6 +201,7 @@
             this.Txt_customersPhoneNumber.Size = new System.Drawing.Size(257, 38);
             this.Txt_customersPhoneNumber.TabIndex = 4;
             this.Txt_customersPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customersPhoneNumber_KeyPress);
+            this.Txt_customersPhoneNumber.Leave += new System.EventHandler(this.Txt_customersPhoneNumber_Leave);
             // 
             // Lbl_customersLastName
             // 
@@ -253,9 +254,13 @@
             this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker.Location = new System.Drawing.Point(86, 368);
+            this.dateTimePicker.MaxDate = new System.DateTime(3000, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(257, 34);
             this.dateTimePicker.TabIndex = 6;
+            this.dateTimePicker.Value = new System.DateTime(2021, 7, 31, 0, 0, 0, 0);
+            this.dateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateTimePicker_KeyPress);
             // 
             // delivery
             // 
