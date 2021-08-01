@@ -48,7 +48,7 @@ namespace Electricity_shop
             int pure_price = 0;
             int lose = 0;
 
-            Orders = mySQL.GetOrdersDataByDate(dateTimePicker.Text);
+            Orders = mySQL.GetOrdersDataByDate(dateTimePicker1.Text);
 
             if (Orders != null)
             {

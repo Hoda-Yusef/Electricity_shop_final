@@ -162,6 +162,7 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Btn_clear);
             this.panel1.Controls.Add(this.Lbl_phoneNumber);
             this.panel1.Controls.Add(this.Txt_phoneNumber);
@@ -215,7 +216,7 @@ namespace Electricity_shop
             this.Txt_phoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_phoneNumber.Name = "Txt_phoneNumber";
             this.Txt_phoneNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_phoneNumber.Size = new System.Drawing.Size(188, 39);
+            this.Txt_phoneNumber.Size = new System.Drawing.Size(188, 33);
             this.Txt_phoneNumber.TabIndex = 31;
             this.Txt_phoneNumber.TextChanged += new System.EventHandler(this.Txt_phoneNumber_TextChanged);
             this.Txt_phoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_phoneNumber_KeyPress);
@@ -242,7 +243,7 @@ namespace Electricity_shop
             this.Txt_firstName.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_firstName.Name = "Txt_firstName";
             this.Txt_firstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_firstName.Size = new System.Drawing.Size(188, 39);
+            this.Txt_firstName.Size = new System.Drawing.Size(188, 33);
             this.Txt_firstName.TabIndex = 29;
             this.Txt_firstName.TextChanged += new System.EventHandler(this.Txt_firstName_TextChanged);
             this.Txt_firstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_firstName_KeyPress);
@@ -301,7 +302,7 @@ namespace Electricity_shop
             this.Txt_customerId.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_customerId.Name = "Txt_customerId";
             this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customerId.Size = new System.Drawing.Size(188, 39);
+            this.Txt_customerId.Size = new System.Drawing.Size(188, 33);
             this.Txt_customerId.TabIndex = 5;
             this.Txt_customerId.TextChanged += new System.EventHandler(this.Txt_customerId_TextChanged);
             this.Txt_customerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customerId_KeyPress);
@@ -391,7 +392,7 @@ namespace Electricity_shop
             // 
             // FrmCustomers_management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1301, 671);

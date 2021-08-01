@@ -261,14 +261,14 @@ namespace Electricity_shop
             else
                 Grd_orders.Rows.Clear();
         }
-
+        /*
         private void Btn_showOrder_Click(object sender, EventArgs e)//כפתור להצגת הזמנה 
         {
             Frm_productsList Show_order = new Frm_productsList();
 
             Show_order.Lbl_showOrderNumber.Text = Grd_orders.CurrentRow.Cells[0].Value.ToString();
             Show_order.ShowDialog();
-        }
+        }*/
 
         private void Btn_updateOrder_Click(object sender, EventArgs e)//כפתור לעידכון הזמנה
         {

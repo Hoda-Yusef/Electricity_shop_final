@@ -52,7 +52,7 @@ namespace Electricity_shop
         // למלא טבלה בטופס לפי ברקוד
         private void Fill_grid_by_barcode()
         {
-            product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -63,7 +63,7 @@ namespace Electricity_shop
         // למלא טבלה בטופס לפי קטגוריה
         private void Fill_grid_by_category()
         {
-            product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -74,7 +74,7 @@ namespace Electricity_shop
         //למלא טבלה בטופס לפי יצרן
         private void Fill_grid_by_manufacture()
         {
-            product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
 
@@ -85,7 +85,7 @@ namespace Electricity_shop
         //למלא טבלה בטופס לפי דגם מוצר
         private void Fill_grid_by_model()
         {
-           product = mySQL.GetProductDataFiltered(stock_amount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+           product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -93,9 +93,9 @@ namespace Electricity_shop
 
         }
 
-        private void stock_amount_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cbo_sortByProductAmount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            product = mySQL.GetProductDataFiltered(stock_amount.Text,Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text,Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -335,7 +335,7 @@ namespace Electricity_shop
             th.Start();
         }
 
-        private void stock_amount_KeyPress(object sender, KeyPressEventArgs e)
+        private void Cbo_sortByProductAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }

@@ -328,7 +328,7 @@ namespace Electricity_shop
             return User;
 
         }
-
+        /*
         public orders GetOrdersDataByCustomerId(string id)
         {
             DataSet ds = new DataSet();
@@ -365,7 +365,7 @@ namespace Electricity_shop
             }
             return Orders;
 
-        }
+        }*/
 
         public orders GetOrdersDataByOrderNumber(string order_number)
         {
@@ -493,7 +493,7 @@ namespace Electricity_shop
             return Product;
 
         }
-
+        /*
         public Product[] GetProductDataByOrderNumber(string orderNumber)
         {
             DataSet ds = new DataSet();
@@ -538,8 +538,8 @@ namespace Electricity_shop
             return Product;
 
         }
-
-
+        */
+/*
         public product_order[] GetProductDataByOrderNumber()
         {
             DataSet ds = new DataSet();
@@ -578,7 +578,7 @@ namespace Electricity_shop
             return Product;
 
         }
-
+*/
 
 
         public Cart[] getCartData()
@@ -617,7 +617,7 @@ namespace Electricity_shop
             }
             return cart;
         }
-
+        /*
         public Cart getCartDataByProductBarcode(string barcode)
         {
             DataSet ds = new DataSet();
@@ -652,7 +652,7 @@ namespace Electricity_shop
             }
             return Cart;
 
-        }
+        }*/
 
         public Product GetProductDataByBarcode(string barcode)
         {
@@ -694,7 +694,7 @@ namespace Electricity_shop
             return Product;
 
         }
-
+       
         public Product GetProductDataByModel(string model)
         {
             DataSet ds = new DataSet();
@@ -735,7 +735,7 @@ namespace Electricity_shop
             return Product;
 
         }
-
+        /*
         public DataTable GetProductData_for_table()
         {
             DataSet ds = new DataSet();
@@ -759,7 +759,7 @@ namespace Electricity_shop
             }
 
             return dt;
-        }
+        }*/
 
         public customer[] GetCustomerData()
         {
@@ -898,7 +898,7 @@ namespace Electricity_shop
             {
                  cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
                     " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
-                    "AND product_model LIKE '" + modelItem + "%' AND amount > 0";
+                    "AND product_model LIKE '" + modelItem + "%' AND amount > 2";
             }
             else
                 if(stock_amount == "לא זמין במלאי")
@@ -906,6 +906,13 @@ namespace Electricity_shop
                  cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
                     " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
                     "AND product_model LIKE '" + modelItem + "%' AND amount = 0";
+            }
+            else
+                if (stock_amount == "עומד להיגמר מהמלאי")
+            {
+                cmdStr = "SELECT * FROM product WHERE barcode LIKE '" + barcodeItem + "%'" +
+                   " AND product_category LIKE '" + categoryItem + "%' AND product_manufacturer LIKE '" + manufactureItem + "%'" +
+                   "AND product_model LIKE '" + modelItem + "%' AND amount <= 2 && amount>0";
             }
             else
             {
@@ -1002,7 +1009,7 @@ namespace Electricity_shop
             return Orders_customers;
 
         }
-
+        /*
         public customer GetCustomerDataById(string id)
         {
             DataSet ds = new DataSet();
@@ -1038,7 +1045,7 @@ namespace Electricity_shop
             }
             return Customer;
 
-        }
+        }*/
 
         public supplier GetSupplierDataByPhone(string phone)
         {
@@ -1392,7 +1399,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+        /*
         public void UpdateProductByModel(Product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -1415,7 +1422,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+        */
         public void UpdateCustomer(customer Item)
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
@@ -1434,7 +1441,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+        /*
         public void UpdateOrderById(string id,int status)
         {
             string cmdStr = "UPDATE orders SET status="+status+" WHERE customer_id="+id+"";
@@ -1447,7 +1454,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+        */
         public void UpdateOrderByOrderNumber(string orderNumber, int status)
         {
             string cmdStr = "UPDATE orders SET status=" + status + " WHERE order_number=" + orderNumber + "";
@@ -1460,7 +1467,7 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-
+        
         public void UpdateCustomerBySerial(customer Item)
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +

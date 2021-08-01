@@ -151,7 +151,7 @@ namespace Electricity_shop
 
         private void openProductCartManu(object obj)
         {
-            Application.Run(new cart_product_manu());
+            Application.Run(new Frm_cartProductMenu());
         }
 
         private void Btn_ok_Click(object sender, EventArgs e)//בעת לחיצה על אישור

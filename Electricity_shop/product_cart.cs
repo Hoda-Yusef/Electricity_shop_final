@@ -43,7 +43,7 @@ namespace Electricity_shop
 
         private void openMain(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_cartProductMenu());
         }
 
         private void OpenAddOrder(object obj)
@@ -62,7 +62,7 @@ namespace Electricity_shop
 
         private void openCartProductManu(object obj)
         {
-            Application.Run(new cart_product_manu());//פותח רשימת מוצרים
+            Application.Run(new Frm_cartProductMenu());//פותח רשימת מוצרים
         }
 
         private void button1_Click(object sender, EventArgs e)

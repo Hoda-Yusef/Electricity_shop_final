@@ -1,7 +1,7 @@
 ﻿
 namespace Electricity_shop
 {
-    partial class Frm_addProductsToOrder
+    partial class Frm_cartProductMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,17 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_addProductsToOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Upper_BluePanel = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_cartProductMenu));
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.UpperBluePanel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Grd_productsList = new System.Windows.Forms.DataGridView();
@@ -51,44 +55,59 @@ namespace Electricity_shop
             this.panel3 = new System.Windows.Forms.Panel();
             this.Lbl_productAmount = new System.Windows.Forms.Label();
             this.amountChoose = new System.Windows.Forms.NumericUpDown();
-            this.Btn_backToOrder = new System.Windows.Forms.Button();
-            this.Lbl_productModel = new System.Windows.Forms.Label();
-            this.Txt_productModel = new System.Windows.Forms.TextBox();
-            this.Lbl_productBarcode = new System.Windows.Forms.Label();
-            this.Txt_productBarcode = new System.Windows.Forms.TextBox();
-            this.Lbl_productManufactorer = new System.Windows.Forms.Label();
-            this.Txt_productManufacturer = new System.Windows.Forms.TextBox();
-            this.Btn_addToOrder = new System.Windows.Forms.Button();
+            this.Btn_toCart = new System.Windows.Forms.Button();
+            this.Lbl_model = new System.Windows.Forms.Label();
+            this.Txt_model = new System.Windows.Forms.TextBox();
+            this.Lbl_barcode = new System.Windows.Forms.Label();
+            this.Txt_barcode = new System.Windows.Forms.TextBox();
+            this.Lbl_manufacturer = new System.Windows.Forms.Label();
+            this.Txt_manufacturer = new System.Windows.Forms.TextBox();
+            this.Btn_addToCart = new System.Windows.Forms.Button();
             this.Btn_clear = new System.Windows.Forms.Button();
-            this.Lbl_productCategory = new System.Windows.Forms.Label();
-            this.Txt_productCategory = new System.Windows.Forms.TextBox();
+            this.Lbl_category = new System.Windows.Forms.Label();
+            this.Txt_category = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.Lbl_heading = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.Btn_exitX = new System.Windows.Forms.Button();
-            this.Upper_BluePanel.SuspendLayout();
+            this.Btn_exit = new System.Windows.Forms.Button();
+            this.panel9.SuspendLayout();
+            this.UpperBluePanel.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_productsList)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountChoose)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Upper_BluePanel
+            // panel9
             // 
-            this.Upper_BluePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.Upper_BluePanel.Controls.Add(this.button3);
-            this.Upper_BluePanel.Location = new System.Drawing.Point(-1, -2);
-            this.Upper_BluePanel.Name = "Upper_BluePanel";
-            this.Upper_BluePanel.Size = new System.Drawing.Size(1304, 15);
-            this.Upper_BluePanel.TabIndex = 68;
-            this.Upper_BluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseDown);
-            this.Upper_BluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseMove);
-            this.Upper_BluePanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseUp);
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Location = new System.Drawing.Point(1307, 26);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(10, 644);
+            this.panel9.TabIndex = 63;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel10.Location = new System.Drawing.Point(7, 649);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1193, 8);
+            this.panel10.TabIndex = 16;
+            // 
+            // UpperBluePanel
+            // 
+            this.UpperBluePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.UpperBluePanel.Controls.Add(this.button3);
+            this.UpperBluePanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.UpperBluePanel.Location = new System.Drawing.Point(-2, 1);
+            this.UpperBluePanel.Name = "UpperBluePanel";
+            this.UpperBluePanel.Size = new System.Drawing.Size(1286, 10);
+            this.UpperBluePanel.TabIndex = 62;
+            this.UpperBluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpperBluePanel_MouseDown);
+            this.UpperBluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpperBluePanel_MouseMove);
+            this.UpperBluePanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpperBluePanel_MouseUp);
             // 
             // button3
             // 
@@ -96,7 +115,6 @@ namespace Electricity_shop
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button3.Location = new System.Drawing.Point(1412, 0);
             this.button3.Name = "button3";
@@ -104,15 +122,33 @@ namespace Electricity_shop
             this.button3.TabIndex = 37;
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Location = new System.Drawing.Point(-6, 616);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1451, 8);
+            this.panel6.TabIndex = 61;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel7.Location = new System.Drawing.Point(7, 649);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1193, 8);
+            this.panel7.TabIndex = 16;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(-3, -5);
+            this.panel2.Location = new System.Drawing.Point(-4, -2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(9, 659);
-            this.panel2.TabIndex = 67;
+            this.panel2.TabIndex = 60;
             // 
             // panel4
             // 
@@ -166,7 +202,7 @@ namespace Electricity_shop
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grd_productsList.DefaultCellStyle = dataGridViewCellStyle4;
             this.Grd_productsList.EnableHeadersVisualStyles = false;
-            this.Grd_productsList.Location = new System.Drawing.Point(23, 95);
+            this.Grd_productsList.Location = new System.Drawing.Point(22, 98);
             this.Grd_productsList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Grd_productsList.Name = "Grd_productsList";
             this.Grd_productsList.ReadOnly = true;
@@ -175,8 +211,8 @@ namespace Electricity_shop
             this.Grd_productsList.RowHeadersWidth = 5;
             this.Grd_productsList.RowTemplate.Height = 40;
             this.Grd_productsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grd_productsList.Size = new System.Drawing.Size(1038, 496);
-            this.Grd_productsList.TabIndex = 66;
+            this.Grd_productsList.Size = new System.Drawing.Size(1038, 502);
+            this.Grd_productsList.TabIndex = 59;
             this.Grd_productsList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.Grd_productsList_CellFormatting);
             // 
             // Column1
@@ -259,22 +295,22 @@ namespace Electricity_shop
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.Lbl_productAmount);
             this.panel3.Controls.Add(this.amountChoose);
-            this.panel3.Controls.Add(this.Btn_backToOrder);
-            this.panel3.Controls.Add(this.Lbl_productModel);
-            this.panel3.Controls.Add(this.Txt_productModel);
-            this.panel3.Controls.Add(this.Lbl_productBarcode);
-            this.panel3.Controls.Add(this.Txt_productBarcode);
-            this.panel3.Controls.Add(this.Lbl_productManufactorer);
-            this.panel3.Controls.Add(this.Txt_productManufacturer);
-            this.panel3.Controls.Add(this.Btn_addToOrder);
+            this.panel3.Controls.Add(this.Btn_toCart);
+            this.panel3.Controls.Add(this.Lbl_model);
+            this.panel3.Controls.Add(this.Txt_model);
+            this.panel3.Controls.Add(this.Lbl_barcode);
+            this.panel3.Controls.Add(this.Txt_barcode);
+            this.panel3.Controls.Add(this.Lbl_manufacturer);
+            this.panel3.Controls.Add(this.Txt_manufacturer);
+            this.panel3.Controls.Add(this.Btn_addToCart);
             this.panel3.Controls.Add(this.Btn_clear);
-            this.panel3.Controls.Add(this.Lbl_productCategory);
-            this.panel3.Controls.Add(this.Txt_productCategory);
-            this.panel3.Location = new System.Drawing.Point(1077, 95);
+            this.panel3.Controls.Add(this.Lbl_category);
+            this.panel3.Controls.Add(this.Txt_category);
+            this.panel3.Location = new System.Drawing.Point(1076, 98);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(219, 496);
-            this.panel3.TabIndex = 65;
+            this.panel3.Size = new System.Drawing.Size(219, 502);
+            this.panel3.TabIndex = 58;
             // 
             // Lbl_productAmount
             // 
@@ -305,112 +341,113 @@ namespace Electricity_shop
             0,
             0});
             // 
-            // Btn_backToOrder
+            // Btn_toCart
             // 
-            this.Btn_backToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.Btn_backToOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_backToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Btn_backToOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_backToOrder.ForeColor = System.Drawing.Color.White;
-            this.Btn_backToOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_backToOrder.Location = new System.Drawing.Point(25, 451);
-            this.Btn_backToOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Btn_backToOrder.Name = "Btn_backToOrder";
-            this.Btn_backToOrder.Size = new System.Drawing.Size(174, 38);
-            this.Btn_backToOrder.TabIndex = 30;
-            this.Btn_backToOrder.Text = "להזמנה";
-            this.Btn_backToOrder.UseVisualStyleBackColor = false;
-            this.Btn_backToOrder.Click += new System.EventHandler(this.Btn_backToOrder_Click);
+            this.Btn_toCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_toCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_toCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_toCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_toCart.ForeColor = System.Drawing.Color.White;
+            this.Btn_toCart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_toCart.Location = new System.Drawing.Point(25, 451);
+            this.Btn_toCart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_toCart.Name = "Btn_toCart";
+            this.Btn_toCart.Size = new System.Drawing.Size(174, 38);
+            this.Btn_toCart.TabIndex = 30;
+            this.Btn_toCart.Text = "לעגלה";
+            this.Btn_toCart.UseVisualStyleBackColor = false;
+            this.Btn_toCart.Click += new System.EventHandler(this.Btn_toCart_Click);
             // 
-            // Lbl_productModel
+            // Lbl_model
             // 
-            this.Lbl_productModel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_productModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_productModel.Location = new System.Drawing.Point(134, 218);
-            this.Lbl_productModel.Name = "Lbl_productModel";
-            this.Lbl_productModel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_productModel.Size = new System.Drawing.Size(48, 24);
-            this.Lbl_productModel.TabIndex = 29;
-            this.Lbl_productModel.Text = "דגם";
+            this.Lbl_model.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_model.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_model.Location = new System.Drawing.Point(129, 218);
+            this.Lbl_model.Name = "Lbl_model";
+            this.Lbl_model.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_model.Size = new System.Drawing.Size(53, 24);
+            this.Lbl_model.TabIndex = 29;
+            this.Lbl_model.Text = "דגם";
             // 
-            // Txt_productModel
+            // Txt_model
             // 
-            this.Txt_productModel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            this.Txt_productModel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Txt_productModel.ForeColor = System.Drawing.Color.White;
-            this.Txt_productModel.Location = new System.Drawing.Point(24, 232);
-            this.Txt_productModel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Txt_productModel.Name = "Txt_productModel";
-            this.Txt_productModel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_productModel.Size = new System.Drawing.Size(175, 32);
-            this.Txt_productModel.TabIndex = 3;
-            this.Txt_productModel.TextChanged += new System.EventHandler(this.Txt_productModel_TextChanged);
+            this.Txt_model.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.Txt_model.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_model.ForeColor = System.Drawing.Color.White;
+            this.Txt_model.Location = new System.Drawing.Point(24, 232);
+            this.Txt_model.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_model.Name = "Txt_model";
+            this.Txt_model.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_model.Size = new System.Drawing.Size(175, 32);
+            this.Txt_model.TabIndex = 3;
+            this.Txt_model.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Txt_model.TextChanged += new System.EventHandler(this.Txt_model_TextChanged);
             // 
-            // Lbl_productBarcode
+            // Lbl_barcode
             // 
-            this.Lbl_productBarcode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_productBarcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_productBarcode.Location = new System.Drawing.Point(118, 5);
-            this.Lbl_productBarcode.Name = "Lbl_productBarcode";
-            this.Lbl_productBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_productBarcode.Size = new System.Drawing.Size(63, 24);
-            this.Lbl_productBarcode.TabIndex = 27;
-            this.Lbl_productBarcode.Text = "ברקוד";
+            this.Lbl_barcode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_barcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_barcode.Location = new System.Drawing.Point(118, 10);
+            this.Lbl_barcode.Name = "Lbl_barcode";
+            this.Lbl_barcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_barcode.Size = new System.Drawing.Size(64, 24);
+            this.Lbl_barcode.TabIndex = 27;
+            this.Lbl_barcode.Text = "ברקוד";
             // 
-            // Txt_productBarcode
+            // Txt_barcode
             // 
-            this.Txt_productBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            this.Txt_productBarcode.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Txt_productBarcode.ForeColor = System.Drawing.Color.White;
-            this.Txt_productBarcode.Location = new System.Drawing.Point(24, 23);
-            this.Txt_productBarcode.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Txt_productBarcode.Name = "Txt_productBarcode";
-            this.Txt_productBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_productBarcode.Size = new System.Drawing.Size(175, 32);
-            this.Txt_productBarcode.TabIndex = 0;
-            this.Txt_productBarcode.TextChanged += new System.EventHandler(this.Txt_productBarcode_TextChanged);
-            this.Txt_productBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_productBarcode_KeyPress);
+            this.Txt_barcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.Txt_barcode.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_barcode.ForeColor = System.Drawing.Color.White;
+            this.Txt_barcode.Location = new System.Drawing.Point(24, 23);
+            this.Txt_barcode.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_barcode.Name = "Txt_barcode";
+            this.Txt_barcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_barcode.Size = new System.Drawing.Size(175, 32);
+            this.Txt_barcode.TabIndex = 0;
+            this.Txt_barcode.TextChanged += new System.EventHandler(this.Txt_barcode_TextChanged);
+            this.Txt_barcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_barcode_KeyPress);
             // 
-            // Lbl_productManufactorer
+            // Lbl_manufacturer
             // 
-            this.Lbl_productManufactorer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_productManufactorer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_productManufactorer.Location = new System.Drawing.Point(134, 142);
-            this.Lbl_productManufactorer.Name = "Lbl_productManufactorer";
-            this.Lbl_productManufactorer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_productManufactorer.Size = new System.Drawing.Size(48, 24);
-            this.Lbl_productManufactorer.TabIndex = 25;
-            this.Lbl_productManufactorer.Text = "יצרן";
+            this.Lbl_manufacturer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_manufacturer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_manufacturer.Location = new System.Drawing.Point(129, 147);
+            this.Lbl_manufacturer.Name = "Lbl_manufacturer";
+            this.Lbl_manufacturer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_manufacturer.Size = new System.Drawing.Size(53, 24);
+            this.Lbl_manufacturer.TabIndex = 25;
+            this.Lbl_manufacturer.Text = "יצרן";
             // 
-            // Txt_productManufacturer
+            // Txt_manufacturer
             // 
-            this.Txt_productManufacturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            this.Txt_productManufacturer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Txt_productManufacturer.ForeColor = System.Drawing.Color.White;
-            this.Txt_productManufacturer.Location = new System.Drawing.Point(25, 161);
-            this.Txt_productManufacturer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Txt_productManufacturer.Name = "Txt_productManufacturer";
-            this.Txt_productManufacturer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_productManufacturer.Size = new System.Drawing.Size(175, 32);
-            this.Txt_productManufacturer.TabIndex = 2;
-            this.Txt_productManufacturer.TextChanged += new System.EventHandler(this.Txt_productManufacturer_TextChanged);
+            this.Txt_manufacturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.Txt_manufacturer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_manufacturer.ForeColor = System.Drawing.Color.White;
+            this.Txt_manufacturer.Location = new System.Drawing.Point(25, 161);
+            this.Txt_manufacturer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_manufacturer.Name = "Txt_manufacturer";
+            this.Txt_manufacturer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_manufacturer.Size = new System.Drawing.Size(175, 32);
+            this.Txt_manufacturer.TabIndex = 2;
+            this.Txt_manufacturer.TextChanged += new System.EventHandler(this.Txt_manufacturer_TextChanged);
             // 
-            // Btn_addToOrder
+            // Btn_addToCart
             // 
-            this.Btn_addToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.Btn_addToOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_addToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Btn_addToOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_addToOrder.ForeColor = System.Drawing.Color.White;
-            this.Btn_addToOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_addToOrder.Location = new System.Drawing.Point(24, 392);
-            this.Btn_addToOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Btn_addToOrder.Name = "Btn_addToOrder";
-            this.Btn_addToOrder.Size = new System.Drawing.Size(174, 38);
-            this.Btn_addToOrder.TabIndex = 23;
-            this.Btn_addToOrder.Text = "הוספה להזמנה";
-            this.Btn_addToOrder.UseVisualStyleBackColor = false;
-            this.Btn_addToOrder.Click += new System.EventHandler(this.Btn_addToOrder_Click);
+            this.Btn_addToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_addToCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_addToCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_addToCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_addToCart.ForeColor = System.Drawing.Color.White;
+            this.Btn_addToCart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_addToCart.Location = new System.Drawing.Point(24, 392);
+            this.Btn_addToCart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_addToCart.Name = "Btn_addToCart";
+            this.Btn_addToCart.Size = new System.Drawing.Size(174, 38);
+            this.Btn_addToCart.TabIndex = 23;
+            this.Btn_addToCart.Text = "הוספה לעגלה";
+            this.Btn_addToCart.UseVisualStyleBackColor = false;
+            this.Btn_addToCart.Click += new System.EventHandler(this.Btn_addToCart_Click);
             // 
             // Btn_clear
             // 
@@ -429,36 +466,36 @@ namespace Electricity_shop
             this.Btn_clear.UseVisualStyleBackColor = false;
             this.Btn_clear.Click += new System.EventHandler(this.Btn_clear_Click);
             // 
-            // Lbl_productCategory
+            // Lbl_category
             // 
-            this.Lbl_productCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_productCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_productCategory.Location = new System.Drawing.Point(96, 74);
-            this.Lbl_productCategory.Name = "Lbl_productCategory";
-            this.Lbl_productCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_productCategory.Size = new System.Drawing.Size(85, 24);
-            this.Lbl_productCategory.TabIndex = 22;
-            this.Lbl_productCategory.Text = "קטגוריה";
+            this.Lbl_category.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_category.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_category.Location = new System.Drawing.Point(103, 78);
+            this.Lbl_category.Name = "Lbl_category";
+            this.Lbl_category.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_category.Size = new System.Drawing.Size(79, 24);
+            this.Lbl_category.TabIndex = 22;
+            this.Lbl_category.Text = "קטגוריה";
             // 
-            // Txt_productCategory
+            // Txt_category
             // 
-            this.Txt_productCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            this.Txt_productCategory.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Txt_productCategory.ForeColor = System.Drawing.Color.White;
-            this.Txt_productCategory.Location = new System.Drawing.Point(24, 91);
-            this.Txt_productCategory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Txt_productCategory.Name = "Txt_productCategory";
-            this.Txt_productCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_productCategory.Size = new System.Drawing.Size(175, 32);
-            this.Txt_productCategory.TabIndex = 1;
-            this.Txt_productCategory.TextChanged += new System.EventHandler(this.Txt_productCategory_TextChanged);
+            this.Txt_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            this.Txt_category.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Txt_category.ForeColor = System.Drawing.Color.White;
+            this.Txt_category.Location = new System.Drawing.Point(24, 91);
+            this.Txt_category.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_category.Name = "Txt_category";
+            this.Txt_category.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Txt_category.Size = new System.Drawing.Size(175, 32);
+            this.Txt_category.TabIndex = 1;
+            this.Txt_category.TextChanged += new System.EventHandler(this.Txt_category_TextChanged);
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 626);
-            this.splitter1.TabIndex = 64;
+            this.splitter1.Size = new System.Drawing.Size(3, 625);
+            this.splitter1.TabIndex = 57;
             this.splitter1.TabStop = false;
             // 
             // Lbl_heading
@@ -466,103 +503,69 @@ namespace Electricity_shop
             this.Lbl_heading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.Lbl_heading.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_heading.ForeColor = System.Drawing.Color.White;
-            this.Lbl_heading.Location = new System.Drawing.Point(441, 32);
+            this.Lbl_heading.Location = new System.Drawing.Point(440, 35);
             this.Lbl_heading.Name = "Lbl_heading";
             this.Lbl_heading.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_heading.Size = new System.Drawing.Size(408, 48);
-            this.Lbl_heading.TabIndex = 63;
-            this.Lbl_heading.Text = "בחירת מוצרים להזמנה";
+            this.Lbl_heading.TabIndex = 56;
+            this.Lbl_heading.Text = "בחירת מוצרים לעגלה";
             this.Lbl_heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel9
+            // Btn_exit
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(1308, 32);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(10, 586);
-            this.panel9.TabIndex = 70;
+            this.Btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
+            this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_exit.Location = new System.Drawing.Point(1283, -2);
+            this.Btn_exit.Name = "Btn_exit";
+            this.Btn_exit.Size = new System.Drawing.Size(34, 29);
+            this.Btn_exit.TabIndex = 64;
+            this.Btn_exit.UseVisualStyleBackColor = true;
+            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel10.Location = new System.Drawing.Point(7, 649);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1193, 8);
-            this.panel10.TabIndex = 16;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(-4, 617);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1451, 8);
-            this.panel6.TabIndex = 69;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel7.Location = new System.Drawing.Point(7, 649);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1193, 8);
-            this.panel7.TabIndex = 16;
-            // 
-            // Btn_exitX
-            // 
-            this.Btn_exitX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Btn_exitX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_exitX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.Btn_exitX.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exitX.Image")));
-            this.Btn_exitX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exitX.Location = new System.Drawing.Point(1279, -2);
-            this.Btn_exitX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Btn_exitX.Name = "Btn_exitX";
-            this.Btn_exitX.Size = new System.Drawing.Size(39, 38);
-            this.Btn_exitX.TabIndex = 71;
-            this.Btn_exitX.UseVisualStyleBackColor = true;
-            this.Btn_exitX.Click += new System.EventHandler(this.Btn_exitX_Click);
-            // 
-            // Frm_addProductsToOrder
+            // Frm_cartProductMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1319, 626);
-            this.Controls.Add(this.Btn_exitX);
+            this.ClientSize = new System.Drawing.Size(1314, 625);
+            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.panel9);
+            this.Controls.Add(this.UpperBluePanel);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.Upper_BluePanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Grd_productsList);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Lbl_heading);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Frm_addProductsToOrder";
+            this.Name = "Frm_cartProductMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "add_products_to_order";
-            this.Load += new System.EventHandler(this.Frm_addProductsToOrder_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Frm_addProductsToOrder_KeyPress);
-            this.Upper_BluePanel.ResumeLayout(false);
+            this.Text = "cart_product_menu";
+            this.Load += new System.EventHandler(this.Frm_cartProductMenu_Load);
+            this.panel9.ResumeLayout(false);
+            this.UpperBluePanel.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grd_productsList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountChoose)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel Upper_BluePanel;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel UpperBluePanel;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView Grd_productsList;
@@ -576,25 +579,21 @@ namespace Electricity_shop
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label Lbl_productAmount;
-        private System.Windows.Forms.NumericUpDown amountChoose;
-        private System.Windows.Forms.Button Btn_backToOrder;
-        private System.Windows.Forms.Label Lbl_productModel;
-        private System.Windows.Forms.TextBox Txt_productModel;
-        private System.Windows.Forms.Label Lbl_productBarcode;
-        private System.Windows.Forms.TextBox Txt_productBarcode;
-        private System.Windows.Forms.Label Lbl_productManufactorer;
-        private System.Windows.Forms.TextBox Txt_productManufacturer;
-        private System.Windows.Forms.Button Btn_addToOrder;
+        private System.Windows.Forms.Button Btn_toCart;
+        private System.Windows.Forms.Label Lbl_model;
+        private System.Windows.Forms.TextBox Txt_model;
+        private System.Windows.Forms.Label Lbl_barcode;
+        private System.Windows.Forms.TextBox Txt_barcode;
+        private System.Windows.Forms.Label Lbl_manufacturer;
+        private System.Windows.Forms.TextBox Txt_manufacturer;
+        private System.Windows.Forms.Button Btn_addToCart;
         private System.Windows.Forms.Button Btn_clear;
-        private System.Windows.Forms.Label Lbl_productCategory;
-        private System.Windows.Forms.TextBox Txt_productCategory;
+        private System.Windows.Forms.Label Lbl_category;
+        private System.Windows.Forms.TextBox Txt_category;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label Lbl_heading;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button Btn_exitX;
+        private System.Windows.Forms.Label Lbl_productAmount;
+        private System.Windows.Forms.NumericUpDown amountChoose;
+        private System.Windows.Forms.Button Btn_exit;
     }
 }
