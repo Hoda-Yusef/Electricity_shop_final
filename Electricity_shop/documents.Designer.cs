@@ -199,12 +199,15 @@ namespace Electricity_shop
             // 
             // Pic_createPDF
             // 
+            this.Pic_createPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pic_createPDF.Image = global::Electricity_shop.Properties.Resources.doc;
-            this.Pic_createPDF.Location = new System.Drawing.Point(799, 599);
+            this.Pic_createPDF.Location = new System.Drawing.Point(797, 599);
             this.Pic_createPDF.Name = "Pic_createPDF";
-            this.Pic_createPDF.Size = new System.Drawing.Size(125, 133);
+            this.Pic_createPDF.Size = new System.Drawing.Size(126, 133);
             this.Pic_createPDF.TabIndex = 51;
             this.Pic_createPDF.TabStop = false;
+            this.Pic_createPDF.MouseLeave += new System.EventHandler(this.Pic_createPDF_MouseLeave);
+            this.Pic_createPDF.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Pic_createPDF_MouseMove);
             // 
             // Frm_documents
             // 

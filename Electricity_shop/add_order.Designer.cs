@@ -259,7 +259,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(257, 34);
             this.dateTimePicker.TabIndex = 6;
-            this.dateTimePicker.Value = new System.DateTime(2021, 7, 31, 0, 0, 0, 0);
+            this.dateTimePicker.Value = new System.DateTime(2021, 8, 1, 21, 15, 20, 0);
             this.dateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateTimePicker_KeyPress);
             // 
             // delivery
