@@ -39,7 +39,6 @@ namespace Electricity_shop
             this.panel4 = new System.Windows.Forms.Panel();
             this.Btn_exit = new System.Windows.Forms.Button();
             this.Lbl_inStockDocument = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.Lbl_secondHeading = new System.Windows.Forms.Label();
             this.Btn_showDocument = new System.Windows.Forms.Button();
             this.Btn_saveDocument = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@ namespace Electricity_shop
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_products_stock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,18 +119,6 @@ namespace Electricity_shop
             this.Lbl_inStockDocument.Size = new System.Drawing.Size(373, 60);
             this.Lbl_inStockDocument.TabIndex = 38;
             this.Lbl_inStockDocument.Text = "דו\"ח ספירת מלאי";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(478, 174);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.MaxDate = new System.DateTime(3100, 12, 26, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(2021, 7, 25, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(319, 34);
-            this.dateTimePicker1.TabIndex = 39;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 7, 25, 0, 0, 0, 0);
             // 
             // Lbl_secondHeading
             // 
@@ -274,18 +262,33 @@ namespace Electricity_shop
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Showcard Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(509, 168);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(288, 43);
+            this.dateTimePicker1.TabIndex = 46;
+            // 
             // Frm_InStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1243, 683);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.Grd_products_stock);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.Btn_saveDocument);
             this.Controls.Add(this.Btn_showDocument);
             this.Controls.Add(this.Lbl_secondHeading);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.Lbl_inStockDocument);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -311,7 +314,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button Btn_exit;
         private System.Windows.Forms.Label Lbl_inStockDocument;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label Lbl_secondHeading;
         private System.Windows.Forms.Button Btn_showDocument;
         private System.Windows.Forms.Button Btn_saveDocument;
@@ -322,5 +324,6 @@ namespace Electricity_shop
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

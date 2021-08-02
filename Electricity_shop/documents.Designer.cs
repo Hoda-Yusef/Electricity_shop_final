@@ -134,11 +134,11 @@ namespace Electricity_shop
             this.dateTimePicker_from.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.dateTimePicker_from.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.dateTimePicker_from.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker_from.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker_from.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_from.Location = new System.Drawing.Point(559, 109);
             this.dateTimePicker_from.Name = "dateTimePicker_from";
-            this.dateTimePicker_from.Size = new System.Drawing.Size(176, 34);
+            this.dateTimePicker_from.Size = new System.Drawing.Size(176, 38);
             this.dateTimePicker_from.TabIndex = 45;
             // 
             // Btn_search
@@ -149,7 +149,7 @@ namespace Electricity_shop
             this.Btn_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Btn_search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_search.Location = new System.Drawing.Point(45, 97);
+            this.Btn_search.Location = new System.Drawing.Point(45, 100);
             this.Btn_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_search.Name = "Btn_search";
             this.Btn_search.Size = new System.Drawing.Size(117, 51);
@@ -190,11 +190,11 @@ namespace Electricity_shop
             this.dateTimePicker_to.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.dateTimePicker_to.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.dateTimePicker_to.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker_to.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker_to.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker_to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_to.Location = new System.Drawing.Point(220, 109);
             this.dateTimePicker_to.Name = "dateTimePicker_to";
-            this.dateTimePicker_to.Size = new System.Drawing.Size(178, 34);
+            this.dateTimePicker_to.Size = new System.Drawing.Size(178, 38);
             this.dateTimePicker_to.TabIndex = 49;
             // 
             // Pic_createPDF
