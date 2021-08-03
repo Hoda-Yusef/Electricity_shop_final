@@ -27,7 +27,7 @@ namespace Electricity_shop
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
             //בודקים תקינות נתוהים שנקלטו
-            if ( Txt_model.Text != "" || (Txt_barcode.Text.Length == 0 && Txt_model.Text != "") && Txt_category.Text != "" && Txt_manufacturer.Text != ""
+            if ( (Txt_model.Text != "" || Txt_barcode.Text != "") && Txt_category.Text != "" && Txt_manufacturer.Text != ""
                  && Txt_cost_price.Text != "" && Txt_selling_price.Text != "" && Txt_amount.Text != "")
             {
                 //במידה ותקינים אז מעדכנים אותם בבסיס נתונים והשינויים נשמרים

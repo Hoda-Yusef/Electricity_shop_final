@@ -156,29 +156,15 @@ namespace Electricity_shop
             }
         }
 
-        public void InsertOrderNumberHolder(string orderNumber)
+
+        public void InsertToCart(string itemBarcode,string itemModel, int amount)
         {
-            string cmdStr = "INSERT INTO order_number_holder (order_number) VALUES ("+orderNumber+")";
+            string cmdStr = "INSERT INTO cart (product_barcode,product_model,amount)" +
+                " VALUES ('" + itemBarcode + "','"+itemModel+"',"+amount+")";
 
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
-                command.Parameters.AddWithValue("@order_number", orderNumber);
-                
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
-        public void InsertToCart(string item,int amount)
-        {
-            string cmdStr = "INSERT INTO cart (product_barcode,amount) VALUES (" + item + ","+amount+")";
-
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@product_barcode", item);
-                command.Parameters.AddWithValue("@amount", amount);
-
                 base.ExecuteSimpleQuery(command);
             }
         }
@@ -654,8 +640,9 @@ namespace Electricity_shop
                 for (int i = 0; i < cart.Length; i++)
                 {
                     cart[i] = new Cart();
-                    cart[i].Product_barcode = dt.Rows[i][0].ToString();
-                    cart[i].Amount= Convert.ToInt32(dt.Rows[i][1]);
+                    cart[i].Product_barcode = dt.Rows[i][1].ToString();
+                    cart[i].Product_model = dt.Rows[i][2].ToString();
+                    cart[i].Amount= Convert.ToInt32(dt.Rows[i][3]);
 
                 }
             }
@@ -1637,9 +1624,19 @@ namespace Electricity_shop
             }
         }
 
-        public void deleteItemFromCart(string item)
+        public void deleteItemFromCartByBarcode(string item)
         {
             string cmdStr = "DELETE FROM cart WHERE product_barcode="+item+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void deleteItemFromCartByModel(string item)
+        {
+            string cmdStr = "DELETE FROM cart WHERE product_Model='" + item + "'";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {

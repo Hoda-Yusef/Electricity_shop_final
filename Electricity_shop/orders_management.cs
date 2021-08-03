@@ -267,7 +267,7 @@ namespace Electricity_shop
         private void Btn_updateOrder_Click(object sender, EventArgs e)//כפתור לעידכון הזמנה
         {
          
-             mySQL.InsertOrderNumberHolder(Grd_orders.CurrentRow.Cells[0].Value.ToString());
+            // mySQL.InsertOrderNumberHolder(Grd_orders.CurrentRow.Cells[0].Value.ToString());
             order_number_holder=Grd_orders.CurrentRow.Cells[0].Value.ToString();
             this.Close();
             Thread th;

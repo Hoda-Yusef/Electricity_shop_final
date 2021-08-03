@@ -79,7 +79,7 @@ namespace Electricity_shop
         // אחרת יוחזר שקר
         private bool Check_barcode()
         {
-            return (Txt_barcode.Text.Length == 13 || Txt_barcode.Text.Length == 12 || Txt_barcode.Text.Length == 0);
+            return (Txt_barcode.Text.Length == 13 || Txt_barcode.Text.Length == 12);
         }
 
         //פונקציית עזר
@@ -285,23 +285,40 @@ namespace Electricity_shop
         {
             bool same = false;
             //בודקים תקינות הנתונים שנקלטו בהתאם
-            if ((Check_barcode() || Txt_model.Text != "") && Txt_category.Text != "" && Txt_productInformation.Text != ""
+            if ((Txt_barcode.Text !="" || Txt_model.Text != "") && Txt_productInformation.Text != ""
                 && Txt_manufacturer.Text != "" && Txt_supplier.Text != "" && Txt_costPrice.Text != ""
                 && Txt_sellingPrice.Text != "" && productAmount.Value != 0)
             {
                 Product[] Product = mySQL.GetProductData();
                 Product Prod = new Product();
                 string barcodeTmp = Txt_barcode.Text;
+                string modelTmp = Txt_model.Text;
+
+                
 
                 if (Product != null)
                 {
-
-                    for (int i = 0; i < Product.Length; i++)
+                    if (barcodeTmp != "")
                     {
-                        if (barcodeTmp == Product[i].Barcode.ToString())
+
+                        for (int i = 0; i < Product.Length; i++)
                         {
-                            //ברקוד שנקלט שייך למוצר קיים במערכת
-                            same = true;
+                            if (barcodeTmp == Product[i].Barcode.ToString())
+                            {
+                                //ברקוד שנקלט שייך למוצר קיים במערכת
+                                same = true;
+                            }
+                        }
+                    }
+                    else if(modelTmp != "")
+                    {
+                        for (int i = 0; i < Product.Length; i++)
+                        {
+                            if (modelTmp == Product[i].Model.ToString())
+                            {
+                                //דגם שנקלט שייך למוצר קיים במערכת
+                                same = true;
+                            }
                         }
                     }
                 }

@@ -226,17 +226,30 @@ namespace Electricity_shop
         private void Btn_addToCart_Click(object sender, EventArgs e)//בעת לחיצה על הוספת מוצר
         {
             bool same = false;
-            string item = Grd_productsList.CurrentRow.Cells[3].Value.ToString();
+            string itemBarcode = Grd_productsList.CurrentRow.Cells[3].Value.ToString();
+            string itemModel = Grd_productsList.CurrentRow.Cells[2].Value.ToString();
             int amount = (int)Grd_productsList.CurrentRow.Cells[5].Value;
             Cart[] Cart = mySQL.getCartData();
 
             if (Cart != null)
             {
-                for(int i=0;i<Cart.Length;i++)//לולאה בודקת אם מוצר קיים כבר בעגלה
+                if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
                 {
-                    if (Cart[i].product_barcode == item)
+                    for (int i = 0; i < Cart.Length; i++)//לולאה בודקת אם מוצר קיים כבר בעגלה
                     {
-                        same = true;
+                        if (Cart[i].Product_barcode == itemBarcode)
+                        {
+                            same = true;
+                        }
+                    }
+                } if(Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
+                {
+                    for (int i = 0; i < Cart.Length; i++)//לולאה בודקת אם מוצר קיים כבר בעגלה
+                    {
+                        if (Cart[i].Product_model == itemModel)
+                        {
+                            same = true;
+                        }
                     }
                 }
                 
@@ -250,10 +263,14 @@ namespace Electricity_shop
             {
                 if (amount != 0)//אם מוצר לא קיים בעגלה אז מוסיפים אותו
                 {
-                    Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
-                    if (Product.Amount - Convert.ToInt32(amountChoose.Value) >= 0)
+                    if(Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+                        Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
+                    else if(Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
+                        Product = mySQL.GetProductDataByModel(Grd_productsList.CurrentRow.Cells[2].Value.ToString());
+
+                    if (Product.Amount - Convert.ToInt32(amountChoose.Value) >= 0)//בודקים אם יש הכמות הנדרשת במלאי
                     {
-                        mySQL.InsertToCart(item, Convert.ToInt32(amountChoose.Value));
+                        mySQL.InsertToCart(itemBarcode, "", Convert.ToInt32(amountChoose.Value));
                         MessageBox.Show("מוצר התווסף לעגלה");
                     }
                     else

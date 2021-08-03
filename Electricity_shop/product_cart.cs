@@ -130,8 +130,24 @@ namespace Electricity_shop
 
         private void Btn_remove_Click(object sender, EventArgs e)
         {
-            string item = Grd_productsList.CurrentRow.Cells[0].Value.ToString();//מסיר מוצר מעגלה
-            mySQL.deleteItemFromCart(item);
+            string itemBarcode=string.Empty;
+            string itemModel = string.Empty;
+
+
+            if (Grd_productsList.CurrentRow.Cells[0].Value.ToString() != "")
+            {
+                itemBarcode = Grd_productsList.CurrentRow.Cells[0].Value.ToString();
+                mySQL.deleteItemFromCartByBarcode(itemBarcode);//מסיר מוצר מעגלה
+
+            }
+            else if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+            {
+                itemModel = Grd_productsList.CurrentRow.Cells[0].Value.ToString();
+                mySQL.deleteItemFromCartByModel(itemModel);//מסיר מוצר מעגלה
+
+            }
+
+
 
             Thread th;
             this.Close();

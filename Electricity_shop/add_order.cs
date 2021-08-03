@@ -168,14 +168,18 @@ namespace Electricity_shop
                 customer Cust = new customer();
                 string idTmp = Txt_customerId.Text;
 
-                for (int i = 0; i < Customer.Length; i++)//לולאה בודקת אם לקוח קיים
+                if (Customer != null)
                 {
-                    if (idTmp == Customer[i].Id.ToString())
+
+                    for (int i = 0; i < Customer.Length; i++)//לולאה בודקת אם לקוח קיים
                     {
-                        same = true;
+                        if (idTmp == Customer[i].Id.ToString())
+                        {
+                            same = true;
+
+                        }
 
                     }
-
                 }
 
                 if (same)//אם לקוח קיים
@@ -234,23 +238,27 @@ namespace Electricity_shop
                 customer[] Customer = mySQL.GetCustomerData();
                 string idTmp = Txt_customerId.Text;
 
-                for (int i = 0; i < Customer.Length; i++)
+                if (Customer != null)
                 {
-                    if (idTmp == Customer[i].Id.ToString())
+
+                    for (int i = 0; i < Customer.Length; i++)
                     {
+                        if (idTmp == Customer[i].Id.ToString())
+                        {
 
 
-                        Txt_customerId.Text = Customer[i].Id.ToString();
-                        Txt_customersFirstName.Text = Customer[i].First_name;
-                        Txt_customersLastName.Text = Customer[i].Last_name;
-                        Txt_customersAddress.Text = Customer[i].Address;
-                        Txt_customersPhoneNumber.Text = Customer[i].Phone_number;
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_customersFirstName.Text = Customer[i].First_name;
+                            Txt_customersLastName.Text = Customer[i].Last_name;
+                            Txt_customersAddress.Text = Customer[i].Address;
+                            Txt_customersPhoneNumber.Text = Customer[i].Phone_number;
 
-                        MessageBox.Show("לקוח קיים");
-                        read_only_true();
+                            MessageBox.Show("לקוח קיים");
+                            read_only_true();
+
+                        }
 
                     }
-
                 }
             }
         }
