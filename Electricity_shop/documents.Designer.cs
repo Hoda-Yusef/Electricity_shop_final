@@ -39,11 +39,6 @@ namespace Electricity_shop
             this.Lbl_info = new System.Windows.Forms.Label();
             this.dateTimePicker_from = new System.Windows.Forms.DateTimePicker();
             this.Btn_search = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker_to = new System.Windows.Forms.DateTimePicker();
-            this.Pic_createPDF = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_createPDF)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_exit
@@ -69,7 +64,7 @@ namespace Electricity_shop
             this.panel1.Location = new System.Drawing.Point(-5, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(963, 22);
+            this.panel1.Size = new System.Drawing.Size(1257, 34);
             this.panel1.TabIndex = 39;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -128,18 +123,18 @@ namespace Electricity_shop
             // 
             // dateTimePicker_from
             // 
-            this.dateTimePicker_from.CalendarFont = new System.Drawing.Font("Showcard Gothic", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker_from.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dateTimePicker_from.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker_from.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker_from.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dateTimePicker_from.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker_from.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_from.Location = new System.Drawing.Point(559, 109);
-            this.dateTimePicker_from.Name = "dateTimePicker_from";
-            this.dateTimePicker_from.Size = new System.Drawing.Size(176, 38);
-            this.dateTimePicker_from.TabIndex = 45;
+            this.dateTimePicker.CalendarFont = new System.Drawing.Font("Showcard Gothic", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker.Location = new System.Drawing.Point(820, 227);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(257, 34);
+            this.dateTimePicker.TabIndex = 45;
             // 
             // Btn_search
             // 
@@ -158,69 +153,12 @@ namespace Electricity_shop
             this.Btn_search.UseVisualStyleBackColor = false;
             this.Btn_search.Click += new System.EventHandler(this.Btn_search_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(756, 106);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(109, 31);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "מתאריך :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(417, 109);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(126, 31);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "עד תאריך :";
-            // 
-            // dateTimePicker_to
-            // 
-            this.dateTimePicker_to.CalendarFont = new System.Drawing.Font("Showcard Gothic", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker_to.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dateTimePicker_to.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker_to.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker_to.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dateTimePicker_to.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker_to.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker_to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_to.Location = new System.Drawing.Point(220, 109);
-            this.dateTimePicker_to.Name = "dateTimePicker_to";
-            this.dateTimePicker_to.Size = new System.Drawing.Size(178, 38);
-            this.dateTimePicker_to.TabIndex = 49;
-            // 
-            // Pic_createPDF
-            // 
-            this.Pic_createPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Pic_createPDF.Image = global::Electricity_shop.Properties.Resources.doc;
-            this.Pic_createPDF.Location = new System.Drawing.Point(797, 599);
-            this.Pic_createPDF.Name = "Pic_createPDF";
-            this.Pic_createPDF.Size = new System.Drawing.Size(126, 133);
-            this.Pic_createPDF.TabIndex = 51;
-            this.Pic_createPDF.TabStop = false;
-            this.Pic_createPDF.MouseLeave += new System.EventHandler(this.Pic_createPDF_MouseLeave);
-            this.Pic_createPDF.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Pic_createPDF_MouseMove);
-            // 
             // Frm_documents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(952, 761);
-            this.Controls.Add(this.Pic_createPDF);
-            this.Controls.Add(this.dateTimePicker_to);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Btn_exit);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1243, 683);
             this.Controls.Add(this.Btn_search);
             this.Controls.Add(this.dateTimePicker_from);
             this.Controls.Add(this.Lbl_info);
@@ -232,7 +170,7 @@ namespace Electricity_shop
             this.Name = "Frm_documents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "documents";
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_createPDF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pdf)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,9 +187,5 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_info;
         private System.Windows.Forms.DateTimePicker dateTimePicker_from;
         private System.Windows.Forms.Button Btn_search;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_to;
-        private System.Windows.Forms.PictureBox Pic_createPDF;
     }
 }

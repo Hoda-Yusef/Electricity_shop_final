@@ -246,19 +246,5 @@ namespace Electricity_shop
         {
             Application.Run(new Frm_InStock());
         }
-
-        private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread th;
-            th = new Thread(OpenDocument);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-
-        private void OpenDocument(object obj)
-        {
-            Application.Run(new Frm_documents());
-        }
     }
 }
