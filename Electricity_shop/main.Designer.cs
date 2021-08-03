@@ -536,6 +536,7 @@ namespace Electricity_shop
             this.Btn_incomeAndOutcome.TabIndex = 13;
             this.Btn_incomeAndOutcome.Text = "דו\"ח רווח והפסד";
             this.Btn_incomeAndOutcome.UseVisualStyleBackColor = false;
+            this.Btn_incomeAndOutcome.Click += new System.EventHandler(this.Btn_incomeAndOutcome_Click);
             // 
             // Btn_inStockReport
             // 

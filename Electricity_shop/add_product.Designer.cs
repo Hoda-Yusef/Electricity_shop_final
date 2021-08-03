@@ -377,7 +377,7 @@ namespace Electricity_shop
             this.Btn_addProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_addProduct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_addProduct.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_addProduct.Location = new System.Drawing.Point(179, 366);
+            this.Btn_addProduct.Location = new System.Drawing.Point(215, 466);
             this.Btn_addProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_addProduct.Name = "Btn_addProduct";
             this.Btn_addProduct.Size = new System.Drawing.Size(144, 62);

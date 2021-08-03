@@ -246,6 +246,5 @@ namespace Electricity_shop
         {
             Application.Run(new Frm_InStock());
         }
-
     }
 }

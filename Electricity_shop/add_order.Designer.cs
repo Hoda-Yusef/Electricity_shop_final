@@ -36,6 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Lbl_customersAddress = new System.Windows.Forms.Label();
             this.Lbl_delivery = new System.Windows.Forms.Label();
             this.Txt_customersAddress = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.Lbl_customersLastName = new System.Windows.Forms.Label();
             this.Txt_customersLastName = new System.Windows.Forms.TextBox();
             this.Btn_clear = new System.Windows.Forms.Button();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.delivery = new System.Windows.Forms.CheckBox();
             this.Lbl_customerId = new System.Windows.Forms.Label();
             this.Txt_customerId = new System.Windows.Forms.TextBox();
@@ -122,6 +122,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.panel4.Controls.Add(this.dateTimePicker);
             this.panel4.Controls.Add(this.Lbl_customersAddress);
             this.panel4.Controls.Add(this.Lbl_delivery);
             this.panel4.Controls.Add(this.Txt_customersAddress);
@@ -130,7 +131,6 @@
             this.panel4.Controls.Add(this.Lbl_customersLastName);
             this.panel4.Controls.Add(this.Txt_customersLastName);
             this.panel4.Controls.Add(this.Btn_clear);
-            this.panel4.Controls.Add(this.dateTimePicker);
             this.panel4.Controls.Add(this.delivery);
             this.panel4.Controls.Add(this.Lbl_customerId);
             this.panel4.Controls.Add(this.Txt_customerId);
@@ -142,6 +142,21 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(816, 576);
             this.panel4.TabIndex = 41;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.CalendarFont = new System.Drawing.Font("Showcard Gothic", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.dateTimePicker.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker.Location = new System.Drawing.Point(102, 377);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(200, 38);
+            this.dateTimePicker.TabIndex = 62;
             // 
             // Lbl_customersAddress
             // 
@@ -242,25 +257,6 @@
             this.Btn_clear.Text = "ניקוי";
             this.Btn_clear.UseVisualStyleBackColor = false;
             this.Btn_clear.Click += new System.EventHandler(this.Btn_clear_Click);
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(86, 368);
-            this.dateTimePicker.MaxDate = new System.DateTime(3000, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(257, 34);
-            this.dateTimePicker.TabIndex = 6;
-            this.dateTimePicker.Value = new System.DateTime(2021, 7, 31, 0, 0, 0, 0);
-            this.dateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateTimePicker_KeyPress);
             // 
             // delivery
             // 
@@ -391,7 +387,6 @@
         private System.Windows.Forms.Label Lbl_customerId;
         private System.Windows.Forms.TextBox Txt_customerId;
         private System.Windows.Forms.CheckBox delivery;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button Btn_clear;
         private System.Windows.Forms.TextBox Txt_customersPhoneNumber;
         private System.Windows.Forms.Label Lbl_customersLastName;
@@ -400,5 +395,6 @@
         private System.Windows.Forms.Label Lbl_customersPhoneNumber;
         private System.Windows.Forms.Label Lbl_customersAddress;
         private System.Windows.Forms.Label Lbl_delivery;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }
