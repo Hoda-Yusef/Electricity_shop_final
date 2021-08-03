@@ -50,6 +50,10 @@ namespace Electricity_shop
             int total_price = 0;
             int pure_price = 0;
             int lose = 0;
+            int max_sum = 0;
+            int max_ID = 0;
+            int max_id = 0;
+            int count = 0;
 
             Orders = mySQL.GetOrdersDataByDate(dateTimePicker.Text);
 

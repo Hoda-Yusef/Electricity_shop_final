@@ -39,6 +39,9 @@ namespace Electricity_shop
             this.Lbl_info = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Btn_search = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pic_pdf = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pdf)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_exit
@@ -63,7 +66,7 @@ namespace Electricity_shop
             this.panel1.Location = new System.Drawing.Point(-5, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1257, 34);
+            this.panel1.Size = new System.Drawing.Size(1219, 17);
             this.panel1.TabIndex = 39;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -131,7 +134,7 @@ namespace Electricity_shop
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker.Location = new System.Drawing.Point(820, 227);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(257, 34);
+            this.dateTimePicker.Size = new System.Drawing.Size(257, 29);
             this.dateTimePicker.TabIndex = 45;
             // 
             // Btn_search
@@ -151,12 +154,31 @@ namespace Electricity_shop
             this.Btn_search.UseVisualStyleBackColor = false;
             this.Btn_search.Click += new System.EventHandler(this.Btn_search_Click);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.panel5.Location = new System.Drawing.Point(1204, 12);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 711);
+            this.panel5.TabIndex = 47;
+            // 
+            // pic_pdf
+            // 
+            this.pic_pdf.Image = global::Electricity_shop.Properties.Resources.doc;
+            this.pic_pdf.Location = new System.Drawing.Point(1011, 504);
+            this.pic_pdf.Name = "pic_pdf";
+            this.pic_pdf.Size = new System.Drawing.Size(140, 136);
+            this.pic_pdf.TabIndex = 48;
+            this.pic_pdf.TabStop = false;
+            // 
             // Frm_documents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1243, 683);
+            this.ClientSize = new System.Drawing.Size(1215, 683);
+            this.Controls.Add(this.pic_pdf);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.Btn_search);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.Lbl_info);
@@ -169,7 +191,7 @@ namespace Electricity_shop
             this.Name = "Frm_documents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "documents";
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_createPDF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pdf)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +208,7 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_info;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button Btn_search;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pic_pdf;
     }
 }
