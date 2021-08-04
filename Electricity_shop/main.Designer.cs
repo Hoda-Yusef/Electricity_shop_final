@@ -660,7 +660,6 @@ namespace Electricity_shop
             this.Controls.Add(this.Lbl_heading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "main";
             this.Load += new System.EventHandler(this.Frm_main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Pic_socket)).EndInit();

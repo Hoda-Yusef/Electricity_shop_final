@@ -1436,6 +1436,18 @@ namespace Electricity_shop
             }
         }
 
+        public void UpdateProductAmountByModel(int amount, string model)
+        {
+            string cmdStr = "UPDATE product SET amount=" + amount + " WHERE product_model='" + model + "'";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@amount", amount);
+
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         public void UpdateProductBySerial(Product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -1569,7 +1581,7 @@ namespace Electricity_shop
             }
         }
 
-        public void UpdateCartAmount(int productAmount,string productBarcode)
+        public void UpdateCartAmountByBarcode(int productAmount,string productBarcode)
         {
             string cmdStr = "UPDATE cart SET amount=" + productAmount + " WHERE product_barcode="+ productBarcode + "";
 
@@ -1578,6 +1590,19 @@ namespace Electricity_shop
             {
                 command.Parameters.AddWithValue("@amount", productAmount);
                 
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void UpdateCartAmountByModel(int productAmount, string productModel)
+        {
+            string cmdStr = "UPDATE cart SET amount=" + productAmount + " WHERE product_model=" + productModel + "";
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@amount", productAmount);
+
                 base.ExecuteSimpleQuery(command);
             }
         }

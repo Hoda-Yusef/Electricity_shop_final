@@ -149,14 +149,22 @@ namespace Electricity_shop
 
                 if (Grd_allOrders.Rows.Count != 0)//אם הטבלה לא ריקה
                 {
-                    Product Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
+                    if(Grd_allOrders.CurrentRow.Cells[0].Value.ToString() != "")
+                        Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
+                    
+                    else if (Grd_allOrders.CurrentRow.Cells[3].Value.ToString() != "")
+                        Product = mySQL.GetProductDataByModel(Grd_allOrders.CurrentRow.Cells[3].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
 
                     mySQL.deleteProductFromProduct_cartByOrderNumberAndProductSerial(Product.Product_serial_number.ToString(), Txt_show_order_number.Text);//מסירים את המוצר הנבחר מההזמנה
 
                     if (Orderss.Status == 1)//בודקים אם ההזמנה במצב לא סופק אז ניתן להחזיר כמות למוצר קיים
                     {
                         int sum = Product.Amount + Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);//מחבר הכמות של המוצר שהוסר למוצר הקיים 
-                        mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);//מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
+                        if(Product.Barcode != "")
+                            mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);//מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
+                        else if(Product.Model != "")
+                            mySQL.UpdateProductAmountByModel(sum, Product.Model);//מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
+
                     }
 
                     this.Close();
@@ -232,9 +240,13 @@ namespace Electricity_shop
             int sum = 0;
             //כאשר משתמש משנה את הכמות בודק אם יש הכמות הנדרשת אם כן מחסרים את הכמות במלאי בהתאם או מוסיפים תלוי
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
-            Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());
+            if(Grd_allOrders.CurrentRow.Cells[0].Value.ToString() != "")
+                Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());
+            else if(Grd_allOrders.CurrentRow.Cells[3].Value.ToString() != "")
+                Product = mySQL.GetProductDataByModel(Grd_allOrders.CurrentRow.Cells[3].Value.ToString());
 
-            for(int i=0;i<Product_order.Length;i++)
+
+            for (int i=0;i<Product_order.Length;i++)
             {
                 if(Product_order[i].Product_serial_number == Product.Product_serial_number)
                 {
@@ -242,7 +254,11 @@ namespace Electricity_shop
                     {
                         sum += (Product.Amount + previosAmount) - Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);
                         mySQL.UpdateProduct_orderAmount(Product.Product_serial_number.ToString(), order_number_holder, Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value));
-                        mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);
+                        if(Product.Barcode != "")
+                           mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);
+                        else if(Product.Model != "")
+                            mySQL.UpdateProductAmountByModel(sum, Product.Model);
+
 
                         MessageBox.Show("כמות עודכנה");
                         

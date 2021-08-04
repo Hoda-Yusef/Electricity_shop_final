@@ -48,7 +48,7 @@ namespace Electricity_shop
         private void Btn_search_Click(object sender, EventArgs e)//כפתור לקבלת מידע
         {
             int total_price = 0;
-            int pure_price = 0;
+            double pure_price = 0;
             int lose = 0;
             int max_sum = 0;
             int max_ID = 0;
@@ -71,7 +71,7 @@ namespace Electricity_shop
                             product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
 
                             total_price += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
-                            pure_price += (product.Selling_price - product.Cost_price) * Product_order[j].Amount;//מחשב סכום רווח נטו
+                            pure_price += ((product.Selling_price - product.Cost_price)-((product.Selling_price - product.Cost_price) * 0.18)) * Product_order[j].Amount;//מחשב סכום רווח נטו
                             lose += product.Cost_price;//מחשב סכום הפסד
                             max_sum += product.Selling_price * Product_order[j].Amount;
 
@@ -89,7 +89,7 @@ namespace Electricity_shop
                 }
                 best_selling_product(count);
 
-                Lbl_info.Text = "\nרווח פרוטו : " + total_price + "\n\nרווח נטו : " + pure_price +
+                Lbl_info.Text = "\n  רווח פרוטו עם מעמ : " + total_price + "\n\nרווח נטו ללא מעמ: " + pure_price +
                     "\n\nהפסד : " + lose + "\n\nסכום העסקה הגדולה ביותר : " + max_ID + "\n ללקוח - " + max_id + " " +
                     "\n\nמוצר הנמכר ביותר :- " + max_product_category + " - " + max_product_model + "\nכמות יחידות שנמכרו : " +
                     "" + max_product_amount + "";
