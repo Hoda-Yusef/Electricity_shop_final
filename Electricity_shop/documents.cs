@@ -54,6 +54,7 @@ namespace Electricity_shop
             int max_ID = 0;
             int max_id = 0;
             int count = 0;
+            double VAT = 0;
 
             //מקבלים את כל ההזמנות בין שני התאריכים שבחר המשתמש
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
@@ -71,7 +72,11 @@ namespace Electricity_shop
                             product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
 
                             total_price += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
-                            pure_price += ((product.Selling_price - product.Cost_price)-((product.Selling_price - product.Cost_price) * 0.18)) * Product_order[j].Amount;//מחשב סכום רווח נטו
+                            pure_price += ((product.Selling_price - product.Cost_price)-
+                                ((product.Selling_price - product.Cost_price) * 0.18)) * 
+                                Product_order[j].Amount;//מחשב סכום רווח נטו
+
+                            VAT += ((product.Selling_price - product.Cost_price) * 0.18) * Product_order[j].Amount;
                             lose += product.Cost_price;//מחשב סכום הפסד
                             max_sum += product.Selling_price * Product_order[j].Amount;
 
@@ -89,8 +94,8 @@ namespace Electricity_shop
                 }
                 best_selling_product(count);
 
-                Lbl_info.Text = "\n  רווח פרוטו עם מעמ : " + total_price + "\n\nרווח נטו ללא מעמ: " + pure_price +
-                    "\n\nהפסד : " + lose + "\n\nסכום העסקה הגדולה ביותר : " + max_ID + "\n ללקוח - " + max_id + " " +
+                Lbl_info.Text = "\n  רווח פרוטו עם מעמ : " + total_price + "\n\nרווח נטו ללא מעמ: " + pure_price +"\n\nסכום מעמ : "+VAT+"" +
+                    "\n\nשולם לספקים : " + lose + "\n\nסכום העסקה הגדולה ביותר : " + max_ID + "\n ללקוח - " + max_id + " " +
                     "\n\nמוצר הנמכר ביותר :- " + max_product_category + " - " + max_product_model + "\nכמות יחידות שנמכרו : " +
                     "" + max_product_amount + "";
             }

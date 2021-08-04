@@ -409,6 +409,7 @@ namespace Electricity_shop
             this.Grd_productsList.Location = new System.Drawing.Point(33, 124);
             this.Grd_productsList.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Grd_productsList.Name = "Grd_productsList";
+            this.Grd_productsList.ReadOnly = true;
             this.Grd_productsList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Grd_productsList.RowHeadersVisible = false;
             this.Grd_productsList.RowHeadersWidth = 5;
@@ -423,6 +424,7 @@ namespace Electricity_shop
             this.Column5.HeaderText = "ברקוד";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column1
             // 
@@ -430,6 +432,7 @@ namespace Electricity_shop
             this.Column1.HeaderText = "קטגוריה";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
@@ -437,6 +440,7 @@ namespace Electricity_shop
             this.Column2.HeaderText = "יצרן";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -444,6 +448,7 @@ namespace Electricity_shop
             this.Column3.HeaderText = "דגם";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column8
             // 
@@ -451,12 +456,14 @@ namespace Electricity_shop
             this.Column8.HeaderText = "מחיר";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "כמות";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Column9
@@ -465,6 +472,7 @@ namespace Electricity_shop
             this.Column9.HeaderText = "מפרט";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // splitter2
             // 
