@@ -207,12 +207,16 @@ namespace Electricity_shop
         private void Btn_addToOrder_Click(object sender, EventArgs e)
         {
             bool same = false;
-            //ONH = mySQL.GetorderNumberHolder();//שולפים את מספר ההזמנה
-                                             
-            Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
+             
+            if(Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+                Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
+            else if(Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
+                Product = mySQL.GetProductDataByModel(Grd_productsList.CurrentRow.Cells[2].Value.ToString());
+
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
 
-            string item = Grd_productsList.CurrentRow.Cells[3].Value.ToString();//שולפים את הברקוד מהטבלה 
+            string itemBarcode = Grd_productsList.CurrentRow.Cells[3].Value.ToString();//שולפים את הברקוד מהטבלה 
+            string itemModel = Grd_productsList.CurrentRow.Cells[2].Value.ToString();
             int amount = (int)Grd_productsList.CurrentRow.Cells[5].Value;//שולפים את הכמות הקיימת למוצר הנבחר
 
             if (Product_order != null)
@@ -225,12 +229,12 @@ namespace Electricity_shop
                     }
                 }
             }
-            insert_to_order(same,item,amount);
+            insert_to_order(same,itemBarcode,itemModel,amount);
 
             
         }
 
-        private void insert_to_order(bool same, string item, int amount)
+        private void insert_to_order(bool same, string itemBarcode,string itemModel, int amount)
         {
             if (same)//בודקים אם המוצר הנבחר הוא כבר בהזמנה
             {
@@ -242,15 +246,30 @@ namespace Electricity_shop
                 {
                     if (amount - Convert.ToInt32(amountChoose.Value) >= 0)//בודקים אם יש מספיק מלאי לכמות המבוקשת
                     {
-                        Product = mySQL.GetProductDataByBarcode(item);//שולפים מידע למוצר הקיים
-                        mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
-                        mySQL.UpdateProductAmountByBarcode(amount - Convert.ToInt32(amountChoose.Value), item);//מעדכנים את הכמות של המוצר הקיים
-                        MessageBox.Show("מוצר התווסף להזמנה");
-                        Thread th;
-                        this.Close();
-                        th = new Thread(OpenSelf);
-                        th.TrySetApartmentState(ApartmentState.STA);
-                        th.Start();
+                        if (itemBarcode != "")
+                        {
+                            Product = mySQL.GetProductDataByBarcode(itemBarcode);//שולפים מידע למוצר הקיים
+                            mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
+                            mySQL.UpdateProductAmountByBarcode(amount - Convert.ToInt32(amountChoose.Value), itemBarcode);//מעדכנים את הכמות של המוצר הקיים
+                            MessageBox.Show("מוצר התווסף להזמנה");
+                            Thread th;
+                            this.Close();
+                            th = new Thread(OpenSelf);
+                            th.TrySetApartmentState(ApartmentState.STA);
+                            th.Start();
+                        }
+                        else if(itemModel != "")
+                        {
+                            Product = mySQL.GetProductDataByModel(itemModel);//שולפים מידע למוצר הקיים
+                            mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
+                            mySQL.UpdateProductAmountByModel(amount - Convert.ToInt32(amountChoose.Value), itemModel);//מעדכנים את הכמות של המוצר הקיים
+                            MessageBox.Show("מוצר התווסף להזמנה");
+                            Thread th;
+                            this.Close();
+                            th = new Thread(OpenSelf);
+                            th.TrySetApartmentState(ApartmentState.STA);
+                            th.Start();
+                        }
                     }
                     else
                         MessageBox.Show("לא מספיק מלאי לכמות המבוקשת");

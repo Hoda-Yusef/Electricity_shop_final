@@ -87,17 +87,32 @@ namespace Electricity_shop
                 {
                     for (int j = 0; j < Products.Length; j++)
                     {
-                        if (Cart[i].Product_barcode == Products[j].Barcode)
+                        if (Cart[i].Product_barcode != "" && Cart[i].Product_barcode == Products[j].Barcode)
                         {
                             Grd_productsList.Rows.Add(new object[]
+                                {
+                                Products[j].Barcode,
+                                Products[j].Category,
+                                Products[j].Manufacturer,
+                                Products[j].Model,
+                                Products[j].Selling_price,
+                                Cart[i].Amount,
+                                Products[j].Product_info,
+
+                        });
+
+                        }
+                        else if(Cart[i].Product_model != "" && Cart[i].Product_model == Products[j].Model)
                         {
-                        Products[j].Barcode,
-                    Products[j].Category,
-                    Products[j].Manufacturer,
-                    Products[j].Model,
-                    Products[j].Selling_price,
-                    Cart[i].Amount,
-                    Products[j].Product_info,
+                            Grd_productsList.Rows.Add(new object[]
+                                {
+                                Products[j].Barcode,
+                                Products[j].Category,
+                                Products[j].Manufacturer,
+                                Products[j].Model,
+                                Products[j].Selling_price,
+                                Cart[i].Amount,
+                                Products[j].Product_info,
 
                         });
                         }
@@ -188,7 +203,10 @@ namespace Electricity_shop
 
             for(int i=0;i<Grd_productsList.Rows.Count;i++)
             {
-               Product= mySQL.GetProductDataByBarcode(Grd_productsList.Rows[i].Cells[0].Value.ToString());//  שליפת מידע של מוצרים לפי ברקוד הנמצא בעגלה
+               if(Grd_productsList.Rows[i].Cells[0].Value.ToString() != "")
+                   Product= mySQL.GetProductDataByBarcode(Grd_productsList.Rows[i].Cells[0].Value.ToString());//  שליפת מידע של מוצרים לפי ברקוד הנמצא בעגלה
+               else if(Grd_productsList.Rows[i].Cells[3].Value.ToString() != "")
+                    Product = mySQL.GetProductDataByModel(Grd_productsList.Rows[i].Cells[3].Value.ToString());//  שליפת מידע של מוצרים לפי דגם הנמצא בעגלה
 
                 int general_amount = Convert.ToInt32(Product.Amount);//לוקח כמות כללית מטבלת מוצרים
                 int cart_amount= Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value.ToString());//לוקח את הכמות של מוצר שנמצא בעגלה
@@ -205,12 +223,25 @@ namespace Electricity_shop
             {
                 for(int i=0;i<Grd_productsList.Rows.Count;i++)//עובר על כל השורות בטבלת המוצרים בעגלה
                 {
-                    Product = mySQL.GetProductDataByBarcode(Grd_productsList.Rows[i].Cells[0].Value.ToString());//שליפת מידע על מוצר לפי ברקוד
+                    if (Grd_productsList.Rows[i].Cells[0].Value.ToString() != "")
+                    {
 
-                    mySQL.InsertToProductOrder(Product.Product_serial_number,Convert.ToInt32(Lbl_showOrderNumber.Text),
-                        Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value));//מוסיפים את מספר הזמנה ומספר סידורי של מוצר וכמות לטבלה מקשרת
+                        Product = mySQL.GetProductDataByBarcode(Grd_productsList.Rows[i].Cells[0].Value.ToString());//שליפת מידע על מוצר לפי ברקוד
 
-                    mySQL.UpdateProductAmountByBarcode(Product.Amount - Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value) , Product.Barcode);//מעדכנים את הכמות של מוצרים במלאי בהתאם
+                        mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(Lbl_showOrderNumber.Text),
+                            Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value));//מוסיפים את מספר הזמנה ומספר סידורי של מוצר וכמות לטבלה מקשרת
+
+                        mySQL.UpdateProductAmountByBarcode(Product.Amount - Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value), Product.Barcode);//מעדכנים את הכמות של מוצרים במלאי בהתאם
+                    }
+                    else if(Grd_productsList.Rows[i].Cells[3].Value.ToString() != "")
+                    {
+                        Product = mySQL.GetProductDataByModel(Grd_productsList.Rows[i].Cells[3].Value.ToString());//שליפת מידע על מוצר לפי ברקוד
+
+                        mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(Lbl_showOrderNumber.Text),
+                            Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value));//מוסיפים את מספר הזמנה ומספר סידורי של מוצר וכמות לטבלה מקשרת
+
+                        mySQL.UpdateProductAmountByModel(Product.Amount - Convert.ToInt32(Grd_productsList.Rows[i].Cells[5].Value), Product.Model);//מעדכנים את הכמות של מוצרים במלאי בהתאם
+                    }
                 }
                 MessageBox.Show("הזמנה התווספה בהצלחה");
                 mySQL.clearCart();//מרקנים את ההעגלה
@@ -228,7 +259,11 @@ namespace Electricity_shop
 
         private void Grd_productsList_CellEndEdit(object sender, DataGridViewCellEventArgs e)//שיטה שמעדכנת את הכמות של מוצר בתוך העגלה
         {
-            mySQL.UpdateCartAmount(Convert.ToInt32(Grd_productsList.CurrentRow.Cells[5].Value),Grd_productsList.CurrentRow.Cells[0].Value.ToString());
+            if(Grd_productsList.CurrentRow.Cells[0].Value.ToString() != "")
+                 mySQL.UpdateCartAmountByBarcode(Convert.ToInt32(Grd_productsList.CurrentRow.Cells[5].Value),Grd_productsList.CurrentRow.Cells[0].Value.ToString());
+            else if(Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+                mySQL.UpdateCartAmountByModel(Convert.ToInt32(Grd_productsList.CurrentRow.Cells[5].Value), Grd_productsList.CurrentRow.Cells[3].Value.ToString());
+
             MessageBox.Show("כמות עודכנה");
             this.Close();
             th = new Thread(openSelf);

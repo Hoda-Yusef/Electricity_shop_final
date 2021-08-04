@@ -270,7 +270,7 @@ namespace Electricity_shop
 
                     if (Product.Amount - Convert.ToInt32(amountChoose.Value) >= 0)//בודקים אם יש הכמות הנדרשת במלאי
                     {
-                        mySQL.InsertToCart(itemBarcode, "", Convert.ToInt32(amountChoose.Value));
+                        mySQL.InsertToCart(itemBarcode, itemModel, Convert.ToInt32(amountChoose.Value));
                         MessageBox.Show("מוצר התווסף לעגלה");
                     }
                     else
