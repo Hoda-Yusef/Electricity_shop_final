@@ -16,28 +16,49 @@ namespace Electricity_shop
         int count = 0;
         bool drag = false;
         Point sp = new Point(0, 0);
+        int usersRole;
 
-        public Frm_update_customer()
+        public Frm_update_customer(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
         //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
+            if(usersRole==1)
+            {
             this.Close();
-            Frm_main mainForm = new Frm_main();
+            Frm_main mainForm = new Frm_main(usersRole);
             mainForm.Show();
+            }
+            else
+            {
+                this.Close();
+                Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole);
+                mainForm.Show();
+            }
+            
         }
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Frm_main mainForm = new Frm_main();
-            mainForm.Show();
+            if (usersRole == 1)
+            {
+                this.Close();
+                Frm_main mainForm = new Frm_main(usersRole);
+                mainForm.Show();
+            }
+            else
+            {
+                this.Close();
+                Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole);
+                mainForm.Show();
+            }
         }
         //טעינת טופס נוכחי
         private void Frm_update_customer_Load(object sender, EventArgs e)

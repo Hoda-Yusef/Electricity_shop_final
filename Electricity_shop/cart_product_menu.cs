@@ -23,16 +23,16 @@ namespace Electricity_shop
         Product Product;
         readonly Cart Cart;
         private readonly string product_barcode;
+        int usersRole;
 
-        public Frm_cartProductMenu()
+        public Frm_cartProductMenu(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
-            
+            usersRole = role;
         }
 
         private void Frm_cartProductMenu_Load(object sender, EventArgs e)//בעת פתיחה חלון נטען במוצרים
@@ -62,8 +62,6 @@ namespace Electricity_shop
                 }
             }
         }
-
-        
 
         private void fill_grid_by_barcode()//מסנן לפי ברקוד
         {
@@ -211,7 +209,7 @@ namespace Electricity_shop
        
         private void OpenProductCart(object obj)
         {
-            Application.Run(new Frm_productsInCart());
+            Application.Run(new Frm_productsInCart(usersRole));
         }
 
         private void Btn_toCart_Click(object sender, EventArgs e)//יציאה
@@ -284,14 +282,29 @@ namespace Electricity_shop
         }
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
         private void Btn_exit_Click(object sender, EventArgs e)
         {
+            if(usersRole==1)
+            {
             this.Close();
             th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            
         }
     }
 }

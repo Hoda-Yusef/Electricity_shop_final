@@ -18,15 +18,15 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection manufactureAuto = new AutoCompleteStringCollection();
-
-        public Frm_products_management()
+        int usersRole;
+        public Frm_products_management(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
+            usersRole = role;
 
             Set_AutoCompleteMode_text_boxes();
 
@@ -130,7 +130,11 @@ namespace Electricity_shop
         //פונקציה פותחת טופס ראשי במערכת
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
         //הזזת טופס
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
@@ -181,7 +185,7 @@ namespace Electricity_shop
             if (Grd_products.CurrentRow != null)
             {
                 //עוברים לטופס עדכון מוצר
-                Frm_updateProduct updateProduct = new Frm_updateProduct();
+                Frm_updateProduct updateProduct = new Frm_updateProduct(usersRole);
                 //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
                 updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
                 updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();
@@ -207,15 +211,26 @@ namespace Electricity_shop
         //פותחים טופס נוכחי בחזרה
         private void OpenSelf(object obj)
         {
-            Application.Run(new Frm_products_management());
+            Application.Run(new Frm_products_management(usersRole));
         }
         //לחיצה על כפתור חזרה לראשי
         private void BtnExit_Click(object sender, EventArgs e)
         {
+            if(usersRole==1)
+            {
             this.Close();
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+           
         }
         //חיפוש לפי ברקוד
         private void Txt_barcode_TextChanged(object sender, EventArgs e)
@@ -305,17 +320,27 @@ namespace Electricity_shop
         // Xלחיצה על כפתור
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         //כאשר לוחצים לחיצה כפולה עוברים לעידכון מוצר ספציפי
         private void Grd_products_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //עוברים לטופס עדכון מוצר
-            Frm_updateProduct updateProduct = new Frm_updateProduct();
+            Frm_updateProduct updateProduct = new Frm_updateProduct(usersRole);
             //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
             updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
             updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();

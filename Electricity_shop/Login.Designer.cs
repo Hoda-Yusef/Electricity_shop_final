@@ -32,31 +32,31 @@ namespace Electricity_shop
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_login));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Pic_login = new System.Windows.Forms.PictureBox();
             this.Btn_exit = new System.Windows.Forms.Button();
-            this.user = new System.Windows.Forms.PictureBox();
+            this.Pic_user = new System.Windows.Forms.PictureBox();
             this.Txt_username = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel = new System.Windows.Forms.Panel();
             this.Txt_password = new System.Windows.Forms.TextBox();
-            this.password = new System.Windows.Forms.PictureBox();
+            this.Pic_password = new System.Windows.Forms.PictureBox();
             this.Btn_entry = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.password_user_wrong_message = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.password)).BeginInit();
+            this.Lbl_wrongPasswordMessage = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_login)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_password)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // Pic_login
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            resources.ApplyResources(this.Pic_login, "Pic_login");
+            this.Pic_login.Name = "Pic_login";
+            this.Pic_login.TabStop = false;
+            this.Pic_login.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Btn_exit
             // 
@@ -65,15 +65,15 @@ namespace Electricity_shop
             this.Btn_exit.Name = "Btn_exit";
             this.Btn_exit.UseVisualStyleBackColor = true;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
-            this.Btn_exit.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.Btn_exit.MouseHover += new System.EventHandler(this.button1_MouseHover);
-            this.Btn_exit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            this.Btn_exit.MouseLeave += new System.EventHandler(this.Btn_exit_MouseLeave);
+            this.Btn_exit.MouseHover += new System.EventHandler(this.Btn_exit_MouseHover);
+            this.Btn_exit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Btn_exit_MouseMove);
             // 
-            // user
+            // Pic_user
             // 
-            resources.ApplyResources(this.user, "user");
-            this.user.Name = "user";
-            this.user.TabStop = false;
+            resources.ApplyResources(this.Pic_user, "Pic_user");
+            this.Pic_user.Name = "Pic_user";
+            this.Pic_user.TabStop = false;
             // 
             // Txt_username
             // 
@@ -105,11 +105,11 @@ namespace Electricity_shop
             this.Txt_password.Name = "Txt_password";
             this.Txt_password.Click += new System.EventHandler(this.Txt_password_Click);
             // 
-            // password
+            // Pic_password
             // 
-            resources.ApplyResources(this.password, "password");
-            this.password.Name = "password";
-            this.password.TabStop = false;
+            resources.ApplyResources(this.Pic_password, "Pic_password");
+            this.Pic_password.Name = "Pic_password";
+            this.Pic_password.TabStop = false;
             // 
             // Btn_entry
             // 
@@ -119,7 +119,7 @@ namespace Electricity_shop
             this.Btn_entry.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Btn_entry.Name = "Btn_entry";
             this.Btn_entry.UseVisualStyleBackColor = false;
-            this.Btn_entry.Click += new System.EventHandler(this.entry_Click);
+            this.Btn_entry.Click += new System.EventHandler(this.Btn_entry_Click);
             // 
             // panel9
             // 
@@ -145,18 +145,18 @@ namespace Electricity_shop
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
-            // password_user_wrong_message
+            // Lbl_wrongPasswordMessage
             // 
-            resources.ApplyResources(this.password_user_wrong_message, "password_user_wrong_message");
-            this.password_user_wrong_message.ForeColor = System.Drawing.Color.Red;
-            this.password_user_wrong_message.Name = "password_user_wrong_message";
+            resources.ApplyResources(this.Lbl_wrongPasswordMessage, "Lbl_wrongPasswordMessage");
+            this.Lbl_wrongPasswordMessage.ForeColor = System.Drawing.Color.Red;
+            this.Lbl_wrongPasswordMessage.Name = "Lbl_wrongPasswordMessage";
             // 
             // Frm_login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Controls.Add(this.password_user_wrong_message);
+            this.Controls.Add(this.Lbl_wrongPasswordMessage);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -166,10 +166,10 @@ namespace Electricity_shop
             this.Controls.Add(this.Txt_password);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Txt_username);
-            this.Controls.Add(this.password);
-            this.Controls.Add(this.user);
+            this.Controls.Add(this.Pic_password);
+            this.Controls.Add(this.Pic_user);
             this.Controls.Add(this.Btn_exit);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Pic_login);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -177,9 +177,9 @@ namespace Electricity_shop
             this.Name = "Frm_login";
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.Frm_login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.password)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_login)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_password)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,20 +194,20 @@ namespace Electricity_shop
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Pic_login;
         private System.Windows.Forms.Button Btn_exit;
-        private System.Windows.Forms.PictureBox user;
+        private System.Windows.Forms.PictureBox Pic_user;
         private System.Windows.Forms.TextBox Txt_username;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.TextBox Txt_password;
-        private System.Windows.Forms.PictureBox password;
+        private System.Windows.Forms.PictureBox Pic_password;
         private System.Windows.Forms.Button Btn_entry;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label password_user_wrong_message;
+        private System.Windows.Forms.Label Lbl_wrongPasswordMessage;
     }
 }
 

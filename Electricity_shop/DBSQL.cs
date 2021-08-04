@@ -307,8 +307,9 @@ namespace Electricity_shop
                 for (int i = 0; i < User.Length; i++)
                 {
                     User[i] = new user();
-                    User[i].Username = dt.Rows[i][1].ToString();
-                    User[i].Password = dt.Rows[i][2].ToString();
+                    User[i].Username = dt.Rows[i][0].ToString();
+                    User[i].Password = dt.Rows[i][1].ToString();
+                    User[i].Role =Convert.ToInt32(dt.Rows[i][2]);
                     
 
                 }

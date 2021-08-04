@@ -17,7 +17,7 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
         private DBSQL mySQL;
-
+        int usersRole;
         //מילוי אוטומטי
         AutoCompleteStringCollection idAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
@@ -26,18 +26,16 @@ namespace Electricity_shop
         AutoCompleteStringCollection phoneAuto = new AutoCompleteStringCollection();
 
 
-        public Frm_addOrder()
+        public Frm_addOrder(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
+            usersRole = role;
             set_AutoCompleteMode_text_boxes();
-
-
-        }
+     }
 
 
         private void set_AutoCompleteMode_text_boxes()//מילוי אוטומטי
@@ -56,30 +54,52 @@ namespace Electricity_shop
 
             Txt_customersPhoneNumber.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             Txt_customersPhoneNumber.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
+            if(usersRole==1)
+            {
             this.Close();
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
 
 
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
@@ -102,8 +122,6 @@ namespace Electricity_shop
             }
         }
 
-
-
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
@@ -123,8 +141,6 @@ namespace Electricity_shop
         {
             drag = false;
         }
-
-       
 
         private void new_customer(customer cust)//אם לקוח חדש 
         {
@@ -155,7 +171,7 @@ namespace Electricity_shop
 
         private void openProductCartManu(object obj)
         {
-            Application.Run(new Frm_cartProductMenu());
+            Application.Run(new Frm_cartProductMenu(usersRole));
         }
 
         private void Btn_ok_Click(object sender, EventArgs e)//בעת לחיצה על אישור

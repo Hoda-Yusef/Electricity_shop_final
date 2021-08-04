@@ -17,30 +17,30 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-
         Product[] Products;
         Product Product;
-
         product_order[] Product_order;
         string order_number_holder;
+        int usersRole;
 
-        public Frm_addProductsToOrder()
+        public Frm_addProductsToOrder(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
 
-        public Frm_addProductsToOrder(string orderNumber)
+        public Frm_addProductsToOrder(string orderNumber,int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
+            usersRole = role;
             order_number_holder = orderNumber;
         }
 
@@ -272,12 +272,12 @@ namespace Electricity_shop
 
         private void OpenUpadteOrder(object obj)
         {
-            Application.Run(new Frm_updateOrder(order_number_holder));
+            Application.Run(new Frm_updateOrder(order_number_holder,usersRole));
         }
 
         private void OpenSelf(object obj)
         {
-            Application.Run(new Frm_addProductsToOrder(order_number_holder));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder,usersRole));
         }
 
         private void Txt_productBarcode_KeyPress(object sender, KeyPressEventArgs e)

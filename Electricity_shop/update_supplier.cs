@@ -20,14 +20,15 @@ namespace Electricity_shop
         readonly supplier updated_supplier = new supplier();
         readonly DBSQL mySQL;
         int count = 0;//מונה את הספרות במספר טלפון
-
-        public Frm_updateSupplier()
+        int usersRole;
+        public Frm_updateSupplier(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
@@ -93,7 +94,7 @@ namespace Electricity_shop
         private void Btn_cancelUpdating_Click(object sender, EventArgs e)//ביטול עידכון
         {
             this.Close();
-            Frm_main mainForm = new Frm_main();
+            Frm_suppliersManagement mainForm = new Frm_suppliersManagement(usersRole);
             mainForm.Show();
         }
 
@@ -197,13 +198,13 @@ namespace Electricity_shop
             load_supplier = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);
         }
 
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -212,7 +213,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }

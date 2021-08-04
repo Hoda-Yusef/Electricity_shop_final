@@ -15,14 +15,15 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection IdAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection phoneNumberAuto = new AutoCompleteStringCollection();
-      
-        public FrmCustomers_management()
+        int usersRole;
+        public FrmCustomers_management(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
 
         }
         //למלא טבלה בטופס לפי תעודת זהות של הלקוח
@@ -78,15 +79,30 @@ namespace Electricity_shop
         //פתיחת טופס ראשי
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
         //לחיצה על כפתור חזרה לראשי
         private void Btn_toMain_Click(object sender, EventArgs e)
         {
+            if (usersRole == 1)
+            { 
             this.Close();
             th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+          
         }
         //טעינת טופס נוכחי
         private void FrmCustomers_management_Load(object sender, EventArgs e)
@@ -173,7 +189,7 @@ namespace Electricity_shop
         //לחיצה על כפתור עדכון
         private void Btn_update_Click(object sender, EventArgs e)
         {
-            Frm_update_customer uCustomer = new Frm_update_customer();
+            Frm_update_customer uCustomer = new Frm_update_customer(usersRole);
             uCustomer.Txt_customerId.Text= Grd_customers.CurrentRow.Cells[0].Value.ToString();
             uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
             uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();
@@ -190,15 +206,25 @@ namespace Electricity_shop
         // פתיחת טופס נוכחי בחזרה
         private void OpenSelf(object obj)
         {
-            Application.Run(new FrmCustomers_management());
+            Application.Run(new FrmCustomers_management(usersRole));
         }
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Btn_clear_Click(object sender, EventArgs e)
@@ -230,7 +256,7 @@ namespace Electricity_shop
 
         private void Grd_customers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_update_customer uCustomer = new Frm_update_customer();
+            Frm_update_customer uCustomer = new Frm_update_customer(usersRole);
             uCustomer.Txt_customerId.Text = Grd_customers.CurrentRow.Cells[0].Value.ToString();
             uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
             uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();

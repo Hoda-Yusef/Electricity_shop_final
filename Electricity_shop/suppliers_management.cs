@@ -21,35 +21,51 @@ namespace Electricity_shop
         private supplier[] Supplier;
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection last_nameAuto = new AutoCompleteStringCollection();
-        public Frm_suppliersManagement()
+        int usersRole;
+        public Frm_suppliersManagement(int role)
         {
-
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//כפתור ליציאה מחלון
         {
+            if(usersRole==1)
+            {
             Thread th;
             this.Close();
             th = new Thread(OpenMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                Thread th;
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            
         }
 
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main());//פתיחת דף ראשי
+            Application.Run(new Frm_main(usersRole));//פתיחת דף ראשי
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));//פתיחת דף ראשי
         }
 
-       
 
         private void Btn_updateSupplier_Click(object sender, EventArgs e)//כפתור לעידכון ספק
         {
-            Frm_updateSupplier uSupplier = new Frm_updateSupplier();
+            Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
             uSupplier.Txt_firstName.Text = Grd_suppliers.CurrentRow.Cells[0].Value.ToString();
             uSupplier.Txt_lastName.Text = Grd_suppliers.CurrentRow.Cells[1].Value.ToString();
             uSupplier.Txt_address.Text = Grd_suppliers.CurrentRow.Cells[3].Value.ToString();
@@ -66,16 +82,27 @@ namespace Electricity_shop
 
         private void OpenSelf(object obj)//רענון חלון
         {
-            Application.Run(new Frm_suppliersManagement());
+            Application.Run(new Frm_suppliersManagement(usersRole));
         }
 
         private void Btn_toMainPage_Click(object sender, EventArgs e)//עובר לחלון ראשי
         {
-            Thread th;
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                Thread th;
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                Thread th;
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Frm_suppliersManagement_Load(object sender, EventArgs e)//מילוי טבלה בעת פתיחה 
@@ -208,7 +235,7 @@ namespace Electricity_shop
 
         private void Grd_suppliers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_updateSupplier uSupplier = new Frm_updateSupplier();
+            Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
             uSupplier.Txt_firstName.Text = Grd_suppliers.CurrentRow.Cells[0].Value.ToString();
             uSupplier.Txt_lastName.Text = Grd_suppliers.CurrentRow.Cells[1].Value.ToString();
             uSupplier.Txt_address.Text = Grd_suppliers.CurrentRow.Cells[3].Value.ToString();
