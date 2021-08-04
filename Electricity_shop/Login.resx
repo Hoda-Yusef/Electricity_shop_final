@@ -58,11 +58,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="Pic_login.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Pic_login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QUHBS0WDV+6DQAAB/BJREFU
@@ -103,32 +103,35 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Pic_login.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 53</value>
+  <data name="Pic_login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 42</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 72</value>
+  <data name="Pic_login.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+  <data name="Pic_login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 54</value>
+  </data>
+  <data name="Pic_login.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="Pic_login.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="&gt;&gt;Pic_login.Name" xml:space="preserve">
+    <value>Pic_login</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;Pic_login.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Pic_login.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Pic_login.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <data name="Btn_exit.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -170,13 +173,10 @@
 </value>
   </data>
   <data name="Btn_exit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 0</value>
-  </data>
-  <data name="Btn_exit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>324, 0</value>
   </data>
   <data name="Btn_exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 51</value>
+    <value>34, 38</value>
   </data>
   <data name="Btn_exit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -193,7 +193,7 @@
   <data name="&gt;&gt;Btn_exit.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="user.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Pic_user.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QQSFR4CpW8mLQAABEFJREFU
@@ -218,44 +218,44 @@
         47Sk5BdKRHCRVs1fWQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="user.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="Pic_user.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="user.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Pic_user.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="user.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 183</value>
+  <data name="Pic_user.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 137</value>
   </data>
-  <data name="user.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 35</value>
+  <data name="Pic_user.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="user.TabIndex" type="System.Int32, mscorlib">
+  <data name="Pic_user.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 26</value>
+  </data>
+  <data name="Pic_user.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;user.Name" xml:space="preserve">
-    <value>user</value>
+  <data name="&gt;&gt;Pic_user.Name" xml:space="preserve">
+    <value>Pic_user</value>
   </data>
-  <data name="&gt;&gt;user.Type" xml:space="preserve">
+  <data name="&gt;&gt;Pic_user.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;user.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Pic_user.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;user.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Pic_user.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="Txt_username.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="Txt_username.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 187</value>
-  </data>
-  <data name="Txt_username.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>54, 140</value>
   </data>
   <data name="Txt_username.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 27</value>
+    <value>216, 22</value>
   </data>
   <data name="Txt_username.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -279,13 +279,10 @@
     <value>9</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 343</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>54, 257</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 1</value>
+    <value>254, 1</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -303,13 +300,10 @@
     <value>8</value>
   </data>
   <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 224</value>
-  </data>
-  <data name="panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>54, 168</value>
   </data>
   <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 1</value>
+    <value>254, 1</value>
   </data>
   <data name="panel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -330,13 +324,10 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="Txt_password.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 307</value>
-  </data>
-  <data name="Txt_password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>54, 230</value>
   </data>
   <data name="Txt_password.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 27</value>
+    <value>216, 22</value>
   </data>
   <data name="Txt_password.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -359,7 +350,7 @@
   <data name="&gt;&gt;Txt_password.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="password.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Pic_password.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QQSFgsIcEmXfgAABHJJREFU
@@ -385,31 +376,34 @@
         AIMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="password.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="Pic_password.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="password.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Pic_password.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="password.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 297</value>
+  <data name="Pic_password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 223</value>
   </data>
-  <data name="password.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 41</value>
+  <data name="Pic_password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="password.TabIndex" type="System.Int32, mscorlib">
+  <data name="Pic_password.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 31</value>
+  </data>
+  <data name="Pic_password.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;password.Name" xml:space="preserve">
-    <value>password</value>
+  <data name="&gt;&gt;Pic_password.Name" xml:space="preserve">
+    <value>Pic_password</value>
   </data>
-  <data name="&gt;&gt;password.Type" xml:space="preserve">
+  <data name="&gt;&gt;Pic_password.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;password.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Pic_password.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;password.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Pic_password.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="Btn_entry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -419,13 +413,10 @@
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="Btn_entry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 402</value>
-  </data>
-  <data name="Btn_entry.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>103, 302</value>
   </data>
   <data name="Btn_entry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 51</value>
+    <value>158, 38</value>
   </data>
   <data name="Btn_entry.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -446,10 +437,13 @@
     <value>5</value>
   </data>
   <data name="panel9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, -5</value>
+    <value>0, -4</value>
+  </data>
+  <data name="panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 11</value>
+    <value>358, 8</value>
   </data>
   <data name="panel9.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -467,10 +461,13 @@
     <value>4</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 499</value>
+    <value>0, 374</value>
+  </data>
+  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 11</value>
+    <value>358, 8</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -488,10 +485,13 @@
     <value>3</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-6, 1</value>
+    <value>-5, 1</value>
+  </data>
+  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 503</value>
+    <value>9, 377</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -509,10 +509,13 @@
     <value>2</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>406, -3</value>
+    <value>355, -2</value>
+  </data>
+  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 503</value>
+    <value>9, 377</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -529,44 +532,44 @@
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="password_user_wrong_message.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="Lbl_wrongPasswordMessage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="password_user_wrong_message.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 346</value>
+  <data name="Lbl_wrongPasswordMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 261</value>
   </data>
-  <data name="password_user_wrong_message.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+  <data name="Lbl_wrongPasswordMessage.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="password_user_wrong_message.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 25</value>
+  <data name="Lbl_wrongPasswordMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 18</value>
   </data>
-  <data name="password_user_wrong_message.TabIndex" type="System.Int32, mscorlib">
+  <data name="Lbl_wrongPasswordMessage.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="&gt;&gt;password_user_wrong_message.Name" xml:space="preserve">
-    <value>password_user_wrong_message</value>
+  <data name="&gt;&gt;Lbl_wrongPasswordMessage.Name" xml:space="preserve">
+    <value>Lbl_wrongPasswordMessage</value>
   </data>
-  <data name="&gt;&gt;password_user_wrong_message.Type" xml:space="preserve">
+  <data name="&gt;&gt;Lbl_wrongPasswordMessage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;password_user_wrong_message.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Lbl_wrongPasswordMessage.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;password_user_wrong_message.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Lbl_wrongPasswordMessage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 20</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>411, 503</value>
+    <value>360, 377</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1699,6 +1702,9 @@
         AAAAAX///////////+iAAAAAACT////////////6IAAAAACL/////////////IgAAAACL///////////
         //8hAAAAEL//////////////yKAAAUL///8=
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

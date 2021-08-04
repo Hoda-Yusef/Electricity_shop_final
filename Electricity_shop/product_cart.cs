@@ -18,38 +18,52 @@ namespace Electricity_shop
         Thread th;
         bool drag = false;
         Point sp = new Point(0, 0);
-
         Product Product;
-        
+        int usersRole;
 
-        public Frm_productsInCart()
+        public Frm_productsInCart(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
 
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
-        {
+        { 
             mySQL.clearCart();
             mySQL.deleteOrderByOrderNumber(Lbl_showOrderNumber.Text);
             Thread th;
+            if(usersRole==1)
+            {
             this.Close();
             th = new Thread(openMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(openEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void openMain(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
+        }
+        private void openEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
 
         private void OpenAddOrder(object obj)
         {
-            Application.Run(new Frm_addOrder());
+            Application.Run(new Frm_addOrder(usersRole));
         }
 
         private void Btn_AddToCart_Click(object sender, EventArgs e)//כפתור הוספת מוצר
@@ -63,16 +77,7 @@ namespace Electricity_shop
 
         private void openCartProductManu(object obj)
         {
-            Application.Run(new Frm_cartProductMenu());//פותח רשימת מוצרים
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Thread th;
-            this.Close();
-            th = new Thread(OpenAddOrder);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            Application.Run(new Frm_cartProductMenu(usersRole));//פותח רשימת מוצרים
         }
 
         private void Frm_productsInCart_Load(object sender, EventArgs e)//בעת פתיחת החלון מציגים את כל המוצרים בעגלה
@@ -162,19 +167,16 @@ namespace Electricity_shop
 
             }
 
-
-
             Thread th;
             this.Close();
             th = new Thread(openCartProduct);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
-
         }
 
         private void openCartProduct(object obj)
         {
-            Application.Run(new Frm_productsInCart());
+            Application.Run(new Frm_productsInCart(usersRole));
         }
 
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
@@ -247,14 +249,22 @@ namespace Electricity_shop
                 mySQL.clearCart();//מרקנים את ההעגלה
 
                 Thread th;
-                this.Close();
-                th = new Thread(openMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                if (usersRole == 1)
+                {
+                    this.Close();
+                    th = new Thread(openMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    this.Close();
+                    th = new Thread(openEmployeesMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
 
-            }
-
-            
+            } 
         }
 
         private void Grd_productsList_CellEndEdit(object sender, DataGridViewCellEventArgs e)//שיטה שמעדכנת את הכמות של מוצר בתוך העגלה
@@ -273,15 +283,25 @@ namespace Electricity_shop
 
         private void openSelf(object obj)
         {
-            Application.Run(new Frm_productsInCart());
+            Application.Run(new Frm_productsInCart(usersRole));
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            th = new Thread(openMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(openMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(openEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
     }
 }

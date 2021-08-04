@@ -22,15 +22,15 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection manufacturerAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection supplierAuto = new AutoCompleteStringCollection();
-
-        public Frm_addProduct()
+        int usersRole;
+        public Frm_addProduct(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
+            usersRole = role;
             Set_AutoCompleteMode_text_boxes();
 
         }
@@ -51,27 +51,53 @@ namespace Electricity_shop
         // לחיצה על כפתור X מחזיר אותנו לדף ראשי של המערכת
         private void Btn_exitX_Click(object sender, EventArgs e)
         {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+
         }
 
         //פונקציית עזר
         //פתיחת דף ראשי במערכת
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
 
         // לחיצה על כפתור ביטל
         // מידע שהוזן בכל תיבות הטקסט לא נשמר וחוזרים לדף ראשי במערכת
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
+            if (usersRole == 1)
+            {
             this.Close();
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            
         }
 
         // פונקציית עזר

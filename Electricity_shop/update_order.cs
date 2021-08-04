@@ -22,35 +22,35 @@ namespace Electricity_shop
         Product Product;
         int previosAmount;
         string order_number_holder;
-        public Frm_updateOrder()
+        int usersRole;
+        public Frm_updateOrder(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
 
-        public Frm_updateOrder(string order_number)//בנאי מקבל מספר הזמנה
+        public Frm_updateOrder(string order_number,int role)//בנאי מקבל מספר הזמנה
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
-
+            usersRole = role;
             order_number_holder = order_number;
-
-
         }
 
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -59,7 +59,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
@@ -126,7 +126,7 @@ namespace Electricity_shop
 
         private void openOrderManagement(object obj)
         {
-            Application.Run(new Frm_ordersManagement());
+            Application.Run(new Frm_ordersManagement(usersRole));
         }
 
         private void Cbo_orderStatus_Format(object sender, ListControlConvertEventArgs e)
@@ -184,7 +184,7 @@ namespace Electricity_shop
 
         private void openself(object obj)
         {
-            Application.Run(new Frm_updateOrder(order_number_holder));
+            Application.Run(new Frm_updateOrder(order_number_holder,usersRole));
         }
 
         private void Btn_add_to_cart_Click(object sender, EventArgs e)
@@ -205,7 +205,7 @@ namespace Electricity_shop
 
         private void OpenAddProductToOrder(object obj)
         {
-            Application.Run(new Frm_addProductsToOrder(order_number_holder));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder,usersRole));
         }
 
         private void Btn_updateOrder_Click(object sender, EventArgs e)//לחיצה על עדכן מעדכן הסטטוס של ההזמנה
@@ -232,7 +232,7 @@ namespace Electricity_shop
 
         private void OpenOrderManagement(object obj)
         {
-            Application.Run(new Frm_ordersManagement());
+            Application.Run(new Frm_ordersManagement(usersRole));
         }
 
         private void Grd_allOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)

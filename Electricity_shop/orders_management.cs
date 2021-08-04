@@ -20,48 +20,49 @@ namespace Electricity_shop
         string order_number_holder;
         orders_customers[] Orders_customers;
         bool date_changed = false;
+        int usersRole;
 
 
 
-
-        public Frm_ordersManagement()
+        public Frm_ordersManagement(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
 
         }
-
-      
-
-
-        private void button1_MouseMove(object sender, MouseEventArgs e)
-        {
-            button1.BackColor= Color.White;
-        }
-
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            button1.BackColor = Color.FromArgb(34, 36, 49);
-        }
-
        
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
+            if(usersRole==1)
+            {
             this.Close();
             Thread th;
             th = new Thread(openMain);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
-
+            }
+            else
+            {
+                this.Close();
+                Thread th;
+                th = new Thread(openEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void openMain(object obj)
         {
-            Application.Run(new Frm_main());//חזרה לחלון ראשי
+            Application.Run(new Frm_main(usersRole));//חזרה לחלון ראשי
+        }
+        private void openEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));//חזרה לחלון ראשי
         }
 
         //פאנל להזזת חלון
@@ -98,11 +99,22 @@ namespace Electricity_shop
 
         private void Btn_backToMain_Click(object sender, EventArgs e)//יציאה לחלון ראשי
         {
-            this.Close();
-            Thread th;
-            th = new Thread(openMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                Thread th;
+                th = new Thread(openMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                Thread th;
+                th = new Thread(openEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Frm_ordersManagement_Load(object sender, EventArgs e)//בעת פתיחת חלון טוען את הטבלה הזמנות מבסיס נתונים
@@ -158,7 +170,7 @@ namespace Electricity_shop
 
         private void openSelf(object obj)
         {
-            Application.Run(new Frm_ordersManagement());
+            Application.Run(new Frm_ordersManagement(usersRole));
         }
 
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
@@ -255,14 +267,6 @@ namespace Electricity_shop
             else
                 Grd_orders.Rows.Clear();
         }
-        /*
-        private void Btn_showOrder_Click(object sender, EventArgs e)//כפתור להצגת הזמנה 
-        {
-            Frm_productsList Show_order = new Frm_productsList();
-
-            Show_order.Lbl_showOrderNumber.Text = Grd_orders.CurrentRow.Cells[0].Value.ToString();
-            Show_order.ShowDialog();
-        }*/
 
         private void Btn_updateOrder_Click(object sender, EventArgs e)//כפתור לעידכון הזמנה
         {
@@ -280,7 +284,7 @@ namespace Electricity_shop
         private void openUpdateOrder(object obj)
         {
 
-            Application.Run(new Frm_updateOrder(order_number_holder));//פתחית חלון עידכון של הזמנה
+            Application.Run(new Frm_updateOrder(order_number_holder,usersRole));//פתחית חלון עידכון של הזמנה
 
 
         }
@@ -307,7 +311,7 @@ namespace Electricity_shop
 
         private void Grd_orders_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_productsList Show_order = new Frm_productsList();
+            Frm_productsList Show_order = new Frm_productsList(usersRole);
 
             Show_order.Lbl_showOrderNumber.Text = Grd_orders.CurrentRow.Cells[0].Value.ToString();
             Show_order.ShowDialog();

@@ -20,35 +20,60 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection firstName1 = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection lastName1 = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection addrees1 = new AutoCompleteStringCollection();
-
-        public Frm_addCustomer()
+        int usersRole;
+        public Frm_addCustomer(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
         //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+        }
+        private void OpenEmployeesMain(object obj)
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
         }
         //פתיחת טופס ראשי
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
         }
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
         //לחיצה על כפתור הוספה
         private void Btn_addCustomer_Click(object sender, EventArgs e)

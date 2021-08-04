@@ -21,7 +21,8 @@ namespace Electricity_shop
         private System.Windows.Forms.ErrorProvider phoneErrorProvider;
         readonly AutoCompleteStringCollection SFirstName = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection SLastName = new AutoCompleteStringCollection();
-        public Frm_addSupplier()
+        int usersRole;
+        public Frm_addSupplier(int role)
         {
 
             InitializeComponent();
@@ -29,20 +30,36 @@ namespace Electricity_shop
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            usersRole = role;
         }
        
         private void Opennewform(object obj)//פותח חלון ראשי
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(usersRole));
         }
-        
+        private void OpenEmployeesMainForm(object obj)//פותח חלון ראשי
+        {
+            Application.Run(new Frm_mainForEmployees(usersRole));
+        }
+
 
         private void Btn_cancel_Click(object sender, EventArgs e)//לחיצת ביטול
         {
+            if (usersRole == 1)
+            {
             this.Close();
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMainForm);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+           
         }
 
         private void Btn_addSupplier_Click(object sender, EventArgs e)//לחיצת הוספה 
@@ -73,7 +90,7 @@ namespace Electricity_shop
                 {
                     MessageBox.Show("ספק קיים. ניתן לעדכן פרטים");
                     
-                    Frm_updateSupplier uSupplier = new Frm_updateSupplier();
+                    Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
                     supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);//שולף מידע על ספק לפי מספר טלפון
                     uSupplier.Txt_firstName.Text = supp.FirstName;     
                     uSupplier.Txt_lastName.Text =supp.LasttName ;
@@ -109,7 +126,7 @@ namespace Electricity_shop
 
         private void Open_supManagment(object obj)
         {
-            Application.Run(new Frm_suppliersManagement());
+            Application.Run(new Frm_suppliersManagement(usersRole));
         }
 
         private void New_supplier(supplier supp)//אם ספק חדש יבדוק אם המשתמש הזין חוב וגם את התשלום
@@ -325,10 +342,20 @@ namespace Electricity_shop
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (usersRole == 1)
+            {
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                th = new Thread(OpenEmployeesMainForm);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Btn_clear_Click(object sender, EventArgs e)//ניקוי שדות
@@ -341,13 +368,13 @@ namespace Electricity_shop
             Txt_payedForSupplier.Text = string.Empty;
         }
 
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
-        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -356,7 +383,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }

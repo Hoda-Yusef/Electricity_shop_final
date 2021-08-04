@@ -14,16 +14,18 @@ namespace Electricity_shop
     {
 
         private DBSQL mySQL;
-       
         bool drag = false;
         Point sp = new Point(0, 0);
-        public Frm_productsList()
+        int userRole;
+
+        public Frm_productsList(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            userRole = role;
         }
 
         private void Btn_goBack_Click(object sender, EventArgs e)

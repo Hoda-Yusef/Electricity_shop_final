@@ -42,7 +42,7 @@ namespace Electricity_shop
 
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(1));
         }
 
         private void Btn_search_Click(object sender, EventArgs e)//כפתור לקבלת מידע

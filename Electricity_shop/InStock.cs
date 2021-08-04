@@ -31,7 +31,7 @@ namespace Electricity_shop
 
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main());
+            Application.Run(new Frm_main(1));
         }
 
         // לחיצה על כפתור ה X
