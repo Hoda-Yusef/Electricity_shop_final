@@ -85,10 +85,10 @@ namespace Electricity_shop
         {
             if (usersRole == 1)
             {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -97,7 +97,7 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-            
+
         }
 
         // פונקציית עזר
@@ -311,7 +311,7 @@ namespace Electricity_shop
         {
             bool same = false;
             //בודקים תקינות הנתונים שנקלטו בהתאם
-            if ((Txt_barcode.Text !="" || Txt_model.Text != "") && Txt_productInformation.Text != ""
+            if ((Txt_barcode.Text != "" || Txt_model.Text != "") && Txt_productInformation.Text != ""
                 && Txt_manufacturer.Text != "" && Txt_supplier.Text != "" && Txt_costPrice.Text != ""
                 && Txt_sellingPrice.Text != "" && productAmount.Value != 0)
             {
@@ -320,7 +320,7 @@ namespace Electricity_shop
                 string barcodeTmp = Txt_barcode.Text;
                 string modelTmp = Txt_model.Text;
 
-                
+
 
                 if (Product != null)
                 {
@@ -336,7 +336,7 @@ namespace Electricity_shop
                             }
                         }
                     }
-                    else if(modelTmp != "")
+                    else if (modelTmp != "")
                     {
                         for (int i = 0; i < Product.Length; i++)
                         {
@@ -416,5 +416,5 @@ namespace Electricity_shop
         }
     }
 }
-    
+
 

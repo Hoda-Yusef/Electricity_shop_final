@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -35,7 +31,7 @@ namespace Electricity_shop
             this.Close();
         }
 
-       
+
 
         private void Btn_exit_MouseHover_1(object sender, EventArgs e)
         {
@@ -73,24 +69,24 @@ namespace Electricity_shop
         private void OpenProductManagement(object obj)
         {
             Application.Run(new Frm_products_management(userRole));
-            
+
         }
 
         private void Btn_addProduct_Click(object sender, EventArgs e)
         {
-            
+
             Thread th;
             this.Close();
             th = new Thread(OpenProductAdd);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
-           
+
         }
 
         private void OpenProductAdd(object obj)
         {
             Application.Run(new Frm_addProduct(userRole));
-            
+
         }
 
         private void Btn_close_Click(object sender, EventArgs e)
@@ -98,7 +94,7 @@ namespace Electricity_shop
             this.Close();
         }
 
-        
+
 
         private void Btn_addSupplier_Click(object sender, EventArgs e)
         {
@@ -155,7 +151,7 @@ namespace Electricity_shop
 
             Lbl_out_of_stock_number.Text = mySQL.countOutStockProducts().ToString();
 
-            Lbl_about_to_end_number.Text= mySQL.countAboutToEnd().ToString();
+            Lbl_about_to_end_number.Text = mySQL.countAboutToEnd().ToString();
 
             Lbl_customers_number.Text = mySQL.countCustomers().ToString();
 
@@ -166,18 +162,18 @@ namespace Electricity_shop
             Orders = mySQL.GetOrdersData();
             Customers = mySQL.GetCustomerData();
 
-            if(Orders != null && Customers != null)
+            if (Orders != null && Customers != null)
             {
-                for(int i=0;i<Customers.Length;i++)
+                for (int i = 0; i < Customers.Length; i++)
                 {
-                    for(int j=0;j<Orders.Length;j++)
+                    for (int j = 0; j < Orders.Length; j++)
                     {
-                        if(Customers[i].Id == Orders[j].Customer_id)
+                        if (Customers[i].Id == Orders[j].Customer_id)
                         {
                             count++;
                         }
                     }
-                    if(count >2)
+                    if (count > 2)
                     {
                         countMany++;
                     }
@@ -185,7 +181,7 @@ namespace Electricity_shop
                 }
             }
 
-            Lbl_active_customers_number.Text = countMany.ToString();  
+            Lbl_active_customers_number.Text = countMany.ToString();
         }
 
         private void Btn_addCustomer_Click(object sender, EventArgs e)

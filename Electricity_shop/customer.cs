@@ -1,9 +1,5 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Electricity_shop
 {
     public class customer
@@ -30,7 +26,7 @@ namespace Electricity_shop
         public string Last_name { get => last_name; set => last_name = value; }
 
         public string Address { get => address; set => address = value; }
-        
+
         public string Phone_number { get => phone_number; set => phone_number = value; }
         public int Serial_number
         {

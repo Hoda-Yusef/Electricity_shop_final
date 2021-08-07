@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -32,7 +28,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
             usersRole = role;
         }
-       
+
         private void Opennewform(object obj)//פותח חלון ראשי
         {
             Application.Run(new Frm_main(usersRole));
@@ -47,10 +43,10 @@ namespace Electricity_shop
         {
             if (usersRole == 1)
             {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -59,7 +55,7 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-           
+
         }
 
         private void Btn_addSupplier_Click(object sender, EventArgs e)//לחיצת הוספה 
@@ -71,7 +67,7 @@ namespace Electricity_shop
             {
                 supplier[] Supplier = mySQL.GetSupplierData();
                 supplier supp = new supplier();
-               
+
                 string nameTmp = Txt_phoneNumber.Text;
 
                 if (Supplier != null)
@@ -89,29 +85,29 @@ namespace Electricity_shop
                 if (same)//אם ספק קיים 
                 {
                     MessageBox.Show("ספק קיים. ניתן לעדכן פרטים");
-                    
+
                     Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
                     supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);//שולף מידע על ספק לפי מספר טלפון
-                    uSupplier.Txt_firstName.Text = supp.FirstName;     
-                    uSupplier.Txt_lastName.Text =supp.LasttName ;
-                    uSupplier.Txt_address.Text =supp.Address ;
-                    uSupplier.Txt_phoneNumber.Text =supp.Phone_number; 
-                    uSupplier.Txt_supplierDept.Text =supp.Dept.ToString();
-                    uSupplier.Txt_paidToSupplier.Text =supp.Paid.ToString();
+                    uSupplier.Txt_firstName.Text = supp.FirstName;
+                    uSupplier.Txt_lastName.Text = supp.LasttName;
+                    uSupplier.Txt_address.Text = supp.Address;
+                    uSupplier.Txt_phoneNumber.Text = supp.Phone_number;
+                    uSupplier.Txt_supplierDept.Text = supp.Dept.ToString();
+                    uSupplier.Txt_paidToSupplier.Text = supp.Paid.ToString();
                     uSupplier.ShowDialog();
                     this.Close();
                     uSupplier.Close();
-                    
+
                     th = new Thread(Open_supManagment);
                     th.TrySetApartmentState(ApartmentState.STA);
                     th.Start();
-                   
+
 
                 }
                 else
                 {
                     New_supplier(supp);//אם ספק חדש
-                   
+
                     this.Close();
                     th = new Thread(Open_supManagment);
                     th.TrySetApartmentState(ApartmentState.STA);
@@ -222,7 +218,7 @@ namespace Electricity_shop
         {
             char ch = e.KeyChar;
 
-            if(!char.IsDigit(ch) && ch!=8 && ch!=9 && ch!=11)
+            if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
             {
                 e.Handled = true;
             }

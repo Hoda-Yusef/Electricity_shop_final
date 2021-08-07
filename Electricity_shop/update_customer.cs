@@ -1,8 +1,8 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 
 
@@ -30,11 +30,11 @@ namespace Electricity_shop
         //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
-            if(usersRole==1)
+            if (usersRole == 1)
             {
-            this.Close();
-            Frm_main mainForm = new Frm_main(usersRole);
-            mainForm.Show();
+                this.Close();
+                Frm_main mainForm = new Frm_main(usersRole);
+                mainForm.Show();
             }
             else
             {
@@ -42,7 +42,7 @@ namespace Electricity_shop
                 Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole);
                 mainForm.Show();
             }
-            
+
         }
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)

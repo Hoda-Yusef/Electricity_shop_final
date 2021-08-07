@@ -8,7 +8,7 @@ namespace Electricity_shop
 {
     public partial class Frm_updateProduct : Form
     {
-        
+
         private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
         Product load_products;
         DBSQL mySQL;
@@ -28,7 +28,7 @@ namespace Electricity_shop
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
             //בודקים תקינות נתוהים שנקלטו
-            if ( (Txt_model.Text != "" || Txt_barcode.Text != "") && Txt_category.Text != "" && Txt_manufacturer.Text != ""
+            if ((Txt_model.Text != "" || Txt_barcode.Text != "") && Txt_category.Text != "" && Txt_manufacturer.Text != ""
                  && Txt_cost_price.Text != "" && Txt_selling_price.Text != "" && Txt_amount.Text != "")
             {
                 //במידה ותקינים אז מעדכנים אותם בבסיס נתונים והשינויים נשמרים
@@ -181,7 +181,7 @@ namespace Electricity_shop
                 {
                     if (barcodeTmp == product[i].Barcode.ToString())
                     {
-                        
+
                         Txt_barcode.Text = product[i].Barcode.ToString();
                         Txt_category.Text = product[i].Category;
                         Txt_model.Text = product[i].Model;
@@ -262,6 +262,6 @@ namespace Electricity_shop
             mainForm.Show();
         }
 
-        
+
     }
 }

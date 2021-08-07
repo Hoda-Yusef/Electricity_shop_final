@@ -1,22 +1,16 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace Electricity_shop
 {
     public partial class Frm_login : Form
     {
         Thread th;
-        user[] Users=null;
+        user[] Users = null;
         private DBSQL mySQL;
         // מגדירים התחברות כמנהל
         int currentUsersRole = 1;
@@ -30,7 +24,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
         }
 
-       
+
 
         private void Btn_exit_MouseHover(object sender, EventArgs e)
         {
@@ -56,7 +50,7 @@ namespace Electricity_shop
                         if (Users[rows].Role == 1)
                         {
                             //מתחברים כמנהל
-                            
+
                             this.Close();
                             th = new Thread(opennewform);
                             th.TrySetApartmentState(ApartmentState.STA);
@@ -73,11 +67,11 @@ namespace Electricity_shop
                         }
                     }
                     else
-                      Lbl_wrongPasswordMessage.Text = "* סיסמה או שם משתמש שגויים";
+                        Lbl_wrongPasswordMessage.Text = "* סיסמה או שם משתמש שגויים";
                 }
             }
-              else
-                  Lbl_wrongPasswordMessage.Text="* נא להזין שם משתמש וסיסמה תקינים";
+            else
+                Lbl_wrongPasswordMessage.Text = "* נא להזין שם משתמש וסיסמה תקינים";
         }
 
         private void opennewform(object obj)

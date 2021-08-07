@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Electricity_shop
@@ -58,7 +54,7 @@ namespace Electricity_shop
         //בעת פתיחת חלון הטבלה נטענת בפרטים של ההזמנה
         private void Frm_productsList_Load(object sender, EventArgs e)
         {
-            int Total_price=0,total_amount=0;
+            int Total_price = 0, total_amount = 0;
 
             string show = Lbl_showOrderNumber.Text;
 
@@ -82,7 +78,7 @@ namespace Electricity_shop
                     });
 
                     total_amount += Convert.ToInt32(Product_order[i].Amount);
-                    Total_price += Convert.ToInt32(Product.Selling_price)* Product_order[i].Amount;
+                    Total_price += Convert.ToInt32(Product.Selling_price) * Product_order[i].Amount;
                 }
             }
             else
@@ -91,13 +87,13 @@ namespace Electricity_shop
             Lbl_showProductsNumber.Text = Grd_productsList.Rows.Count.ToString();//סופר כמות מוצרים
             Lbl_showTotalAmount.Text = total_amount.ToString();//סופר כמות היחידות של מוצרים
             Lbl_showTotalPrice.Text = Total_price.ToString();//סופר את סכום של כל המוצרים
-           
+
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//סגירה
         {
             this.Close();
-            
+
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -72,8 +68,8 @@ namespace Electricity_shop
                             product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
 
                             total_price += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
-                            pure_price += ((product.Selling_price - product.Cost_price)-
-                                ((product.Selling_price - product.Cost_price) * 0.18)) * 
+                            pure_price += ((product.Selling_price - product.Cost_price) -
+                                ((product.Selling_price - product.Cost_price) * 0.18)) *
                                 Product_order[j].Amount;//מחשב סכום רווח נטו
 
                             VAT += ((product.Selling_price - product.Cost_price) * 0.18) * Product_order[j].Amount;
@@ -94,7 +90,7 @@ namespace Electricity_shop
                 }
                 best_selling_product(count);
 
-                Lbl_info.Text = "\n  רווח פרוטו עם מעמ : " + total_price + "\n\nרווח נטו ללא מעמ: " + pure_price +"\n\nסכום מעמ : "+VAT+"" +
+                Lbl_info.Text = "\n  רווח פרוטו עם מעמ : " + total_price + "\n\nרווח נטו ללא מעמ: " + pure_price + "\n\nסכום מעמ : " + VAT + "" +
                     "\n\nשולם לספקים : " + lose + "\n\nסכום העסקה הגדולה ביותר : " + max_ID + "\n ללקוח - " + max_id + " " +
                     "\n\nמוצר הנמכר ביותר :- " + max_product_category + " - " + max_product_model + "\nכמות יחידות שנמכרו : " +
                     "" + max_product_amount + "";
@@ -143,7 +139,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
@@ -161,7 +157,7 @@ namespace Electricity_shop
 
 
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -170,7 +166,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }

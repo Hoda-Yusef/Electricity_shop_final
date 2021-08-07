@@ -1,12 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Electricity_shop
@@ -164,9 +159,9 @@ namespace Electricity_shop
         {
             return (Txt_phoneNumber.Text.Length == 10);
         }
-       
-        
-        
+
+
+
         private void Btn_updateSupplier_Click(object sender, EventArgs e)//בעת לחיצה על עדכן
         {
             if ((Txt_firstName.Text != "" || Txt_lastName.Text != "") && Txt_address.Text != ""
@@ -179,17 +174,17 @@ namespace Electricity_shop
             }
             else
                 MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");//אם לא מציג הודעה מתאימה
-          
+
         }
-       
+
         private void Fill_obj(supplier person)//ממילא פרטים של ספק בתוך אובייקט
         {
-                person.FirstName = Txt_firstName.Text;
-                person.LasttName = Txt_lastName.Text;
-                person.Phone_number = Txt_phoneNumber.Text;
-                person.Address = Txt_address.Text;
-                person.Dept = Convert.ToInt32(Txt_supplierDept.Text);
-                person.Paid = Convert.ToInt32(Txt_paidToSupplier.Text);
+            person.FirstName = Txt_firstName.Text;
+            person.LasttName = Txt_lastName.Text;
+            person.Phone_number = Txt_phoneNumber.Text;
+            person.Address = Txt_address.Text;
+            person.Dept = Convert.ToInt32(Txt_supplierDept.Text);
+            person.Paid = Convert.ToInt32(Txt_paidToSupplier.Text);
 
         }
 

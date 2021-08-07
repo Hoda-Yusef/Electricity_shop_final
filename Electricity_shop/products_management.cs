@@ -85,7 +85,7 @@ namespace Electricity_shop
         //למלא טבלה בטופס לפי דגם מוצר
         private void Fill_grid_by_model()
         {
-           product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -95,7 +95,7 @@ namespace Electricity_shop
 
         private void Cbo_sortByProductAmount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text,Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
 
             Fill_grid(product);
             if (Grd_products.Rows.Count != 0)
@@ -153,7 +153,7 @@ namespace Electricity_shop
         }
         //הזזת טופס
         private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
-        { 
+        {
             drag = false;
         }
         //צובעים שורה לפי כמות מוצר במלאי 
@@ -216,12 +216,12 @@ namespace Electricity_shop
         //לחיצה על כפתור חזרה לראשי
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            if(usersRole==1)
+            if (usersRole == 1)
             {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -230,7 +230,7 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-           
+
         }
         //חיפוש לפי ברקוד
         private void Txt_barcode_TextChanged(object sender, EventArgs e)
@@ -253,7 +253,7 @@ namespace Electricity_shop
             Fill_grid_by_model();
         }
 
-       
+
 
         //טעינת טופס נוכחי
         private void Frm_products_management_Load(object sender, EventArgs e)

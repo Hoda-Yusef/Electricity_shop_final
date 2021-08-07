@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -34,17 +30,17 @@ namespace Electricity_shop
             usersRole = role;
 
         }
-       
+
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
-            if(usersRole==1)
+            if (usersRole == 1)
             {
-            this.Close();
-            Thread th;
-            th = new Thread(openMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                Thread th;
+                th = new Thread(openMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -74,7 +70,7 @@ namespace Electricity_shop
 
         private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if(drag)
+            if (drag)
             {
                 Point p = PointToScreen(e.Location);
                 this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
@@ -121,13 +117,13 @@ namespace Electricity_shop
         {
             orders[] Orders = mySQL.GetOrdersData();
             customer Customer;
-            if(Orders!=null)
-            for(int i=0;i<Orders.Length;i++)
-            {
-              Customer=  mySQL.GetCustomerDataByID(Orders[i].Customer_id);
-
-                Grd_orders.Rows.Add(new object[]
+            if (Orders != null)
+                for (int i = 0; i < Orders.Length; i++)
                 {
+                    Customer = mySQL.GetCustomerDataByID(Orders[i].Customer_id);
+
+                    Grd_orders.Rows.Add(new object[]
+                    {
                     Orders[i].Order_number,
                     Customer.Id,
                     Customer.First_name,
@@ -136,17 +132,17 @@ namespace Electricity_shop
                     Customer.Address,
                     Orders[i].Date,
                     Orders[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
-                    }); ;
+                        }); ;
 
 
-            }
+                }
         }
 
         private void Btn_updateStatus_Click(object sender, EventArgs e)//עדכון סטטוס
         {
             Orders = mySQL.GetOrdersDataByOrderNumber(Grd_orders.CurrentRow.Cells[0].Value.ToString());
 
-            if(Orders.Status ==1)//משנים את הסטטוס לסופק
+            if (Orders.Status == 1)//משנים את הסטטוס לסופק
             {
                 mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 0);
                 this.Close();
@@ -206,7 +202,7 @@ namespace Electricity_shop
             }
         }
 
-        
+
         private void Txt_customersFirstName_TextChanged(object sender, EventArgs e)//מסנן טבלה לפי שם פרטי
         {
             if (date_changed)
@@ -223,10 +219,10 @@ namespace Electricity_shop
             }
         }
 
-       
+
         private void Txt_customerId_TextChanged(object sender, EventArgs e)//מסנן טבלה לפי תעודת זהות
         {
-            if(date_changed)
+            if (date_changed)
             {
                 Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
@@ -238,10 +234,10 @@ namespace Electricity_shop
 
                 fill_grid(Orders_customers);
             }
-            
+
         }
 
-        
+
 
         private void fill_grid(orders_customers[] Orders_customers)//טוען את הטבלה בפרטים חדשים לפי שדות החיפוש
         {
@@ -270,9 +266,9 @@ namespace Electricity_shop
 
         private void Btn_updateOrder_Click(object sender, EventArgs e)//כפתור לעידכון הזמנה
         {
-         
+
             // mySQL.InsertOrderNumberHolder(Grd_orders.CurrentRow.Cells[0].Value.ToString());
-            order_number_holder=Grd_orders.CurrentRow.Cells[0].Value.ToString();
+            order_number_holder = Grd_orders.CurrentRow.Cells[0].Value.ToString();
             this.Close();
             Thread th;
             th = new Thread(openUpdateOrder);
@@ -284,14 +280,14 @@ namespace Electricity_shop
         private void openUpdateOrder(object obj)
         {
 
-            Application.Run(new Frm_updateOrder(order_number_holder,usersRole));//פתחית חלון עידכון של הזמנה
+            Application.Run(new Frm_updateOrder(order_number_holder, usersRole));//פתחית חלון עידכון של הזמנה
 
 
         }
 
         private void BtnClear_Click(object sender, EventArgs e)//ניקוי שדות
         {
-            if(!date_changed)
+            if (!date_changed)
             {
                 Txt_customerId.Text = string.Empty;
                 Txt_customersFirstName.Text = string.Empty;
