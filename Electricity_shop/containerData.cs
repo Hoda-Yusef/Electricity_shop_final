@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using System.Drawing;
+
 
 namespace Electricity_shop
 {
@@ -9,6 +11,8 @@ namespace Electricity_shop
         private readonly DBSQL mySQL;
         int userRole;
         Thread th;
+        bool drag = false;
+        Point sp = new Point(0, 0);
         public Frm_ContainerData(int role)
         {
             InitializeComponent();
@@ -67,6 +71,26 @@ namespace Electricity_shop
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
         }
     }
 }

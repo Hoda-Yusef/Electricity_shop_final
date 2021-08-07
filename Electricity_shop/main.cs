@@ -245,9 +245,14 @@ namespace Electricity_shop
         {
             this.Close();
             Thread th;
-            th = new Thread(OpenDocuments);
+            th = new Thread(OpenContainerData);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void OpenContainerData(object obj)
+        {
+            Application.Run(new Frm_ContainerData(userRole));
         }
 
         private void OpenDocuments(object obj)

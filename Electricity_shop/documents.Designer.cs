@@ -155,15 +155,15 @@
             // 
             // Lbl_fromDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(756, 106);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(118, 31);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "מ-תאריך :";
+            //this.label1.AutoSize = true;
+            //this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            //this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //this.label1.Location = new System.Drawing.Point(756, 106);
+            //this.label1.Name = "label1";
+            //this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            //this.label1.Size = new System.Drawing.Size(118, 31);
+            //this.label1.TabIndex = 47;
+            //this.label1.Text = "מ-תאריך :";
             // 
             // Lbl_toDate
             // 
