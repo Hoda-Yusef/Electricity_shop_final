@@ -1,10 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using MySql.Data;
 using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 
 namespace Electricity_shop

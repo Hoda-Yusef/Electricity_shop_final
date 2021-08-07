@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace Electricity_shop
 {
@@ -89,11 +89,11 @@ namespace Electricity_shop
         private void Btn_toMain_Click(object sender, EventArgs e)
         {
             if (usersRole == 1)
-            { 
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            {
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-          
+
         }
         //טעינת טופס נוכחי
         private void FrmCustomers_management_Load(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace Electricity_shop
         {
             Fill_grid_by_Id();
         }
-       //הגדרת איזה סוג של תו ניתן לכתוב לשדה תעודת זהות
+        //הגדרת איזה סוג של תו ניתן לכתוב לשדה תעודת זהות
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only digits are welcomed :)
@@ -190,7 +190,7 @@ namespace Electricity_shop
         private void Btn_update_Click(object sender, EventArgs e)
         {
             Frm_update_customer uCustomer = new Frm_update_customer(usersRole);
-            uCustomer.Txt_customerId.Text= Grd_customers.CurrentRow.Cells[0].Value.ToString();
+            uCustomer.Txt_customerId.Text = Grd_customers.CurrentRow.Cells[0].Value.ToString();
             uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
             uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();
             uCustomer.Txt_phoneNumber.Text = Grd_customers.CurrentRow.Cells[3].Value.ToString();

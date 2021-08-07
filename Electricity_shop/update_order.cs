@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -33,7 +29,7 @@ namespace Electricity_shop
             usersRole = role;
         }
 
-        public Frm_updateOrder(string order_number,int role)//בנאי מקבל מספר הזמנה
+        public Frm_updateOrder(string order_number, int role)//בנאי מקבל מספר הזמנה
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -74,7 +70,7 @@ namespace Electricity_shop
 
             product_order[] Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
 
-            
+
 
             if (Product_order != null)
             {
@@ -94,10 +90,10 @@ namespace Electricity_shop
                     });
 
                     total_amount += Convert.ToInt32(Product_order[i].Amount);//מחשב כמות כללית של מוצרים
-                    Total_price += Convert.ToInt32(Product.Selling_price)* Product_order[i].Amount;//מחשב סכום של מוצרים
+                    Total_price += Convert.ToInt32(Product.Selling_price) * Product_order[i].Amount;//מחשב סכום של מוצרים
                 }
             }
-            
+
             if (Cbo_orderStatus != null)
             {
                 if (Orderss.Status == 1)
@@ -136,7 +132,7 @@ namespace Electricity_shop
                 Cbo_orderStatus.ForeColor = Color.Orange;
 
             if (Cbo_orderStatus.Text == "סופק")
-                Cbo_orderStatus.ForeColor = Color.FromArgb(0,255,0);
+                Cbo_orderStatus.ForeColor = Color.FromArgb(0, 255, 0);
 
         }
 
@@ -149,9 +145,9 @@ namespace Electricity_shop
 
                 if (Grd_allOrders.Rows.Count != 0)//אם הטבלה לא ריקה
                 {
-                    if(Grd_allOrders.CurrentRow.Cells[0].Value.ToString() != "")
+                    if (Grd_allOrders.CurrentRow.Cells[0].Value.ToString() != "")
                         Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
-                    
+
                     else if (Grd_allOrders.CurrentRow.Cells[3].Value.ToString() != "")
                         Product = mySQL.GetProductDataByModel(Grd_allOrders.CurrentRow.Cells[3].Value.ToString());//מקבל מפרט של מוצר לפי ברקוד
 
@@ -160,15 +156,15 @@ namespace Electricity_shop
                     if (Orderss.Status == 1)//בודקים אם ההזמנה במצב לא סופק אז ניתן להחזיר כמות למוצר קיים
                     {
                         int sum = Product.Amount + Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);//מחבר הכמות של המוצר שהוסר למוצר הקיים 
-                        if(Product.Barcode != "")
+                        if (Product.Barcode != "")
                             mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);//מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
-                        else if(Product.Model != "")
+                        else if (Product.Model != "")
                             mySQL.UpdateProductAmountByModel(sum, Product.Model);//מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
 
                     }
 
                     this.Close();
-                    
+
                     th = new Thread(openself);
                     th.TrySetApartmentState(ApartmentState.STA);
                     th.Start();
@@ -176,22 +172,22 @@ namespace Electricity_shop
             }
             else
                 MessageBox.Show("הזמנה סופקה , אין להסיר מוצרים");
-            
-                
+
+
 
 
         }
 
         private void openself(object obj)
         {
-            Application.Run(new Frm_updateOrder(order_number_holder,usersRole));
+            Application.Run(new Frm_updateOrder(order_number_holder, usersRole));
         }
 
         private void Btn_add_to_cart_Click(object sender, EventArgs e)
         {
             Orderss = mySQL.GetOrdersDataByOrderNumber(Orderss.Order_number.ToString());//שולפים מידע להזמנה נוכחית
 
-            if(Orderss.Status==1)
+            if (Orderss.Status == 1)
             {
                 Thread th;
                 this.Close();
@@ -205,7 +201,7 @@ namespace Electricity_shop
 
         private void OpenAddProductToOrder(object obj)
         {
-            Application.Run(new Frm_addProductsToOrder(order_number_holder,usersRole));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole));
         }
 
         private void Btn_updateOrder_Click(object sender, EventArgs e)//לחיצה על עדכן מעדכן הסטטוס של ההזמנה
@@ -218,7 +214,7 @@ namespace Electricity_shop
                     mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 1);
                 }
 
-                if(Cbo_orderStatus.Text=="סופק")
+                if (Cbo_orderStatus.Text == "סופק")
                 {
                     mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 0);
                 }
@@ -240,28 +236,28 @@ namespace Electricity_shop
             int sum = 0;
             //כאשר משתמש משנה את הכמות בודק אם יש הכמות הנדרשת אם כן מחסרים את הכמות במלאי בהתאם או מוסיפים תלוי
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
-            if(Grd_allOrders.CurrentRow.Cells[0].Value.ToString() != "")
+            if (Grd_allOrders.CurrentRow.Cells[0].Value.ToString() != "")
                 Product = mySQL.GetProductDataByBarcode(Grd_allOrders.CurrentRow.Cells[0].Value.ToString());
-            else if(Grd_allOrders.CurrentRow.Cells[3].Value.ToString() != "")
+            else if (Grd_allOrders.CurrentRow.Cells[3].Value.ToString() != "")
                 Product = mySQL.GetProductDataByModel(Grd_allOrders.CurrentRow.Cells[3].Value.ToString());
 
 
-            for (int i=0;i<Product_order.Length;i++)
+            for (int i = 0; i < Product_order.Length; i++)
             {
-                if(Product_order[i].Product_serial_number == Product.Product_serial_number)
+                if (Product_order[i].Product_serial_number == Product.Product_serial_number)
                 {
                     if ((Product.Amount + previosAmount) - Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value) >= 0)//בודקים אם יש הכמות הנדרשת
                     {
                         sum += (Product.Amount + previosAmount) - Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);
                         mySQL.UpdateProduct_orderAmount(Product.Product_serial_number.ToString(), order_number_holder, Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value));
-                        if(Product.Barcode != "")
-                           mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);
-                        else if(Product.Model != "")
+                        if (Product.Barcode != "")
+                            mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);
+                        else if (Product.Model != "")
                             mySQL.UpdateProductAmountByModel(sum, Product.Model);
 
 
                         MessageBox.Show("כמות עודכנה");
-                        
+
                         this.Close();
                         th = new Thread(openself);
                         th.TrySetApartmentState(ApartmentState.STA);

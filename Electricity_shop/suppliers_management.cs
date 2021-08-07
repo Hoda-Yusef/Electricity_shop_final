@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -34,13 +30,13 @@ namespace Electricity_shop
 
         private void Btn_exit_Click(object sender, EventArgs e)//כפתור ליציאה מחלון
         {
-            if(usersRole==1)
+            if (usersRole == 1)
             {
-            Thread th;
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                Thread th;
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -50,7 +46,7 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-            
+
         }
 
         private void OpenMain(object obj)
@@ -167,7 +163,7 @@ namespace Electricity_shop
         private void Fill_grid(supplier[] Sup)//כשעושים חיפוש לספק מסווים הטבלה מתעדכנת מחדש
         {
             Grd_suppliers.Rows.Clear();
-            
+
             if (Sup != null)
             {
                 for (int i = 0; i < Sup.Length; i++)

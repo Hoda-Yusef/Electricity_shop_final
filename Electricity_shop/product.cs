@@ -1,9 +1,5 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Electricity_shop
 {
     public class Product
@@ -34,7 +30,7 @@ namespace Electricity_shop
             Product_info = string.Empty;
         }
 
-        
+
         public string Category { get => category; set => category = value; }
         public string Model { get => model; set => model = value; }
         public string Manufacturer { get => manufacturer; set => manufacturer = value; }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Electricity_shop
+﻿namespace Electricity_shop
 {
     public class user
     {

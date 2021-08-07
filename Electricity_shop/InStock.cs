@@ -1,13 +1,13 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
-using System;
-using System.Threading;
-using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System.IO;
-using Font = iTextSharp.text.Font;
+using System;
 using System.Drawing;
+using System.IO;
+using System.Threading;
+using System.Windows.Forms;
+using Font = iTextSharp.text.Font;
 
 namespace Electricity_shop
 {
@@ -64,13 +64,13 @@ namespace Electricity_shop
                 PdfPTable table = new PdfPTable(Grd_products_stock.Columns.Count);
                 table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
                 table.HorizontalAlignment = Element.ALIGN_CENTER;
-               // BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                // BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
                 //מגדירים גופן
                 Font font = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
                 Font headerFont = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN);
                 Font headerFont2 = new Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 24);
-              Paragraph myPar1 = new Paragraph("Inventory Count Report\n", headerFont2);
+                Paragraph myPar1 = new Paragraph("Inventory Count Report\n", headerFont2);
                 //Paragraph myPar1 = new Paragraph("שלום\n", headerFont2);
                 myPar1.Alignment = Element.ALIGN_CENTER;
                 //מגדירים כותרת ראשונה
@@ -167,7 +167,7 @@ namespace Electricity_shop
             {
                 openFileDialog.InitialDirectory = "C:\\Users\\hp\\source\\repos\\Electricity_shop_final\\Electricity_shop\\bin\\Debug\\netcoreapp3.1\\";
                 // מציג דוח ספיציפי בעל שם של התאריך שנבחר
-                openFileDialog.Filter = "txt files ("+dateTimePicker1.Text.ToString()+ ".pdf)|" + dateTimePicker1.Text.ToString() + ".pdf";
+                openFileDialog.Filter = "txt files (" + dateTimePicker1.Text.ToString() + ".pdf)|" + dateTimePicker1.Text.ToString() + ".pdf";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 

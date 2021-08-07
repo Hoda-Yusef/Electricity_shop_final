@@ -1,9 +1,5 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Electricity_shop
 {
     public class orders_customers

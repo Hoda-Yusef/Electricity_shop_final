@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -35,7 +31,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
             usersRole = role;
             set_AutoCompleteMode_text_boxes();
-     }
+        }
 
 
         private void set_AutoCompleteMode_text_boxes()//מילוי אוטומטי
@@ -58,12 +54,12 @@ namespace Electricity_shop
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
-            if(usersRole==1)
+            if (usersRole == 1)
             {
-            this.Close();
-            th = new Thread(Opennewform);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                th = new Thread(Opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -222,7 +218,7 @@ namespace Electricity_shop
                 MessageBox.Show("נא למלא כל השדות");
         }
 
-            private void Frm_addOrder_Load(object sender, EventArgs e)
+        private void Frm_addOrder_Load(object sender, EventArgs e)
         {
             customer[] Customer = mySQL.GetCustomerData();
 
@@ -340,7 +336,7 @@ namespace Electricity_shop
                     MessageBox.Show("לקוח קיים");
                     read_only_true();
 
-                }  
+                }
             }
         }
     }

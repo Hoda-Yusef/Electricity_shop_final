@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -73,8 +69,8 @@ namespace Electricity_shop
                             product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
 
                             total_price += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
-                            pure_price += ((product.Selling_price - product.Cost_price)-
-                                ((product.Selling_price - product.Cost_price) * 0.18)) * 
+                            pure_price += ((product.Selling_price - product.Cost_price) -
+                                ((product.Selling_price - product.Cost_price) * 0.18)) *
                                 Product_order[j].Amount;//מחשב סכום רווח נטו
 
                             VAT += ((product.Selling_price - product.Cost_price) * 0.18) * Product_order[j].Amount;
@@ -147,7 +143,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
@@ -165,7 +161,7 @@ namespace Electricity_shop
 
 
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -174,7 +170,7 @@ namespace Electricity_shop
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }

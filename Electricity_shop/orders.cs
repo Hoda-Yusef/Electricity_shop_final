@@ -1,9 +1,5 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Electricity_shop
 {
     public class orders
@@ -12,8 +8,8 @@ namespace Electricity_shop
         private string customer_id;
         private string date;
         private int status;
-        
-       
+
+
         public orders()
         {
             Order_number = 0;

@@ -1,11 +1,7 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -33,7 +29,7 @@ namespace Electricity_shop
             usersRole = role;
         }
 
-        public Frm_addProductsToOrder(string orderNumber,int role)
+        public Frm_addProductsToOrder(string orderNumber, int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -108,7 +104,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_barcode()
         {
-           Products = mySQL.GetProductDataFiltered("זמין במלאי",Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+            Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
             if (Grd_productsList.Rows.Count != 0)
@@ -118,7 +114,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_category()
         {
-            Products = mySQL.GetProductDataFiltered("זמין במלאי",Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+            Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
             if (Grd_productsList.Rows.Count != 0)
@@ -128,7 +124,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_manufacture()
         {
-           Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+            Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
 
@@ -139,7 +135,7 @@ namespace Electricity_shop
 
         private void fill_grid_by_model()
         {
-           Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
+            Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
 
             fill_grid(Products);
             if (Grd_productsList.Rows.Count != 0)
@@ -207,10 +203,10 @@ namespace Electricity_shop
         private void Btn_addToOrder_Click(object sender, EventArgs e)
         {
             bool same = false;
-             
-            if(Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+
+            if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
                 Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
-            else if(Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
+            else if (Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
                 Product = mySQL.GetProductDataByModel(Grd_productsList.CurrentRow.Cells[2].Value.ToString());
 
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
@@ -229,12 +225,12 @@ namespace Electricity_shop
                     }
                 }
             }
-            insert_to_order(same,itemBarcode,itemModel,amount);
+            insert_to_order(same, itemBarcode, itemModel, amount);
 
-            
+
         }
 
-        private void insert_to_order(bool same, string itemBarcode,string itemModel, int amount)
+        private void insert_to_order(bool same, string itemBarcode, string itemModel, int amount)
         {
             if (same)//בודקים אם המוצר הנבחר הוא כבר בהזמנה
             {
@@ -258,7 +254,7 @@ namespace Electricity_shop
                             th.TrySetApartmentState(ApartmentState.STA);
                             th.Start();
                         }
-                        else if(itemModel != "")
+                        else if (itemModel != "")
                         {
                             Product = mySQL.GetProductDataByModel(itemModel);//שולפים מידע למוצר הקיים
                             mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
@@ -291,12 +287,12 @@ namespace Electricity_shop
 
         private void OpenUpadteOrder(object obj)
         {
-            Application.Run(new Frm_updateOrder(order_number_holder,usersRole));
+            Application.Run(new Frm_updateOrder(order_number_holder, usersRole));
         }
 
         private void OpenSelf(object obj)
         {
-            Application.Run(new Frm_addProductsToOrder(order_number_holder,usersRole));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole));
         }
 
         private void Txt_productBarcode_KeyPress(object sender, KeyPressEventArgs e)

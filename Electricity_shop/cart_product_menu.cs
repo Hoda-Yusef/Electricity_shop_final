@@ -1,11 +1,8 @@
 ﻿//Hoda Khier + Yusef Aborokon 44/5
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -206,7 +203,7 @@ namespace Electricity_shop
             }
         }
 
-       
+
         private void OpenProductCart(object obj)
         {
             Application.Run(new Frm_productsInCart(usersRole));
@@ -240,7 +237,8 @@ namespace Electricity_shop
                             same = true;
                         }
                     }
-                } if(Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
+                }
+                if (Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
                 {
                     for (int i = 0; i < Cart.Length; i++)//לולאה בודקת אם מוצר קיים כבר בעגלה
                     {
@@ -250,9 +248,9 @@ namespace Electricity_shop
                         }
                     }
                 }
-                
+
             }
-            
+
             if (same)//בודקים אם קיים
             {
                 MessageBox.Show("מוצר קיים בעגלה", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -261,9 +259,9 @@ namespace Electricity_shop
             {
                 if (amount != 0)//אם מוצר לא קיים בעגלה אז מוסיפים אותו
                 {
-                    if(Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+                    if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
                         Product = mySQL.GetProductDataByBarcode(Grd_productsList.CurrentRow.Cells[3].Value.ToString());
-                    else if(Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
+                    else if (Grd_productsList.CurrentRow.Cells[2].Value.ToString() != "")
                         Product = mySQL.GetProductDataByModel(Grd_productsList.CurrentRow.Cells[2].Value.ToString());
 
                     if (Product.Amount - Convert.ToInt32(amountChoose.Value) >= 0)//בודקים אם יש הכמות הנדרשת במלאי
@@ -290,12 +288,12 @@ namespace Electricity_shop
         }
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            if(usersRole==1)
+            if (usersRole == 1)
             {
-            this.Close();
-            th = new Thread(OpenMain);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                this.Close();
+                th = new Thread(OpenMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
@@ -304,7 +302,7 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-            
+
         }
     }
 }

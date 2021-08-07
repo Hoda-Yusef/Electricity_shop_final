@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="BitMiracle.Docotic.Pdf" Version="8.1.12215" />
+    <PackageReference Include="CircularProgressBar" Version="2.8.0.16" />
     <PackageReference Include="iTextSharp" Version="5.5.13.2" />
     <PackageReference Include="MySql.Data" Version="8.0.25" />
   </ItemGroup>

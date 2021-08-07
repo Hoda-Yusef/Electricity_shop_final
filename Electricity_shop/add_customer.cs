@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-    
+
     public partial class Frm_addCustomer : Form
     {
         bool drag = false;
@@ -80,8 +80,8 @@ namespace Electricity_shop
         {
             bool same = false;
             //בודקים תקינות קלט
-            if(Txt_customerId.Text!="" && Check_id()==true && Txt_firstName.Text!=""&&Txt_lastName.Text!=""
-                &&Txt_phoneNumber.Text!="" && Check_phoneNumber()==true && Txt_address.Text!="")
+            if (Txt_customerId.Text != "" && Check_id() == true && Txt_firstName.Text != "" && Txt_lastName.Text != ""
+                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true && Txt_address.Text != "")
             {
                 customer[] Customer = mySQL.GetCustomerData();
                 customer cust = new customer();
@@ -99,7 +99,7 @@ namespace Electricity_shop
                     }
                 }
 
-                if(same)
+                if (same)
                 {
                     //לקוח קיים מציגים את פרטיו בתיבות הטקסט בהתאם
                     Same_customer(cust);
@@ -113,13 +113,13 @@ namespace Electricity_shop
             //חסר נתונים או נתונים לא תקינים
             else
                 MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות,יש למלא את כל השדות");
-         
+
         }
 
-      //פונקציה יוצרת לקוח חדש
+        //פונקציה יוצרת לקוח חדש
         private void New_customer(customer cust)
         {
-            cust.Id =Txt_customerId.Text;
+            cust.Id = Txt_customerId.Text;
             cust.First_name = Txt_firstName.Text;
             cust.Last_name = Txt_lastName.Text;
             cust.Phone_number = Txt_phoneNumber.Text;
@@ -133,10 +133,10 @@ namespace Electricity_shop
         //אפשר לעדכן פרטים אלה 
         private void Same_customer(customer cust)
         {
-            cust.Id= Txt_customerId.Text;
+            cust.Id = Txt_customerId.Text;
             cust.First_name = Txt_firstName.Text;
             cust.Last_name = Txt_lastName.Text;
-            cust.Phone_number= Txt_phoneNumber.Text;
+            cust.Phone_number = Txt_phoneNumber.Text;
             cust.Address = Txt_address.Text;
             mySQL.UpdateCustomer(cust);
 
