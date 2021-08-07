@@ -55,6 +55,7 @@ namespace Electricity_shop
             int max_id = 0;
             int count = 0;
             double VAT = 0;
+            
 
             //מקבלים את כל ההזמנות בין שני התאריכים שבחר המשתמש
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
@@ -94,8 +95,9 @@ namespace Electricity_shop
                 }
                 best_selling_product(count);
 
-                Lbl_info.Text = "\n  רווח פרוטו עם מעמ : " + total_price + "\n\nרווח נטו ללא מעמ: " + pure_price +"\n\nסכום מעמ : "+VAT+"" +
-                    "\n\nשולם לספקים : " + lose + "\n\nסכום העסקה הגדולה ביותר : " + max_ID + "\n ללקוח - " + max_id + " " +
+                Lbl_info.Text = "\n  רווח ברוטו עם מעמ : " + total_price + 
+                    "\n\nרווח נטו ללא מעמ: " + Math.Round(pure_price,2) +"\n\nסכום מעמ : "+Math.Round(VAT ,2)+ "" +
+                    "\n\nשולם לספקים : " + lose + "\n\nמספר הזמנות : "+Orders.Length+" \n\nסכום העסקה הגדולה ביותר : " + max_ID + "\n ללקוח - " + max_id + " " +
                     "\n\nמוצר הנמכר ביותר :- " + max_product_category + " - " + max_product_model + "\nכמות יחידות שנמכרו : " +
                     "" + max_product_amount + "";
             }
@@ -104,6 +106,8 @@ namespace Electricity_shop
 
 
         }
+
+        
 
         private void best_selling_product(int count)
         {

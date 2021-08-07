@@ -77,7 +77,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(-2, 753);
+            this.panel3.Location = new System.Drawing.Point(-2, 812);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(954, 14);
@@ -89,7 +89,7 @@
             this.panel2.Location = new System.Drawing.Point(944, -6);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 767);
+            this.panel2.Size = new System.Drawing.Size(10, 830);
             this.panel2.TabIndex = 40;
             // 
             // panel4
@@ -98,7 +98,7 @@
             this.panel4.Location = new System.Drawing.Point(-2, -6);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 769);
+            this.panel4.Size = new System.Drawing.Size(10, 826);
             this.panel4.TabIndex = 42;
             // 
             // Lbl_inStockDocument
@@ -121,7 +121,7 @@
             this.Lbl_info.Location = new System.Drawing.Point(194, 156);
             this.Lbl_info.Name = "Lbl_info";
             this.Lbl_info.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_info.Size = new System.Drawing.Size(581, 576);
+            this.Lbl_info.Size = new System.Drawing.Size(581, 652);
             this.Lbl_info.TabIndex = 44;
             this.Lbl_info.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -165,9 +165,9 @@
             this.label1.Location = new System.Drawing.Point(756, 106);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(109, 31);
+            this.label1.Size = new System.Drawing.Size(118, 31);
             this.label1.TabIndex = 47;
-            this.label1.Text = "מתאריך :";
+            this.label1.Text = "מ-תאריך :";
             // 
             // label2
             // 
@@ -213,7 +213,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(952, 761);
+            this.ClientSize = new System.Drawing.Size(952, 820);
             this.Controls.Add(this.Pic_createPDF);
             this.Controls.Add(this.dateTimePicker_to);
             this.Controls.Add(this.label2);

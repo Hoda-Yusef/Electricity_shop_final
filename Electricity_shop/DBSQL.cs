@@ -1583,7 +1583,7 @@ namespace Electricity_shop
 
         public void UpdateCartAmountByBarcode(int productAmount,string productBarcode)
         {
-            string cmdStr = "UPDATE cart SET amount=" + productAmount + " WHERE product_barcode="+ productBarcode + "";
+            string cmdStr = "UPDATE cart SET amount=" + productAmount + " WHERE product_barcode='"+ productBarcode + "'";
 
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
