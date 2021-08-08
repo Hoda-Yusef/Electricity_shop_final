@@ -138,6 +138,7 @@ namespace Electricity_shop
             // 
             // Lbl_about_to_end_number
             // 
+            this.Lbl_about_to_end_number.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_about_to_end_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_about_to_end_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
             this.Lbl_about_to_end_number.Location = new System.Drawing.Point(3, 413);
@@ -147,9 +148,11 @@ namespace Electricity_shop
             this.Lbl_about_to_end_number.TabIndex = 21;
             this.Lbl_about_to_end_number.Text = "0";
             this.Lbl_about_to_end_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_about_to_end_number.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_about_to_end_number_MouseDoubleClick);
             // 
             // Lbl_about_to_end
             // 
+            this.Lbl_about_to_end.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_about_to_end.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_about_to_end.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
             this.Lbl_about_to_end.Location = new System.Drawing.Point(3, 375);
@@ -159,9 +162,11 @@ namespace Electricity_shop
             this.Lbl_about_to_end.TabIndex = 20;
             this.Lbl_about_to_end.Text = "כמעט זמין במלאי";
             this.Lbl_about_to_end.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_about_to_end.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_about_to_end_number_MouseDoubleClick);
             // 
             // Lbl_out_of_stock_number
             // 
+            this.Lbl_out_of_stock_number.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_out_of_stock_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_out_of_stock_number.ForeColor = System.Drawing.Color.Red;
             this.Lbl_out_of_stock_number.Location = new System.Drawing.Point(7, 323);
@@ -171,9 +176,11 @@ namespace Electricity_shop
             this.Lbl_out_of_stock_number.TabIndex = 19;
             this.Lbl_out_of_stock_number.Text = "0";
             this.Lbl_out_of_stock_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_out_of_stock_number.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_out_of_stock_number_MouseDoubleClick);
             // 
             // Lbl_out_of_stock
             // 
+            this.Lbl_out_of_stock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_out_of_stock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_out_of_stock.ForeColor = System.Drawing.Color.Red;
             this.Lbl_out_of_stock.Location = new System.Drawing.Point(3, 285);
@@ -183,6 +190,7 @@ namespace Electricity_shop
             this.Lbl_out_of_stock.TabIndex = 18;
             this.Lbl_out_of_stock.Text = "לא זמין במלאי";
             this.Lbl_out_of_stock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_out_of_stock.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_out_of_stock_MouseDoubleClick);
             // 
             // Btn_addProduct
             // 
@@ -447,6 +455,7 @@ namespace Electricity_shop
             // 
             // Lbl_orders_wait_number
             // 
+            this.Lbl_orders_wait_number.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_orders_wait_number.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_orders_wait_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
             this.Lbl_orders_wait_number.Location = new System.Drawing.Point(3, 363);
@@ -456,9 +465,11 @@ namespace Electricity_shop
             this.Lbl_orders_wait_number.TabIndex = 23;
             this.Lbl_orders_wait_number.Text = "0";
             this.Lbl_orders_wait_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_orders_wait_number.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_orders_wait_number_MouseDoubleClick);
             // 
             // Lbl_orders_wait
             // 
+            this.Lbl_orders_wait.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_orders_wait.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_orders_wait.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
             this.Lbl_orders_wait.Location = new System.Drawing.Point(3, 323);
@@ -468,6 +479,7 @@ namespace Electricity_shop
             this.Lbl_orders_wait.TabIndex = 22;
             this.Lbl_orders_wait.Text = "הזמנות לא סופקו";
             this.Lbl_orders_wait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Lbl_orders_wait.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_orders_wait_number_MouseDoubleClick);
             // 
             // Btn_addOrder
             // 

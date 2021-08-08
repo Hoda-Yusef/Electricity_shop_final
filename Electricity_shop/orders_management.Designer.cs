@@ -55,6 +55,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.Lbl_ordersManagement = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Lbl_sortByAmount = new System.Windows.Forms.Label();
+            this.Cbo_sortByOrderStatus = new System.Windows.Forms.ComboBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.BtnClear = new System.Windows.Forms.Button();
             this.Lbl_customersLastName = new System.Windows.Forms.Label();
@@ -69,6 +71,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.Btn_leave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_orders)).BeginInit();
             this.Upper_BluePanel.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -258,7 +261,6 @@
             this.Btn_exit.Size = new System.Drawing.Size(55, 51);
             this.Btn_exit.TabIndex = 53;
             this.Btn_exit.UseVisualStyleBackColor = false;
-            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
             this.Btn_exit.MouseLeave += new System.EventHandler(this.Btn_exit_MouseLeave);
             this.Btn_exit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Btn_exit_MouseMove);
             // 
@@ -284,7 +286,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(-7, 0);
+            this.panel2.Location = new System.Drawing.Point(-4, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(15, 820);
             this.panel2.TabIndex = 18;
@@ -314,6 +316,8 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Lbl_sortByAmount);
+            this.panel3.Controls.Add(this.Cbo_sortByOrderStatus);
             this.panel3.Controls.Add(this.dateTimePicker);
             this.panel3.Controls.Add(this.BtnClear);
             this.panel3.Controls.Add(this.Lbl_customersLastName);
@@ -325,11 +329,45 @@
             this.panel3.Controls.Add(this.Btn_updateOrder);
             this.panel3.Controls.Add(this.Lbl_customerId);
             this.panel3.Controls.Add(this.Txt_customerId);
-            this.panel3.Location = new System.Drawing.Point(1191, 131);
+            this.panel3.Location = new System.Drawing.Point(1191, 66);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(244, 655);
+            this.panel3.Size = new System.Drawing.Size(244, 720);
             this.panel3.TabIndex = 20;
+            // 
+            // Lbl_sortByAmount
+            // 
+            this.Lbl_sortByAmount.AutoSize = true;
+            this.Lbl_sortByAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_sortByAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_sortByAmount.Location = new System.Drawing.Point(79, 18);
+            this.Lbl_sortByAmount.Name = "Lbl_sortByAmount";
+            this.Lbl_sortByAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Lbl_sortByAmount.Size = new System.Drawing.Size(136, 28);
+            this.Lbl_sortByAmount.TabIndex = 35;
+            this.Lbl_sortByAmount.Text = ": הצג תוצאות";
+            this.Lbl_sortByAmount.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Cbo_sortByOrderStatus
+            // 
+            this.Cbo_sortByOrderStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cbo_sortByOrderStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.Cbo_sortByOrderStatus.DisplayMember = "כל המלאי";
+            this.Cbo_sortByOrderStatus.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Cbo_sortByOrderStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Cbo_sortByOrderStatus.FormattingEnabled = true;
+            this.Cbo_sortByOrderStatus.Items.AddRange(new object[] {
+            "הכל",
+            "סופק",
+            "לא סופק"});
+            this.Cbo_sortByOrderStatus.Location = new System.Drawing.Point(22, 42);
+            this.Cbo_sortByOrderStatus.Name = "Cbo_sortByOrderStatus";
+            this.Cbo_sortByOrderStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Cbo_sortByOrderStatus.Size = new System.Drawing.Size(199, 39);
+            this.Cbo_sortByOrderStatus.TabIndex = 34;
+            this.Cbo_sortByOrderStatus.Text = "הכל";
+            this.Cbo_sortByOrderStatus.SelectedIndexChanged += new System.EventHandler(this.Cbo_sortByOrderStatus_SelectedIndexChanged);
+            this.Cbo_sortByOrderStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Cbo_sortByOrderStatus_KeyPress);
             // 
             // dateTimePicker
             // 
@@ -342,7 +380,7 @@
             this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(26, 277);
+            this.dateTimePicker.Location = new System.Drawing.Point(22, 392);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(199, 34);
             this.dateTimePicker.TabIndex = 33;
@@ -356,7 +394,7 @@
             this.BtnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnClear.ForeColor = System.Drawing.Color.White;
             this.BtnClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnClear.Location = new System.Drawing.Point(26, 400);
+            this.BtnClear.Location = new System.Drawing.Point(22, 466);
             this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(199, 51);
@@ -369,7 +407,7 @@
             // 
             this.Lbl_customersLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersLastName.Location = new System.Drawing.Point(75, 184);
+            this.Lbl_customersLastName.Location = new System.Drawing.Point(71, 299);
             this.Lbl_customersLastName.Name = "Lbl_customersLastName";
             this.Lbl_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_customersLastName.Size = new System.Drawing.Size(127, 32);
@@ -381,7 +419,7 @@
             this.Txt_customersLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customersLastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customersLastName.ForeColor = System.Drawing.Color.White;
-            this.Txt_customersLastName.Location = new System.Drawing.Point(26, 209);
+            this.Txt_customersLastName.Location = new System.Drawing.Point(22, 324);
             this.Txt_customersLastName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Txt_customersLastName.Name = "Txt_customersLastName";
             this.Txt_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -393,7 +431,7 @@
             // 
             this.Lbl_customersFirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersFirstName.Location = new System.Drawing.Point(91, 96);
+            this.Lbl_customersFirstName.Location = new System.Drawing.Point(87, 211);
             this.Lbl_customersFirstName.Name = "Lbl_customersFirstName";
             this.Lbl_customersFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_customersFirstName.Size = new System.Drawing.Size(95, 32);
@@ -405,7 +443,7 @@
             this.Txt_customersFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customersFirstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customersFirstName.ForeColor = System.Drawing.Color.White;
-            this.Txt_customersFirstName.Location = new System.Drawing.Point(26, 120);
+            this.Txt_customersFirstName.Location = new System.Drawing.Point(22, 235);
             this.Txt_customersFirstName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Txt_customersFirstName.Name = "Txt_customersFirstName";
             this.Txt_customersFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -421,7 +459,7 @@
             this.Btn_backToMain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_backToMain.ForeColor = System.Drawing.Color.White;
             this.Btn_backToMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_backToMain.Location = new System.Drawing.Point(26, 584);
+            this.Btn_backToMain.Location = new System.Drawing.Point(22, 650);
             this.Btn_backToMain.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_backToMain.Name = "Btn_backToMain";
             this.Btn_backToMain.Size = new System.Drawing.Size(199, 51);
@@ -438,7 +476,7 @@
             this.Btn_updateStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateStatus.ForeColor = System.Drawing.Color.White;
             this.Btn_updateStatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateStatus.Location = new System.Drawing.Point(26, 523);
+            this.Btn_updateStatus.Location = new System.Drawing.Point(22, 589);
             this.Btn_updateStatus.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_updateStatus.Name = "Btn_updateStatus";
             this.Btn_updateStatus.Size = new System.Drawing.Size(199, 51);
@@ -455,7 +493,7 @@
             this.Btn_updateOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateOrder.ForeColor = System.Drawing.Color.White;
             this.Btn_updateOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateOrder.Location = new System.Drawing.Point(26, 461);
+            this.Btn_updateOrder.Location = new System.Drawing.Point(22, 527);
             this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_updateOrder.Name = "Btn_updateOrder";
             this.Btn_updateOrder.Size = new System.Drawing.Size(199, 51);
@@ -468,7 +506,7 @@
             // 
             this.Lbl_customerId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customerId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customerId.Location = new System.Drawing.Point(74, 9);
+            this.Lbl_customerId.Location = new System.Drawing.Point(70, 124);
             this.Lbl_customerId.Name = "Lbl_customerId";
             this.Lbl_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_customerId.Size = new System.Drawing.Size(126, 32);
@@ -480,7 +518,7 @@
             this.Txt_customerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customerId.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customerId.ForeColor = System.Drawing.Color.White;
-            this.Txt_customerId.Location = new System.Drawing.Point(26, 32);
+            this.Txt_customerId.Location = new System.Drawing.Point(22, 147);
             this.Txt_customerId.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Txt_customerId.Name = "Txt_customerId";
             this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -492,7 +530,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel5.Location = new System.Drawing.Point(3, 813);
+            this.panel5.Location = new System.Drawing.Point(3, 815);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(2005, 13);
@@ -502,7 +540,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel8.Controls.Add(this.panel10);
-            this.panel8.Location = new System.Drawing.Point(1458, -3);
+            this.panel8.Location = new System.Drawing.Point(1462, -3);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(15, 820);
             this.panel8.TabIndex = 54;
@@ -516,12 +554,28 @@
             this.panel10.Size = new System.Drawing.Size(1363, 11);
             this.panel10.TabIndex = 16;
             // 
+            // Btn_leave
+            // 
+            this.Btn_leave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_leave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_leave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Btn_leave.Image = ((System.Drawing.Image)(resources.GetObject("Btn_leave.Image")));
+            this.Btn_leave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_leave.Location = new System.Drawing.Point(1432, -1);
+            this.Btn_leave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_leave.Name = "Btn_leave";
+            this.Btn_leave.Size = new System.Drawing.Size(42, 41);
+            this.Btn_leave.TabIndex = 55;
+            this.Btn_leave.UseVisualStyleBackColor = true;
+            this.Btn_leave.Click += new System.EventHandler(this.Btn_leave_Click);
+            // 
             // Frm_ordersManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1473, 824);
+            this.Controls.Add(this.Btn_leave);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.Upper_BluePanel);
@@ -587,5 +641,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button Btn_leave;
+        private System.Windows.Forms.Label Lbl_sortByAmount;
+        public System.Windows.Forms.ComboBox Cbo_sortByOrderStatus;
     }
 }

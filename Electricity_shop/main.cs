@@ -15,7 +15,9 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         orders[] Orders;
         customer[] Customers;
+        Product[] product;
         int userRole;
+        
         public Frm_main(int role)
         {
             InitializeComponent();
@@ -173,7 +175,7 @@ namespace Electricity_shop
                             count++;
                         }
                     }
-                    if (count > 2)
+                    if (count > 3)
                     {
                         countMany++;
                     }
@@ -258,6 +260,49 @@ namespace Electricity_shop
         private void OpenDocuments(object obj)
         {
             Application.Run(new Frm_documents());
+        }
+
+        private void Lbl_out_of_stock_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Frm_products_management Fpm = new Frm_products_management(userRole);
+
+            Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
+            
+            Fpm.ShowDialog();
+            this.Close();
+            
+            
+
+        }
+
+        private void Lbl_out_of_stock_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Frm_products_management Fpm = new Frm_products_management(userRole);
+
+            Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
+
+            Fpm.ShowDialog();
+            this.Close();
+        }
+
+        private void Lbl_about_to_end_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Frm_products_management Fpm = new Frm_products_management(userRole);
+
+            Fpm.Cbo_sortByProductAmount.Text = "עומד להיגמר מהמלאי";
+
+            Fpm.ShowDialog();
+            this.Close();
+        }
+
+        private void Lbl_orders_wait_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Frm_ordersManagement Fom = new Frm_ordersManagement(userRole);
+
+            Fom.Cbo_sortByOrderStatus.Text = "לא סופק";
+
+            Fom.ShowDialog();
+            this.Close();
         }
     }
 }

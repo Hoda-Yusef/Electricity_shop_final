@@ -991,29 +991,75 @@ namespace Electricity_shop
 
         }
 
-        public orders_customers[] GetOrdersDataFiltered(string customerID, string firstName, string lastName, string date)
+        public orders_customers[] GetOrdersDataFiltered(string status,string customerID, string firstName, string lastName, string date)
         {
             string cmdStr = string.Empty;
             DataSet ds = new DataSet();
             orders_customers[] Orders_customers = null;
 
-            if (date != "")
+            if (status == "הכל")
             {
-                cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
-                   "customer.phone_number,customer.address,orders.date,orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
-                   "FROM orders INNER JOIN " +
-                   "customer ON orders.customer_id = customer.id" +
-                   " WHERE customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
-                   "AND customer.last_name LIKE '" + lastName + "%' AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y')";
-            }
-            else
+                if (date != "")
+                {
+                    cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                       "customer.phone_number,customer.address,orders.date,orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                       "FROM orders INNER JOIN " +
+                       "customer ON orders.customer_id = customer.id" +
+                       " WHERE customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
+                       "AND customer.last_name LIKE '" + lastName + "%' AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.date DESC";
+                }
+                else
+                {
+                    cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                        "customer.phone_number,customer.address,orders.date," +
+                        "orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string FROM orders INNER JOIN " +
+                        "customer ON orders.customer_id = customer.id" +
+                        " WHERE customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
+                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.date DESC";
+                }
+            }else if(status == "סופק")
             {
-                cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
-                    "customer.phone_number,customer.address,orders.date,orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string FROM orders INNER JOIN " +
-                    "customer ON orders.customer_id = customer.id" +
-                    " WHERE customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
-                    "AND customer.last_name LIKE '" + lastName + "%'";
+                if (date != "")
+                {
+                    cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                       "customer.phone_number,customer.address,orders.date,orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                       "FROM orders INNER JOIN " +
+                       "customer ON orders.customer_id = customer.id" +
+                       " WHERE orders.status=0 AND customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
+                       "AND customer.last_name LIKE '" + lastName + "%' AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.date DESC";
+                }
+                else
+                {
+                    cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                        "customer.phone_number,customer.address,orders.date," +
+                        "orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string FROM orders INNER JOIN " +
+                        "customer ON orders.customer_id = customer.id" +
+                        " WHERE orders.status=0 AND customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
+                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.date DESC";
+                }
             }
+            else if(status == "לא סופק")
+            {
+                if (date != "")
+                {
+                    cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                       "customer.phone_number,customer.address,orders.date,orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                       "FROM orders INNER JOIN " +
+                       "customer ON orders.customer_id = customer.id" +
+                       " WHERE orders.status=1 AND customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
+                       "AND customer.last_name LIKE '" + lastName + "%' AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.date DESC";
+                }
+                else
+                {
+                    cmdStr = "SELECT orders.order_number,orders.customer_id,customer.first_name,customer.last_name," +
+                        "customer.phone_number,customer.address,orders.date," +
+                        "orders.status,DATE_FORMAT(date,'%d-%m-%Y') AS date_string FROM orders INNER JOIN " +
+                        "customer ON orders.customer_id = customer.id" +
+                        " WHERE orders.status=1 AND customer.id LIKE '" + customerID + "%' AND customer.first_name LIKE '" + firstName + "%'" +
+                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.date DESC";
+                }
+            }
+
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -1052,44 +1098,7 @@ namespace Electricity_shop
             return Orders_customers;
 
         }
-        /*
-        public customer GetCustomerDataById(string id)
-        {
-            DataSet ds = new DataSet();
-            customer Customer = null;
-            string cmdStr = "SELECT * FROM customer WHERE id LIKE '" + id + "%'";
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                ds = GetMultipleQuery(command);
-            }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-
-                Customer = new customer();
-                Customer.Id = dt.Rows[0][0].ToString();
-                Customer.First_name = dt.Rows[0][1].ToString();
-                Customer.Last_name = dt.Rows[0][2].ToString();
-                Customer.Phone_number = dt.Rows[0][3].ToString();
-                Customer.Address = dt.Rows[0][4].ToString();
-
-
-            }
-            return Customer;
-
-        }*/
-
+      
         public supplier GetSupplierDataByPhone(string phone)
         {
             DataSet ds = new DataSet();
