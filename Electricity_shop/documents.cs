@@ -18,14 +18,15 @@ namespace Electricity_shop
         Product[] Products;
         int max_PRODUCT = 0, max_product_amount = 0;
         string max_product_category, max_product_model;
-
-        public Frm_documents()
+        string userName;
+        public Frm_documents(string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            userName = username;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace Electricity_shop
 
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main(1));
+            Application.Run(new Frm_main(1, userName));
         }
 
         private void Btn_search_Click(object sender, EventArgs e)//כפתור לקבלת מידע

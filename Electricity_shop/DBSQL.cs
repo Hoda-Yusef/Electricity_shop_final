@@ -394,6 +394,43 @@ namespace Electricity_shop
             }
             return Orders;
         }
+        /*
+        public int GetDeliveredOrdersNumber()
+        {
+            DataSet ds = new DataSet();
+           // orders[] Orders = null;
+
+            string cmdStr = "SELECT * FROM orders WHERE status=1";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Orders = new orders[dt.Rows.Count];
+                for (int i = 0; i < Orders.Length; i++)
+                {
+                    Orders[i] = new orders();
+                    Orders[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Orders[i].Customer_id = dt.Rows[i][1].ToString();
+                    Orders[i].Status = Convert.ToInt32(dt.Rows[i][3]);
+                    Orders[i].Date = dt.Rows[i][4].ToString();
+                }            }
+          return dt.Rows.Count;
+        }*/
 
         public orders GetOrdersDataByOrderNumber(string order_number)
         {

@@ -21,8 +21,9 @@ namespace Electricity_shop
         readonly Cart Cart;
         private readonly string product_barcode;
         int usersRole;
+        string userName;
 
-        public Frm_cartProductMenu(int role)
+        public Frm_cartProductMenu(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -30,6 +31,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         private void Frm_cartProductMenu_Load(object sender, EventArgs e)//בעת פתיחה חלון נטען במוצרים
@@ -206,7 +208,7 @@ namespace Electricity_shop
 
         private void OpenProductCart(object obj)
         {
-            Application.Run(new Frm_productsInCart(usersRole));
+            Application.Run(new Frm_productsInCart(usersRole,userName));
         }
 
         private void Btn_toCart_Click(object sender, EventArgs e)//יציאה
@@ -280,11 +282,11 @@ namespace Electricity_shop
         }
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole, userName));
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole, userName));
         }
         private void Btn_exit_Click(object sender, EventArgs e)
         {

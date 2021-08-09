@@ -14,6 +14,7 @@ namespace Electricity_shop
         private DBSQL mySQL;
         // מגדירים התחברות כמנהל
         int currentUsersRole = 1;
+        string userName;
 
         public Frm_login()
         {
@@ -50,7 +51,7 @@ namespace Electricity_shop
                         if (Users[rows].Role == 1)
                         {
                             //מתחברים כמנהל
-
+                            userName = Users[rows].Username;
                             this.Close();
                             th = new Thread(opennewform);
                             th.TrySetApartmentState(ApartmentState.STA);
@@ -76,12 +77,12 @@ namespace Electricity_shop
 
         private void opennewform(object obj)
         {
-            Application.Run(new Frm_main(currentUsersRole));//פתיחת חלון ראשי
+            Application.Run(new Frm_main(currentUsersRole,userName));//פתיחת חלון ראשי
         }
 
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(currentUsersRole));//פתיחת חלון ראשי
+            Application.Run(new Frm_mainForEmployees(currentUsersRole,userName));//פתיחת חלון ראשי
         }
 
         private void Btn_exit_MouseMove(object sender, MouseEventArgs e)

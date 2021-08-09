@@ -18,7 +18,8 @@ namespace Electricity_shop
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection last_nameAuto = new AutoCompleteStringCollection();
         int usersRole;
-        public Frm_suppliersManagement(int role)
+        string userName;
+        public Frm_suppliersManagement(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -26,6 +27,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//כפתור ליציאה מחלון
@@ -51,17 +53,17 @@ namespace Electricity_shop
 
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main(usersRole));//פתיחת דף ראשי
+            Application.Run(new Frm_main(usersRole, userName));//פתיחת דף ראשי
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));//פתיחת דף ראשי
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));//פתיחת דף ראשי
         }
 
 
         private void Btn_updateSupplier_Click(object sender, EventArgs e)//כפתור לעידכון ספק
         {
-            Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
+            Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole,userName);
             uSupplier.Txt_firstName.Text = Grd_suppliers.CurrentRow.Cells[0].Value.ToString();
             uSupplier.Txt_lastName.Text = Grd_suppliers.CurrentRow.Cells[1].Value.ToString();
             uSupplier.Txt_address.Text = Grd_suppliers.CurrentRow.Cells[3].Value.ToString();
@@ -78,7 +80,7 @@ namespace Electricity_shop
 
         private void OpenSelf(object obj)//רענון חלון
         {
-            Application.Run(new Frm_suppliersManagement(usersRole));
+            Application.Run(new Frm_suppliersManagement(usersRole,userName));
         }
 
         private void Btn_toMainPage_Click(object sender, EventArgs e)//עובר לחלון ראשי
@@ -231,7 +233,7 @@ namespace Electricity_shop
 
         private void Grd_suppliers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
+            Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole,userName);
             uSupplier.Txt_firstName.Text = Grd_suppliers.CurrentRow.Cells[0].Value.ToString();
             uSupplier.Txt_lastName.Text = Grd_suppliers.CurrentRow.Cells[1].Value.ToString();
             uSupplier.Txt_address.Text = Grd_suppliers.CurrentRow.Cells[3].Value.ToString();

@@ -18,8 +18,9 @@ namespace Electricity_shop
         product_order[] Product_order;
         string order_number_holder;
         int usersRole;
+        string userName;
 
-        public Frm_addProductsToOrder(int role)
+        public Frm_addProductsToOrder(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -27,6 +28,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         public Frm_addProductsToOrder(string orderNumber, int role)
@@ -287,7 +289,7 @@ namespace Electricity_shop
 
         private void OpenUpadteOrder(object obj)
         {
-            Application.Run(new Frm_updateOrder(order_number_holder, usersRole));
+            Application.Run(new Frm_updateOrder(order_number_holder, usersRole,userName));
         }
 
         private void OpenSelf(object obj)

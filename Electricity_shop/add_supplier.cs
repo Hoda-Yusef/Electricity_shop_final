@@ -18,7 +18,9 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection SFirstName = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection SLastName = new AutoCompleteStringCollection();
         int usersRole;
-        public Frm_addSupplier(int role)
+        string userName;
+
+        public Frm_addSupplier(int role,string username)
         {
 
             InitializeComponent();
@@ -27,15 +29,16 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         private void Opennewform(object obj)//פותח חלון ראשי
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole,userName));
         }
         private void OpenEmployeesMainForm(object obj)//פותח חלון ראשי
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
 
 
@@ -86,7 +89,7 @@ namespace Electricity_shop
                 {
                     MessageBox.Show("ספק קיים. ניתן לעדכן פרטים");
 
-                    Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole);
+                    Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole,userName);
                     supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);//שולף מידע על ספק לפי מספר טלפון
                     uSupplier.Txt_firstName.Text = supp.FirstName;
                     uSupplier.Txt_lastName.Text = supp.LasttName;
@@ -122,7 +125,7 @@ namespace Electricity_shop
 
         private void Open_supManagment(object obj)
         {
-            Application.Run(new Frm_suppliersManagement(usersRole));
+            Application.Run(new Frm_suppliersManagement(usersRole,userName));
         }
 
         private void New_supplier(supplier supp)//אם ספק חדש יבדוק אם המשתמש הזין חוב וגם את התשלום

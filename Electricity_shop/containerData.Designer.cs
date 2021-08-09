@@ -31,6 +31,8 @@ namespace Electricity_shop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ContainerData));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Btn_contactUs = new System.Windows.Forms.Button();
             this.Pic_products = new System.Windows.Forms.PictureBox();
             this.Pic_contact = new System.Windows.Forms.PictureBox();
             this.Pic_orders = new System.Windows.Forms.PictureBox();
@@ -48,9 +50,8 @@ namespace Electricity_shop
             this.Lbl_title = new System.Windows.Forms.Label();
             this.Pnl_container = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Btn_contactUs = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_contact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_orders)).BeginInit();
@@ -58,7 +59,6 @@ namespace Electricity_shop
             ((System.ComponentModel.ISupportInitialize)(this.Pic_userIcon)).BeginInit();
             this.Upper_BluePanel.SuspendLayout();
             this.Pnl_container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,6 +80,29 @@ namespace Electricity_shop
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(247, 609);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(176, 408);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Btn_contactUs
+            // 
+            this.Btn_contactUs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_contactUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_contactUs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.Btn_contactUs.Location = new System.Drawing.Point(0, 402);
+            this.Btn_contactUs.Name = "Btn_contactUs";
+            this.Btn_contactUs.Size = new System.Drawing.Size(247, 63);
+            this.Btn_contactUs.TabIndex = 2;
+            this.Btn_contactUs.Text = "צור קשר";
+            this.Btn_contactUs.UseVisualStyleBackColor = true;
             // 
             // Pic_products
             // 
@@ -184,14 +207,16 @@ namespace Electricity_shop
             // Lbl_userName
             // 
             this.Lbl_userName.AutoSize = true;
+            this.Lbl_userName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lbl_userName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Lbl_userName.Location = new System.Drawing.Point(51, 133);
+            this.Lbl_userName.Location = new System.Drawing.Point(73, 133);
             this.Lbl_userName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Lbl_userName.Name = "Lbl_userName";
             this.Lbl_userName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_userName.Size = new System.Drawing.Size(129, 25);
             this.Lbl_userName.TabIndex = 1;
             this.Lbl_userName.Text = "שם המשתמש";
+            this.Lbl_userName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Pic_userIcon
             // 
@@ -279,29 +304,6 @@ namespace Electricity_shop
             this.panel3.Size = new System.Drawing.Size(710, 12);
             this.panel3.TabIndex = 109;
             // 
-            // Btn_contactUs
-            // 
-            this.Btn_contactUs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_contactUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_contactUs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Btn_contactUs.Location = new System.Drawing.Point(0, 402);
-            this.Btn_contactUs.Name = "Btn_contactUs";
-            this.Btn_contactUs.Size = new System.Drawing.Size(247, 63);
-            this.Btn_contactUs.TabIndex = 2;
-            this.Btn_contactUs.Text = "צור קשר";
-            this.Btn_contactUs.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(176, 408);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // Frm_ContainerData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -320,7 +322,9 @@ namespace Electricity_shop
             this.Name = "Frm_ContainerData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "tmp";
+            this.Load += new System.EventHandler(this.Frm_ContainerData_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_products)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_contact)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_orders)).EndInit();
@@ -329,7 +333,6 @@ namespace Electricity_shop
             ((System.ComponentModel.ISupportInitialize)(this.Pic_userIcon)).EndInit();
             this.Upper_BluePanel.ResumeLayout(false);
             this.Pnl_container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

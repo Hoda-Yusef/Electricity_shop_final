@@ -14,7 +14,8 @@ namespace Electricity_shop
         DBSQL mySQL;
         int count = 0;
         int usersRole;
-        public Frm_updateProduct(int role)
+        string userName;
+        public Frm_updateProduct(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -22,6 +23,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         //לחיצה על כפתור עדכן
@@ -258,7 +260,7 @@ namespace Electricity_shop
         private void Btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
-            Frm_products_management mainForm = new Frm_products_management(usersRole);
+            Frm_products_management mainForm = new Frm_products_management(usersRole,userName);
             mainForm.Show();
         }
 

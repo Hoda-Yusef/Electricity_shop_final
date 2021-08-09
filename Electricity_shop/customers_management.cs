@@ -16,7 +16,8 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection phoneNumberAuto = new AutoCompleteStringCollection();
         int usersRole;
-        public FrmCustomers_management(int role)
+        string userName;
+        public FrmCustomers_management(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -24,6 +25,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
 
         }
         //למלא טבלה בטופס לפי תעודת זהות של הלקוח
@@ -79,11 +81,11 @@ namespace Electricity_shop
         //פתיחת טופס ראשי
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole,userName));
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
         //לחיצה על כפתור חזרה לראשי
         private void Btn_toMain_Click(object sender, EventArgs e)
@@ -189,7 +191,7 @@ namespace Electricity_shop
         //לחיצה על כפתור עדכון
         private void Btn_update_Click(object sender, EventArgs e)
         {
-            Frm_update_customer uCustomer = new Frm_update_customer(usersRole);
+            Frm_update_customer uCustomer = new Frm_update_customer(usersRole,userName);
             uCustomer.Txt_customerId.Text = Grd_customers.CurrentRow.Cells[0].Value.ToString();
             uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
             uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();
@@ -206,7 +208,7 @@ namespace Electricity_shop
         // פתיחת טופס נוכחי בחזרה
         private void OpenSelf(object obj)
         {
-            Application.Run(new FrmCustomers_management(usersRole));
+            Application.Run(new FrmCustomers_management(usersRole,userName));
         }
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
@@ -256,7 +258,7 @@ namespace Electricity_shop
 
         private void Grd_customers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Frm_update_customer uCustomer = new Frm_update_customer(usersRole);
+            Frm_update_customer uCustomer = new Frm_update_customer(usersRole,userName);
             uCustomer.Txt_customerId.Text = Grd_customers.CurrentRow.Cells[0].Value.ToString();
             uCustomer.Txt_firstName.Text = Grd_customers.CurrentRow.Cells[1].Value.ToString();
             uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();

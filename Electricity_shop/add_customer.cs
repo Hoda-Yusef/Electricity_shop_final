@@ -21,7 +21,8 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection lastName1 = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection addrees1 = new AutoCompleteStringCollection();
         int usersRole;
-        public Frm_addCustomer(int role)
+        string userName;
+        public Frm_addCustomer(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -29,6 +30,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
         //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
@@ -50,12 +52,12 @@ namespace Electricity_shop
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
         //פתיחת טופס ראשי
         private void OpenMain(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole, userName));
         }
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)

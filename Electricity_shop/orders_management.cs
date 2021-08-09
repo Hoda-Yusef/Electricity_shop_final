@@ -17,10 +17,10 @@ namespace Electricity_shop
         orders_customers[] Orders_customers;
         bool date_changed = false;
         int usersRole;
+        string userName;
 
 
-
-        public Frm_ordersManagement(int role)
+        public Frm_ordersManagement(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -28,6 +28,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
 
         }
 
@@ -54,11 +55,11 @@ namespace Electricity_shop
 
         private void openMain(object obj)
         {
-            Application.Run(new Frm_main(usersRole));//חזרה לחלון ראשי
+            Application.Run(new Frm_main(usersRole,userName));//חזרה לחלון ראשי
         }
         private void openEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));//חזרה לחלון ראשי
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));//חזרה לחלון ראשי
         }
 
         //פאנל להזזת חלון
@@ -166,7 +167,7 @@ namespace Electricity_shop
 
         private void openSelf(object obj)
         {
-            Application.Run(new Frm_ordersManagement(usersRole));
+            Application.Run(new Frm_ordersManagement(usersRole,userName));
         }
 
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
@@ -280,7 +281,7 @@ namespace Electricity_shop
         private void openUpdateOrder(object obj)
         {
 
-            Application.Run(new Frm_updateOrder(order_number_holder, usersRole));//פתחית חלון עידכון של הזמנה
+            Application.Run(new Frm_updateOrder(order_number_holder, usersRole,userName));//פתחית חלון עידכון של הזמנה
 
 
         }

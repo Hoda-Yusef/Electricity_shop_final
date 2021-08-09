@@ -14,6 +14,7 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         private DBSQL mySQL;
         int usersRole;
+        string userName;
         //מילוי אוטומטי
         AutoCompleteStringCollection idAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
@@ -22,7 +23,7 @@ namespace Electricity_shop
         AutoCompleteStringCollection phoneAuto = new AutoCompleteStringCollection();
 
 
-        public Frm_addOrder(int role)
+        public Frm_addOrder(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -30,6 +31,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
             set_AutoCompleteMode_text_boxes();
         }
 
@@ -72,11 +74,11 @@ namespace Electricity_shop
 
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole, userName));
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
 
 
@@ -167,7 +169,7 @@ namespace Electricity_shop
 
         private void openProductCartManu(object obj)
         {
-            Application.Run(new Frm_cartProductMenu(usersRole));
+            Application.Run(new Frm_cartProductMenu(usersRole,userName));
         }
 
         private void Btn_ok_Click(object sender, EventArgs e)//בעת לחיצה על אישור

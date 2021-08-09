@@ -16,7 +16,8 @@ namespace Electricity_shop
         orders[] Orders;
         customer[] Customers;
         int userRole;
-        public Frm_main(int role)
+        string userName;
+        public Frm_main(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -24,6 +25,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             userRole = role;
+            userName = username;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace Electricity_shop
 
         private void OpenOrderManagement(object obj)
         {
-            Application.Run(new Frm_ordersManagement(userRole));
+            Application.Run(new Frm_ordersManagement(userRole,userName));
         }
 
         private void Btn_manageProducts_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Electricity_shop
 
         private void OpenProductManagement(object obj)
         {
-            Application.Run(new Frm_products_management(userRole));
+            Application.Run(new Frm_products_management(userRole,userName));
 
         }
 
@@ -85,7 +87,7 @@ namespace Electricity_shop
 
         private void OpenProductAdd(object obj)
         {
-            Application.Run(new Frm_addProduct(userRole));
+            Application.Run(new Frm_addProduct(userRole,userName));
 
         }
 
@@ -107,7 +109,7 @@ namespace Electricity_shop
 
         private void OpenAddSupplier(object obj)
         {
-            Application.Run(new Frm_addSupplier(userRole));
+            Application.Run(new Frm_addSupplier(userRole,userName));
         }
 
         private void Btn_manageCustomers_Click(object sender, EventArgs e)
@@ -122,12 +124,12 @@ namespace Electricity_shop
 
         private void OpenCustomeMmanagement(object obj)
         {
-            Application.Run(new FrmCustomers_management(userRole));
+            Application.Run(new FrmCustomers_management(userRole,userName));
         }
 
         private void OpenAddCustomer(object obj)
         {
-            Application.Run(new Frm_addCustomer(userRole));
+            Application.Run(new Frm_addCustomer(userRole,userName));
         }
 
         private void Btn_manageSuppliers_Click(object sender, EventArgs e)
@@ -141,7 +143,7 @@ namespace Electricity_shop
 
         private void OpenSupplierManagement(object obj)
         {
-            Application.Run(new Frm_suppliersManagement(userRole));
+            Application.Run(new Frm_suppliersManagement(userRole,userName));
         }
 
         private void Frm_main_Load(object sender, EventArgs e)
@@ -204,7 +206,7 @@ namespace Electricity_shop
 
         private void OpenAddOorder(object obj)
         {
-            Application.Run(new Frm_addOrder(userRole));
+            Application.Run(new Frm_addOrder(userRole,userName));
         }
 
         private void Upper_panel_MouseDown(object sender, MouseEventArgs e)
@@ -238,7 +240,7 @@ namespace Electricity_shop
 
         private void OpenInStock(object obj)
         {
-            Application.Run(new Frm_InStock());
+            Application.Run(new Frm_InStock(userName));
         }
 
         private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
@@ -252,7 +254,7 @@ namespace Electricity_shop
 
         private void OpenDocuments(object obj)
         {
-            Application.Run(new Frm_documents());
+            Application.Run(new Frm_ContainerData(1,userName));
         }
     }
 }

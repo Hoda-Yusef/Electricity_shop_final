@@ -16,7 +16,8 @@ namespace Electricity_shop
         readonly DBSQL mySQL;
         int count = 0;//מונה את הספרות במספר טלפון
         int usersRole;
-        public Frm_updateSupplier(int role)
+        string userName;
+        public Frm_updateSupplier(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -24,6 +25,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
@@ -89,7 +91,7 @@ namespace Electricity_shop
         private void Btn_cancelUpdating_Click(object sender, EventArgs e)//ביטול עידכון
         {
             this.Close();
-            Frm_suppliersManagement mainForm = new Frm_suppliersManagement(usersRole);
+            Frm_suppliersManagement mainForm = new Frm_suppliersManagement(usersRole,userName);
             mainForm.Show();
         }
 

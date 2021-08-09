@@ -19,19 +19,21 @@ namespace Electricity_shop
         Document doc = new Document();
         bool drag = false;
         Point sp = new Point(0, 0);
+        string userName;
 
-        public Frm_InStock()
+        public Frm_InStock(string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            userName = username;
         }
 
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main(1));
+            Application.Run(new Frm_main(1,userName));
         }
 
         // לחיצה על כפתור ה X

@@ -17,8 +17,9 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
         int usersRole;
+        string userName;
 
-        public Frm_update_customer(int role)
+        public Frm_update_customer(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -26,6 +27,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
         //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
@@ -33,13 +35,13 @@ namespace Electricity_shop
             if (usersRole == 1)
             {
                 this.Close();
-                Frm_main mainForm = new Frm_main(usersRole);
+                Frm_main mainForm = new Frm_main(usersRole,userName);
                 mainForm.Show();
             }
             else
             {
                 this.Close();
-                Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole);
+                Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole,userName);
                 mainForm.Show();
             }
 
@@ -50,13 +52,13 @@ namespace Electricity_shop
             if (usersRole == 1)
             {
                 this.Close();
-                Frm_main mainForm = new Frm_main(usersRole);
+                Frm_main mainForm = new Frm_main(usersRole, userName);
                 mainForm.Show();
             }
             else
             {
                 this.Close();
-                Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole);
+                Frm_mainForEmployees mainForm = new Frm_mainForEmployees(usersRole,userName);
                 mainForm.Show();
             }
         }

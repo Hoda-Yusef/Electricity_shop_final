@@ -16,8 +16,9 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         Product Product;
         int usersRole;
+        string userName;
 
-        public Frm_productsInCart(int role)
+        public Frm_productsInCart(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -25,6 +26,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
@@ -50,16 +52,16 @@ namespace Electricity_shop
 
         private void openMain(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole, userName));
         }
         private void openEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole, userName));
         }
 
         private void OpenAddOrder(object obj)
         {
-            Application.Run(new Frm_addOrder(usersRole));
+            Application.Run(new Frm_addOrder(usersRole, userName));
         }
 
         private void Btn_AddToCart_Click(object sender, EventArgs e)//כפתור הוספת מוצר
@@ -73,7 +75,7 @@ namespace Electricity_shop
 
         private void openCartProductManu(object obj)
         {
-            Application.Run(new Frm_cartProductMenu(usersRole));//פותח רשימת מוצרים
+            Application.Run(new Frm_cartProductMenu(usersRole,userName));//פותח רשימת מוצרים
         }
 
         private void Frm_productsInCart_Load(object sender, EventArgs e)//בעת פתיחת החלון מציגים את כל המוצרים בעגלה
@@ -172,7 +174,7 @@ namespace Electricity_shop
 
         private void openCartProduct(object obj)
         {
-            Application.Run(new Frm_productsInCart(usersRole));
+            Application.Run(new Frm_productsInCart(usersRole,userName));
         }
 
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
@@ -279,7 +281,7 @@ namespace Electricity_shop
 
         private void openSelf(object obj)
         {
-            Application.Run(new Frm_productsInCart(usersRole));
+            Application.Run(new Frm_productsInCart(usersRole,userName));
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)

@@ -23,7 +23,8 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection manufacturerAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection supplierAuto = new AutoCompleteStringCollection();
         int usersRole;
-        public Frm_addProduct(int role)
+        string userName;
+        public Frm_addProduct(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -31,6 +32,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
             Set_AutoCompleteMode_text_boxes();
 
         }
@@ -72,11 +74,11 @@ namespace Electricity_shop
         //פתיחת דף ראשי במערכת
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole,userName));
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
 
         // לחיצה על כפתור ביטל

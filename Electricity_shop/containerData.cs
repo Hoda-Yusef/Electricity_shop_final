@@ -9,7 +9,8 @@ namespace Electricity_shop
         private readonly DBSQL mySQL;
         int userRole;
         Thread th;
-        public Frm_ContainerData(int role)
+        string userName;
+        public Frm_ContainerData(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -17,6 +18,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             userRole = role;
+            userName = username;
         }
 
         private void Btn_ordersData_Click(object sender, EventArgs e)
@@ -58,7 +60,7 @@ namespace Electricity_shop
         }
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main(1));
+            Application.Run(new Frm_main(1,userName));
         }
 
         private void Btn_toMain_Click(object sender, EventArgs e)
@@ -67,6 +69,11 @@ namespace Electricity_shop
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void Frm_ContainerData_Load(object sender, EventArgs e)
+        {
+            Lbl_userName.Text = userName;
         }
     }
 }

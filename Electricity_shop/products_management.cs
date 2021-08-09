@@ -19,7 +19,8 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
         readonly AutoCompleteStringCollection manufactureAuto = new AutoCompleteStringCollection();
         int usersRole;
-        public Frm_products_management(int role)
+        string userName;
+        public Frm_products_management(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -27,7 +28,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
-
+            userName = username;
             Set_AutoCompleteMode_text_boxes();
 
         }
@@ -130,11 +131,11 @@ namespace Electricity_shop
         //פונקציה פותחת טופס ראשי במערכת
         private void Opennewform(object obj)
         {
-            Application.Run(new Frm_main(usersRole));
+            Application.Run(new Frm_main(usersRole,userName));
         }
         private void OpenEmployeesMain(object obj)
         {
-            Application.Run(new Frm_mainForEmployees(usersRole));
+            Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
         //הזזת טופס
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
@@ -185,7 +186,7 @@ namespace Electricity_shop
             if (Grd_products.CurrentRow != null)
             {
                 //עוברים לטופס עדכון מוצר
-                Frm_updateProduct updateProduct = new Frm_updateProduct(usersRole);
+                Frm_updateProduct updateProduct = new Frm_updateProduct(usersRole,userName);
                 //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
                 updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
                 updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();
@@ -211,7 +212,7 @@ namespace Electricity_shop
         //פותחים טופס נוכחי בחזרה
         private void OpenSelf(object obj)
         {
-            Application.Run(new Frm_products_management(usersRole));
+            Application.Run(new Frm_products_management(usersRole,userName));
         }
         //לחיצה על כפתור חזרה לראשי
         private void BtnExit_Click(object sender, EventArgs e)
@@ -340,7 +341,7 @@ namespace Electricity_shop
         private void Grd_products_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //עוברים לטופס עדכון מוצר
-            Frm_updateProduct updateProduct = new Frm_updateProduct(usersRole);
+            Frm_updateProduct updateProduct = new Frm_updateProduct(usersRole,userName);
             //מילוי תיבות הטקסט בנתוני מוצר שנבחר בהתאמה
             updateProduct.Txt_category.Text = Grd_products.CurrentRow.Cells[0].Value.ToString();
             updateProduct.Txt_manufacturer.Text = Grd_products.CurrentRow.Cells[1].Value.ToString();

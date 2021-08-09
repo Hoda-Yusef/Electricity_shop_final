@@ -19,7 +19,8 @@ namespace Electricity_shop
         int previosAmount;
         string order_number_holder;
         int usersRole;
-        public Frm_updateOrder(int role)
+        string userName;
+        public Frm_updateOrder(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -27,9 +28,10 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
         }
 
-        public Frm_updateOrder(string order_number, int role)//בנאי מקבל מספר הזמנה
+        public Frm_updateOrder(string order_number, int role,string username)//בנאי מקבל מספר הזמנה
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -37,6 +39,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
             order_number_holder = order_number;
         }
 
@@ -122,7 +125,7 @@ namespace Electricity_shop
 
         private void openOrderManagement(object obj)
         {
-            Application.Run(new Frm_ordersManagement(usersRole));
+            Application.Run(new Frm_ordersManagement(usersRole,userName));
         }
 
         private void Cbo_orderStatus_Format(object sender, ListControlConvertEventArgs e)
@@ -180,7 +183,7 @@ namespace Electricity_shop
 
         private void openself(object obj)
         {
-            Application.Run(new Frm_updateOrder(order_number_holder, usersRole));
+            Application.Run(new Frm_updateOrder(order_number_holder, usersRole,userName));
         }
 
         private void Btn_add_to_cart_Click(object sender, EventArgs e)
@@ -228,7 +231,7 @@ namespace Electricity_shop
 
         private void OpenOrderManagement(object obj)
         {
-            Application.Run(new Frm_ordersManagement(usersRole));
+            Application.Run(new Frm_ordersManagement(usersRole, userName));
         }
 
         private void Grd_allOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
