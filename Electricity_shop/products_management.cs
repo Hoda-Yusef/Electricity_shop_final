@@ -28,6 +28,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
+            userName = username;
 
             Set_AutoCompleteMode_text_boxes();
 

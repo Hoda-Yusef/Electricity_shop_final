@@ -255,17 +255,17 @@ namespace Electricity_shop
 
         private void OpenContainerData(object obj)
         {
-            Application.Run(new Frm_ContainerData(userRole));
+            Application.Run(new Frm_ContainerData(userRole,userName));
         }
 
         private void OpenDocuments(object obj)
         {
             Application.Run(new Frm_ContainerData(1,userName));
         }
-
+        /*
         private void Lbl_out_of_stock_number_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Frm_products_management Fpm = new Frm_products_management(userRole);
+            Frm_products_management Fpm = new Frm_products_management(userRole,userName);
 
             Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
             
@@ -274,11 +274,42 @@ namespace Electricity_shop
             
             
 
-        }
-
+        }*/
+        /*
         private void Lbl_out_of_stock_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Frm_products_management Fpm = new Frm_products_management(userRole);
+            Frm_products_management Fpm = new Frm_products_management(userRole,userName);
+
+            Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
+
+            Fpm.ShowDialog();
+            this.Close();
+        }*/
+        /*
+        private void Lbl_about_to_end_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Frm_products_management Fpm = new Frm_products_management(userRole, userName);
+
+            Fpm.Cbo_sortByProductAmount.Text = "עומד להיגמר מהמלאי";
+
+            Fpm.ShowDialog();
+            this.Close();
+        }
+        */
+        /*
+        private void Lbl_orders_wait_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Frm_ordersManagement Fom = new Frm_ordersManagement(userRole,userName);
+
+            Fom.Cbo_sortByOrderStatus.Text = "לא סופק";
+
+            Fom.ShowDialog();
+            this.Close();
+        }
+        */
+        private void Lbl_out_of_stock_number_Click(object sender, EventArgs e)
+        {
+            Frm_products_management Fpm = new Frm_products_management(userRole, userName);
 
             Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
 
@@ -286,9 +317,19 @@ namespace Electricity_shop
             this.Close();
         }
 
-        private void Lbl_about_to_end_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void Lbl_out_of_stock_Click(object sender, EventArgs e)
         {
-            Frm_products_management Fpm = new Frm_products_management(userRole);
+            Frm_products_management Fpm = new Frm_products_management(userRole, userName);
+
+            Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
+
+            Fpm.ShowDialog();
+            this.Close();
+        }
+
+        private void Lbl_about_to_end_Click(object sender, EventArgs e)
+        {
+            Frm_products_management Fpm = new Frm_products_management(userRole, userName);
 
             Fpm.Cbo_sortByProductAmount.Text = "עומד להיגמר מהמלאי";
 
@@ -296,9 +337,29 @@ namespace Electricity_shop
             this.Close();
         }
 
-        private void Lbl_orders_wait_number_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void Lbl_about_to_end_number_Click(object sender, EventArgs e)
         {
-            Frm_ordersManagement Fom = new Frm_ordersManagement(userRole);
+            Frm_products_management Fpm = new Frm_products_management(userRole, userName);
+
+            Fpm.Cbo_sortByProductAmount.Text = "עומד להיגמר מהמלאי";
+
+            Fpm.ShowDialog();
+            this.Close();
+        }
+
+        private void Lbl_orders_wait_Click(object sender, EventArgs e)
+        {
+            Frm_ordersManagement Fom = new Frm_ordersManagement(userRole, userName);
+
+            Fom.Cbo_sortByOrderStatus.Text = "לא סופק";
+
+            Fom.ShowDialog();
+            this.Close();
+        }
+
+        private void Lbl_orders_wait_number_Click(object sender, EventArgs e)
+        {
+            Frm_ordersManagement Fom = new Frm_ordersManagement(userRole, userName);
 
             Fom.Cbo_sortByOrderStatus.Text = "לא סופק";
 

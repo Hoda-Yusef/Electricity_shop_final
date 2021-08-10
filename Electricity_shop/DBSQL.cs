@@ -99,6 +99,19 @@ namespace Electricity_shop
             }
         }
 
+        public void InsertVat(vat Item)
+        {
+            string cmdStr = "INSERT INTO vat (vat_percentage)" +
+                " VALUES (@vat_percentage)";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                command.Parameters.AddWithValue("@vat_percentage", Item.Vat);
+                //command.Parameters.AddWithValue("@product_category", Item.Category);
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         public void InsertCustomer(customer Item)
         {
             string cmdStr = "INSERT INTO customer (id,first_name,last_name," +
@@ -359,7 +372,7 @@ namespace Electricity_shop
             orders[] Orders = null;
 
 
-            string cmdStr = "SELECT *, DATE_FORMAT(date,'%d-%m-%Y') " +
+            string cmdStr = "SELECT *, DATE_FORMAT(date,'%d-%m-%Y')" +
                 "AS date_string FROM orders WHERE date BETWEEN " +
                 "STR_TO_DATE('" + date1 + "','%d-%m-%Y') " +
                 "AND STR_TO_DATE('" + date2 + "','%d-%m-%Y')";
@@ -394,13 +407,44 @@ namespace Electricity_shop
             }
             return Orders;
         }
-        /*
-        public int GetDeliveredOrdersNumber()
+
+
+        public double Getvat()
         {
             DataSet ds = new DataSet();
-           // orders[] Orders = null;
+            vat vatWorth = null;
 
-            string cmdStr = "SELECT * FROM orders WHERE status=1";
+
+            string cmdStr = "SELECT * FROM vat";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                vatWorth = new vat();
+                vatWorth.Vat =Convert.ToDouble(dt.Rows[0]);
+            }
+            return vatWorth.Vat;
+        }
+        public product_order[] GetProductsByOrderNumber(int orderNumber)
+        {
+            DataSet ds = new DataSet();
+            product_order[] Orders = null;
+
+            string cmdStr = "SELECT * FROM product_order WHERE order_serial_number="+orderNumber+"";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -420,17 +464,19 @@ namespace Electricity_shop
 
             if (dt.Rows.Count > 0)
             {
-                Orders = new orders[dt.Rows.Count];
+                Orders = new product_order[dt.Rows.Count];
                 for (int i = 0; i < Orders.Length; i++)
                 {
-                    Orders[i] = new orders();
-                    Orders[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
-                    Orders[i].Customer_id = dt.Rows[i][1].ToString();
-                    Orders[i].Status = Convert.ToInt32(dt.Rows[i][3]);
-                    Orders[i].Date = dt.Rows[i][4].ToString();
-                }            }
-          return dt.Rows.Count;
-        }*/
+                    Orders[i] = new product_order();
+                    Orders[i].Id = Convert.ToInt32(dt.Rows[i][0]);
+                    Orders[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][1]);
+                    Orders[i].Order_serial_number = Convert.ToInt32(dt.Rows[i][2]);
+                    Orders[i].Amount = Convert.ToInt32(dt.Rows[i][3]);
+                }
+            }
+            return Orders;
+            }
+        
 
         public orders GetOrdersDataByOrderNumber(string order_number)
         {
@@ -554,6 +600,53 @@ namespace Electricity_shop
                 Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
                 Product.Product_info = dt.Rows[0][9].ToString();
 
+            }
+            return Product;
+
+        }
+
+
+        public Product[] GetAllOrderedProducts()
+        {
+            DataSet ds = new DataSet();
+            Product[] Product = null;
+            string cmdStr = "SELECT product.* FROM product INNER JOIN product_order "
+                +"ON product.product_serial_number = product_order.product_serial_number";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Product = new Product[dt.Rows.Count];
+
+                for (int i = 0; i < Product.Length; i++)
+                {
+                    Product[i] = new Product();
+                    Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Product[i].Barcode = dt.Rows[i][1].ToString();
+                    Product[i].Category = dt.Rows[i][2].ToString();
+                    Product[i].Model = dt.Rows[i][3].ToString();
+                    Product[i].Manufacturer = dt.Rows[i][4].ToString();
+                    Product[i].Supplier = dt.Rows[i][5].ToString();
+                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
+                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
+                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
+                    Product[i].Product_info = dt.Rows[i][9].ToString();
+                }
             }
             return Product;
 

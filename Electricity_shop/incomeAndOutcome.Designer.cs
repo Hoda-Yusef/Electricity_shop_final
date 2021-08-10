@@ -33,18 +33,22 @@ namespace Electricity_shop
             this.Lbl_vat = new System.Windows.Forms.Label();
             this.Txt_vat = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Pic_shekelsLost = new System.Windows.Forms.PictureBox();
             this.Lbl_totalOutcome = new System.Windows.Forms.Label();
             this.Pic_minus2 = new System.Windows.Forms.PictureBox();
             this.Lbl_outcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Pic_shekelsBruto = new System.Windows.Forms.PictureBox();
             this.Lbl_brutoEarnings = new System.Windows.Forms.Label();
             this.Pic_moneyBag = new System.Windows.Forms.PictureBox();
             this.Lbl_totalEarnings = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Pic_shekelsVat = new System.Windows.Forms.PictureBox();
             this.Lbl_vatTotal = new System.Windows.Forms.Label();
             this.Pic_minus1 = new System.Windows.Forms.PictureBox();
             this.Lbl_totalVat = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Pic_shekelsEarnings = new System.Windows.Forms.PictureBox();
             this.Lbl_totalIncome = new System.Windows.Forms.Label();
             this.Pic_plus = new System.Windows.Forms.PictureBox();
             this.Lbl_income = new System.Windows.Forms.Label();
@@ -53,15 +57,18 @@ namespace Electricity_shop
             this.Lbl_toDate = new System.Windows.Forms.Label();
             this.dateTimePicker_from = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_to = new System.Windows.Forms.DateTimePicker();
-            this.Btn_ordersDataSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsLost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_minus2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsBruto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_moneyBag)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_minus1)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsEarnings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_plus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +79,7 @@ namespace Electricity_shop
             this.Lbl_vat.Location = new System.Drawing.Point(352, 141);
             this.Lbl_vat.Name = "Lbl_vat";
             this.Lbl_vat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_vat.Size = new System.Drawing.Size(156, 32);
+            this.Lbl_vat.Size = new System.Drawing.Size(124, 25);
             this.Lbl_vat.TabIndex = 0;
             this.Lbl_vat.Text = "שיעור מע\"מ :";
             // 
@@ -82,15 +89,17 @@ namespace Electricity_shop
             this.Txt_vat.ForeColor = System.Drawing.SystemColors.Info;
             this.Txt_vat.Location = new System.Drawing.Point(263, 138);
             this.Txt_vat.Name = "Txt_vat";
-            this.Txt_vat.Size = new System.Drawing.Size(69, 39);
+            this.Txt_vat.Size = new System.Drawing.Size(69, 33);
             this.Txt_vat.TabIndex = 1;
             this.Txt_vat.Text = "17";
+            this.Txt_vat.TextChanged += new System.EventHandler(this.Txt_vat_TextChanged);
             this.Txt_vat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_vat_KeyPress);
-            this.Txt_vat.Leave += new System.EventHandler(this.Txt_vat_Leave);
+            //this.Txt_vat.Leave += new System.EventHandler(this.Txt_vat_Leave);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.Pic_shekelsLost);
             this.panel1.Controls.Add(this.Lbl_totalOutcome);
             this.panel1.Controls.Add(this.Pic_minus2);
             this.panel1.Controls.Add(this.Lbl_outcome);
@@ -98,6 +107,16 @@ namespace Electricity_shop
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(277, 118);
             this.panel1.TabIndex = 2;
+            // 
+            // Pic_shekelsLost
+            // 
+            this.Pic_shekelsLost.Image = ((System.Drawing.Image)(resources.GetObject("Pic_shekelsLost.Image")));
+            this.Pic_shekelsLost.Location = new System.Drawing.Point(19, 65);
+            this.Pic_shekelsLost.Name = "Pic_shekelsLost";
+            this.Pic_shekelsLost.Size = new System.Drawing.Size(46, 32);
+            this.Pic_shekelsLost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pic_shekelsLost.TabIndex = 4;
+            this.Pic_shekelsLost.TabStop = false;
             // 
             // Lbl_totalOutcome
             // 
@@ -126,13 +145,14 @@ namespace Electricity_shop
             this.Lbl_outcome.Location = new System.Drawing.Point(41, 9);
             this.Lbl_outcome.Name = "Lbl_outcome";
             this.Lbl_outcome.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_outcome.Size = new System.Drawing.Size(232, 32);
+            this.Lbl_outcome.Size = new System.Drawing.Size(184, 25);
             this.Lbl_outcome.TabIndex = 1;
             this.Lbl_outcome.Text = "הוצאות / תשלומים :";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.Pic_shekelsBruto);
             this.panel2.Controls.Add(this.Lbl_brutoEarnings);
             this.panel2.Controls.Add(this.Pic_moneyBag);
             this.panel2.Controls.Add(this.Lbl_totalEarnings);
@@ -140,6 +160,16 @@ namespace Electricity_shop
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(277, 118);
             this.panel2.TabIndex = 2;
+            // 
+            // Pic_shekelsBruto
+            // 
+            this.Pic_shekelsBruto.Image = ((System.Drawing.Image)(resources.GetObject("Pic_shekelsBruto.Image")));
+            this.Pic_shekelsBruto.Location = new System.Drawing.Point(7, 59);
+            this.Pic_shekelsBruto.Name = "Pic_shekelsBruto";
+            this.Pic_shekelsBruto.Size = new System.Drawing.Size(46, 32);
+            this.Pic_shekelsBruto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pic_shekelsBruto.TabIndex = 4;
+            this.Pic_shekelsBruto.TabStop = false;
             // 
             // Lbl_brutoEarnings
             // 
@@ -169,13 +199,14 @@ namespace Electricity_shop
             this.Lbl_totalEarnings.Location = new System.Drawing.Point(17, 10);
             this.Lbl_totalEarnings.Name = "Lbl_totalEarnings";
             this.Lbl_totalEarnings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_totalEarnings.Size = new System.Drawing.Size(255, 32);
+            this.Lbl_totalEarnings.Size = new System.Drawing.Size(203, 25);
             this.Lbl_totalEarnings.TabIndex = 0;
             this.Lbl_totalEarnings.Text = "רווח ברוטו כולל מע\"מ:";
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Pic_shekelsVat);
             this.panel3.Controls.Add(this.Lbl_vatTotal);
             this.panel3.Controls.Add(this.Pic_minus1);
             this.panel3.Controls.Add(this.Lbl_totalVat);
@@ -183,6 +214,16 @@ namespace Electricity_shop
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(277, 118);
             this.panel3.TabIndex = 2;
+            // 
+            // Pic_shekelsVat
+            // 
+            this.Pic_shekelsVat.Image = ((System.Drawing.Image)(resources.GetObject("Pic_shekelsVat.Image")));
+            this.Pic_shekelsVat.Location = new System.Drawing.Point(7, 65);
+            this.Pic_shekelsVat.Name = "Pic_shekelsVat";
+            this.Pic_shekelsVat.Size = new System.Drawing.Size(46, 32);
+            this.Pic_shekelsVat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pic_shekelsVat.TabIndex = 4;
+            this.Pic_shekelsVat.TabStop = false;
             // 
             // Lbl_vatTotal
             // 
@@ -212,13 +253,14 @@ namespace Electricity_shop
             this.Lbl_totalVat.Location = new System.Drawing.Point(171, 9);
             this.Lbl_totalVat.Name = "Lbl_totalVat";
             this.Lbl_totalVat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_totalVat.Size = new System.Drawing.Size(87, 32);
+            this.Lbl_totalVat.Size = new System.Drawing.Size(69, 25);
             this.Lbl_totalVat.TabIndex = 1;
             this.Lbl_totalVat.Text = "מע\"מ :";
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.Pic_shekelsEarnings);
             this.panel4.Controls.Add(this.Lbl_totalIncome);
             this.panel4.Controls.Add(this.Pic_plus);
             this.panel4.Controls.Add(this.Lbl_income);
@@ -226,6 +268,16 @@ namespace Electricity_shop
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(277, 118);
             this.panel4.TabIndex = 2;
+            // 
+            // Pic_shekelsEarnings
+            // 
+            this.Pic_shekelsEarnings.Image = ((System.Drawing.Image)(resources.GetObject("Pic_shekelsEarnings.Image")));
+            this.Pic_shekelsEarnings.Location = new System.Drawing.Point(10, 66);
+            this.Pic_shekelsEarnings.Name = "Pic_shekelsEarnings";
+            this.Pic_shekelsEarnings.Size = new System.Drawing.Size(46, 32);
+            this.Pic_shekelsEarnings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pic_shekelsEarnings.TabIndex = 4;
+            this.Pic_shekelsEarnings.TabStop = false;
             // 
             // Lbl_totalIncome
             // 
@@ -254,7 +306,7 @@ namespace Electricity_shop
             this.Lbl_income.Location = new System.Drawing.Point(46, 10);
             this.Lbl_income.Name = "Lbl_income";
             this.Lbl_income.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_income.Size = new System.Drawing.Size(225, 32);
+            this.Lbl_income.Size = new System.Drawing.Size(179, 25);
             this.Lbl_income.TabIndex = 1;
             this.Lbl_income.Text = "רווח נטו ללא מע\"מ:";
             // 
@@ -274,7 +326,7 @@ namespace Electricity_shop
             this.Lbl_fromDate.Location = new System.Drawing.Point(534, 18);
             this.Lbl_fromDate.Name = "Lbl_fromDate";
             this.Lbl_fromDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_fromDate.Size = new System.Drawing.Size(114, 32);
+            this.Lbl_fromDate.Size = new System.Drawing.Size(91, 25);
             this.Lbl_fromDate.TabIndex = 113;
             this.Lbl_fromDate.Text = "מתאריך :";
             // 
@@ -285,7 +337,7 @@ namespace Electricity_shop
             this.Lbl_toDate.Location = new System.Drawing.Point(534, 76);
             this.Lbl_toDate.Name = "Lbl_toDate";
             this.Lbl_toDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_toDate.Size = new System.Drawing.Size(111, 32);
+            this.Lbl_toDate.Size = new System.Drawing.Size(89, 25);
             this.Lbl_toDate.TabIndex = 113;
             this.Lbl_toDate.Text = "לתאריך :";
             // 
@@ -301,8 +353,9 @@ namespace Electricity_shop
             this.dateTimePicker_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_from.Location = new System.Drawing.Point(311, 12);
             this.dateTimePicker_from.Name = "dateTimePicker_from";
-            this.dateTimePicker_from.Size = new System.Drawing.Size(200, 38);
+            this.dateTimePicker_from.Size = new System.Drawing.Size(200, 32);
             this.dateTimePicker_from.TabIndex = 114;
+            this.dateTimePicker_from.ValueChanged += new System.EventHandler(this.dateTimePicker_from_ValueChanged);
             // 
             // dateTimePicker_to
             // 
@@ -316,23 +369,9 @@ namespace Electricity_shop
             this.dateTimePicker_to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_to.Location = new System.Drawing.Point(311, 76);
             this.dateTimePicker_to.Name = "dateTimePicker_to";
-            this.dateTimePicker_to.Size = new System.Drawing.Size(200, 38);
+            this.dateTimePicker_to.Size = new System.Drawing.Size(200, 32);
             this.dateTimePicker_to.TabIndex = 115;
-            // 
-            // Btn_ordersDataSearch
-            // 
-            this.Btn_ordersDataSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.Btn_ordersDataSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ordersDataSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Btn_ordersDataSearch.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.Btn_ordersDataSearch.Location = new System.Drawing.Point(101, 37);
-            this.Btn_ordersDataSearch.Name = "Btn_ordersDataSearch";
-            this.Btn_ordersDataSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Btn_ordersDataSearch.Size = new System.Drawing.Size(173, 55);
-            this.Btn_ordersDataSearch.TabIndex = 116;
-            this.Btn_ordersDataSearch.Text = "קבל מידע";
-            this.Btn_ordersDataSearch.UseVisualStyleBackColor = false;
-            this.Btn_ordersDataSearch.Click += new System.EventHandler(this.Btn_ordersDataSearch_Click);
+            this.dateTimePicker_to.ValueChanged += new System.EventHandler(this.dateTimePicker_to_ValueChanged);
             // 
             // textBox1
             // 
@@ -341,19 +380,18 @@ namespace Electricity_shop
             this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.textBox1.Location = new System.Drawing.Point(300, 141);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(30, 32);
+            this.textBox1.Size = new System.Drawing.Size(30, 26);
             this.textBox1.TabIndex = 117;
             this.textBox1.Text = "%";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Frm_incomeAndOutcome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(667, 467);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.Btn_ordersDataSearch);
             this.Controls.Add(this.dateTimePicker_to);
             this.Controls.Add(this.dateTimePicker_from);
             this.Controls.Add(this.Lbl_toDate);
@@ -371,17 +409,22 @@ namespace Electricity_shop
             this.Name = "Frm_incomeAndOutcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "incomeAndOutcome";
+            this.Load += new System.EventHandler(this.Frm_incomeAndOutcome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsLost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_minus2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsBruto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_moneyBag)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_minus1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsEarnings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_plus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -413,7 +456,10 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_toDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker_from;
         private System.Windows.Forms.DateTimePicker dateTimePicker_to;
-        private System.Windows.Forms.Button Btn_ordersDataSearch;
         public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox Pic_shekelsLost;
+        private System.Windows.Forms.PictureBox Pic_shekelsBruto;
+        private System.Windows.Forms.PictureBox Pic_shekelsVat;
+        private System.Windows.Forms.PictureBox Pic_shekelsEarnings;
     }
 }

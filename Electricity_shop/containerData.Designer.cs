@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace Electricity_shop
 {
     partial class Frm_ContainerData
@@ -31,8 +34,6 @@ namespace Electricity_shop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ContainerData));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Btn_contactUs = new System.Windows.Forms.Button();
             this.Pic_products = new System.Windows.Forms.PictureBox();
             this.Pic_contact = new System.Windows.Forms.PictureBox();
             this.Pic_orders = new System.Windows.Forms.PictureBox();
@@ -51,7 +52,6 @@ namespace Electricity_shop
             this.Pnl_container = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_contact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_orders)).BeginInit();
@@ -64,8 +64,6 @@ namespace Electricity_shop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.Btn_contactUs);
             this.panel1.Controls.Add(this.Pic_products);
             this.panel1.Controls.Add(this.Pic_contact);
             this.panel1.Controls.Add(this.Pic_orders);
@@ -190,7 +188,7 @@ namespace Electricity_shop
             this.Lbl_userName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Lbl_userName.Name = "Lbl_userName";
             this.Lbl_userName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_userName.Size = new System.Drawing.Size(162, 32);
+            this.Lbl_userName.Size = new System.Drawing.Size(129, 25);
             this.Lbl_userName.TabIndex = 1;
             this.Lbl_userName.Text = "שם המשתמש";
             this.Lbl_userName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -263,7 +261,7 @@ namespace Electricity_shop
             this.Lbl_title.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Lbl_title.Location = new System.Drawing.Point(491, 31);
             this.Lbl_title.Name = "Lbl_title";
-            this.Lbl_title.Size = new System.Drawing.Size(0, 50);
+            this.Lbl_title.Size = new System.Drawing.Size(0, 40);
             this.Lbl_title.TabIndex = 100;
             // 
             // Pnl_container
@@ -286,7 +284,7 @@ namespace Electricity_shop
             // 
             // Frm_ContainerData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(967, 609);
@@ -304,7 +302,6 @@ namespace Electricity_shop
             this.Text = "tmp";
             this.Load += new System.EventHandler(this.Frm_ContainerData_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_products)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_contact)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_orders)).EndInit();
@@ -338,7 +335,5 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_title;
         public System.Windows.Forms.Panel Pnl_container;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button Btn_contactUs;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

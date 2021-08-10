@@ -45,10 +45,12 @@ namespace Electricity_shop
             this.Lbl_outOfStockNumber = new System.Windows.Forms.Label();
             this.Lbl_ranOutOfStock = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Lbl_mostSailedProduct = new System.Windows.Forms.Label();
             this.Lbl_productBarcode = new System.Windows.Forms.Label();
-            this.Lbl_productModel = new System.Windows.Forms.Label();
             this.Lbl_productCategory = new System.Windows.Forms.Label();
+            this.Lbl_productModel = new System.Windows.Forms.Label();
+            this.Lbl_mostSailedProduct = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -72,7 +74,7 @@ namespace Electricity_shop
             this.Lbl_fromDate.Location = new System.Drawing.Point(604, 20);
             this.Lbl_fromDate.Name = "Lbl_fromDate";
             this.Lbl_fromDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_fromDate.Size = new System.Drawing.Size(114, 32);
+            this.Lbl_fromDate.Size = new System.Drawing.Size(91, 25);
             this.Lbl_fromDate.TabIndex = 116;
             this.Lbl_fromDate.Text = "מתאריך :";
             // 
@@ -83,7 +85,7 @@ namespace Electricity_shop
             this.Lbl_toDate.Location = new System.Drawing.Point(599, 72);
             this.Lbl_toDate.Name = "Lbl_toDate";
             this.Lbl_toDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_toDate.Size = new System.Drawing.Size(111, 32);
+            this.Lbl_toDate.Size = new System.Drawing.Size(89, 25);
             this.Lbl_toDate.TabIndex = 115;
             this.Lbl_toDate.Text = "לתאריך :";
             // 
@@ -96,6 +98,27 @@ namespace Electricity_shop
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(379, 112);
             this.panel6.TabIndex = 112;
+            // 
+            // Lbl_categoryName
+            // 
+            this.Lbl_categoryName.AutoSize = true;
+            this.Lbl_categoryName.ForeColor = System.Drawing.Color.BlueViolet;
+            this.Lbl_categoryName.Location = new System.Drawing.Point(144, 58);
+            this.Lbl_categoryName.Name = "Lbl_categoryName";
+            this.Lbl_categoryName.Size = new System.Drawing.Size(119, 25);
+            this.Lbl_categoryName.TabIndex = 1;
+            this.Lbl_categoryName.Text = "שם קטגוריה";
+            // 
+            // Lbl_mostSailedCategory
+            // 
+            this.Lbl_mostSailedCategory.AutoSize = true;
+            this.Lbl_mostSailedCategory.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Lbl_mostSailedCategory.Location = new System.Drawing.Point(160, 11);
+            this.Lbl_mostSailedCategory.Name = "Lbl_mostSailedCategory";
+            this.Lbl_mostSailedCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_mostSailedCategory.Size = new System.Drawing.Size(211, 25);
+            this.Lbl_mostSailedCategory.TabIndex = 0;
+            this.Lbl_mostSailedCategory.Text = "קטגוריה נמכרת ביותר :";
             // 
             // panel5
             // 
@@ -113,7 +136,7 @@ namespace Electricity_shop
             this.Lbl_totalProductsNumber.ForeColor = System.Drawing.Color.GreenYellow;
             this.Lbl_totalProductsNumber.Location = new System.Drawing.Point(139, 57);
             this.Lbl_totalProductsNumber.Name = "Lbl_totalProductsNumber";
-            this.Lbl_totalProductsNumber.Size = new System.Drawing.Size(28, 32);
+            this.Lbl_totalProductsNumber.Size = new System.Drawing.Size(23, 25);
             this.Lbl_totalProductsNumber.TabIndex = 1;
             this.Lbl_totalProductsNumber.Text = "0";
             // 
@@ -125,7 +148,7 @@ namespace Electricity_shop
             this.Lbl_totalSoldProducts.Location = new System.Drawing.Point(48, 13);
             this.Lbl_totalSoldProducts.Name = "Lbl_totalSoldProducts";
             this.Lbl_totalSoldProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_totalSoldProducts.Size = new System.Drawing.Size(214, 28);
+            this.Lbl_totalSoldProducts.Size = new System.Drawing.Size(167, 21);
             this.Lbl_totalSoldProducts.TabIndex = 0;
             this.Lbl_totalSoldProducts.Text = "סה\"כ מוצרים שנמכרו ";
             // 
@@ -145,7 +168,7 @@ namespace Electricity_shop
             this.Lbl_aboutToRunOutNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Lbl_aboutToRunOutNumber.Location = new System.Drawing.Point(139, 45);
             this.Lbl_aboutToRunOutNumber.Name = "Lbl_aboutToRunOutNumber";
-            this.Lbl_aboutToRunOutNumber.Size = new System.Drawing.Size(28, 32);
+            this.Lbl_aboutToRunOutNumber.Size = new System.Drawing.Size(23, 25);
             this.Lbl_aboutToRunOutNumber.TabIndex = 1;
             this.Lbl_aboutToRunOutNumber.Text = "0";
             // 
@@ -157,7 +180,7 @@ namespace Electricity_shop
             this.Lbl_aboutToRunOutOFStock.Location = new System.Drawing.Point(31, 6);
             this.Lbl_aboutToRunOutOFStock.Name = "Lbl_aboutToRunOutOFStock";
             this.Lbl_aboutToRunOutOFStock.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_aboutToRunOutOFStock.Size = new System.Drawing.Size(231, 28);
+            this.Lbl_aboutToRunOutOFStock.Size = new System.Drawing.Size(181, 21);
             this.Lbl_aboutToRunOutOFStock.TabIndex = 0;
             this.Lbl_aboutToRunOutOFStock.Text = "עומדים להיגמר מהמלאי";
             // 
@@ -177,7 +200,7 @@ namespace Electricity_shop
             this.Lbl_outOfStockNumber.ForeColor = System.Drawing.Color.Red;
             this.Lbl_outOfStockNumber.Location = new System.Drawing.Point(139, 47);
             this.Lbl_outOfStockNumber.Name = "Lbl_outOfStockNumber";
-            this.Lbl_outOfStockNumber.Size = new System.Drawing.Size(28, 32);
+            this.Lbl_outOfStockNumber.Size = new System.Drawing.Size(23, 25);
             this.Lbl_outOfStockNumber.TabIndex = 1;
             this.Lbl_outOfStockNumber.Text = "0";
             // 
@@ -189,23 +212,51 @@ namespace Electricity_shop
             this.Lbl_ranOutOfStock.Location = new System.Drawing.Point(87, 11);
             this.Lbl_ranOutOfStock.Name = "Lbl_ranOutOfStock";
             this.Lbl_ranOutOfStock.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_ranOutOfStock.Size = new System.Drawing.Size(127, 28);
+            this.Lbl_ranOutOfStock.Size = new System.Drawing.Size(100, 21);
             this.Lbl_ranOutOfStock.TabIndex = 0;
             this.Lbl_ranOutOfStock.Text = "אזל מהמלאי";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.Lbl_productCount);
-            this.panel2.Controls.Add(this.Lbl_productCountNumber);
+            this.panel2.Controls.Add(this.Lbl_productBarcode);
             this.panel2.Controls.Add(this.Lbl_productCategory);
             this.panel2.Controls.Add(this.Lbl_productModel);
-            this.panel2.Controls.Add(this.Lbl_productBarcode);
             this.panel2.Controls.Add(this.Lbl_mostSailedProduct);
             this.panel2.Location = new System.Drawing.Point(316, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(379, 192);
             this.panel2.TabIndex = 118;
+            // 
+            // Lbl_productBarcode
+            // 
+            this.Lbl_productBarcode.AutoSize = true;
+            this.Lbl_productBarcode.ForeColor = System.Drawing.Color.MediumPurple;
+            this.Lbl_productBarcode.Location = new System.Drawing.Point(117, 67);
+            this.Lbl_productBarcode.Name = "Lbl_productBarcode";
+            this.Lbl_productBarcode.Size = new System.Drawing.Size(64, 25);
+            this.Lbl_productBarcode.TabIndex = 4;
+            this.Lbl_productBarcode.Text = "ברקוד";
+            // 
+            // Lbl_productCategory
+            // 
+            this.Lbl_productCategory.AutoSize = true;
+            this.Lbl_productCategory.ForeColor = System.Drawing.Color.MediumPurple;
+            this.Lbl_productCategory.Location = new System.Drawing.Point(144, 146);
+            this.Lbl_productCategory.Name = "Lbl_productCategory";
+            this.Lbl_productCategory.Size = new System.Drawing.Size(85, 25);
+            this.Lbl_productCategory.TabIndex = 3;
+            this.Lbl_productCategory.Text = "קטגוריה";
+            // 
+            // Lbl_productModel
+            // 
+            this.Lbl_productModel.AutoSize = true;
+            this.Lbl_productModel.ForeColor = System.Drawing.Color.MediumPurple;
+            this.Lbl_productModel.Location = new System.Drawing.Point(148, 110);
+            this.Lbl_productModel.Name = "Lbl_productModel";
+            this.Lbl_productModel.Size = new System.Drawing.Size(46, 25);
+            this.Lbl_productModel.TabIndex = 2;
+            this.Lbl_productModel.Text = "דגם";
             // 
             // Lbl_mostSailedProduct
             // 
@@ -218,50 +269,34 @@ namespace Electricity_shop
             this.Lbl_mostSailedProduct.TabIndex = 0;
             this.Lbl_mostSailedProduct.Text = "מוצר נמכר ביותר :";
             // 
-            // Lbl_productBarcode
+            // dateTimePicker1
             // 
-            this.dateTimePicker_from.CalendarFont = new System.Drawing.Font("Showcard Gothic", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker_from.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dateTimePicker_from.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker_from.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.dateTimePicker_from.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dateTimePicker_from.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker_from.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_from.Location = new System.Drawing.Point(390, 20);
-            this.dateTimePicker_from.Name = "dateTimePicker_from";
-            this.dateTimePicker_from.Size = new System.Drawing.Size(203, 38);
-            this.dateTimePicker_from.TabIndex = 63;
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(361, 20);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(219, 33);
+            this.dateTimePicker1.TabIndex = 119;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // Lbl_productModel
+            // dateTimePicker2
             // 
-            this.Lbl_productModel.AutoSize = true;
-            this.Lbl_productModel.ForeColor = System.Drawing.Color.MediumPurple;
-            this.Lbl_productModel.Location = new System.Drawing.Point(181, 110);
-            this.Lbl_productModel.Name = "Lbl_productModel";
-            this.Lbl_productModel.Size = new System.Drawing.Size(46, 25);
-            this.Lbl_productModel.TabIndex = 2;
-            this.Lbl_productModel.Text = "דגם";
-            // 
-            // Lbl_productCategory
-            // 
-            this.Lbl_productCategory.AutoSize = true;
-            this.Lbl_productCategory.ForeColor = System.Drawing.Color.MediumPurple;
-            this.Lbl_productCategory.Location = new System.Drawing.Point(160, 147);
-            this.Lbl_productCategory.Name = "Lbl_productCategory";
-            this.Lbl_productCategory.Size = new System.Drawing.Size(85, 25);
-            this.Lbl_productCategory.TabIndex = 3;
-            this.Lbl_productCategory.Text = "קטגוריה";
+            this.dateTimePicker2.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(361, 72);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(219, 33);
+            this.dateTimePicker2.TabIndex = 120;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // Frm_productsData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(752, 470);
-            this.Controls.Add(this.Btn_ordersDataSearch);
-            this.Controls.Add(this.dateTimePicker_to);
-            this.Controls.Add(this.dateTimePicker_from);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Lbl_fromDate);
@@ -298,8 +333,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_fromDate;
         private System.Windows.Forms.Label Lbl_toDate;
         private System.Windows.Forms.Panel panel6;
-        public System.Windows.Forms.Label Lbl_categoryName;
-        private System.Windows.Forms.Label Lbl_mostSailedCategory;
         private System.Windows.Forms.Panel panel5;
         public System.Windows.Forms.Label Lbl_totalProductsNumber;
         private System.Windows.Forms.Label Lbl_totalSoldProducts;
@@ -312,12 +345,13 @@ namespace Electricity_shop
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label Lbl_productCategory;
         public System.Windows.Forms.Label Lbl_productModel;
-        public System.Windows.Forms.Label Lbl_productBarcode;
         private System.Windows.Forms.Label Lbl_mostSailedProduct;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_from;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_to;
-        private System.Windows.Forms.Button Btn_ordersDataSearch;
         public System.Windows.Forms.Label Lbl_productCount;
         public System.Windows.Forms.Label Lbl_productCountNumber;
+        private System.Windows.Forms.Label Lbl_mostSailedCategory;
+        public System.Windows.Forms.Label Lbl_categoryName;
+        public System.Windows.Forms.Label Lbl_productBarcode;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

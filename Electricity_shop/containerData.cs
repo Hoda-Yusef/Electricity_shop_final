@@ -10,8 +10,11 @@ namespace Electricity_shop
     {
         private readonly DBSQL mySQL;
         int userRole;
+        string userName;
         Thread th;
-        public Frm_ContainerData(int role)
+        bool drag = false;
+        Point sp = new Point(0, 0);
+        public Frm_ContainerData(int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -26,7 +29,7 @@ namespace Electricity_shop
         {
             Lbl_title.Text = "מידע לגבי הזמנות";
             this.Pnl_container.Controls.Clear();
-            Frm_ordersData orderData = new Frm_ordersData() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_ordersData orderData = new Frm_ordersData(userName) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             orderData.FormBorderStyle = FormBorderStyle.None;
             this.Pnl_container.Controls.Add(orderData);
             orderData.Show();
@@ -70,6 +73,31 @@ namespace Electricity_shop
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            sp = new Point(e.X, e.Y);
+        }
+
+        private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
+            }
+        }
+
+        private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void Frm_ContainerData_Load(object sender, EventArgs e)
+        {
+            Lbl_userName.Text = userName;
         }
     }
 }
