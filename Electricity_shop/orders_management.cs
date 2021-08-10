@@ -33,25 +33,25 @@ namespace Electricity_shop
         }
 
 
-        private void Btn_exit_Click(object sender, EventArgs e)//יציאה
-        {
-            if (usersRole == 1)
-            {
-                this.Close();
-                Thread th;
-                th = new Thread(openMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
-            }
-            else
-            {
-                this.Close();
-                Thread th;
-                th = new Thread(openEmployeesMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
-            }
-        }
+        //private void Btn_exit_Click(object sender, EventArgs e)//יציאה
+        //{
+        //    if (usersRole == 1)
+        //    {
+        //        this.Close();
+        //        Thread th;
+        //        th = new Thread(openMain);
+        //        th.TrySetApartmentState(ApartmentState.STA);
+        //        th.Start();
+        //    }
+        //    else
+        //    {
+        //        this.Close();
+        //        Thread th;
+        //        th = new Thread(openEmployeesMain);
+        //        th.TrySetApartmentState(ApartmentState.STA);
+        //        th.Start();
+        //    }
+        //}
 
         private void openMain(object obj)
         {
@@ -116,23 +116,27 @@ namespace Electricity_shop
 
         private void Frm_ordersManagement_Load(object sender, EventArgs e)//בעת פתיחת חלון טוען את הטבלה הזמנות מבסיס נתונים
         {
-            orders[] Orders = mySQL.GetOrdersData();
+            Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+
             customer Customer;
-            if (Orders != null)
-                for (int i = 0; i < Orders.Length; i++)
+            if (Orders_customers != null)
+
+                Grd_orders.Rows.Clear();
+
+                for (int i = 0; i < Orders_customers.Length; i++)
                 {
-                    Customer = mySQL.GetCustomerDataByID(Orders[i].Customer_id);
+                    Customer = mySQL.GetCustomerDataByID(Orders_customers[i].Customer_id);
 
                     Grd_orders.Rows.Add(new object[]
                     {
-                    Orders[i].Order_number,
+                    Orders_customers[i].Order_number,
                     Customer.Id,
                     Customer.First_name,
                     Customer.Last_name,
                     Customer.Phone_number,
                     Customer.Address,
-                    Orders[i].Date,
-                    Orders[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+                    Orders_customers[i].Date,
+                    Orders_customers[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
                         }); ;
 
 
@@ -183,7 +187,7 @@ namespace Electricity_shop
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)//מסנון את הטבלה לפי הגדרת התאריך
         {
             date_changed = true;
-            Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
+            Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
             fill_grid(Orders_customers);
         }
 
@@ -191,13 +195,13 @@ namespace Electricity_shop
         {
             if (date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
             else
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
@@ -208,13 +212,13 @@ namespace Electricity_shop
         {
             if (date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
                 fill_grid(Orders_customers);
             }
             else
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
@@ -225,13 +229,13 @@ namespace Electricity_shop
         {
             if (date_changed)
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text,Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
 
                 fill_grid(Orders_customers);
             }
             else
             {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
                 fill_grid(Orders_customers);
             }
@@ -313,5 +317,39 @@ namespace Electricity_shop
             Show_order.Lbl_showOrderNumber.Text = Grd_orders.CurrentRow.Cells[0].Value.ToString();
             Show_order.ShowDialog();
         }
+
+        private void Btn_leave_Click(object sender, EventArgs e)
+        {
+            if (usersRole == 1)
+            {
+                this.Close();
+                Thread th;
+                th = new Thread(openMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                this.Close();
+                Thread th;
+                th = new Thread(openEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+        }
+
+        private void Cbo_sortByOrderStatus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void Cbo_sortByOrderStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+
+            fill_grid(Orders_customers);
+        }
+
+        
     }
 }

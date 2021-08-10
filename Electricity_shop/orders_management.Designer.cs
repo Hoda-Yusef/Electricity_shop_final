@@ -45,7 +45,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.Upper_BluePanel = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -56,6 +55,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.Lbl_ordersManagement = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Lbl_sortByAmount = new System.Windows.Forms.Label();
+            this.Cbo_sortByOrderStatus = new System.Windows.Forms.ComboBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.BtnClear = new System.Windows.Forms.Button();
             this.Lbl_customersLastName = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.Btn_leave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_orders)).BeginInit();
             this.Upper_BluePanel.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -121,8 +123,8 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grd_orders.DefaultCellStyle = dataGridViewCellStyle5;
             this.Grd_orders.EnableHeadersVisualStyles = false;
-            this.Grd_orders.Location = new System.Drawing.Point(24, 98);
-            this.Grd_orders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Grd_orders.Location = new System.Drawing.Point(27, 131);
+            this.Grd_orders.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Grd_orders.Name = "Grd_orders";
             this.Grd_orders.ReadOnly = true;
             this.Grd_orders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -130,7 +132,7 @@
             this.Grd_orders.RowHeadersWidth = 4;
             this.Grd_orders.RowTemplate.Height = 40;
             this.Grd_orders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grd_orders.Size = new System.Drawing.Size(1005, 491);
+            this.Grd_orders.Size = new System.Drawing.Size(1149, 655);
             this.Grd_orders.TabIndex = 21;
             this.Grd_orders.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Grd_orders_CellMouseDoubleClick);
             // 
@@ -212,16 +214,16 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Black;
             this.imageList1.Images.SetKeyName(0, "green_check");
             this.imageList1.Images.SetKeyName(1, "check.png");
-           
             // 
             // Upper_BluePanel
             // 
             this.Upper_BluePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Upper_BluePanel.Controls.Add(this.panel6);
             this.Upper_BluePanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.Upper_BluePanel.Location = new System.Drawing.Point(-77, 0);
+            this.Upper_BluePanel.Location = new System.Drawing.Point(-88, 0);
+            this.Upper_BluePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Upper_BluePanel.Name = "Upper_BluePanel";
-            this.Upper_BluePanel.Size = new System.Drawing.Size(1366, 19);
+            this.Upper_BluePanel.Size = new System.Drawing.Size(1561, 25);
             this.Upper_BluePanel.TabIndex = 15;
             this.Upper_BluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseDown);
             this.Upper_BluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Upper_BluePanel_MouseMove);
@@ -231,18 +233,18 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel6.Controls.Add(this.panel9);
-            this.panel6.Location = new System.Drawing.Point(1237, 22);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Location = new System.Drawing.Point(1414, 29);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(9, 681);
+            this.panel6.Size = new System.Drawing.Size(10, 908);
             this.panel6.TabIndex = 19;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel9.Location = new System.Drawing.Point(7, 649);
+            this.panel9.Location = new System.Drawing.Point(8, 865);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1193, 8);
+            this.panel9.Size = new System.Drawing.Size(1363, 11);
             this.panel9.TabIndex = 16;
             // 
             // Btn_exit
@@ -253,60 +255,59 @@
             this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
             this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_exit.Location = new System.Drawing.Point(1416, 0);
-            this.Btn_exit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_exit.Location = new System.Drawing.Point(1618, 0);
+            this.Btn_exit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_exit.Name = "Btn_exit";
-            this.Btn_exit.Size = new System.Drawing.Size(48, 38);
+            this.Btn_exit.Size = new System.Drawing.Size(55, 51);
             this.Btn_exit.TabIndex = 53;
             this.Btn_exit.UseVisualStyleBackColor = false;
-            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
             this.Btn_exit.MouseLeave += new System.EventHandler(this.Btn_exit_MouseLeave);
             this.Btn_exit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Btn_exit_MouseMove);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel1.Location = new System.Drawing.Point(-2, 1137);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(-2, 1516);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1759, 15);
+            this.panel1.Size = new System.Drawing.Size(2010, 20);
             this.panel1.TabIndex = 16;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel7.Location = new System.Drawing.Point(1746, -5);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7.Location = new System.Drawing.Point(1995, -7);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(9, 659);
+            this.panel7.Size = new System.Drawing.Size(10, 879);
             this.panel7.TabIndex = 17;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(-6, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(-4, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(13, 615);
+            this.panel2.Size = new System.Drawing.Size(15, 820);
             this.panel2.TabIndex = 18;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel4.Location = new System.Drawing.Point(7, 649);
+            this.panel4.Location = new System.Drawing.Point(8, 865);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1193, 8);
+            this.panel4.Size = new System.Drawing.Size(1363, 11);
             this.panel4.TabIndex = 16;
             // 
             // Lbl_ordersManagement
             // 
             this.Lbl_ordersManagement.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_ordersManagement.ForeColor = System.Drawing.Color.White;
-            this.Lbl_ordersManagement.Location = new System.Drawing.Point(466, 32);
+            this.Lbl_ordersManagement.Location = new System.Drawing.Point(533, 43);
             this.Lbl_ordersManagement.Name = "Lbl_ordersManagement";
             this.Lbl_ordersManagement.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_ordersManagement.Size = new System.Drawing.Size(283, 54);
+            this.Lbl_ordersManagement.Size = new System.Drawing.Size(323, 72);
             this.Lbl_ordersManagement.TabIndex = 19;
             this.Lbl_ordersManagement.Text = "ניהול הזמנות";
             this.Lbl_ordersManagement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -315,6 +316,8 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Lbl_sortByAmount);
+            this.panel3.Controls.Add(this.Cbo_sortByOrderStatus);
             this.panel3.Controls.Add(this.dateTimePicker);
             this.panel3.Controls.Add(this.BtnClear);
             this.panel3.Controls.Add(this.Lbl_customersLastName);
@@ -326,11 +329,45 @@
             this.panel3.Controls.Add(this.Btn_updateOrder);
             this.panel3.Controls.Add(this.Lbl_customerId);
             this.panel3.Controls.Add(this.Txt_customerId);
-            this.panel3.Location = new System.Drawing.Point(1042, 98);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel3.Location = new System.Drawing.Point(1191, 66);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 492);
+            this.panel3.Size = new System.Drawing.Size(244, 720);
             this.panel3.TabIndex = 20;
+            // 
+            // Lbl_sortByAmount
+            // 
+            this.Lbl_sortByAmount.AutoSize = true;
+            this.Lbl_sortByAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_sortByAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Lbl_sortByAmount.Location = new System.Drawing.Point(79, 18);
+            this.Lbl_sortByAmount.Name = "Lbl_sortByAmount";
+            this.Lbl_sortByAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Lbl_sortByAmount.Size = new System.Drawing.Size(136, 28);
+            this.Lbl_sortByAmount.TabIndex = 35;
+            this.Lbl_sortByAmount.Text = ": הצג תוצאות";
+            this.Lbl_sortByAmount.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Cbo_sortByOrderStatus
+            // 
+            this.Cbo_sortByOrderStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cbo_sortByOrderStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
+            this.Cbo_sortByOrderStatus.DisplayMember = "כל המלאי";
+            this.Cbo_sortByOrderStatus.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Cbo_sortByOrderStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
+            this.Cbo_sortByOrderStatus.FormattingEnabled = true;
+            this.Cbo_sortByOrderStatus.Items.AddRange(new object[] {
+            "הכל",
+            "סופק",
+            "לא סופק"});
+            this.Cbo_sortByOrderStatus.Location = new System.Drawing.Point(22, 42);
+            this.Cbo_sortByOrderStatus.Name = "Cbo_sortByOrderStatus";
+            this.Cbo_sortByOrderStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Cbo_sortByOrderStatus.Size = new System.Drawing.Size(199, 39);
+            this.Cbo_sortByOrderStatus.TabIndex = 34;
+            this.Cbo_sortByOrderStatus.Text = "הכל";
+            this.Cbo_sortByOrderStatus.SelectedIndexChanged += new System.EventHandler(this.Cbo_sortByOrderStatus_SelectedIndexChanged);
+            this.Cbo_sortByOrderStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Cbo_sortByOrderStatus_KeyPress);
             // 
             // dateTimePicker
             // 
@@ -343,10 +380,9 @@
             this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(23, 208);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker.Location = new System.Drawing.Point(22, 392);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(175, 29);
+            this.dateTimePicker.Size = new System.Drawing.Size(199, 34);
             this.dateTimePicker.TabIndex = 33;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
@@ -358,10 +394,10 @@
             this.BtnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnClear.ForeColor = System.Drawing.Color.White;
             this.BtnClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnClear.Location = new System.Drawing.Point(23, 300);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnClear.Location = new System.Drawing.Point(22, 466);
+            this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(174, 38);
+            this.BtnClear.Size = new System.Drawing.Size(199, 51);
             this.BtnClear.TabIndex = 32;
             this.BtnClear.Text = "נקה";
             this.BtnClear.UseVisualStyleBackColor = false;
@@ -371,10 +407,10 @@
             // 
             this.Lbl_customersLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersLastName.Location = new System.Drawing.Point(66, 138);
+            this.Lbl_customersLastName.Location = new System.Drawing.Point(71, 299);
             this.Lbl_customersLastName.Name = "Lbl_customersLastName";
             this.Lbl_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customersLastName.Size = new System.Drawing.Size(111, 24);
+            this.Lbl_customersLastName.Size = new System.Drawing.Size(127, 32);
             this.Lbl_customersLastName.TabIndex = 30;
             this.Lbl_customersLastName.Text = "שם משפחה";
             // 
@@ -383,11 +419,11 @@
             this.Txt_customersLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customersLastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customersLastName.ForeColor = System.Drawing.Color.White;
-            this.Txt_customersLastName.Location = new System.Drawing.Point(23, 157);
-            this.Txt_customersLastName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_customersLastName.Location = new System.Drawing.Point(22, 324);
+            this.Txt_customersLastName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Txt_customersLastName.Name = "Txt_customersLastName";
             this.Txt_customersLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customersLastName.Size = new System.Drawing.Size(175, 32);
+            this.Txt_customersLastName.Size = new System.Drawing.Size(199, 38);
             this.Txt_customersLastName.TabIndex = 29;
             this.Txt_customersLastName.TextChanged += new System.EventHandler(this.Txt_customersLastName_TextChanged);
             // 
@@ -395,10 +431,10 @@
             // 
             this.Lbl_customersFirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customersFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customersFirstName.Location = new System.Drawing.Point(80, 72);
+            this.Lbl_customersFirstName.Location = new System.Drawing.Point(87, 211);
             this.Lbl_customersFirstName.Name = "Lbl_customersFirstName";
             this.Lbl_customersFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customersFirstName.Size = new System.Drawing.Size(83, 24);
+            this.Lbl_customersFirstName.Size = new System.Drawing.Size(95, 32);
             this.Lbl_customersFirstName.TabIndex = 28;
             this.Lbl_customersFirstName.Text = "שם פרטי";
             // 
@@ -407,11 +443,11 @@
             this.Txt_customersFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customersFirstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customersFirstName.ForeColor = System.Drawing.Color.White;
-            this.Txt_customersFirstName.Location = new System.Drawing.Point(23, 90);
-            this.Txt_customersFirstName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_customersFirstName.Location = new System.Drawing.Point(22, 235);
+            this.Txt_customersFirstName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Txt_customersFirstName.Name = "Txt_customersFirstName";
             this.Txt_customersFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customersFirstName.Size = new System.Drawing.Size(175, 32);
+            this.Txt_customersFirstName.Size = new System.Drawing.Size(199, 38);
             this.Txt_customersFirstName.TabIndex = 27;
             this.Txt_customersFirstName.TextChanged += new System.EventHandler(this.Txt_customersFirstName_TextChanged);
             // 
@@ -423,10 +459,10 @@
             this.Btn_backToMain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_backToMain.ForeColor = System.Drawing.Color.White;
             this.Btn_backToMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_backToMain.Location = new System.Drawing.Point(23, 438);
-            this.Btn_backToMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_backToMain.Location = new System.Drawing.Point(22, 650);
+            this.Btn_backToMain.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_backToMain.Name = "Btn_backToMain";
-            this.Btn_backToMain.Size = new System.Drawing.Size(174, 38);
+            this.Btn_backToMain.Size = new System.Drawing.Size(199, 51);
             this.Btn_backToMain.TabIndex = 25;
             this.Btn_backToMain.Text = "חזרה לראשי";
             this.Btn_backToMain.UseVisualStyleBackColor = false;
@@ -440,10 +476,10 @@
             this.Btn_updateStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateStatus.ForeColor = System.Drawing.Color.White;
             this.Btn_updateStatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateStatus.Location = new System.Drawing.Point(23, 392);
-            this.Btn_updateStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_updateStatus.Location = new System.Drawing.Point(22, 589);
+            this.Btn_updateStatus.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_updateStatus.Name = "Btn_updateStatus";
-            this.Btn_updateStatus.Size = new System.Drawing.Size(174, 38);
+            this.Btn_updateStatus.Size = new System.Drawing.Size(199, 51);
             this.Btn_updateStatus.TabIndex = 24;
             this.Btn_updateStatus.Text = "עדכון סטטוס";
             this.Btn_updateStatus.UseVisualStyleBackColor = false;
@@ -457,10 +493,10 @@
             this.Btn_updateOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateOrder.ForeColor = System.Drawing.Color.White;
             this.Btn_updateOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateOrder.Location = new System.Drawing.Point(23, 346);
-            this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_updateOrder.Location = new System.Drawing.Point(22, 527);
+            this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Btn_updateOrder.Name = "Btn_updateOrder";
-            this.Btn_updateOrder.Size = new System.Drawing.Size(174, 38);
+            this.Btn_updateOrder.Size = new System.Drawing.Size(199, 51);
             this.Btn_updateOrder.TabIndex = 23;
             this.Btn_updateOrder.Text = "עדכון הזמנה";
             this.Btn_updateOrder.UseVisualStyleBackColor = false;
@@ -470,10 +506,10 @@
             // 
             this.Lbl_customerId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_customerId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
-            this.Lbl_customerId.Location = new System.Drawing.Point(65, 7);
+            this.Lbl_customerId.Location = new System.Drawing.Point(70, 124);
             this.Lbl_customerId.Name = "Lbl_customerId";
             this.Lbl_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_customerId.Size = new System.Drawing.Size(110, 24);
+            this.Lbl_customerId.Size = new System.Drawing.Size(126, 32);
             this.Lbl_customerId.TabIndex = 22;
             this.Lbl_customerId.Text = "תעודת זהות";
             // 
@@ -482,11 +518,11 @@
             this.Txt_customerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
             this.Txt_customerId.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Txt_customerId.ForeColor = System.Drawing.Color.White;
-            this.Txt_customerId.Location = new System.Drawing.Point(23, 24);
-            this.Txt_customerId.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Txt_customerId.Location = new System.Drawing.Point(22, 147);
+            this.Txt_customerId.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Txt_customerId.Name = "Txt_customerId";
             this.Txt_customerId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_customerId.Size = new System.Drawing.Size(175, 32);
+            this.Txt_customerId.Size = new System.Drawing.Size(199, 38);
             this.Txt_customerId.TabIndex = 0;
             this.Txt_customerId.TextChanged += new System.EventHandler(this.Txt_customerId_TextChanged);
             this.Txt_customerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_customerId_KeyPress);
@@ -494,35 +530,52 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel5.Location = new System.Drawing.Point(3, 610);
+            this.panel5.Location = new System.Drawing.Point(3, 815);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1754, 10);
+            this.panel5.Size = new System.Drawing.Size(2005, 13);
             this.panel5.TabIndex = 16;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel8.Controls.Add(this.panel10);
-            this.panel8.Location = new System.Drawing.Point(1276, -2);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Location = new System.Drawing.Point(1462, -3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(13, 615);
+            this.panel8.Size = new System.Drawing.Size(15, 820);
             this.panel8.TabIndex = 54;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel10.Location = new System.Drawing.Point(7, 649);
+            this.panel10.Location = new System.Drawing.Point(8, 865);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1193, 8);
+            this.panel10.Size = new System.Drawing.Size(1363, 11);
             this.panel10.TabIndex = 16;
+            // 
+            // Btn_leave
+            // 
+            this.Btn_leave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_leave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_leave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Btn_leave.Image = ((System.Drawing.Image)(resources.GetObject("Btn_leave.Image")));
+            this.Btn_leave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_leave.Location = new System.Drawing.Point(1432, -1);
+            this.Btn_leave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_leave.Name = "Btn_leave";
+            this.Btn_leave.Size = new System.Drawing.Size(42, 41);
+            this.Btn_leave.TabIndex = 55;
+            this.Btn_leave.UseVisualStyleBackColor = true;
+            this.Btn_leave.Click += new System.EventHandler(this.Btn_leave_Click);
             // 
             // Frm_ordersManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1289, 618);
+            this.ClientSize = new System.Drawing.Size(1473, 824);
+            this.Controls.Add(this.Btn_leave);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.Upper_BluePanel);
@@ -533,9 +586,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Frm_ordersManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -554,8 +607,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel Upper_BluePanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel7;
@@ -590,5 +641,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button Btn_leave;
+        private System.Windows.Forms.Label Lbl_sortByAmount;
+        public System.Windows.Forms.ComboBox Cbo_sortByOrderStatus;
     }
 }

@@ -122,5 +122,7 @@ namespace Electricity_shop
         {
             Users = mySQL.GetUsersData();//טעינת שמות משתמשים וסיסמאות
         }
+
+        
     }
 }

@@ -28,7 +28,7 @@ namespace Electricity_shop
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
             usersRole = role;
-            userName = username;
+
             Set_AutoCompleteMode_text_boxes();
 
         }
@@ -260,34 +260,38 @@ namespace Electricity_shop
         private void Frm_products_management_Load(object sender, EventArgs e)
         {
             //שומרים נתוני כל המוצרים שקיימים במערכת
-            Product[] Product = mySQL.GetProductData();
+            //Product[] Product = mySQL.GetProductData();
+            product = mySQL.GetProductDataFiltered(Cbo_sortByProductAmount.Text, Txt_barcode.Text, Txt_category.Text, Txt_manufacturer.Text, Txt_model.Text);
+
             //מציגים אותם בטבלה
 
-            if (Product != null)
+            if (product != null)
             {
-                for (int i = 0; i < Product.Length; i++)
+                Grd_products.Rows.Clear();
+
+                for (int i = 0; i < product.Length; i++)
                 {
                     Grd_products.Rows.Add(new object[]
                     {
-                    Product[i].Category,
-                    Product[i].Manufacturer,
-                    Product[i].Model,
-                    Product[i].Barcode,
-                    Product[i].Supplier,
-                    Product[i].Amount,
-                    Product[i].Cost_price,
-                    Product[i].Selling_price,
-                    Product[i].Product_info
+                    product[i].Category,
+                    product[i].Manufacturer,
+                    product[i].Model,
+                    product[i].Barcode,
+                    product[i].Supplier,
+                    product[i].Amount,
+                    product[i].Cost_price,
+                    product[i].Selling_price,
+                    product[i].Product_info
                     });
                 }
 
                 //אופציות לטיבות הטקסט מצד ימין -חיפושים
-                for (int i = 0; i < Product.Length; i++)
+                for (int i = 0; i < product.Length; i++)
                 {
-                    barcodeAuto.Add(Product[i].Barcode.ToString());
-                    categoryAuto.Add(Product[i].Category);
-                    modelAuto.Add(Product[i].Model);
-                    manufactureAuto.Add(Product[i].Manufacturer);
+                    barcodeAuto.Add(product[i].Barcode.ToString());
+                    categoryAuto.Add(product[i].Category);
+                    modelAuto.Add(product[i].Model);
+                    manufactureAuto.Add(product[i].Manufacturer);
                 }
 
                 if (Grd_products.Rows.Count != 0)

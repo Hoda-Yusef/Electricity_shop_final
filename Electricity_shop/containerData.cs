@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using System.Drawing;
+
 
 namespace Electricity_shop
 {
@@ -9,8 +11,7 @@ namespace Electricity_shop
         private readonly DBSQL mySQL;
         int userRole;
         Thread th;
-        string userName;
-        public Frm_ContainerData(int role,string username)
+        public Frm_ContainerData(int role)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -69,11 +70,6 @@ namespace Electricity_shop
             th = new Thread(Opennewform);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
-        }
-
-        private void Frm_ContainerData_Load(object sender, EventArgs e)
-        {
-            Lbl_userName.Text = userName;
         }
     }
 }

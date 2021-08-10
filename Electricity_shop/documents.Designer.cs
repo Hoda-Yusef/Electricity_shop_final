@@ -75,7 +75,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.panel3.Location = new System.Drawing.Point(-2, 565);
+            this.panel3.Location = new System.Drawing.Point(-2, 812);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(835, 10);
             this.panel3.TabIndex = 41;
@@ -85,7 +86,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel2.Location = new System.Drawing.Point(826, -4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(9, 575);
+            this.panel2.Size = new System.Drawing.Size(10, 830);
             this.panel2.TabIndex = 40;
             // 
             // panel4
@@ -93,7 +94,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.panel4.Location = new System.Drawing.Point(-2, -4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(9, 577);
+            this.panel4.Size = new System.Drawing.Size(10, 826);
             this.panel4.TabIndex = 42;
             // 
             // Lbl_inStockDocument
@@ -116,7 +117,7 @@
             this.Lbl_info.Location = new System.Drawing.Point(170, 117);
             this.Lbl_info.Name = "Lbl_info";
             this.Lbl_info.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_info.Size = new System.Drawing.Size(508, 432);
+            this.Lbl_info.Size = new System.Drawing.Size(581, 652);
             this.Lbl_info.TabIndex = 44;
             this.Lbl_info.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -154,15 +155,15 @@
             // 
             // Lbl_fromDate
             // 
-            this.Lbl_fromDate.AutoSize = true;
-            this.Lbl_fromDate.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_fromDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Lbl_fromDate.Location = new System.Drawing.Point(662, 80);
-            this.Lbl_fromDate.Name = "Lbl_fromDate";
-            this.Lbl_fromDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_fromDate.Size = new System.Drawing.Size(91, 25);
-            this.Lbl_fromDate.TabIndex = 47;
-            this.Lbl_fromDate.Text = "מתאריך :";
+            //this.label1.AutoSize = true;
+            //this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            //this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //this.label1.Location = new System.Drawing.Point(756, 106);
+            //this.label1.Name = "label1";
+            //this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            //this.label1.Size = new System.Drawing.Size(118, 31);
+            //this.label1.TabIndex = 47;
+            //this.label1.Text = "מ-תאריך :";
             // 
             // Lbl_toDate
             // 
@@ -210,7 +211,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(833, 571);
+            this.ClientSize = new System.Drawing.Size(952, 820);
             this.Controls.Add(this.Pic_createPDF);
             this.Controls.Add(this.dateTimePicker_to);
             this.Controls.Add(this.Lbl_toDate);

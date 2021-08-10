@@ -107,13 +107,10 @@
     <value>NoControl</value>
   </data>
   <data name="Pic_login.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 42</value>
-  </data>
-  <data name="Pic_login.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>163, 56</value>
   </data>
   <data name="Pic_login.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 54</value>
+    <value>67, 72</value>
   </data>
   <data name="Pic_login.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -173,10 +170,13 @@
 </value>
   </data>
   <data name="Btn_exit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 0</value>
+    <value>370, 0</value>
+  </data>
+  <data name="Btn_exit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="Btn_exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 38</value>
+    <value>39, 51</value>
   </data>
   <data name="Btn_exit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -225,13 +225,10 @@
     <value>NoControl</value>
   </data>
   <data name="Pic_user.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 137</value>
-  </data>
-  <data name="Pic_user.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>325, 183</value>
   </data>
   <data name="Pic_user.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 26</value>
+    <value>27, 35</value>
   </data>
   <data name="Pic_user.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -252,10 +249,13 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="Txt_username.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 140</value>
+    <value>62, 187</value>
+  </data>
+  <data name="Txt_username.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="Txt_username.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>247, 27</value>
   </data>
   <data name="Txt_username.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -279,10 +279,13 @@
     <value>9</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 257</value>
+    <value>62, 343</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 1</value>
+    <value>290, 1</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -300,10 +303,13 @@
     <value>8</value>
   </data>
   <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 168</value>
+    <value>62, 224</value>
+  </data>
+  <data name="panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 1</value>
+    <value>290, 1</value>
   </data>
   <data name="panel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -324,10 +330,13 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="Txt_password.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 230</value>
+    <value>62, 307</value>
+  </data>
+  <data name="Txt_password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="Txt_password.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>247, 27</value>
   </data>
   <data name="Txt_password.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -383,13 +392,10 @@
     <value>NoControl</value>
   </data>
   <data name="Pic_password.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 223</value>
-  </data>
-  <data name="Pic_password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>325, 297</value>
   </data>
   <data name="Pic_password.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 31</value>
+    <value>27, 41</value>
   </data>
   <data name="Pic_password.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -413,10 +419,13 @@
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="Btn_entry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 302</value>
+    <value>118, 403</value>
+  </data>
+  <data name="Btn_entry.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="Btn_entry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 38</value>
+    <value>181, 51</value>
   </data>
   <data name="Btn_entry.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -437,13 +446,10 @@
     <value>5</value>
   </data>
   <data name="panel9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, -4</value>
-  </data>
-  <data name="panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>0, -5</value>
   </data>
   <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 8</value>
+    <value>409, 11</value>
   </data>
   <data name="panel9.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -461,13 +467,10 @@
     <value>4</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 374</value>
-  </data>
-  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>0, 499</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 8</value>
+    <value>409, 11</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -485,13 +488,10 @@
     <value>3</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-5, 1</value>
-  </data>
-  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>-6, 1</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>9, 377</value>
+    <value>10, 503</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -509,13 +509,10 @@
     <value>2</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>355, -2</value>
-  </data>
-  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>406, -3</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>9, 377</value>
+    <value>10, 503</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -536,13 +533,13 @@
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="Lbl_wrongPasswordMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 261</value>
+    <value>130, 348</value>
   </data>
   <data name="Lbl_wrongPasswordMessage.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
   <data name="Lbl_wrongPasswordMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 18</value>
+    <value>219, 24</value>
   </data>
   <data name="Lbl_wrongPasswordMessage.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -563,13 +560,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>360, 377</value>
+    <value>411, 503</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1702,9 +1699,6 @@
         AAAAAX///////////+iAAAAAACT////////////6IAAAAACL/////////////IgAAAACL///////////
         //8hAAAAEL//////////////yKAAAUL///8=
 </value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
