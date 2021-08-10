@@ -99,18 +99,7 @@ namespace Electricity_shop
             }
         }
 
-        public void InsertVat(vat Item)
-        {
-            string cmdStr = "INSERT INTO vat (vat_percentage)" +
-                " VALUES (@vat_percentage)";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                command.Parameters.AddWithValue("@vat_percentage", Item.Vat);
-                //command.Parameters.AddWithValue("@product_category", Item.Category);
-                base.ExecuteSimpleQuery(command);
-            }
-        }
+        
 
         public void InsertCustomer(customer Item)
         {
@@ -409,8 +398,9 @@ namespace Electricity_shop
         }
 
 
-        public double Getvat()
+        public vat Getvat()
         {
+            //double vat=0;
             DataSet ds = new DataSet();
             vat vatWorth = null;
 
@@ -435,9 +425,11 @@ namespace Electricity_shop
             if (dt.Rows.Count > 0)
             {
                 vatWorth = new vat();
-                vatWorth.Vat =Convert.ToDouble(dt.Rows[0]);
+                vatWorth.Vat =Convert.ToDouble(dt.Rows[0][0]);
+                //vat = Convert.ToDouble(dt.Rows[0]);
+
             }
-            return vatWorth.Vat;
+            return vatWorth;
         }
         public product_order[] GetProductsByOrderNumber(int orderNumber)
         {
@@ -1568,6 +1560,18 @@ namespace Electricity_shop
             {
                 command.Parameters.AddWithValue("@amount", amount);
 
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
+        public void updateVat(double Item)
+        {
+            string cmdStr = "UPDATE vat SET vat_percentage=" + Item + "";
+           
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            { 
+                command.Parameters.AddWithValue("@vat_percentage", Item);
                 base.ExecuteSimpleQuery(command);
             }
         }

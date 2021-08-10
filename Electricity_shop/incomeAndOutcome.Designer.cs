@@ -58,6 +58,7 @@ namespace Electricity_shop
             this.dateTimePicker_from = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_to = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Btn_changeVAT = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_shekelsLost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_minus2)).BeginInit();
@@ -92,9 +93,7 @@ namespace Electricity_shop
             this.Txt_vat.Size = new System.Drawing.Size(69, 33);
             this.Txt_vat.TabIndex = 1;
             this.Txt_vat.Text = "17";
-            this.Txt_vat.TextChanged += new System.EventHandler(this.Txt_vat_TextChanged);
             this.Txt_vat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_vat_KeyPress);
-            //this.Txt_vat.Leave += new System.EventHandler(this.Txt_vat_Leave);
             // 
             // panel1
             // 
@@ -385,12 +384,28 @@ namespace Electricity_shop
             this.textBox1.Text = "%";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // Btn_changeVAT
+            // 
+            this.Btn_changeVAT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.Btn_changeVAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_changeVAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.Btn_changeVAT.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.Btn_changeVAT.Location = new System.Drawing.Point(114, 133);
+            this.Btn_changeVAT.Name = "Btn_changeVAT";
+            this.Btn_changeVAT.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Btn_changeVAT.Size = new System.Drawing.Size(115, 40);
+            this.Btn_changeVAT.TabIndex = 118;
+            this.Btn_changeVAT.Text = "שינוי מע\"מ";
+            this.Btn_changeVAT.UseVisualStyleBackColor = false;
+            this.Btn_changeVAT.Click += new System.EventHandler(this.Btn_changeVAT_Click);
+            // 
             // Frm_incomeAndOutcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(667, 467);
+            this.Controls.Add(this.Btn_changeVAT);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dateTimePicker_to);
             this.Controls.Add(this.dateTimePicker_from);
@@ -461,5 +476,6 @@ namespace Electricity_shop
         private System.Windows.Forms.PictureBox Pic_shekelsBruto;
         private System.Windows.Forms.PictureBox Pic_shekelsVat;
         private System.Windows.Forms.PictureBox Pic_shekelsEarnings;
+        private System.Windows.Forms.Button Btn_changeVAT;
     }
 }

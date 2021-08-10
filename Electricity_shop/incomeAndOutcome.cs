@@ -15,6 +15,8 @@ namespace Electricity_shop
         product_order[] Product_order;
         Product product;
         vat VatPercentage=new vat();
+        vat currentVat = new vat();
+        
         public Frm_incomeAndOutcome()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace Electricity_shop
        
         private double getVatData()
         {
-            VatPercentage.Vat =mySQL.Getvat();
+            VatPercentage =mySQL.Getvat();
             return VatPercentage.Vat;
         }
        
@@ -35,8 +37,9 @@ namespace Electricity_shop
             int brutoEarnings = 0;
             double pure_price = 0;
             int lose = 0;
-            double VAT = 0,vatPercentage=0;
+            double VAT=0,vatPercentage=0;
             vatPercentage = getVatData();
+            //double vatP = mySQL.Getvat();
 
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
 
@@ -54,10 +57,10 @@ namespace Electricity_shop
 
                             brutoEarnings += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
                             pure_price += ((product.Selling_price - product.Cost_price) -
-                                ((product.Selling_price - product.Cost_price) * vatPercentage)) *
+                                ((product.Selling_price - product.Cost_price) * (double)vatPercentage / 100)) *
                                 Product_order[j].Amount;//מחשב סכום רווח נטו
 
-                            VAT += ((product.Selling_price - product.Cost_price) * vatPercentage) * Product_order[j].Amount;
+                            VAT += ((product.Selling_price - product.Cost_price) * (double)vatPercentage / 100) * Product_order[j].Amount;
                             lose += product.Cost_price;//מחשב סכום הפסד
 
                         }
@@ -67,7 +70,7 @@ namespace Electricity_shop
                 Lbl_totalIncome.Text = Math.Round(pure_price, 2).ToString();
                 Lbl_vatTotal.Text = Math.Round(VAT, 2).ToString();
                 Lbl_totalOutcome.Text = lose.ToString();
-                //Txt_vat.Text = VatPercentage.ToString();
+               // Txt_vat.Text = VatPercentage.ToString();
             }
             else
             {
@@ -78,11 +81,12 @@ namespace Electricity_shop
 
         private void clearData()
         {
+            currentVat = mySQL.Getvat();
             Lbl_brutoEarnings.Text = "0";
             Lbl_totalIncome.Text = "0";
             Lbl_vatTotal.Text = "0";
             Lbl_totalOutcome.Text = "0";
-            Txt_vat.Text = VatPercentage.Vat.ToString();
+            Txt_vat.Text = currentVat.Vat.ToString();
         }
         
         private void Txt_vat_Leave(object sender, EventArgs e)
@@ -125,10 +129,18 @@ namespace Electricity_shop
             clearData();
         }
 
-        private void Txt_vat_TextChanged(object sender, EventArgs e)
+        
+
+        private void Btn_changeVAT_Click(object sender, EventArgs e)
         {
-           // mySQL.InsertVat(VatPercentage);
-            getData();
+            if(Convert.ToDouble(Txt_vat.Text) >= 0 && Convert.ToDouble(Txt_vat.Text) <50)
+            {
+                mySQL.updateVat(Convert.ToDouble(Txt_vat.Text));
+                getData();
+            }
+            else
+                MessageBox.Show("מעמ לא תקין", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
     }
 }
