@@ -16,14 +16,16 @@ namespace Electricity_shop
         Product product;
         vat VatPercentage=new vat();
         vat currentVat = new vat();
-        
-        public Frm_incomeAndOutcome()
+        string userName;
+
+        public Frm_incomeAndOutcome(string userName)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            this.userName = userName;
         }
        
         private double getVatData()

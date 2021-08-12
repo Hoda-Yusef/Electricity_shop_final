@@ -20,6 +20,7 @@ namespace Electricity_shop
         readonly AutoCompleteStringCollection manufactureAuto = new AutoCompleteStringCollection();
         int usersRole;
         string userName;
+        int from_contianer = 0;
         public Frm_products_management(int role,string username)
         {
             InitializeComponent();
@@ -29,6 +30,21 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
             usersRole = role;
             userName = username;
+
+            Set_AutoCompleteMode_text_boxes();
+
+        }
+
+        public Frm_products_management(int role, string username,int from_contianer)
+        {
+            InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
+            usersRole = role;
+            userName = username;
+            this.from_contianer = from_contianer;
 
             Set_AutoCompleteMode_text_boxes();
 
@@ -218,19 +234,26 @@ namespace Electricity_shop
         //לחיצה על כפתור חזרה לראשי
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            if (usersRole == 1)
+            if (from_contianer == 0)
             {
-                this.Close();
-                th = new Thread(Opennewform);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                if (usersRole == 1)
+                {
+                    this.Close();
+                    th = new Thread(Opennewform);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    this.Close();
+                    th = new Thread(OpenEmployeesMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
             }
-            else
+            else if (from_contianer == 1)
             {
                 this.Close();
-                th = new Thread(OpenEmployeesMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
             }
 
         }
@@ -326,19 +349,26 @@ namespace Electricity_shop
         // Xלחיצה על כפתור
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            if (usersRole == 1)
+            if (from_contianer == 0)
             {
-                this.Close();
-                th = new Thread(Opennewform);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                if (usersRole == 1)
+                {
+                    this.Close();
+                    th = new Thread(Opennewform);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    this.Close();
+                    th = new Thread(OpenEmployeesMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
             }
-            else
+            else if(from_contianer ==1)
             {
                 this.Close();
-                th = new Thread(OpenEmployeesMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
             }
         }
 

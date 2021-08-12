@@ -14,11 +14,15 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         orders Orders;
         string order_number_holder;
+        customer Customer;
         orders_customers[] Orders_customers;
+        orders[] OrdersFromContainer;
         bool date_changed = false;
         int usersRole;
         string userName;
-
+        int from_containerData = 0;
+        string fromDate = string.Empty;
+        string toDate = string.Empty;
 
         public Frm_ordersManagement(int role,string username)
         {
@@ -32,26 +36,22 @@ namespace Electricity_shop
 
         }
 
+        public Frm_ordersManagement(int role, string username,int from_containerData,string fromDate,string toDate)
+        {
+            InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
+            usersRole = role;
+            userName = username;
+            this.from_containerData = from_containerData;
+            this.fromDate = fromDate;
+            this.toDate = toDate;
 
-        //private void Btn_exit_Click(object sender, EventArgs e)//יציאה
-        //{
-        //    if (usersRole == 1)
-        //    {
-        //        this.Close();
-        //        Thread th;
-        //        th = new Thread(openMain);
-        //        th.TrySetApartmentState(ApartmentState.STA);
-        //        th.Start();
-        //    }
-        //    else
-        //    {
-        //        this.Close();
-        //        Thread th;
-        //        th = new Thread(openEmployeesMain);
-        //        th.TrySetApartmentState(ApartmentState.STA);
-        //        th.Start();
-        //    }
-        //}
+        }
+
+
 
         private void openMain(object obj)
         {
@@ -96,32 +96,42 @@ namespace Electricity_shop
 
         private void Btn_backToMain_Click(object sender, EventArgs e)//יציאה לחלון ראשי
         {
-            if (usersRole == 1)
+            if (from_containerData == 0)
             {
-                this.Close();
-                Thread th;
-                th = new Thread(openMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                if (usersRole == 1)
+                {
+                    this.Close();
+                    Thread th;
+                    th = new Thread(openMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    this.Close();
+                    Thread th;
+                    th = new Thread(openEmployeesMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
             }
-            else
+            else if (from_containerData == 1)
             {
+
                 this.Close();
-                Thread th;
-                th = new Thread(openEmployeesMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
             }
         }
 
         private void Frm_ordersManagement_Load(object sender, EventArgs e)//בעת פתיחת חלון טוען את הטבלה הזמנות מבסיס נתונים
         {
-            Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
+            if (from_containerData == 0)
+            {
+                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text, Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
-            customer Customer;
-            if (Orders_customers != null)
+                customer Customer;
+                if (Orders_customers != null)
 
-                Grd_orders.Rows.Clear();
+                    Grd_orders.Rows.Clear();
 
                 for (int i = 0; i < Orders_customers.Length; i++)
                 {
@@ -141,6 +151,97 @@ namespace Electricity_shop
 
 
                 }
+            }
+            else if(from_containerData ==1)//אם נפתח מדוחות
+            {
+                loadFromContainer();
+            }
+        }
+
+        private void loadFromContainer()
+        {
+            OrdersFromContainer = mySQL.GetOredrsDataByTwoDates(fromDate, toDate);
+
+            if (Cbo_sortByOrderStatus.Text == "לא סופק")
+            {
+                Grd_orders.Rows.Clear();
+
+                for (int i = 0; i < OrdersFromContainer.Length; i++)
+                {
+                    if (OrdersFromContainer[i].Status == 1)
+                    {
+                        Customer = mySQL.GetCustomerDataByID(OrdersFromContainer[i].Customer_id);
+
+                        Grd_orders.Rows.Add(new object[]
+                        {
+                    OrdersFromContainer[i].Order_number,
+                    Customer.Id,
+                    Customer.First_name,
+                    Customer.Last_name,
+                    Customer.Phone_number,
+                    Customer.Address,
+                    OrdersFromContainer[i].Date,
+                    OrdersFromContainer[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+                            });
+                    }
+                }
+            }else if(Cbo_sortByOrderStatus.Text == "סופק")
+            {
+                fromContainerOrdersWaiting();
+            }
+            else if(Cbo_sortByOrderStatus.Text == "הכל")
+            {
+                fromContainerAll();
+            }
+        }
+
+        private void fromContainerAll()
+        {
+            Grd_orders.Rows.Clear();
+
+            for (int i = 0; i < OrdersFromContainer.Length; i++)
+            {
+                
+                    Customer = mySQL.GetCustomerDataByID(OrdersFromContainer[i].Customer_id);
+
+                    Grd_orders.Rows.Add(new object[]
+                    {
+                    OrdersFromContainer[i].Order_number,
+                    Customer.Id,
+                    Customer.First_name,
+                    Customer.Last_name,
+                    Customer.Phone_number,
+                    Customer.Address,
+                    OrdersFromContainer[i].Date,
+                    OrdersFromContainer[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+                        });
+                
+            }
+        }
+
+        private void fromContainerOrdersWaiting()
+        {
+            Grd_orders.Rows.Clear();
+
+            for (int i = 0; i < OrdersFromContainer.Length; i++)
+            {
+                if (OrdersFromContainer[i].Status == 0)
+                {
+                    Customer = mySQL.GetCustomerDataByID(OrdersFromContainer[i].Customer_id);
+
+                    Grd_orders.Rows.Add(new object[]
+                    {
+                    OrdersFromContainer[i].Order_number,
+                    Customer.Id,
+                    Customer.First_name,
+                    Customer.Last_name,
+                    Customer.Phone_number,
+                    Customer.Address,
+                    OrdersFromContainer[i].Date,
+                    OrdersFromContainer[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+                        });
+                }
+            }
         }
 
         private void Btn_updateStatus_Click(object sender, EventArgs e)//עדכון סטטוס
@@ -320,21 +421,29 @@ namespace Electricity_shop
 
         private void Btn_leave_Click(object sender, EventArgs e)
         {
-            if (usersRole == 1)
+            if (from_containerData == 0)
             {
-                this.Close();
-                Thread th;
-                th = new Thread(openMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                if (usersRole == 1)
+                {
+                    this.Close();
+                    Thread th;
+                    th = new Thread(openMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    this.Close();
+                    Thread th;
+                    th = new Thread(openEmployeesMain);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
             }
-            else
+            else if(from_containerData ==1)
             {
+               
                 this.Close();
-                Thread th;
-                th = new Thread(openEmployeesMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
             }
         }
 

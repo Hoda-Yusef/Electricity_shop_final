@@ -10,14 +10,16 @@ namespace Electricity_shop
         int totalProducts = 0;
         string mostSailedCategory = string.Empty;
         Product most_SailedProduct=new Product();
+        string userName;
 
-        public Frm_productsData()
+        public Frm_productsData(string userName)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
             DBSQL.UserName = "root";
             DBSQL.Password = string.Empty;
             mySQL = DBSQL.Instance;
+            this.userName = userName;
         }
        
         private void clearLabels()
@@ -94,17 +96,7 @@ namespace Electricity_shop
                     }
                 }
 
-
-                // כמות מוצרים שנמכרה בין שני התאריכים
-                Lbl_totalProductsNumber.Text = totalProducts.ToString();
-                // מספר מוצרים שעומדים להיגמר מהמלאי
-                Lbl_aboutToRunOutNumber.Text = mySQL.countAboutToEnd().ToString();
-                //מוצרים שאזלו מהמלאי
-                Lbl_outOfStockNumber.Text = mySQL.countOutStockProducts().ToString();
-                Lbl_categoryName.Text = mostSailedCategory;
-                Lbl_productBarcode.Text = most_SailedProduct.Barcode;
-                Lbl_productModel.Text = most_SailedProduct.Model;
-                Lbl_productCategory.Text = most_SailedProduct.Category;
+                displayResult(totalProducts,max_product);
             }
             else
             {
@@ -112,7 +104,32 @@ namespace Electricity_shop
                 clearLabels();
             }
         }
-       
+
+        private void displayResult(int totalProducts,int maxProduct)
+        {
+            // כמות מוצרים שנמכרה בין שני התאריכים
+            Lbl_totalProductsNumber.Text = totalProducts.ToString();
+            // מספר מוצרים שעומדים להיגמר מהמלאי
+            Lbl_aboutToRunOutNumber.Text = mySQL.countAboutToEnd().ToString();
+            //מוצרים שאזלו מהמלאי
+            Lbl_outOfStockNumber.Text = mySQL.countOutStockProducts().ToString();
+            Lbl_categoryName.Text = mostSailedCategory;
+
+            if (most_SailedProduct.Barcode != "")
+                Lbl_productBarcode.Text = most_SailedProduct.Barcode;
+            else
+                Lbl_productBarcode.Text = "-- אין ברקוד --";
+
+            if (most_SailedProduct.Model != "")
+                Lbl_productModel.Text = most_SailedProduct.Model;
+            else
+                Lbl_productModel.Text = "-- אין דגם --";
+
+            Lbl_productCategory.Text = most_SailedProduct.Category;
+
+            Lbl_maxProductAmount.Text = "" + maxProduct + " יחידות";
+        }
+
         private void Frm_productsData_Load(object sender, EventArgs e)
         {
             clearLabels();
@@ -126,6 +143,26 @@ namespace Electricity_shop
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             getDataByTwoDates();
+        }
+
+        private void Lbl_aboutToRunOutNumber_Click(object sender, EventArgs e)
+        {
+            Frm_products_management pm = new Frm_products_management(1, userName, 1);
+
+            pm.Cbo_sortByProductAmount.Text = "עומד להיגמר מהמלאי";
+
+            pm.ShowDialog();
+
+            
+        }
+
+        private void Lbl_outOfStockNumber_Click(object sender, EventArgs e)
+        {
+            Frm_products_management pm = new Frm_products_management(1, userName, 1);
+
+            pm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
+
+            pm.ShowDialog();
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Electricity_shop
         {
             Lbl_title.Text = "מידע לגבי מוצרים";
             this.Pnl_container.Controls.Clear();
-            Frm_productsData productData = new Frm_productsData() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_productsData productData = new Frm_productsData(userName) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             productData.FormBorderStyle = FormBorderStyle.None;
             this.Pnl_container.Controls.Add(productData);
             productData.Show();
@@ -49,7 +49,7 @@ namespace Electricity_shop
         {
             Lbl_title.Text = "רווח והפסד";
             this.Pnl_container.Controls.Clear();
-            Frm_incomeAndOutcome cashData = new Frm_incomeAndOutcome() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_incomeAndOutcome cashData = new Frm_incomeAndOutcome(userName) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             cashData.FormBorderStyle = FormBorderStyle.None;
             this.Pnl_container.Controls.Add(cashData);
             cashData.Show();

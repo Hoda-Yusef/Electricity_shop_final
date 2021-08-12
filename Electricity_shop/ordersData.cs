@@ -114,27 +114,58 @@ namespace Electricity_shop
             Fom.Txt_customerId.Text = Lbl_customersId.Text;
             Fom.ShowDialog();
             
-            /*
-            this.Close();
-            Thread th;
-            th = new Thread(OpenOrderManagement);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();*/
+           
         }
-        /*
+        
+        private void OpenOrderManagement(object obj)
+        {
+            Application.Run(new Frm_ordersManagement(1, userName));
+        }
+
+        private void Lbl_deleviredNumber_Click(object sender, EventArgs e)
+        {
+            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
+            if (Orders != null)
+            {
+                Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1, dateTimePicker_from.Text, dateTimePicker_to.Text);
+
+                om.Cbo_sortByOrderStatus.Text = "סופק";
+
+                om.ShowDialog();
+            }
+            else
+                MessageBox.Show("אין מידע לטווח תאריכים");
+        }
+
+        private void Lbl_waitingOrdersNumber_Click(object sender, EventArgs e)
+        {
+            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
+            if (Orders != null)
+            {
+                Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1, dateTimePicker_from.Text, dateTimePicker_to.Text);
+
+                om.Cbo_sortByOrderStatus.Text = "לא סופק";
+
+                om.ShowDialog();
+            }
+            else
+                MessageBox.Show("אין מידע לטווח תאריכים");
+        }
+
         private void Lbl_totalOrdersNumber_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Thread th;
-            th = new Thread(OpenOrderManagement);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
+            if (Orders != null)
+            {
+                Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1, dateTimePicker_from.Text, dateTimePicker_to.Text);
+
+                om.Cbo_sortByOrderStatus.Text = "הכל";
+
+                om.ShowDialog();
+            }
+            else
+                MessageBox.Show("אין מידע לטווח תאריכים");
         }
-        */
-private void OpenOrderManagement(object obj)
-{
-   Application.Run(new Frm_ordersManagement(1, userName));
-}
     }
 }
   

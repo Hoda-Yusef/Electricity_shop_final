@@ -68,7 +68,7 @@ namespace Electricity_shop
             this.Lbl_fromDate.Location = new System.Drawing.Point(603, 33);
             this.Lbl_fromDate.Name = "Lbl_fromDate";
             this.Lbl_fromDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_fromDate.Size = new System.Drawing.Size(91, 25);
+            this.Lbl_fromDate.Size = new System.Drawing.Size(114, 32);
             this.Lbl_fromDate.TabIndex = 107;
             this.Lbl_fromDate.Text = "מתאריך :";
             // 
@@ -79,7 +79,7 @@ namespace Electricity_shop
             this.Lbl_toDate.Location = new System.Drawing.Point(598, 85);
             this.Lbl_toDate.Name = "Lbl_toDate";
             this.Lbl_toDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_toDate.Size = new System.Drawing.Size(89, 25);
+            this.Lbl_toDate.Size = new System.Drawing.Size(111, 32);
             this.Lbl_toDate.TabIndex = 106;
             this.Lbl_toDate.Text = "לתאריך :";
             // 
@@ -139,7 +139,7 @@ namespace Electricity_shop
             this.Lbl_forCustomer.Location = new System.Drawing.Point(284, 180);
             this.Lbl_forCustomer.Name = "Lbl_forCustomer";
             this.Lbl_forCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_forCustomer.Size = new System.Drawing.Size(76, 25);
+            this.Lbl_forCustomer.Size = new System.Drawing.Size(97, 32);
             this.Lbl_forCustomer.TabIndex = 4;
             this.Lbl_forCustomer.Text = "ללקוח :";
             // 
@@ -171,7 +171,7 @@ namespace Electricity_shop
             this.Lbl_costOfBiggestOrder.Location = new System.Drawing.Point(194, 46);
             this.Lbl_costOfBiggestOrder.Name = "Lbl_costOfBiggestOrder";
             this.Lbl_costOfBiggestOrder.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_costOfBiggestOrder.Size = new System.Drawing.Size(157, 25);
+            this.Lbl_costOfBiggestOrder.Size = new System.Drawing.Size(199, 32);
             this.Lbl_costOfBiggestOrder.TabIndex = 0;
             this.Lbl_costOfBiggestOrder.Text = "עומדת על סה\"כ :";
             // 
@@ -182,7 +182,7 @@ namespace Electricity_shop
             this.Lbl_biggestOrder.Location = new System.Drawing.Point(93, 14);
             this.Lbl_biggestOrder.Name = "Lbl_biggestOrder";
             this.Lbl_biggestOrder.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_biggestOrder.Size = new System.Drawing.Size(241, 25);
+            this.Lbl_biggestOrder.Size = new System.Drawing.Size(302, 32);
             this.Lbl_biggestOrder.TabIndex = 0;
             this.Lbl_biggestOrder.Text = "עסקה הגדולה ביותר להיום";
             // 
@@ -199,13 +199,14 @@ namespace Electricity_shop
             // Lbl_totalOrdersNumber
             // 
             this.Lbl_totalOrdersNumber.AutoSize = true;
+            this.Lbl_totalOrdersNumber.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_totalOrdersNumber.ForeColor = System.Drawing.Color.Yellow;
             this.Lbl_totalOrdersNumber.Location = new System.Drawing.Point(181, 55);
             this.Lbl_totalOrdersNumber.Name = "Lbl_totalOrdersNumber";
-            this.Lbl_totalOrdersNumber.Size = new System.Drawing.Size(23, 25);
+            this.Lbl_totalOrdersNumber.Size = new System.Drawing.Size(28, 32);
             this.Lbl_totalOrdersNumber.TabIndex = 1;
             this.Lbl_totalOrdersNumber.Text = "0";
-           // this.Lbl_totalOrdersNumber.Click += new System.EventHandler(this.Lbl_totalOrdersNumber_Click);
+            this.Lbl_totalOrdersNumber.Click += new System.EventHandler(this.Lbl_totalOrdersNumber_Click);
             // 
             // Lbl_totalOrders
             // 
@@ -215,7 +216,7 @@ namespace Electricity_shop
             this.Lbl_totalOrders.Location = new System.Drawing.Point(125, 14);
             this.Lbl_totalOrders.Name = "Lbl_totalOrders";
             this.Lbl_totalOrders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_totalOrders.Size = new System.Drawing.Size(110, 21);
+            this.Lbl_totalOrders.Size = new System.Drawing.Size(139, 28);
             this.Lbl_totalOrders.TabIndex = 0;
             this.Lbl_totalOrders.Text = "סה\"כ הזמנות ";
             // 
@@ -232,13 +233,14 @@ namespace Electricity_shop
             // Lbl_deleviredNumber
             // 
             this.Lbl_deleviredNumber.AutoSize = true;
+            this.Lbl_deleviredNumber.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_deleviredNumber.ForeColor = System.Drawing.Color.Chartreuse;
             this.Lbl_deleviredNumber.Location = new System.Drawing.Point(41, 32);
             this.Lbl_deleviredNumber.Name = "Lbl_deleviredNumber";
-            this.Lbl_deleviredNumber.Size = new System.Drawing.Size(23, 25);
+            this.Lbl_deleviredNumber.Size = new System.Drawing.Size(28, 32);
             this.Lbl_deleviredNumber.TabIndex = 1;
             this.Lbl_deleviredNumber.Text = "0";
-            //this.Lbl_deleviredNumber.Click += new System.EventHandler(this.Lbl_deleviredNumber_Click);
+            this.Lbl_deleviredNumber.Click += new System.EventHandler(this.Lbl_deleviredNumber_Click);
             // 
             // Lbl_deliveredOrders
             // 
@@ -248,7 +250,7 @@ namespace Electricity_shop
             this.Lbl_deliveredOrders.Location = new System.Drawing.Point(119, 32);
             this.Lbl_deliveredOrders.Name = "Lbl_deliveredOrders";
             this.Lbl_deliveredOrders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_deliveredOrders.Size = new System.Drawing.Size(123, 21);
+            this.Lbl_deliveredOrders.Size = new System.Drawing.Size(153, 28);
             this.Lbl_deliveredOrders.TabIndex = 0;
             this.Lbl_deliveredOrders.Text = "הזמנות שסופקו";
             // 
@@ -265,12 +267,14 @@ namespace Electricity_shop
             // Lbl_waitingOrdersNumber
             // 
             this.Lbl_waitingOrdersNumber.AutoSize = true;
+            this.Lbl_waitingOrdersNumber.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_waitingOrdersNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Lbl_waitingOrdersNumber.Location = new System.Drawing.Point(41, 24);
             this.Lbl_waitingOrdersNumber.Name = "Lbl_waitingOrdersNumber";
-            this.Lbl_waitingOrdersNumber.Size = new System.Drawing.Size(23, 25);
+            this.Lbl_waitingOrdersNumber.Size = new System.Drawing.Size(28, 32);
             this.Lbl_waitingOrdersNumber.TabIndex = 1;
             this.Lbl_waitingOrdersNumber.Text = "0";
+            this.Lbl_waitingOrdersNumber.Click += new System.EventHandler(this.Lbl_waitingOrdersNumber_Click);
             // 
             // Lbl_waitingOrders
             // 
@@ -280,7 +284,7 @@ namespace Electricity_shop
             this.Lbl_waitingOrders.Location = new System.Drawing.Point(87, 24);
             this.Lbl_waitingOrders.Name = "Lbl_waitingOrders";
             this.Lbl_waitingOrders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_waitingOrders.Size = new System.Drawing.Size(148, 21);
+            this.Lbl_waitingOrders.Size = new System.Drawing.Size(186, 28);
             this.Lbl_waitingOrders.TabIndex = 0;
             this.Lbl_waitingOrders.Text = "הזמנות שלא סופקו";
             // 
@@ -305,7 +309,7 @@ namespace Electricity_shop
             this.dateTimePicker_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_from.Location = new System.Drawing.Point(392, 33);
             this.dateTimePicker_from.Name = "dateTimePicker_from";
-            this.dateTimePicker_from.Size = new System.Drawing.Size(200, 32);
+            this.dateTimePicker_from.Size = new System.Drawing.Size(200, 38);
             this.dateTimePicker_from.TabIndex = 109;
             this.dateTimePicker_from.ValueChanged += new System.EventHandler(this.dateTimePicker_from_ValueChanged);
             // 
@@ -321,13 +325,13 @@ namespace Electricity_shop
             this.dateTimePicker_to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_to.Location = new System.Drawing.Point(392, 85);
             this.dateTimePicker_to.Name = "dateTimePicker_to";
-            this.dateTimePicker_to.Size = new System.Drawing.Size(200, 32);
+            this.dateTimePicker_to.Size = new System.Drawing.Size(200, 38);
             this.dateTimePicker_to.TabIndex = 110;
             this.dateTimePicker_to.ValueChanged += new System.EventHandler(this.dateTimePicker_to_ValueChanged);
             // 
             // Frm_ordersData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(733, 475);
