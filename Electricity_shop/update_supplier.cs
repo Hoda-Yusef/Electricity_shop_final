@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה להצגת ועדכון פרטים של ספק
     public partial class Frm_updateSupplier : Form
     {
         bool drag = false;
@@ -28,13 +29,15 @@ namespace Electricity_shop
             userName = username;
         }
 
-        private void Btn_exit_Click(object sender, EventArgs e)//יציאה
+        //יציאה
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
 
-        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים אפשר להזין
+        //רק מספרים אפשר להזין
+        private void Txt_firstName_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -43,7 +46,8 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים אפשר להזין
+        //רק אותיות אפשר להזין
+        private void Txt_lastName_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -52,7 +56,8 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים אפשר להזין
+        //רק אותיות אפשר להזין
+        private void Txt_address_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -61,7 +66,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות אפשר להזין
+        private void Txt_phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -70,7 +75,8 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות אפשר להזין
+        //רק אותיות אפשר להזין
+        private void Txt_supplierDept_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -79,7 +85,8 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_paidToSupplier_KeyPress(object sender, KeyPressEventArgs e)//רק אותיות אפשר להזין
+        //רק אותיות אפשר להזין
+        private void Txt_paidToSupplier_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!char.IsDigit(ch) && ch != 8 && ch != 9 && ch != 11)
@@ -101,7 +108,8 @@ namespace Electricity_shop
             return (this.Txt_phoneNumber.Text.Length == 10);
         }
 
-        private void Txt_phoneNumber_Leave(object sender, EventArgs e)//בודק אם מספר הטלפון נכון בעל 10 ספרות
+        //בודק אם מספר הטלפון נכון בעל 10 ספרות
+        private void Txt_phoneNumber_Leave(object sender, EventArgs e)
         {
             // בודקים תקינות קלט
             if (Check_phone_number() == false && count == 0)
@@ -112,25 +120,16 @@ namespace Electricity_shop
             }
             else
             {
-                if (Check_phone_number() == true && count == 0)
-                {
-                    //לא מבצעים פעולות
-                    // נשאר count=0
-                }
-                else
-                {
-                    if (Check_phone_number() == true)
-                    {
-                        phoneErrorProvider.SetError(Txt_phoneNumber, "");
-                    }
-                    else
-                    {
-                        phoneErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
-                    }
-                }
+                checkValidPhone();
             }
 
             // בודקים אם ספק קיים לפי מספר פלאפון
+            checkExistingPhoneNumber();
+        }
+
+        // בודקים אם ספק קיים לפי מספר פלאפון
+        private void checkExistingPhoneNumber()
+        {
             if (Txt_phoneNumber.Text != "")
             {
                 supplier[] Suppliers = mySQL.GetSupplierData();
@@ -157,6 +156,26 @@ namespace Electricity_shop
             }
         }
 
+        private void checkValidPhone()
+        {
+            if (Check_phone_number() == true && count == 0)
+            {
+                //לא מבצעים פעולות
+                // נשאר count=0
+            }
+            else
+            {
+                if (Check_phone_number() == true)
+                {
+                    phoneErrorProvider.SetError(Txt_phoneNumber, "");
+                }
+                else
+                {
+                    phoneErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל בדיוק 10 ספרות");
+                }
+            }
+        }
+
         private bool Check_phoneNumber()
         {
             return (Txt_phoneNumber.Text.Length == 10);
@@ -164,18 +183,22 @@ namespace Electricity_shop
 
 
 
-        private void Btn_updateSupplier_Click(object sender, EventArgs e)//בעת לחיצה על עדכן
+        //בעת לחיצה על עדכן
+        private void Btn_updateSupplier_Click(object sender, EventArgs e)
         {
+            //בודק אם לא נשאר שדות ריקות
             if ((Txt_firstName.Text != "" || Txt_lastName.Text != "") && Txt_address.Text != ""
-                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true)//בודק אם לא נשאר שדות ריקות
+                && Txt_phoneNumber.Text != "" && Check_phoneNumber() == true)
             {
                 Fill_obj(load_supplier);
-                mySQL.UpdateSupplierBySerial(load_supplier);// אם הכל תקין  אז מעדכן את בסיסי נתונים
+                // אם הכל תקין  אז מעדכן את בסיסי נתונים
+                mySQL.UpdateSupplierBySerial(load_supplier);
                 MessageBox.Show("ספק עודכן בהצלחה");
                 this.Close();
             }
             else
-                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");//אם לא מציג הודעה מתאימה
+                //אם לא מציג הודעה מתאימה
+                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");
 
         }
 

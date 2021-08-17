@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמציגה דוח על רווח והפסד דרך טווח תאריכים
     public partial class Frm_incomeAndOutcome : Form
     {
         private DBSQL mySQL;
@@ -41,44 +42,49 @@ namespace Electricity_shop
             int lose = 0;
             double VAT=0,vatPercentage=0;
             vatPercentage = getVatData();
-            //double vatP = mySQL.Getvat();
 
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
 
             if (Orders != null)
             {
-                for (int i = 0; i < Orders.Length; i++)//לולאה עוברת על ההזמנות שבין שני התאריכים
-                {
-                    Product_order = mySQL.GetProduct_orderDataByOrderNumber(Orders[i].Order_number.ToString());
-
-                    if (Product_order != null)
-                    {
-                        for (int j = 0; j < Product_order.Length; j++)
-                        {
-                            product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
-
-                            brutoEarnings += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
-                            pure_price += ((product.Selling_price - product.Cost_price) -
-                                ((product.Selling_price - product.Cost_price) * (double)vatPercentage / 100)) *
-                                Product_order[j].Amount;//מחשב סכום רווח נטו
-
-                            VAT += ((product.Selling_price - product.Cost_price) * (double)vatPercentage / 100) * Product_order[j].Amount;
-                            lose += product.Cost_price;//מחשב סכום הפסד
-
-                        }
-                    }
-                }
-                Lbl_brutoEarnings.Text = brutoEarnings.ToString();
-                Lbl_totalIncome.Text = Math.Round(pure_price, 2).ToString();
-                Lbl_vatTotal.Text = Math.Round(VAT, 2).ToString();
-                Lbl_totalOutcome.Text = lose.ToString();
-               // Txt_vat.Text = VatPercentage.ToString();
+                calculateIncomeOutcome(brutoEarnings, pure_price, VAT, lose, vatPercentage);
             }
             else
             {
                 MessageBox.Show("אין מידע לטווח תאריכים");
                 clearData();
             }
+        }
+
+        private void calculateIncomeOutcome(int brutoEarnings, double pure_price,
+            double VAT, int lose, double vatPercentage)
+        {
+            for (int i = 0; i < Orders.Length; i++)//לולאה עוברת על ההזמנות שבין שני התאריכים
+            {
+                Product_order = mySQL.GetProduct_orderDataByOrderNumber(Orders[i].Order_number.ToString());
+
+                if (Product_order != null)
+                {
+                    for (int j = 0; j < Product_order.Length; j++)
+                    {
+                        product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
+
+                        brutoEarnings += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
+                        pure_price += ((product.Selling_price - product.Cost_price) -
+                            ((product.Selling_price - product.Cost_price) * (double)vatPercentage / 100)) *
+                            Product_order[j].Amount;//מחשב סכום רווח נטו
+
+                        VAT += ((product.Selling_price - product.Cost_price) * 
+                            (double)vatPercentage / 100) * Product_order[j].Amount;
+                        lose += product.Cost_price;//מחשב סכום הפסד
+
+                    }
+                }
+            }
+            Lbl_brutoEarnings.Text = brutoEarnings.ToString();
+            Lbl_totalIncome.Text = Math.Round(pure_price, 2).ToString();
+            Lbl_vatTotal.Text = Math.Round(VAT, 2).ToString();
+            Lbl_totalOutcome.Text = lose.ToString();
         }
 
         private void clearData()

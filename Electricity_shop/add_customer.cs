@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
-
+    //מחלקה שמוסיפה לקוח לבסיס נתונים
     public partial class Frm_addCustomer : Form
     {
         bool drag = false;
@@ -100,23 +100,30 @@ namespace Electricity_shop
                         }
                     }
                 }
-
-                if (same)
-                {
-                    //לקוח קיים מציגים את פרטיו בתיבות הטקסט בהתאם
-                    Same_customer(cust);
-                }
-                else
-                {
-                    //לקוח חדש
-                    New_customer(cust);
-                }
+                checkIfSameCustomer(same,cust);
+                
             }
             //חסר נתונים או נתונים לא תקינים
             else
                 MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות,יש למלא את כל השדות");
 
         }
+
+        private void checkIfSameCustomer(bool same, customer cust)
+        {
+            if (same)
+            {
+                //לקוח קיים מציגים את פרטיו בתיבות הטקסט בהתאם
+                Same_customer(cust);
+            }
+            else
+            {
+                //לקוח חדש
+                New_customer(cust);
+            }
+        }
+
+
 
         //פונקציה יוצרת לקוח חדש
         private void New_customer(customer cust)
@@ -211,35 +218,42 @@ namespace Electricity_shop
                         idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
                     }
                 }
-                // בודקים אם לקוח קיים לפי תעודת זהות
-                if (Txt_customerId.Text != "")
+                checkExistingCustomerById();
+                
+            }
+        }
+        // בודקים אם לקוח קיים לפי תעודת זהות
+
+        private void checkExistingCustomerById()
+        {
+            if (Txt_customerId.Text != "")
+            {
+                customer[] Customer = mySQL.GetCustomerData();
+                string idTmp = Txt_customerId.Text;
+
+                if (Customer != null)
                 {
-                    customer[] Customer = mySQL.GetCustomerData();
-                    string idTmp = Txt_customerId.Text;
 
-                    if (Customer != null)
+                    for (int i = 0; i < Customer.Length; i++)
                     {
-
-                        for (int i = 0; i < Customer.Length; i++)
+                        if (idTmp == Customer[i].Id.ToString())
                         {
-                            if (idTmp == Customer[i].Id.ToString())
-                            {
-                                Txt_customerId.Text = Customer[i].Id.ToString();
-                                Txt_firstName.Text = Customer[i].First_name;
-                                Txt_lastName.Text = Customer[i].Last_name;
-                                Txt_phoneNumber.Text = Customer[i].Phone_number;
-                                Txt_address.Text = Customer[i].Address;
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_firstName.Text = Customer[i].First_name;
+                            Txt_lastName.Text = Customer[i].Last_name;
+                            Txt_phoneNumber.Text = Customer[i].Phone_number;
+                            Txt_address.Text = Customer[i].Address;
 
-                            }
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");
-                }
+            }
+            else
+            {
+                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");
             }
         }
+
         //הגדרת סוג תו שאפשר לקלוט
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {

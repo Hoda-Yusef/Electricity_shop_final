@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמציגה את המוצרים שנמצאים בהזמנה  
     public partial class Frm_productsList : Form
     {
 
@@ -13,6 +14,7 @@ namespace Electricity_shop
         bool drag = false;
         Point sp = new Point(0, 0);
         int userRole;
+        int Total_price = 0, total_amount = 0;
 
         public Frm_productsList(int role)
         {
@@ -54,7 +56,7 @@ namespace Electricity_shop
         //בעת פתיחת חלון הטבלה נטענת בפרטים של ההזמנה
         private void Frm_productsList_Load(object sender, EventArgs e)
         {
-            int Total_price = 0, total_amount = 0;
+            
 
             string show = Lbl_showOrderNumber.Text;
 
@@ -62,24 +64,7 @@ namespace Electricity_shop
 
             if (Product_order != null)
             {
-                for (int i = 0; i < Product_order.Length; i++)
-                {
-                    Product Product = mySQL.GetProductDataBySerialNumber(Product_order[i].Product_serial_number.ToString());
-
-                    Grd_productsList.Rows.Add(new object[]
-                    {
-                    Product.Barcode,
-                    Product.Category,
-                    Product.Manufacturer,
-                    Product.Model,
-                    Product.Selling_price,
-                    Product_order[i].Amount,
-                    Product.Product_info
-                    });
-
-                    total_amount += Convert.ToInt32(Product_order[i].Amount);
-                    Total_price += Convert.ToInt32(Product.Selling_price) * Product_order[i].Amount;
-                }
+                fillGrid(Product_order);
             }
             else
                 MessageBox.Show("אין מוצרים להזמנה");//אם אין מוצרים בהזמנה
@@ -88,6 +73,30 @@ namespace Electricity_shop
             Lbl_showTotalAmount.Text = total_amount.ToString();//סופר כמות היחידות של מוצרים
             Lbl_showTotalPrice.Text = Total_price.ToString();//סופר את סכום של כל המוצרים
 
+        }
+
+        //פונקצייה למילוי טבלה במוצרים
+        private void fillGrid(product_order[] Product_order)
+        {
+            for (int i = 0; i < Product_order.Length; i++)
+            {
+                Product Product = mySQL.GetProductDataBySerialNumber(
+                    Product_order[i].Product_serial_number.ToString());
+
+                Grd_productsList.Rows.Add(new object[]
+                {
+                    Product.Barcode,
+                    Product.Category,
+                    Product.Manufacturer,
+                    Product.Model,
+                    Product.Selling_price,
+                    Product_order[i].Amount,
+                    Product.Product_info
+                });
+
+                total_amount += Convert.ToInt32(Product_order[i].Amount);
+                Total_price += Convert.ToInt32(Product.Selling_price) * Product_order[i].Amount;
+            }
         }
 
         private void Btn_exit_Click(object sender, EventArgs e)//סגירה

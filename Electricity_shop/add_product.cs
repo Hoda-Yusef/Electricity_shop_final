@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמוסיפה מוצרים לבסיסי נתונים ומעדכנת פרטים אם מוצר קיים במערכת
     public partial class Frm_addProduct : Form
     {
         Product load_products;
@@ -248,7 +249,6 @@ namespace Electricity_shop
 
                 if (Product != null)
                 {
-
                     for (int i = 0; i < Product.Length; i++)
                     {
                         if (temporary_barcode == Product[i].Barcode.ToString())
@@ -262,15 +262,18 @@ namespace Electricity_shop
                             Txt_supplier.Text = load_products.Supplier.ToString();
                             Txt_costPrice.Text = load_products.Cost_price.ToString();
                             Txt_sellingPrice.Text = load_products.Selling_price.ToString();
-                            //productAmount.Value = load_products.Amount;
                             Txt_productInformation.Text = load_products.Product_info.ToString();
                             Read_only_true();
-
                         }
                     }
                 }
             }
+            checkLeavingBarcode();
+            
+        }
 
+        private void checkLeavingBarcode()
+        {
             if (Check_barcode() == false && count == 0)
             {
                 count++;
@@ -298,6 +301,7 @@ namespace Electricity_shop
                 }
             }
         }
+
         //מגדירים איזה תווים במקלגת תקבל תיבת הטקסט
         private void Txt_costPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -321,8 +325,6 @@ namespace Electricity_shop
                 Product Prod = new Product();
                 string barcodeTmp = Txt_barcode.Text;
                 string modelTmp = Txt_model.Text;
-
-
 
                 if (Product != null)
                 {
@@ -351,20 +353,8 @@ namespace Electricity_shop
                     }
                 }
                 // במידה והמוצר קיים אז ניתן להוסיף כמות
-                if (same)
-                {
-                    int new_amount = Convert.ToInt32(productAmount.Value) + load_products.Amount;
-
-                    mySQL.UpdateProductAmountBySerial(new_amount, load_products.Product_serial_number.ToString());
-                    MessageBox.Show("מוצר קיים , עודכן בהצלחה");
-                    Clear_boxes();
-                }
-                // אחרת יוצרים אובייקט חדש מסוג מוצר ושומרים אותו בבסיס הנתונים
-                else
-                {
-                    New_product(Prod);
-                    Clear_boxes();
-                }
+                checkSAmeProduct(same,Prod);
+               
             }
             // במידה ויש פרטים חסרים
             else
@@ -372,6 +362,27 @@ namespace Electricity_shop
                 MessageBox.Show("יש למלא את כל השדות");
             }
         }
+
+        // במידה והמוצר קיים אז ניתן להוסיף כמות
+
+        private void checkSAmeProduct(bool same, Product Prod)
+        {
+            if (same)
+            {
+                int new_amount = Convert.ToInt32(productAmount.Value) + load_products.Amount;
+
+                mySQL.UpdateProductAmountBySerial(new_amount, load_products.Product_serial_number.ToString());
+                MessageBox.Show("מוצר קיים , עודכן בהצלחה");
+                Clear_boxes();
+            }
+            // אחרת יוצרים אובייקט חדש מסוג מוצר ושומרים אותו בבסיס הנתונים
+            else
+            {
+                New_product(Prod);
+                Clear_boxes();
+            }
+        }
+
         //לחיצה על כפתור נקה
         private void Btn_clearAll_Click(object sender, EventArgs e)
         {
@@ -408,7 +419,6 @@ namespace Electricity_shop
                             Txt_supplier.Text = load_products.Supplier.ToString();
                             Txt_costPrice.Text = load_products.Cost_price.ToString();
                             Txt_sellingPrice.Text = load_products.Selling_price.ToString();
-                            //productAmount.Value = load_products.Amount;
                             Txt_productInformation.Text = load_products.Product_info.ToString();
                             Read_only_true();
                         }

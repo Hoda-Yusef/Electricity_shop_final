@@ -2,6 +2,7 @@
 
 namespace Electricity_shop
 {
+    //מחלקה הלמוצרים
     public class Product
     {
         private int product_serial_number;

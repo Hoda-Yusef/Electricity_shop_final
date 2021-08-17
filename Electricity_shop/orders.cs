@@ -2,6 +2,7 @@
 
 namespace Electricity_shop
 {
+    //מחלקה של ההזמנות
     public class orders
     {
         private int order_number;

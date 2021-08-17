@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמציגה מוצרים שניתן להוסיף לעגלה
     public partial class Frm_cartProductMenu : Form
     {
         //Thread th;
@@ -250,9 +251,13 @@ namespace Electricity_shop
                         }
                     }
                 }
-
             }
+            checkIfproductSelected(same,amount,itemBarcode,itemModel);
+            
+        }
 
+        private void checkIfproductSelected(bool same, int amount, string itemBarcode, string itemModel)
+        {
             if (same)//בודקים אם קיים
             {
                 MessageBox.Show("מוצר קיים בעגלה", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -280,6 +285,7 @@ namespace Electricity_shop
 
             amountChoose.Value = 1;//מחזירים את כמות הבחירה ל 1
         }
+
         private void OpenMain(object obj)
         {
             Application.Run(new Frm_main(usersRole, userName));

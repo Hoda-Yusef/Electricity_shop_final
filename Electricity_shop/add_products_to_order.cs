@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמוסיפה מוצרים להזמנה 
     public partial class Frm_addProductsToOrder : Form
     {
         private DBSQL mySQL;
@@ -242,32 +243,10 @@ namespace Electricity_shop
             {
                 if (amount != 0)//בודק אם המלאי קיים למוצר הספיציפי
                 {
-                    if (amount - Convert.ToInt32(amountChoose.Value) >= 0)//בודקים אם יש מספיק מלאי לכמות המבוקשת
+                    //בודקים אם יש מספיק מלאי לכמות המבוקשת
+                    if (amount - Convert.ToInt32(amountChoose.Value) >= 0)
                     {
-                        if (itemBarcode != "")
-                        {
-                            Product = mySQL.GetProductDataByBarcode(itemBarcode);//שולפים מידע למוצר הקיים
-                            mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
-                            mySQL.UpdateProductAmountByBarcode(amount - Convert.ToInt32(amountChoose.Value), itemBarcode);//מעדכנים את הכמות של המוצר הקיים
-                            MessageBox.Show("מוצר התווסף להזמנה");
-                            Thread th;
-                            this.Close();
-                            th = new Thread(OpenSelf);
-                            th.TrySetApartmentState(ApartmentState.STA);
-                            th.Start();
-                        }
-                        else if (itemModel != "")
-                        {
-                            Product = mySQL.GetProductDataByModel(itemModel);//שולפים מידע למוצר הקיים
-                            mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
-                            mySQL.UpdateProductAmountByModel(amount - Convert.ToInt32(amountChoose.Value), itemModel);//מעדכנים את הכמות של המוצר הקיים
-                            MessageBox.Show("מוצר התווסף להזמנה");
-                            Thread th;
-                            this.Close();
-                            th = new Thread(OpenSelf);
-                            th.TrySetApartmentState(ApartmentState.STA);
-                            th.Start();
-                        }
+                        checkEnoughProduts(itemBarcode,amount,itemModel);  
                     }
                     else
                         MessageBox.Show("לא מספיק מלאי לכמות המבוקשת");
@@ -276,6 +255,34 @@ namespace Electricity_shop
                     MessageBox.Show("מוצר אזל מהמלאי", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             amountChoose.Value = 1;
+        }
+
+        private void checkEnoughProduts(string itemBarcode, int amount, string itemModel)
+        {
+            if (itemBarcode != "")
+            {
+                Product = mySQL.GetProductDataByBarcode(itemBarcode);//שולפים מידע למוצר הקיים
+                mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
+                mySQL.UpdateProductAmountByBarcode(amount - Convert.ToInt32(amountChoose.Value), itemBarcode);//מעדכנים את הכמות של המוצר הקיים
+                MessageBox.Show("מוצר התווסף להזמנה");
+                Thread th;
+                this.Close();
+                th = new Thread(OpenSelf);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else if (itemModel != "")
+            {
+                Product = mySQL.GetProductDataByModel(itemModel);//שולפים מידע למוצר הקיים
+                mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(order_number_holder), Convert.ToInt32(amountChoose.Value));//מוסיפים את המוצר המובקש להזמנה
+                mySQL.UpdateProductAmountByModel(amount - Convert.ToInt32(amountChoose.Value), itemModel);//מעדכנים את הכמות של המוצר הקיים
+                MessageBox.Show("מוצר התווסף להזמנה");
+                Thread th;
+                this.Close();
+                th = new Thread(OpenSelf);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void Btn_backToOrder_Click(object sender, EventArgs e)

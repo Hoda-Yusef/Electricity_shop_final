@@ -2,6 +2,7 @@
 
 namespace Electricity_shop
 {
+    //מחלקה של עגלה
     public class Cart
     {
         private string product_barcode;

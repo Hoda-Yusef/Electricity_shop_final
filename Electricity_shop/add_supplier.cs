@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמוסיפה ספק לבסיסי נתונים
     public partial class Frm_addSupplier : Form
     {
         bool drag = false;
@@ -84,42 +85,45 @@ namespace Electricity_shop
                         }
                     }
                 }
-
-                if (same)//אם ספק קיים 
-                {
-                    MessageBox.Show("ספק קיים. ניתן לעדכן פרטים");
-
-                    Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole,userName);
-                    supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);//שולף מידע על ספק לפי מספר טלפון
-                    uSupplier.Txt_firstName.Text = supp.FirstName;
-                    uSupplier.Txt_lastName.Text = supp.LasttName;
-                    uSupplier.Txt_address.Text = supp.Address;
-                    uSupplier.Txt_phoneNumber.Text = supp.Phone_number;
-                    uSupplier.Txt_supplierDept.Text = supp.Dept.ToString();
-                    uSupplier.Txt_paidToSupplier.Text = supp.Paid.ToString();
-                    uSupplier.ShowDialog();
-                    this.Close();
-                    uSupplier.Close();
-
-                    th = new Thread(Open_supManagment);
-                    th.TrySetApartmentState(ApartmentState.STA);
-                    th.Start();
-
-
-                }
-                else
-                {
-                    New_supplier(supp);//אם ספק חדש
-
-                    this.Close();
-                    th = new Thread(Open_supManagment);
-                    th.TrySetApartmentState(ApartmentState.STA);
-                    th.Start();
-                }
+                ifSupplierExist(same,supp);
+                
             }
             else
             {
                 MessageBox.Show("קלט לא תקין:נא לבדוק תקינות נתונים בשדות");
+            }
+        }
+
+        private void ifSupplierExist(bool same ,supplier supp)
+        {
+            if (same)//אם ספק קיים 
+            {
+                MessageBox.Show("ספק קיים. ניתן לעדכן פרטים");
+
+                Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole, userName);
+                supp = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);//שולף מידע על ספק לפי מספר טלפון
+                uSupplier.Txt_firstName.Text = supp.FirstName;
+                uSupplier.Txt_lastName.Text = supp.LasttName;
+                uSupplier.Txt_address.Text = supp.Address;
+                uSupplier.Txt_phoneNumber.Text = supp.Phone_number;
+                uSupplier.Txt_supplierDept.Text = supp.Dept.ToString();
+                uSupplier.Txt_paidToSupplier.Text = supp.Paid.ToString();
+                uSupplier.ShowDialog();
+                this.Close();
+                uSupplier.Close();
+
+                th = new Thread(Open_supManagment);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                New_supplier(supp);//אם ספק חדש
+
+                this.Close();
+                th = new Thread(Open_supManagment);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
             }
         }
 
@@ -145,7 +149,6 @@ namespace Electricity_shop
             }
             else
             {
-
                 if (Txt_supplierDept.Text == "" && Txt_payedForSupplier.Text == "")
                 {
                     supp.FirstName = Txt_firstName.Text;
@@ -157,35 +160,39 @@ namespace Electricity_shop
                     MessageBox.Show("ספק הוסף בהצלחה");
                     Clear_boxes();
                 }
-
                 else
                 {
-                    if (Txt_supplierDept.Text != "" && Txt_payedForSupplier.Text == "")
-                    {
-                        supp.FirstName = Txt_firstName.Text;
-                        supp.LasttName = Txt_lastName.Text;
-                        supp.Address = Txt_address.Text;
-                        supp.Phone_number = Txt_phoneNumber.Text;
-                        supp.Dept = Convert.ToInt32(Txt_supplierDept.Text);
-                        mySQL.InsertSupplier(supp);
-
-                        MessageBox.Show("ספק הוסף בהצלחה");
-                        Clear_boxes();
-                    }
-
-                    else
-                    {
-                        supp.FirstName = Txt_firstName.Text;
-                        supp.LasttName = Txt_lastName.Text;
-                        supp.Address = Txt_address.Text;
-                        supp.Phone_number = Txt_phoneNumber.Text;
-                        supp.Paid = Convert.ToInt32(Txt_payedForSupplier.Text);
-                        mySQL.InsertSupplier(supp);
-
-                        MessageBox.Show("ספק הוסף בהצלחה");
-                        Clear_boxes();
-                    }
+                    checkExistingSupplier(supp);
                 }
+            }
+        }
+
+        private void checkExistingSupplier(supplier supp)
+        {
+            if (Txt_supplierDept.Text != "" && Txt_payedForSupplier.Text == "")
+            {
+                supp.FirstName = Txt_firstName.Text;
+                supp.LasttName = Txt_lastName.Text;
+                supp.Address = Txt_address.Text;
+                supp.Phone_number = Txt_phoneNumber.Text;
+                supp.Dept = Convert.ToInt32(Txt_supplierDept.Text);
+                mySQL.InsertSupplier(supp);
+
+                MessageBox.Show("ספק הוסף בהצלחה");
+                Clear_boxes();
+            }
+
+            else
+            {
+                supp.FirstName = Txt_firstName.Text;
+                supp.LasttName = Txt_lastName.Text;
+                supp.Address = Txt_address.Text;
+                supp.Phone_number = Txt_phoneNumber.Text;
+                supp.Paid = Convert.ToInt32(Txt_payedForSupplier.Text);
+                mySQL.InsertSupplier(supp);
+
+                MessageBox.Show("ספק הוסף בהצלחה");
+                Clear_boxes();
             }
         }
 

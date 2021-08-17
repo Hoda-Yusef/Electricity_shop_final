@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה לניהול והצגת פרטים של הלקוחות 
     public partial class FrmCustomers_management : Form
     {
         bool drag = false;

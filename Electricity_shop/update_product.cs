@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמציגה ומעדכנת פרטים של מוצר
     public partial class Frm_updateProduct : Form
     {
 
@@ -30,7 +31,8 @@ namespace Electricity_shop
         private void Btn_updateProduct_Click(object sender, EventArgs e)
         {
             //בודקים תקינות נתוהים שנקלטו
-            if ((Txt_model.Text != "" || Txt_barcode.Text != "") && Txt_category.Text != "" && Txt_manufacturer.Text != ""
+            if ((Txt_model.Text != "" || Txt_barcode.Text != "")
+                && Txt_category.Text != "" && Txt_manufacturer.Text != ""
                  && Txt_cost_price.Text != "" && Txt_selling_price.Text != "" && Txt_amount.Text != "")
             {
                 //במידה ותקינים אז מעדכנים אותם בבסיס נתונים והשינויים נשמרים
@@ -64,32 +66,38 @@ namespace Electricity_shop
             }
             else
             {
-                if (Txt_barcode.Text == "" && Txt_model.Text != "")
-                {
-                    items.Barcode = "";
-                    items.Category = Txt_category.Text;
-                    items.Model = Txt_model.Text;
-                    items.Manufacturer = Txt_manufacturer.Text;
-                    items.Supplier = Txt_supplier.Text;
-                    items.Cost_price = Convert.ToInt32(Txt_cost_price.Text);
-                    items.Selling_price = Convert.ToInt32(Txt_selling_price.Text);
-                    items.Amount = Convert.ToInt32(Txt_amount.Text);
-                    items.Product_info = Txt_productInfo.Text;
-                }
-                else
-                {
-                    items.Barcode = Txt_barcode.Text;
-                    items.Category = Txt_category.Text;
-                    items.Model = "";
-                    items.Manufacturer = Txt_manufacturer.Text;
-                    items.Supplier = Txt_supplier.Text;
-                    items.Cost_price = Convert.ToInt32(Txt_cost_price.Text);
-                    items.Selling_price = Convert.ToInt32(Txt_selling_price.Text);
-                    items.Amount = Convert.ToInt32(Txt_amount.Text);
-                    items.Product_info = Txt_productInfo.Text;
-                }
+                checkFilledBoxes(items);
             }
         }
+
+        private void checkFilledBoxes(Product items)
+        {
+            if (Txt_barcode.Text == "" && Txt_model.Text != "")
+            {
+                items.Barcode = "";
+                items.Category = Txt_category.Text;
+                items.Model = Txt_model.Text;
+                items.Manufacturer = Txt_manufacturer.Text;
+                items.Supplier = Txt_supplier.Text;
+                items.Cost_price = Convert.ToInt32(Txt_cost_price.Text);
+                items.Selling_price = Convert.ToInt32(Txt_selling_price.Text);
+                items.Amount = Convert.ToInt32(Txt_amount.Text);
+                items.Product_info = Txt_productInfo.Text;
+            }
+            else
+            {
+                items.Barcode = Txt_barcode.Text;
+                items.Category = Txt_category.Text;
+                items.Model = "";
+                items.Manufacturer = Txt_manufacturer.Text;
+                items.Supplier = Txt_supplier.Text;
+                items.Cost_price = Convert.ToInt32(Txt_cost_price.Text);
+                items.Selling_price = Convert.ToInt32(Txt_selling_price.Text);
+                items.Amount = Convert.ToInt32(Txt_amount.Text);
+                items.Product_info = Txt_productInfo.Text;
+            }
+        }
+
         //הגדרת סוג תו
         private void Txt_cost_price_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -155,49 +163,60 @@ namespace Electricity_shop
             }
             else
             {
-                if (Check_barcode() == true && count == 0)
-                {
-                    //לא מבצעים פעולות
-                    // נשאר count=0
-                }
-                else
-                {
-                    if (Check_barcode() == true)
-                    {
-                        barcodeErrorProvider.SetError(Txt_barcode, "");
-                    }
-                    else
-                    {
-                        barcodeErrorProvider.SetError(Txt_barcode, "ברקוד מכיל 13 או 12 ספרות");
-                    }
-                }
+                checkValidBarcode();
             }
 
             // בודקים אם מוצר קיים לפי ברקוד
             if (Txt_barcode.Text != "")
             {
-                Product[] product = mySQL.GetProductData();
-                string barcodeTmp = Txt_barcode.Text;
+                checkExistingProductByBarcode();
+            }
+        }
 
-                for (int i = 0; i < product.Length; i++)
+        private void checkExistingProductByBarcode()
+        {
+            Product[] product = mySQL.GetProductData();
+            string barcodeTmp = Txt_barcode.Text;
+
+            for (int i = 0; i < product.Length; i++)
+            {
+                if (barcodeTmp == product[i].Barcode.ToString())
                 {
-                    if (barcodeTmp == product[i].Barcode.ToString())
-                    {
 
-                        Txt_barcode.Text = product[i].Barcode.ToString();
-                        Txt_category.Text = product[i].Category;
-                        Txt_model.Text = product[i].Model;
-                        Txt_manufacturer.Text = product[i].Manufacturer;
-                        Txt_supplier.Text = product[i].Supplier;
-                        Txt_cost_price.Text = product[i].Cost_price.ToString();
-                        Txt_selling_price.Text = product[i].Selling_price.ToString();
-                        Txt_amount.Text = product[i].Amount.ToString();
-                        Txt_productInfo.Text = product[i].Product_info;
+                    Txt_barcode.Text = product[i].Barcode.ToString();
+                    Txt_category.Text = product[i].Category;
+                    Txt_model.Text = product[i].Model;
+                    Txt_manufacturer.Text = product[i].Manufacturer;
+                    Txt_supplier.Text = product[i].Supplier;
+                    Txt_cost_price.Text = product[i].Cost_price.ToString();
+                    Txt_selling_price.Text = product[i].Selling_price.ToString();
+                    Txt_amount.Text = product[i].Amount.ToString();
+                    Txt_productInfo.Text = product[i].Product_info;
 
-                    }
                 }
             }
         }
+
+        private void checkValidBarcode()
+        {
+            if (Check_barcode() == true && count == 0)
+            {
+                //לא מבצעים פעולות
+                // נשאר count=0
+            }
+            else
+            {
+                if (Check_barcode() == true)
+                {
+                    barcodeErrorProvider.SetError(Txt_barcode, "");
+                }
+                else
+                {
+                    barcodeErrorProvider.SetError(Txt_barcode, "ברקוד מכיל 13 או 12 ספרות");
+                }
+            }
+        }
+
         //לחיצה על כפתור ביטול
         private void Btn_cancel_Click(object sender, EventArgs e)
         {
@@ -227,7 +246,6 @@ namespace Electricity_shop
         private void Txt_model_Leave(object sender, EventArgs e)
         {
             // בודקים אם מוצר קיים לפי דגם
-
             if (Txt_model.Text != "")
             {
                 Product[] Product = mySQL.GetProductData();
@@ -237,7 +255,8 @@ namespace Electricity_shop
                 for (int i = 0; i < Product.Length; i++)
                 {
                     // במקרה ונתון שנקלט זהה לדגם קיים
-                    if (modelTmp == Product[i].Model.ToString() || upperCaseString == Product[i].Model.ToString())
+                    if (modelTmp == Product[i].Model.ToString() ||
+                        upperCaseString == Product[i].Model.ToString())
                     {
                         int temporary_serial_number = Product[i].Product_serial_number;
                         load_products = mySQL.GetProductDataBySerialNumber(temporary_serial_number.ToString());
@@ -251,9 +270,7 @@ namespace Electricity_shop
                         Txt_amount.Text = load_products.Amount.ToString();
                         Txt_productInfo.Text = load_products.Product_info.ToString();
                     }
-
                 }
-
             }
         }
         // לחיצה על כפתור X

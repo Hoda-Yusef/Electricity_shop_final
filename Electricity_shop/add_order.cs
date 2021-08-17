@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמוסיפה הזמנה חדשה לבסיסי נתונים וגם מוסיפה לקוח במידה שלא קיים במערכת
     public partial class Frm_addOrder : Form
     {
         Thread th;
@@ -176,7 +177,9 @@ namespace Electricity_shop
         {
             bool same = false;
 
-            if (Txt_customerId.Text != "" && Txt_customersFirstName.Text != "" && Txt_customersLastName.Text != "" && Txt_customersPhoneNumber.Text != "" && Txt_customersAddress.Text != "")
+            if (Txt_customerId.Text != "" && Txt_customersFirstName.Text != "" 
+                && Txt_customersLastName.Text != "" && Txt_customersPhoneNumber.Text != "" 
+                && Txt_customersAddress.Text != "")
             {//אם אין שדות ריקות 
                 customer[] Customer = mySQL.GetCustomerData();
                 customer Cust = new customer();
@@ -195,31 +198,37 @@ namespace Electricity_shop
 
                     }
                 }
-
-                if (same)//אם לקוח קיים
-                {
-                    same_customer(Cust);
-                    read_only_false();
-                }
-                else
-                {
-                    //אם לקוח חדש
-                    new_customer(Cust);
-                    read_only_false();
-
-                }
-
-
-                Thread th;
-                this.Close();
-                th = new Thread(openProductCartManu);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                checkSameCustomer(same, Cust);
+                
             }
             else
                 MessageBox.Show("נא למלא כל השדות");
         }
 
+        private void checkSameCustomer(bool same, customer Cust)
+        {
+            if (same)//אם לקוח קיים
+            {
+                same_customer(Cust);
+                read_only_false();
+            }
+            else
+            {
+                //אם לקוח חדש
+                new_customer(Cust);
+                read_only_false();
+
+            }
+
+
+            Thread th;
+            this.Close();
+            th = new Thread(openProductCartManu);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        //בפתיחת החלון נטען פרטים של לקוחות
         private void Frm_addOrder_Load(object sender, EventArgs e)
         {
             customer[] Customer = mySQL.GetCustomerData();
@@ -245,7 +254,8 @@ namespace Electricity_shop
             }
         }
 
-        private void Txt_customerId_Leave(object sender, EventArgs e)//כשעוזבים את שדה התעודת זהות המערכת בודקת אם לקוח קיים אם כן ממלא של שאר השדות בפרטים של אותו לקוח
+        //כשעוזבים את שדה התעודת זהות המערכת בודקת אם לקוח קיים אם כן ממלא של שאר השדות בפרטים של אותו לקוח
+        private void Txt_customerId_Leave(object sender, EventArgs e)
         {
             if (Txt_customerId.Text != "")
             {
@@ -254,13 +264,10 @@ namespace Electricity_shop
 
                 if (Customer != null)
                 {
-
                     for (int i = 0; i < Customer.Length; i++)
                     {
                         if (idTmp == Customer[i].Id.ToString())
                         {
-
-
                             Txt_customerId.Text = Customer[i].Id.ToString();
                             Txt_customersFirstName.Text = Customer[i].First_name;
                             Txt_customersLastName.Text = Customer[i].Last_name;
@@ -269,9 +276,7 @@ namespace Electricity_shop
 
                             MessageBox.Show("לקוח קיים");
                             read_only_true();
-
                         }
-
                     }
                 }
             }

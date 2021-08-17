@@ -2,6 +2,7 @@
 
 namespace Electricity_shop
 {
+    //מחלקה ששמורת ערכים של ההזמנות וגם ללקוחות
     public class orders_customers
     {
         private int order_number;

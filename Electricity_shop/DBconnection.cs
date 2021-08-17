@@ -6,6 +6,7 @@ using System.Data;
 
 namespace Electricity_shop
 {
+    //מחלקה שמקשרת את בסיסי נתונים למערכת
     public class DBconnection
     {
         protected static string baseDataBaseName = string.Empty;

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה לניהול והצגת פרטים של ספקים
     public partial class Frm_suppliersManagement : Form
     {
         bool drag = false;
@@ -103,33 +104,44 @@ namespace Electricity_shop
             }
         }
 
-        private void Frm_suppliersManagement_Load(object sender, EventArgs e)//מילוי טבלה בעת פתיחה 
+        //מילוי טבלה בעת פתיחה
+        private void Frm_suppliersManagement_Load(object sender, EventArgs e) 
         {
             supplier[] Supplier = mySQL.GetSupplierData();
 
             if (Supplier != null)
             {
-                for (int i = 0; i < Supplier.Length; i++)
-                {
-                    Grd_suppliers.Rows.Add(new object[]
-                        {
+                fillGrid(Supplier);
+
+                fillCollection(Supplier);
+            }
+        }
+
+        private void fillCollection(supplier[] supplier)
+        {
+            for (int i = 0; i < Supplier.Length; i++)
+            {
+                firstNameAuto.Add(Supplier[i].FirstName.ToString());
+                last_nameAuto.Add(Supplier[i].Phone_number.ToString());
+            }
+
+            Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
+            Txt_lastName.AutoCompleteCustomSource = last_nameAuto;
+        }
+
+        private void fillGrid(supplier[] supplier)
+        {
+            for (int i = 0; i < Supplier.Length; i++)
+            {
+                Grd_suppliers.Rows.Add(new object[]
+                    {
                         Supplier[i].FirstName,
                         Supplier[i].LasttName,
                         Supplier[i].Phone_number,
                         Supplier[i].Address,
                         Supplier[i].Dept,
                         Supplier[i].Paid
-                        });
-                }
-
-                for (int i = 0; i < Supplier.Length; i++)
-                {
-                    firstNameAuto.Add(Supplier[i].FirstName.ToString());
-                    last_nameAuto.Add(Supplier[i].Phone_number.ToString());
-                }
-
-                Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
-                Txt_lastName.AutoCompleteCustomSource = last_nameAuto;
+                    });
             }
         }
 
@@ -201,12 +213,14 @@ namespace Electricity_shop
                 Grd_suppliers.Rows[0].Cells[0].Selected = false;
         }
 
-        private void Txt_firstName_TextChanged(object sender, EventArgs e)//כאשר משתמש מחפש שם פרטי של ספק
+        //כאשר משתמש מחפש שם פרטי של ספק
+        private void Txt_firstName_TextChanged(object sender, EventArgs e)
         {
             Fill_grid_by_firstName();
         }
 
-        private void Txt_lastName_TextChanged(object sender, EventArgs e)//כאשר משתמש מחפש שם משפחה של ספק
+        //כאשר משתמש מחפש שם משפחה של ספק
+        private void Txt_lastName_TextChanged(object sender, EventArgs e)
         {
             Fill_grid_by_lastName();
         }
@@ -231,6 +245,7 @@ namespace Electricity_shop
             drag = false;
         }
 
+        //לחיצה פעמיים בעכבר עובר לעידכון ספק של שורה ספציפית
         private void Grd_suppliers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Frm_updateSupplier uSupplier = new Frm_updateSupplier(usersRole,userName);

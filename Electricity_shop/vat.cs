@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Electricity_shop
 {
+    //מחלקה לשמירת ערך של מעמ
     public class vat
     {
         double vat_percentage;

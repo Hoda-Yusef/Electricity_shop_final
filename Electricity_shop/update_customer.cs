@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה לעדכון פרטים של לקוח
     public partial class Frm_update_customer : Form
     {
         private System.Windows.Forms.ErrorProvider idErrorProvider;
@@ -118,30 +119,14 @@ namespace Electricity_shop
             // לא פעם ראשונה id_leave מופעלת
             else
             {
-                // פעם ראשונה מפעילים id_leave ונתונים בשדה תקינים
-                if (Check_id() == true && count == 0)
-                {
-                    //לא מבצעים פעולות
-                    // נשאר count=0
-                }
-                else
-                {
-                    // לא פעם ראשונה מפעילים id_leave
-                    // אם מגיעים לתנאי הזה יישארו שתי אןפציות
-                    // 1) נתונים תקינים בשדה
-                    if (Check_id() == true)
-                    {
-                        idErrorProvider.SetError(Txt_customerId, "");
-                    }
-                    // 2) נתונים שגויים
-                    else
-                    {
-                        //idErrorProvider = new ErrorProvider();
-                        idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
-                    }
-                }
+                checkValidId();
             }
             // בודקים אם לקוח קיים לפי תעודת זהות
+            checkExistingCustomer();
+        }
+
+        private void checkExistingCustomer()
+        {
             if (Txt_customerId.Text != "")
             {
                 customer[] Customer = mySQL.GetCustomerData();
@@ -151,7 +136,8 @@ namespace Electricity_shop
                 {
                     for (int i = 0; i < Customer.Length; i++)
                     {
-                        if (idTmp == Customer[i].Id.ToString() && load_customers.Phone_number.ToString() != Customer[i].Phone_number.ToString())
+                        if (idTmp == Customer[i].Id.ToString() && load_customers.Phone_number.ToString()
+                            != Customer[i].Phone_number.ToString())
                         {
                             MessageBox.Show("תעודת זהות שייכת ללקוח אחר");
                             Txt_customerId.Text = Customer[i].Id.ToString();
@@ -165,6 +151,33 @@ namespace Electricity_shop
                 }
             }
         }
+
+        private void checkValidId()
+        {
+            // פעם ראשונה מפעילים id_leave ונתונים בשדה תקינים
+            if (Check_id() == true && count == 0)
+            {
+                //לא מבצעים פעולות
+                // נשאר count=0
+            }
+            else
+            {
+                // לא פעם ראשונה מפעילים id_leave
+                // אם מגיעים לתנאי הזה יישארו שתי אןפציות
+                // 1) נתונים תקינים בשדה
+                if (Check_id() == true)
+                {
+                    idErrorProvider.SetError(Txt_customerId, "");
+                }
+                // 2) נתונים שגויים
+                else
+                {
+                    //idErrorProvider = new ErrorProvider();
+                    idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל בדיוק 9 ספרות");
+                }
+            }
+        }
+
         //פונקציה בודקת תקינות מספר פלאפון
         private bool Check_phoneNumber()
         {
@@ -187,49 +200,60 @@ namespace Electricity_shop
             else
             {
                 // פעם ראשונה מפעילים phone_number_leave ונתונים בשדה תקינים
-                if (Check_phoneNumber() == true && count == 0)
-                {
-                    //לא מבצעים פעולות
-                    // נשאר count=0
-                }
-                else
-                {
-                    // לא פעם ראשונה מפעילים phone_number_leave
-                    // אם מגיעים לתנאי הזה יישארו שתי אןפציות
-                    // 1) נתונים תקינים בשדה
-                    if (Check_phoneNumber() == true)
-                    {
-                        idErrorProvider.SetError(Txt_phoneNumber, "");
-                    }
-                    // 2) נתונים שגויים
-                    else
-                    {
-                        idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
-                    }
-                }
+                checkValidPhoneNumber();
                 // בודקים אם לקוח קיים לפי מספר פלאפון
-                if (Txt_phoneNumber.Text != "")
+                checkExistingCustomerPhoneNumber();
+            }
+        }
+
+        private void checkExistingCustomerPhoneNumber()
+        {
+            if (Txt_phoneNumber.Text != "")
+            {
+                customer[] Customer = mySQL.GetCustomerData();
+                string phoneTmp = Txt_phoneNumber.Text;
+
+                if (Customer != null)
                 {
-                    customer[] Customer = mySQL.GetCustomerData();
-                    string phoneTmp = Txt_phoneNumber.Text;
 
-                    if (Customer != null)
+                    for (int i = 0; i < Customer.Length; i++)
                     {
-
-                        for (int i = 0; i < Customer.Length; i++)
+                        if (phoneTmp == Customer[i].Phone_number.ToString() &&
+                            load_customers.Id.ToString() != Customer[i].Id.ToString())
                         {
-                            if (phoneTmp == Customer[i].Phone_number.ToString() && load_customers.Id.ToString() != Customer[i].Id.ToString())
-                            {
-                                MessageBox.Show("מספר פלאפון שייכת ללקוח אחר");
-                                Txt_customerId.Text = Customer[i].Id.ToString();
-                                Txt_firstName.Text = Customer[i].First_name;
-                                Txt_lastName.Text = Customer[i].Last_name;
-                                Txt_phoneNumber.Text = Customer[i].Phone_number;
-                                Txt_address.Text = Customer[i].Address;
+                            MessageBox.Show("מספר פלאפון שייכת ללקוח אחר");
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_firstName.Text = Customer[i].First_name;
+                            Txt_lastName.Text = Customer[i].Last_name;
+                            Txt_phoneNumber.Text = Customer[i].Phone_number;
+                            Txt_address.Text = Customer[i].Address;
 
-                            }
                         }
                     }
+                }
+            }
+        }
+
+        private void checkValidPhoneNumber()
+        {
+            if (Check_phoneNumber() == true && count == 0)
+            {
+                //לא מבצעים פעולות
+                // נשאר count=0
+            }
+            else
+            {
+                // לא פעם ראשונה מפעילים phone_number_leave
+                // אם מגיעים לתנאי הזה יישארו שתי אןפציות
+                // 1) נתונים תקינים בשדה
+                if (Check_phoneNumber() == true)
+                {
+                    idErrorProvider.SetError(Txt_phoneNumber, "");
+                }
+                // 2) נתונים שגויים
+                else
+                {
+                    idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
                 }
             }
         }

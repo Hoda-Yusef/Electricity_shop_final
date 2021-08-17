@@ -6,7 +6,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>ACAQAACQACQEAAEyFCDRAFASBhiBhARAAQC0mQGCQhA=</HashCode>
+      <HashCode>ACAQAACQACQEEAEyFCDRAFASBhiBhARAAQC0mQGCQhA=</HashCode>
       <FileName>add_customer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -16,7 +16,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>CIEXEAKAKqCAADzTbQaRESIiDvQMKICAuAEIhVMCEKA=</HashCode>
+      <HashCode>CIEXEAKAKKCAADzTbQaRESIiDvQMKICAuAEIhVMCEKA=</HashCode>
       <FileName>main.cs</FileName>
     </TypeIdentifier>
   </Class>

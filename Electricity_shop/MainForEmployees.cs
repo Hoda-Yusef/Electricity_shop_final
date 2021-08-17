@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה מציגה חלון העובד הראשי של המערכת 
+
     public partial class Frm_mainForEmployees : Form
     {
         private int mostSailedProductCounter = 0;
@@ -175,22 +177,13 @@ namespace Electricity_shop
             Application.Run(new Frm_addOrder(userRole,userName));
         }
 
+        //בעת הפתיחה החלון נטען בנתונים שונים
         private void Frm_mainForEmployees_Load(object sender, EventArgs e)
         {
-
             int count = 0;
             int countMany = 0;
-
-            Lbl_out_of_stock_number.Text = mySQL.countOutStockProducts().ToString();
-
-            Lbl_about_to_end_number.Text = mySQL.countAboutToEnd().ToString();
-
-            Lbl_customers_number.Text = mySQL.countCustomers().ToString();
-
-            Lbl_suppliers_number.Text = mySQL.countSupplies().ToString();
-
-            Lbl_orders_wait_number.Text = mySQL.countWaitingOrders().ToString();
-
+            displayData();
+            
             Orders = mySQL.GetOrdersData();
             Customers = mySQL.GetCustomerData();
 
@@ -213,6 +206,19 @@ namespace Electricity_shop
                 }
             }
             Lbl_active_customers_number.Text = countMany.ToString();
+        }
+
+        private void displayData()
+        {
+            Lbl_out_of_stock_number.Text = mySQL.countOutStockProducts().ToString();
+
+            Lbl_about_to_end_number.Text = mySQL.countAboutToEnd().ToString();
+
+            Lbl_customers_number.Text = mySQL.countCustomers().ToString();
+
+            Lbl_suppliers_number.Text = mySQL.countSupplies().ToString();
+
+            Lbl_orders_wait_number.Text = mySQL.countWaitingOrders().ToString();
         }
 
         private void Lbl_out_of_stock_Click(object sender, EventArgs e)

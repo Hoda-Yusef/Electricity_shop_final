@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה שמציגה דוח ומידע על המוצרים לפי טווח תאריכים
     public partial class Frm_productsData : Form
     {
         private DBSQL mySQL;
@@ -11,6 +12,15 @@ namespace Electricity_shop
         string mostSailedCategory = string.Empty;
         Product most_SailedProduct=new Product();
         string userName;
+        product_order[] order;
+        product_order[] tmporder;
+        Product currentProduct;
+        Product temporaryProduct;
+        Product resultProduct = new Product();
+        Product result = new Product();
+        string currentCategory = string.Empty;
+        int max_category = 0, max_product = 0;
+        int sum_category = 0, sum_product = 0;
 
         public Frm_productsData(string userName)
         {
@@ -37,15 +47,12 @@ namespace Electricity_shop
         private void getDataByTwoDates()
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker1.Text, dateTimePicker2.Text);
-            product_order[] order;
-            product_order[] tmporder;
-            Product currentProduct;
-            Product temporaryProduct;
-            Product resultProduct = new Product();
-            Product result = new Product();
-            string currentCategory = string.Empty;
-            int max_category = 0, max_product = 0;
-            int sum_category = 0, sum_product = 0;
+            
+            currentCategory = string.Empty;
+            max_category = 0;
+            max_product = 0;
+            sum_category = 0;
+            sum_product = 0;
             totalProducts = 0;
 
             if (Orders != null)
@@ -62,37 +69,13 @@ namespace Electricity_shop
                         totalProducts += order[j].Amount;
 
                         //קטגוריה נמכרת ביותר
-                        currentProduct = mySQL.GetProductDataBySerialNumber(order[j].Product_serial_number.ToString());
+                        currentProduct = mySQL.GetProductDataBySerialNumber(
+                            order[j].Product_serial_number.ToString());
                         currentCategory = currentProduct.Category;
 
-                        for (int i2 = 0; i2 < Orders.Length; i2++)
-                        {
-                            tmporder = mySQL.GetProductsByOrderNumber(Orders[i2].Order_number);
-                            for (int j2 = 0; j2 < tmporder.Length; j2++)
-                            {
-                                temporaryProduct = mySQL.GetProductDataBySerialNumber(tmporder[j2].Product_serial_number.ToString());
-                                if (currentCategory == temporaryProduct.Category)
-                                {
-                                    sum_category += tmporder[j2].Amount;
-                                    //בודקים אם זה אותו מוצר
-                                    if (currentProduct.Barcode == temporaryProduct.Barcode
-                                        || currentProduct.Model == temporaryProduct.Model)
-                                    {
-                                        sum_product += tmporder[j2].Amount;
-                                    }
-                                }
-                            }
-                        }
-                        if (sum_product > max_product)
-                        {
-                            max_product = sum_product;
-                            most_SailedProduct = currentProduct;
-                        }
-                        if (sum_category > max_category)
-                        {
-                            max_category = sum_category;
-                            mostSailedCategory = currentCategory;
-                        }
+                        calculateOrdersProductData();
+
+                        checkMaxProduct();
                     }
                 }
 
@@ -102,6 +85,44 @@ namespace Electricity_shop
             {
                 MessageBox.Show("אין מידע לטווח תאריכים");
                 clearLabels();
+            }
+        }
+
+        private void checkMaxProduct()
+        {
+            if (sum_product > max_product)
+            {
+                max_product = sum_product;
+                most_SailedProduct = currentProduct;
+            }
+            if (sum_category > max_category)
+            {
+                max_category = sum_category;
+                mostSailedCategory = currentCategory;
+            }
+        }
+
+        private void calculateOrdersProductData()
+        {
+            for (int i2 = 0; i2 < Orders.Length; i2++)
+            {
+                tmporder = mySQL.GetProductsByOrderNumber(Orders[i2].Order_number);
+                for (int j2 = 0; j2 < tmporder.Length; j2++)
+                {
+                    temporaryProduct = mySQL.GetProductDataBySerialNumber(
+                        tmporder[j2].Product_serial_number.ToString());
+
+                    if (currentCategory == temporaryProduct.Category)
+                    {
+                        sum_category += tmporder[j2].Amount;
+                        //בודקים אם זה אותו מוצר
+                        if (currentProduct.Barcode == temporaryProduct.Barcode
+                            || currentProduct.Model == temporaryProduct.Model)
+                        {
+                            sum_product += tmporder[j2].Amount;
+                        }
+                    }
+                }
             }
         }
 

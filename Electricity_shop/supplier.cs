@@ -2,6 +2,7 @@
 
 namespace Electricity_shop
 {
+    //מחלקה ששומרת פרטים של ספקים
     public class supplier
     {
         private int serial_number;

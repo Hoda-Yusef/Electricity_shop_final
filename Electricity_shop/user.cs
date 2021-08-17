@@ -1,5 +1,6 @@
 ﻿namespace Electricity_shop
 {
+    //מחלקה לשמירת פרטים של משתמשים
     public class user
     {
         private string username;

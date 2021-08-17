@@ -7,15 +7,14 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה מציגה חלון המנהל הראשי של המערכת 
     public partial class Frm_main : Form
     {
-        private int mostSailedProductCounter = 0;
         private readonly DBSQL mySQL;
         bool drag = false;
         Point sp = new Point(0, 0);
         orders[] Orders;
         customer[] Customers;
-        Product[] product;
         int userRole;
         string userName;
         public Frm_main(int role,string username)
@@ -262,51 +261,7 @@ namespace Electricity_shop
         {
             Application.Run(new Frm_ContainerData(1,userName));
         }
-        /*
-        private void Lbl_out_of_stock_number_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Frm_products_management Fpm = new Frm_products_management(userRole,userName);
-
-            Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
-            
-            Fpm.ShowDialog();
-            this.Close();
-            
-            
-
-        }*/
-        /*
-        private void Lbl_out_of_stock_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Frm_products_management Fpm = new Frm_products_management(userRole,userName);
-
-            Fpm.Cbo_sortByProductAmount.Text = "לא זמין במלאי";
-
-            Fpm.ShowDialog();
-            this.Close();
-        }*/
-        /*
-        private void Lbl_about_to_end_number_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Frm_products_management Fpm = new Frm_products_management(userRole, userName);
-
-            Fpm.Cbo_sortByProductAmount.Text = "עומד להיגמר מהמלאי";
-
-            Fpm.ShowDialog();
-            this.Close();
-        }
-        */
-        /*
-        private void Lbl_orders_wait_number_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Frm_ordersManagement Fom = new Frm_ordersManagement(userRole,userName);
-
-            Fom.Cbo_sortByOrderStatus.Text = "לא סופק";
-
-            Fom.ShowDialog();
-            this.Close();
-        }
-        */
+        
         private void Lbl_out_of_stock_number_Click(object sender, EventArgs e)
         {
             Frm_products_management Fpm = new Frm_products_management(userRole, userName);

@@ -6,6 +6,7 @@ using System.Drawing;
 
 namespace Electricity_shop
 {
+    //מחלקה להצגת דוחות של נתונים במערכת
     public partial class Frm_ContainerData : Form
     {
         private readonly DBSQL mySQL;

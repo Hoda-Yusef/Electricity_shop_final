@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Electricity_shop
 {
+    //מחלקה מציגה חלון של התחברות למערכת
     public partial class Frm_login : Form
     {
         Thread th;
@@ -47,25 +48,8 @@ namespace Electricity_shop
                 for (int rows = 0; rows < Users.Length; rows++)
                 {
                     if (Txt_username.Text == Users[rows].Username && Txt_password.Text == Users[rows].Password)
-                    {//אם כן עוברים לחלון ראשי
-                        if (Users[rows].Role == 1)
-                        {
-                            //מתחברים כמנהל
-                            userName = Users[rows].Username;
-                            this.Close();
-                            th = new Thread(opennewform);
-                            th.TrySetApartmentState(ApartmentState.STA);
-                            th.Start();
-                        }
-                        else
-                        {
-                            //מתחברים כעובד
-                            currentUsersRole = 0;
-                            this.Close();
-                            th = new Thread(OpenEmployeesMain);
-                            th.TrySetApartmentState(ApartmentState.STA);
-                            th.Start();
-                        }
+                    {
+                        checkPassword(rows);
                     }
                     else
                         Lbl_wrongPasswordMessage.Text = "* סיסמה או שם משתמש שגויים";
@@ -73,6 +57,29 @@ namespace Electricity_shop
             }
             else
                 Lbl_wrongPasswordMessage.Text = "* נא להזין שם משתמש וסיסמה תקינים";
+        }
+
+        private void checkPassword(int rows)
+        {
+            //אם כן עוברים לחלון ראשי
+            if (Users[rows].Role == 1)
+            {
+                //מתחברים כמנהל
+                userName = Users[rows].Username;
+                this.Close();
+                th = new Thread(opennewform);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                //מתחברים כעובד
+                currentUsersRole = 0;
+                this.Close();
+                th = new Thread(OpenEmployeesMain);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
         }
 
         private void opennewform(object obj)

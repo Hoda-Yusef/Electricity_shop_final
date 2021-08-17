@@ -2,6 +2,7 @@
 
 namespace Electricity_shop
 {
+    //מחלקה ששומרת פרטי מוצרים ששייכים להזמנות
     public class product_order
     {
         private int id;
