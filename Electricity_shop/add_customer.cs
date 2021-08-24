@@ -254,6 +254,36 @@ namespace Electricity_shop
             }
         }
 
+        private void checkExistingCustomerByPhone()
+        {
+            if (Txt_phoneNumber.Text != "")
+            {
+                customer[] Customer = mySQL.GetCustomerData();
+                string phoneTmp = Txt_phoneNumber.Text;
+
+                if (Customer != null)
+                {
+
+                    for (int i = 0; i < Customer.Length; i++)
+                    {
+                        if (phoneTmp == Customer[i].Phone_number.ToString())
+                        {
+                            Txt_customerId.Text = Customer[i].Id.ToString();
+                            Txt_firstName.Text = Customer[i].First_name;
+                            Txt_lastName.Text = Customer[i].Last_name;
+                            Txt_phoneNumber.Text = Customer[i].Phone_number;
+                            Txt_address.Text = Customer[i].Address;
+
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("קלט לא תקין: נא לבדוק תקינות נתונים בשדות");
+            }
+        }
+
         //הגדרת סוג תו שאפשר לקלוט
         private void Txt_customerId_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -317,6 +347,7 @@ namespace Electricity_shop
                     {
                         idErrorProvider.SetError(Txt_phoneNumber, "מספר פלאפון חייב להכיל 10 ספרות");
                     }
+                    checkExistingCustomerByPhone();
                 }
             }
         }

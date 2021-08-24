@@ -16,6 +16,9 @@ namespace Electricity_shop
         private DBSQL mySQL;
         int usersRole;
         string userName;
+        int countId = 0,countPhone=0;
+        private System.Windows.Forms.ErrorProvider idErrorProvider;
+        private System.Windows.Forms.ErrorProvider phoneErrorProvider;
         //מילוי אוטומטי
         AutoCompleteStringCollection idAuto = new AutoCompleteStringCollection();
         AutoCompleteStringCollection firstNameAuto = new AutoCompleteStringCollection();
@@ -177,9 +180,8 @@ namespace Electricity_shop
         {
             bool same = false;
 
-            if (Txt_customerId.Text != "" && Txt_customersFirstName.Text != "" 
-                && Txt_customersLastName.Text != "" && Txt_customersPhoneNumber.Text != "" 
-                && Txt_customersAddress.Text != "")
+            if (Check_id() && Check_phone() && Txt_customersFirstName.Text != "" 
+                && Txt_customersLastName.Text != "" && Txt_customersAddress.Text != "")
             {//אם אין שדות ריקות 
                 customer[] Customer = mySQL.GetCustomerData();
                 customer Cust = new customer();
@@ -202,7 +204,7 @@ namespace Electricity_shop
                 
             }
             else
-                MessageBox.Show("נא למלא כל השדות");
+                MessageBox.Show("נא למלא כל השדות בקלט תקין");
         }
 
         private void checkSameCustomer(bool same, customer Cust)
@@ -259,6 +261,7 @@ namespace Electricity_shop
         {
             if (Txt_customerId.Text != "")
             {
+                checkLeavingId();
                 customer[] Customer = mySQL.GetCustomerData();
                 string idTmp = Txt_customerId.Text;
 
@@ -277,6 +280,82 @@ namespace Electricity_shop
                             MessageBox.Show("לקוח קיים");
                             read_only_true();
                         }
+                    }
+                }
+            }
+            else
+            {
+                checkLeavingId();
+            }
+        }
+
+
+        // פונקציית עזר
+        // בודקת תקינות ת.ז של הלקוח מחזירה אמת במקרה ותקין
+        // אחרת יוחזר שקר
+        private bool Check_id()
+        {
+            return (Txt_customerId.Text.Length == 9);
+        }
+
+        private void checkLeavingId()
+        {
+            if (Check_id() == false && countId == 0)
+            {
+                countId++;
+                // מגדירים שגאיה בהתאם
+                idErrorProvider = new ErrorProvider();
+               idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל 9 ספרות בלבד");
+            }
+            else
+            {
+                if (Check_id() == true && countId == 0)
+                {
+                    //לא מבצעים פעולות
+                    // נשאר count=0
+                }
+                else
+                {
+                    if (Check_id() == true)
+                    {
+                        idErrorProvider.SetError(Txt_customerId, "");
+                    }
+                    else
+                    {
+                        idErrorProvider.SetError(Txt_customerId, "תעודת זהות חייבת להכיל 9 ספרות בלבד");
+                    }
+                }
+            }
+        }
+        private bool Check_phone()
+        {
+            return (Txt_customersPhoneNumber.Text.Length == 10);
+        }
+        private void checkLeavingPhone()
+        {
+            if (Check_phone() == false && countPhone == 0)
+            {
+                countPhone++;
+                // מגדירים שגאיה בהתאם
+                phoneErrorProvider = new ErrorProvider();
+                phoneErrorProvider.SetError(Txt_customersPhoneNumber, "מספר פלאפון חייב להכיל 10 ספרות בלבד");
+            }
+            else
+            {
+                if (Check_phone() == true && countPhone == 0)
+                {
+                    //לא מבצעים פעולות
+                    // נשאר count=0
+                }
+                else
+                {
+                    if (Check_phone() == true)
+                    {
+                        phoneErrorProvider.SetError(Txt_customersPhoneNumber, "");
+                    }
+                    else
+                    {
+                       phoneErrorProvider.SetError(Txt_customersPhoneNumber, "מספר פלאפון חייב להכיל 10 ספרות בלבד");
                     }
                 }
             }
@@ -329,6 +408,7 @@ namespace Electricity_shop
         {
             if (Txt_customersPhoneNumber.Text != "")
             {
+                checkLeavingPhone();
                 customer Customer = mySQL.GetCustomerDataByphoneN(Txt_customersPhoneNumber.Text);
 
                 if (Customer != null)
@@ -344,6 +424,10 @@ namespace Electricity_shop
                     read_only_true();
 
                 }
+            }
+            else
+            {
+                checkLeavingPhone();
             }
         }
     }
