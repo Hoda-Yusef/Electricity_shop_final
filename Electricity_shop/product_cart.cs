@@ -168,7 +168,7 @@ namespace Electricity_shop
             }
             else if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
             {
-                itemModel = Grd_productsList.CurrentRow.Cells[0].Value.ToString();
+                itemModel = Grd_productsList.CurrentRow.Cells[3].Value.ToString();
                 mySQL.deleteItemFromCartByModel(itemModel);//מסיר מוצר מעגלה
 
             }
