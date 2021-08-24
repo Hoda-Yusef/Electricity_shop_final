@@ -119,10 +119,10 @@ namespace Electricity_shop
 
         private void fillCollection(supplier[] supplier)
         {
-            for (int i = 0; i < Supplier.Length; i++)
+            for (int i = 0; i < supplier.Length; i++)
             {
-                firstNameAuto.Add(Supplier[i].FirstName.ToString());
-                last_nameAuto.Add(Supplier[i].Phone_number.ToString());
+                firstNameAuto.Add(supplier[i].FirstName.ToString());
+                last_nameAuto.Add(supplier[i].Phone_number.ToString());
             }
 
             Txt_firstName.AutoCompleteCustomSource = firstNameAuto;
@@ -131,16 +131,16 @@ namespace Electricity_shop
 
         private void fillGrid(supplier[] supplier)
         {
-            for (int i = 0; i < Supplier.Length; i++)
+            for (int i = 0; i < supplier.Length; i++)
             {
                 Grd_suppliers.Rows.Add(new object[]
                     {
-                        Supplier[i].FirstName,
-                        Supplier[i].LasttName,
-                        Supplier[i].Phone_number,
-                        Supplier[i].Address,
-                        Supplier[i].Dept,
-                        Supplier[i].Paid
+                        supplier[i].FirstName,
+                        supplier[i].LasttName,
+                        supplier[i].Phone_number,
+                        supplier[i].Address,
+                        supplier[i].Dept,
+                        supplier[i].Paid
                     });
             }
         }

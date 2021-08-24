@@ -32,7 +32,7 @@ namespace Electricity_shop
             userName = username;
         }
 
-        public Frm_addProductsToOrder(string orderNumber, int role)
+        public Frm_addProductsToOrder(string orderNumber, int role,string username)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -41,6 +41,7 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
             usersRole = role;
             order_number_holder = orderNumber;
+            this.userName = username;
         }
 
         private void Frm_addProductsToOrder_Load(object sender, EventArgs e)
@@ -301,7 +302,7 @@ namespace Electricity_shop
 
         private void OpenSelf(object obj)
         {
-            Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole,userName));
         }
 
         private void Txt_productBarcode_KeyPress(object sender, KeyPressEventArgs e)
@@ -314,13 +315,7 @@ namespace Electricity_shop
             }
         }
 
-        private void Btn_exitX_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            th = new Thread(OpenSelf);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
+        
 
         private void Btn_clear_Click(object sender, EventArgs e)
         {

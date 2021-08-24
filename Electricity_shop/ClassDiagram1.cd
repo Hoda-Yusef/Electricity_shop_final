@@ -1,23 +1,1019 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Electricity_shop.Frm_addCustomer">
-    <Position X="8.5" Y="1.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+    <Position X="1" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_addCustomer" Hidden="true" />
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_addCustomer" Hidden="true" />
+      <Field Name="Lbl_address" Hidden="true" />
+      <Field Name="Lbl_customerId" Hidden="true" />
+      <Field Name="Lbl_firstName" Hidden="true" />
+      <Field Name="Lbl_lastName" Hidden="true" />
+      <Field Name="Lbl_phoneNumber" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Txt_address" Hidden="true" />
+      <Field Name="Txt_customerId" Hidden="true" />
+      <Field Name="Txt_firstName" Hidden="true" />
+      <Field Name="Txt_lastName" Hidden="true" />
+      <Field Name="Txt_phoneNumber" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>ACAQAACQACQEEAEyFCDRAFASBhiBhARAAQC0mQGCQhA=</HashCode>
       <FileName>add_customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_main">
-    <Position X="11.25" Y="1" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_addCustomer" Hidden="true" />
+      <Field Name="Btn_addOrder" Hidden="true" />
+      <Field Name="Btn_addProduct" Hidden="true" />
+      <Field Name="Btn_addSupplier" Hidden="true" />
+      <Field Name="Btn_close" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_incomeAndOutcome" Hidden="true" />
+      <Field Name="Btn_inStockReport" Hidden="true" />
+      <Field Name="Btn_manageCustomers" Hidden="true" />
+      <Field Name="Btn_manageOrders" Hidden="true" />
+      <Field Name="Btn_manageProducts" Hidden="true" />
+      <Field Name="Btn_manageSuppliers" Hidden="true" />
+      <Field Name="button11" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_about_to_end" Hidden="true" />
+      <Field Name="Lbl_about_to_end_number" Hidden="true" />
+      <Field Name="Lbl_active_customers" Hidden="true" />
+      <Field Name="Lbl_active_customers_number" Hidden="true" />
+      <Field Name="Lbl_customer" Hidden="true" />
+      <Field Name="Lbl_customers" Hidden="true" />
+      <Field Name="Lbl_customers_number" Hidden="true" />
+      <Field Name="Lbl_heading" Hidden="true" />
+      <Field Name="Lbl_information" Hidden="true" />
+      <Field Name="Lbl_orders_wait" Hidden="true" />
+      <Field Name="Lbl_orders_wait_number" Hidden="true" />
+      <Field Name="Lbl_ordersAndDelivery" Hidden="true" />
+      <Field Name="Lbl_out_of_stock" Hidden="true" />
+      <Field Name="Lbl_out_of_stock_number" Hidden="true" />
+      <Field Name="Lbl_products" Hidden="true" />
+      <Field Name="Lbl_supplier" Hidden="true" />
+      <Field Name="Lbl_suppliers" Hidden="true" />
+      <Field Name="Lbl_suppliers_number" Hidden="true" />
+      <Field Name="Lbl_welcome" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel8" Hidden="true" />
+      <Field Name="Pic_socket" Hidden="true" />
+      <Field Name="sp" Hidden="true" />
+      <Field Name="Upper_panel" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>CIEXEAKAKKCAADzTbQaRESIiDvQMKICAuAEIhVMCEKA=</HashCode>
       <FileName>main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_addOrder">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_ok" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker" Hidden="true" />
+      <Field Name="delivery" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_addOrder" Hidden="true" />
+      <Field Name="Lbl_customerId" Hidden="true" />
+      <Field Name="Lbl_customersAddress" Hidden="true" />
+      <Field Name="Lbl_customersFirstName" Hidden="true" />
+      <Field Name="Lbl_customersLastName" Hidden="true" />
+      <Field Name="Lbl_customersPhoneNumber" Hidden="true" />
+      <Field Name="Lbl_delivery" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="Txt_customerId" Hidden="true" />
+      <Field Name="Txt_customersAddress" Hidden="true" />
+      <Field Name="Txt_customersFirstName" Hidden="true" />
+      <Field Name="Txt_customersLastName" Hidden="true" />
+      <Field Name="Txt_customersPhoneNumber" Hidden="true" />
+      <Field Name="Upper_BluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>RgARiAKAAHQAEBiSEADBAMCCAACChKQEIQAMgQPCgAg=</HashCode>
+      <FileName>add_order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_addProduct">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_addProduct" Hidden="true" />
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_clearAll" Hidden="true" />
+      <Field Name="Btn_exitX" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="frameColorDown" Hidden="true" />
+      <Field Name="frameColorLeft" Hidden="true" />
+      <Field Name="frameColorRight" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_addProduct" Hidden="true" />
+      <Field Name="Lbl_amount" Hidden="true" />
+      <Field Name="Lbl_barcode" Hidden="true" />
+      <Field Name="Lbl_category" Hidden="true" />
+      <Field Name="Lbl_costPrice" Hidden="true" />
+      <Field Name="Lbl_manufacturer" Hidden="true" />
+      <Field Name="Lbl_model" Hidden="true" />
+      <Field Name="Lbl_productInformation" Hidden="true" />
+      <Field Name="Lbl_sellingPrice" Hidden="true" />
+      <Field Name="Lbl_supplier" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="productAmount" Hidden="true" />
+      <Field Name="Txt_barcode" Hidden="true" />
+      <Field Name="Txt_category" Hidden="true" />
+      <Field Name="Txt_costPrice" Hidden="true" />
+      <Field Name="Txt_manufacturer" Hidden="true" />
+      <Field Name="Txt_model" Hidden="true" />
+      <Field Name="Txt_productInformation" Hidden="true" />
+      <Field Name="Txt_sellingPrice" Hidden="true" />
+      <Field Name="Txt_supplier" Hidden="true" />
+      <Field Name="Upper_bluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AkbQAAKBBCMXAQAiBUiSA0CCiACpqAaAA5UQgwECGVI=</HashCode>
+      <FileName>add_product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_addProductsToOrder">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="amountChoose" Hidden="true" />
+      <Field Name="Btn_addToOrder" Hidden="true" />
+      <Field Name="Btn_backToOrder" Hidden="true" />
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="button3" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column6" Hidden="true" />
+      <Field Name="Column7" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="Column9" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_productsList" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_heading" Hidden="true" />
+      <Field Name="Lbl_productAmount" Hidden="true" />
+      <Field Name="Lbl_productBarcode" Hidden="true" />
+      <Field Name="Lbl_productCategory" Hidden="true" />
+      <Field Name="Lbl_productManufactorer" Hidden="true" />
+      <Field Name="Lbl_productModel" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="splitter1" Hidden="true" />
+      <Field Name="Txt_productBarcode" Hidden="true" />
+      <Field Name="Txt_productCategory" Hidden="true" />
+      <Field Name="Txt_productManufacturer" Hidden="true" />
+      <Field Name="Txt_productModel" Hidden="true" />
+      <Field Name="Upper_BluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>JAICRAAgICAEAAgCOADBAMQCAMS450QAAmAEiQEDwoU=</HashCode>
+      <FileName>add_products_to_order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_addSupplier">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_addSupplier" Hidden="true" />
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_address" Hidden="true" />
+      <Field Name="Lbl_addSupplier" Hidden="true" />
+      <Field Name="Lbl_firstName" Hidden="true" />
+      <Field Name="Lbl_lastName" Hidden="true" />
+      <Field Name="Lbl_payedForSupplier" Hidden="true" />
+      <Field Name="Lbl_phoneNumber" Hidden="true" />
+      <Field Name="Lbl_supplierDept" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Txt_address" Hidden="true" />
+      <Field Name="Txt_firstName" Hidden="true" />
+      <Field Name="Txt_lastName" Hidden="true" />
+      <Field Name="Txt_payedForSupplier" Hidden="true" />
+      <Field Name="Txt_phoneNumber" Hidden="true" />
+      <Field Name="Txt_supplierDept" Hidden="true" />
+      <Field Name="UpperBluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABYAIKKECAEAAhiNQDAJFCaAAABgDRCAQA8kQECQJA=</HashCode>
+      <FileName>add_supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Cart">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAgAAAAAAAAAAAAAAACAAAAAgAAABAAAAAQAAAA=</HashCode>
+      <FileName>cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_cartProductMenu">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="amountChoose" Hidden="true" />
+      <Field Name="Btn_addToCart" Hidden="true" />
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_toCart" Hidden="true" />
+      <Field Name="button3" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column6" Hidden="true" />
+      <Field Name="Column7" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="Column9" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_productsList" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_barcode" Hidden="true" />
+      <Field Name="Lbl_category" Hidden="true" />
+      <Field Name="Lbl_heading" Hidden="true" />
+      <Field Name="Lbl_manufacturer" Hidden="true" />
+      <Field Name="Lbl_model" Hidden="true" />
+      <Field Name="Lbl_productAmount" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="splitter1" Hidden="true" />
+      <Field Name="Txt_barcode" Hidden="true" />
+      <Field Name="Txt_category" Hidden="true" />
+      <Field Name="Txt_manufacturer" Hidden="true" />
+      <Field Name="Txt_model" Hidden="true" />
+      <Field Name="UpperBluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>MAYSBMyAoiAEAAACFBDAAMAaCIi4bySCJsQAgQkDABQ=</HashCode>
+      <FileName>cart_product_menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_ContainerData">
+    <Position X="46.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_incomeAndOutcome" Hidden="true" />
+      <Field Name="Btn_ordersData" Hidden="true" />
+      <Field Name="Btn_productsData" Hidden="true" />
+      <Field Name="Btn_toMain" Hidden="true" />
+      <Field Name="button5" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_title" Hidden="true" />
+      <Field Name="Lbl_userName" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="Pic_contact" Hidden="true" />
+      <Field Name="Pic_orders" Hidden="true" />
+      <Field Name="Pic_products" Hidden="true" />
+      <Field Name="Pic_userIcon" Hidden="true" />
+      <Field Name="Pnl_container" Hidden="true" />
+      <Field Name="Upper_BluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEQAAigwiIEAAiCIECAAACSCMAAAAQAAAAEgSGCAAA=</HashCode>
+      <FileName>containerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.customer">
+    <Position X="37.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAQAAAAEAAAEAAAIAAAACAABCAAAAQgA=</HashCode>
+      <FileName>customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.FrmCustomers_management">
+    <Position X="43" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_toMain" Hidden="true" />
+      <Field Name="Btn_update" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_customers" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_firstName" Hidden="true" />
+      <Field Name="Lbl_header" Hidden="true" />
+      <Field Name="Lbl_Id" Hidden="true" />
+      <Field Name="Lbl_phoneNumber" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="Txt_customerId" Hidden="true" />
+      <Field Name="Txt_firstName" Hidden="true" />
+      <Field Name="Txt_phoneNumber" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AiMQAAGAQDAFIQATMCDBAElCAAi4BgSAEAA0gUWCBBA=</HashCode>
+      <FileName>customers_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.DBconnection">
+    <Position X="48.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAEAAAAAAAgIAAAgBABAAAIAAAAAAAAQIAAAgAAAAA=</HashCode>
+      <FileName>DBconnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.DBSQL">
+    <Position X="50.25" Y="0.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AA6ACoEAAYIaQASAHA4BIYEABiBgwEkCQ0AAAIMQwAA=</HashCode>
+      <FileName>DBSQL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_incomeAndOutcome">
+    <Position X="30.75" Y="4" Width="1.5" />
+    <Members>
+      <Field Name="Btn_changeVAT" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker_from" Hidden="true" />
+      <Field Name="dateTimePicker_to" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_brutoEarnings" Hidden="true" />
+      <Field Name="Lbl_fromDate" Hidden="true" />
+      <Field Name="Lbl_income" Hidden="true" />
+      <Field Name="Lbl_outcome" Hidden="true" />
+      <Field Name="Lbl_toDate" Hidden="true" />
+      <Field Name="Lbl_totalEarnings" Hidden="true" />
+      <Field Name="Lbl_totalIncome" Hidden="true" />
+      <Field Name="Lbl_totalOutcome" Hidden="true" />
+      <Field Name="Lbl_totalVat" Hidden="true" />
+      <Field Name="Lbl_vat" Hidden="true" />
+      <Field Name="Lbl_vatTotal" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Pic_minus1" Hidden="true" />
+      <Field Name="Pic_minus2" Hidden="true" />
+      <Field Name="Pic_moneyBag" Hidden="true" />
+      <Field Name="Pic_plus" Hidden="true" />
+      <Field Name="Pic_shekelsBruto" Hidden="true" />
+      <Field Name="Pic_shekelsEarnings" Hidden="true" />
+      <Field Name="Pic_shekelsLost" Hidden="true" />
+      <Field Name="Pic_shekelsVat" Hidden="true" />
+      <Field Name="textBox1" Hidden="true" />
+      <Field Name="Txt_vat" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEaAICmM6EAAAOmAgGAJAQGABgAAkAEMAgAAQuCQAA=</HashCode>
+      <FileName>incomeAndOutcome.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_InStock">
+    <Position X="29" Y="5" Width="1.5" />
+    <Members>
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_saveDocument" Hidden="true" />
+      <Field Name="Btn_showDocument" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column6" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker1" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_products_stock" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_inStockDocument" Hidden="true" />
+      <Field Name="Lbl_secondHeading" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ASAQAAjAAiACBAQCACCIAAiCAAA4B0UAAIAAgRGCAAA=</HashCode>
+      <FileName>InStock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_login">
+    <Position X="44.75" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_entry" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="Lbl_wrongPasswordMessage" Hidden="true" />
+      <Field Name="panel" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="Pic_login" Hidden="true" />
+      <Field Name="Pic_password" Hidden="true" />
+      <Field Name="Pic_user" Hidden="true" />
+      <Field Name="Txt_password" Hidden="true" />
+      <Field Name="Txt_username" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAAQICCAACUEAAAAQICEAgkCAACAAAYAAABAAwECEBA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_mainForEmployees">
+    <Position X="27.25" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_addCustomer" Hidden="true" />
+      <Field Name="Btn_addOrder" Hidden="true" />
+      <Field Name="Btn_addProduct" Hidden="true" />
+      <Field Name="Btn_addSupplier" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_manageCustomers" Hidden="true" />
+      <Field Name="Btn_manageOrders" Hidden="true" />
+      <Field Name="Btn_manageProducts" Hidden="true" />
+      <Field Name="Btn_manageSuppliers" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_about_to_end" Hidden="true" />
+      <Field Name="Lbl_about_to_end_number" Hidden="true" />
+      <Field Name="Lbl_active_customers" Hidden="true" />
+      <Field Name="Lbl_active_customers_number" Hidden="true" />
+      <Field Name="Lbl_customer" Hidden="true" />
+      <Field Name="Lbl_customers" Hidden="true" />
+      <Field Name="Lbl_customers_number" Hidden="true" />
+      <Field Name="Lbl_heading" Hidden="true" />
+      <Field Name="Lbl_orders_wait" Hidden="true" />
+      <Field Name="Lbl_orders_wait_number" Hidden="true" />
+      <Field Name="Lbl_ordersAndDelivery" Hidden="true" />
+      <Field Name="Lbl_out_of_stock" Hidden="true" />
+      <Field Name="Lbl_out_of_stock_number" Hidden="true" />
+      <Field Name="Lbl_products" Hidden="true" />
+      <Field Name="Lbl_supplier" Hidden="true" />
+      <Field Name="Lbl_suppliers" Hidden="true" />
+      <Field Name="Lbl_suppliers_number" Hidden="true" />
+      <Field Name="Lbl_welcome" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="Pic_socket" Hidden="true" />
+      <Field Name="Upper_panel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>CIEXEAKAKKSEEDhSbQaRASICDpAMCIAAqAEIhVMCEIA=</HashCode>
+      <FileName>MainForEmployees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.orders">
+    <Position X="30.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAMAAAACAAAAAAAAAAAAAAAABABAAAQAQAAAAA=</HashCode>
+      <FileName>orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.orders_customers">
+    <Position X="39.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAMAAAACQAAAAEAAAAAAAIAABADAABSAQAAQgA=</HashCode>
+      <FileName>orders_customers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_ordersManagement">
+    <Position X="41.25" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_backToMain" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_leave" Hidden="true" />
+      <Field Name="Btn_updateOrder" Hidden="true" />
+      <Field Name="Btn_updateStatus" Hidden="true" />
+      <Field Name="BtnClear" Hidden="true" />
+      <Field Name="Cbo_sortByOrderStatus" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column6" Hidden="true" />
+      <Field Name="Column7" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker" Hidden="true" />
+      <Field Name="Grd_orders" Hidden="true" />
+      <Field Name="imageList1" Hidden="true" />
+      <Field Name="Lbl_customerId" Hidden="true" />
+      <Field Name="Lbl_customersFirstName" Hidden="true" />
+      <Field Name="Lbl_customersLastName" Hidden="true" />
+      <Field Name="Lbl_ordersManagement" Hidden="true" />
+      <Field Name="Lbl_sortByAmount" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel8" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="Txt_customerId" Hidden="true" />
+      <Field Name="Txt_customersFirstName" Hidden="true" />
+      <Field Name="Txt_customersLastName" Hidden="true" />
+      <Field Name="Upper_BluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEBhACCICRAoUiSAACBCtECAZS8RwEEAAlugQEDkIE=</HashCode>
+      <FileName>orders_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_ordersData">
+    <Position X="25.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker_from" Hidden="true" />
+      <Field Name="dateTimePicker_to" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_biggestOrder" Hidden="true" />
+      <Field Name="Lbl_costOfBiggestOrder" Hidden="true" />
+      <Field Name="Lbl_customersId" Hidden="true" />
+      <Field Name="Lbl_customersName" Hidden="true" />
+      <Field Name="Lbl_deleviredNumber" Hidden="true" />
+      <Field Name="Lbl_deliveredOrders" Hidden="true" />
+      <Field Name="Lbl_forCustomer" Hidden="true" />
+      <Field Name="Lbl_fromDate" Hidden="true" />
+      <Field Name="Lbl_toDate" Hidden="true" />
+      <Field Name="Lbl_totalOrders" Hidden="true" />
+      <Field Name="Lbl_totalOrdersNumber" Hidden="true" />
+      <Field Name="Lbl_totalPrice" Hidden="true" />
+      <Field Name="Lbl_waitingOrders" Hidden="true" />
+      <Field Name="Lbl_waitingOrdersNumber" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Pic_moneyBag" Hidden="true" />
+      <Field Name="Pic_totalPrice" Hidden="true" />
+      <Field Name="Pnl_biggestOrderContainer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEEAAAFAWiUCAEOABgCAQRQGIBAAASATgBANAQmCBIA=</HashCode>
+      <FileName>ordersData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Product">
+    <Position X="18.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgACQAIEAEAQIAAAECAAACAAgAAgAIAAAgIAAAYCAg=</HashCode>
+      <FileName>product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_productsInCart">
+    <Position X="23.75" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_AddToCart" Hidden="true" />
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_ok" Hidden="true" />
+      <Field Name="Btn_remove" Hidden="true" />
+      <Field Name="button3" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="Column9" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_productsList" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_numberOfProducts" Hidden="true" />
+      <Field Name="Lbl_orderNumber" Hidden="true" />
+      <Field Name="Lbl_productsInCart" Hidden="true" />
+      <Field Name="Lbl_showNumberOfProducts" Hidden="true" />
+      <Field Name="Lbl_showOrderNumber" Hidden="true" />
+      <Field Name="Lbl_showTotalNumberOfProducts" Hidden="true" />
+      <Field Name="Lbl_showTotalPrice" Hidden="true" />
+      <Field Name="Lbl_totalNumberOfProducts" Hidden="true" />
+      <Field Name="Lbl_totalPrice" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="splitter1" Hidden="true" />
+      <Field Name="Upper_BluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAgSAAiYQiQgECoCEACACsACABg45gQggwAEiwFDgAE=</HashCode>
+      <FileName>product_cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.product_order">
+    <Position X="34.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEEAAABAAAAAAAAACAAAAAgAAAAAAAAAAQAgA=</HashCode>
+      <FileName>product_order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_products_management">
+    <Position X="32.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_clear" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_updateProduct" Hidden="true" />
+      <Field Name="BtnExit" Hidden="true" />
+      <Field Name="Cbo_sortByProductAmount" Hidden="true" />
+      <Method Name="checkBox3_CheckedChanged" Hidden="true" />
+      <Method Name="checkBox4_CheckedChanged" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column6" Hidden="true" />
+      <Field Name="Column7" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="Column9" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_products" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_barcode" Hidden="true" />
+      <Field Name="Lbl_category" Hidden="true" />
+      <Field Name="Lbl_manufacturer" Hidden="true" />
+      <Field Name="Lbl_model" Hidden="true" />
+      <Field Name="Lbl_productManagement" Hidden="true" />
+      <Field Name="Lbl_sortByAmount" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="splitter1" Hidden="true" />
+      <Field Name="Txt_barcode" Hidden="true" />
+      <Field Name="Txt_category" Hidden="true" />
+      <Field Name="Txt_manufacturer" Hidden="true" />
+      <Field Name="Txt_model" Hidden="true" />
+      <Field Name="Upper_BluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEzQAATAgiAEBAkiFEDAgNCLCiC4bwSAI4RUkREDABA=</HashCode>
+      <FileName>products_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_productsList">
+    <Position X="29" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_goBack" Hidden="true" />
+      <Field Name="button3" Hidden="true" />
+      <Field Name="cancel" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="Column9" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_productsList" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="Lbl_numberOfProducts" Hidden="true" />
+      <Field Name="Lbl_orderNumber" Hidden="true" />
+      <Field Name="Lbl_productsList" Hidden="true" />
+      <Field Name="Lbl_showOrderNumber" Hidden="true" />
+      <Field Name="Lbl_showProductsNumber" Hidden="true" />
+      <Field Name="Lbl_showTotalAmount" Hidden="true" />
+      <Field Name="Lbl_showTotalPrice" Hidden="true" />
+      <Field Name="Lbl_totalAmount" Hidden="true" />
+      <Field Name="Lbl_totalPrice" Hidden="true" />
+      <Field Name="order_number" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel8" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="products_count" Hidden="true" />
+      <Field Name="products_grid" Hidden="true" />
+      <Field Name="splitter1" Hidden="true" />
+      <Field Name="splitter2" Hidden="true" />
+      <Field Name="total" Hidden="true" />
+      <Field Name="UpperBluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>oAhQApiAYyAAABACAACAAIISCAA4ZjACAkEAhQgDAAE=</HashCode>
+      <FileName>show_products.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.supplier">
+    <Position X="18.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEEAAAAgAQAAIAAAAAEAAAIACAACAAgKAAAAQgA=</HashCode>
+      <FileName>supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_suppliersManagement">
+    <Position X="22" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_clearTextBoxes" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_toMainPage" Hidden="true" />
+      <Field Name="Btn_updateSupplier" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column6" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_suppliers" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_firstName" Hidden="true" />
+      <Field Name="Lbl_lastName" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Txt_firstName" Hidden="true" />
+      <Field Name="Txt_lastName" Hidden="true" />
+      <Field Name="Txt_manageSuppliers" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AjAUAAGAAiAJgIACICCBBEATAgi6BwTABAAFkQGGAJg=</HashCode>
+      <FileName>suppliers_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_update_customer">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_updateCustomer" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_address" Hidden="true" />
+      <Field Name="Lbl_firstName" Hidden="true" />
+      <Field Name="Lbl_Id" Hidden="true" />
+      <Field Name="Lbl_lastName" Hidden="true" />
+      <Field Name="Lbl_phoneNumber" Hidden="true" />
+      <Field Name="Lbl_updateCustomer" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Txt_address" Hidden="true" />
+      <Field Name="Txt_customerId" Hidden="true" />
+      <Field Name="Txt_firstName" Hidden="true" />
+      <Field Name="Txt_lastName" Hidden="true" />
+      <Field Name="Txt_phoneNumber" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ECAQAACCADQEBBASBCCFAFACAgBBgAJEAQKUkQGCQBA=</HashCode>
+      <FileName>update_customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_updateOrder">
+    <Position X="16.75" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_add_to_cart" Hidden="true" />
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_remove" Hidden="true" />
+      <Field Name="Btn_updateOrder" Hidden="true" />
+      <Field Name="button1" Hidden="true" />
+      <Field Name="Cbo_orderStatus" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="Column2" Hidden="true" />
+      <Field Name="Column3" Hidden="true" />
+      <Field Name="Column4" Hidden="true" />
+      <Field Name="Column5" Hidden="true" />
+      <Field Name="Column8" Hidden="true" />
+      <Field Name="Column9" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="Grd_allOrders" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_numberOfProducts" Hidden="true" />
+      <Field Name="Lbl_orderNumber" Hidden="true" />
+      <Field Name="Lbl_orderStatus" Hidden="true" />
+      <Field Name="Lbl_showingTotalPrice" Hidden="true" />
+      <Field Name="Lbl_showProducts_count" Hidden="true" />
+      <Field Name="Lbl_showTotalProductsAmount" Hidden="true" />
+      <Field Name="Lbl_totalPrice" Hidden="true" />
+      <Field Name="Lbl_totalProductAmount" Hidden="true" />
+      <Field Name="Lbl_updateOrder" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="textBox1" Hidden="true" />
+      <Field Name="textBox2" Hidden="true" />
+      <Field Name="textBox3" Hidden="true" />
+      <Field Name="textBox4" Hidden="true" />
+      <Field Name="Txt_show_order_number" Hidden="true" />
+      <Field Name="UpperBluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AHAyBMKUQiAAAEADAACAAMRSISB45yQCEQEJowkSAMA=</HashCode>
+      <FileName>update_order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_updateProduct">
+    <Position X="15" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_cancel" Hidden="true" />
+      <Field Name="Btn_close" Hidden="true" />
+      <Field Name="Btn_updateProduct" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_barcode" Hidden="true" />
+      <Field Name="Lbl_category" Hidden="true" />
+      <Field Name="Lbl_costPrice" Hidden="true" />
+      <Field Name="Lbl_inStock" Hidden="true" />
+      <Field Name="Lbl_manufacturer" Hidden="true" />
+      <Field Name="Lbl_model" Hidden="true" />
+      <Field Name="Lbl_productInformation" Hidden="true" />
+      <Field Name="Lbl_sellingPrice" Hidden="true" />
+      <Field Name="Lbl_supplier" Hidden="true" />
+      <Field Name="Lbl_updateProduct" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel44X" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="product_serial_number" Hidden="true" />
+      <Field Name="Txt_amount" Hidden="true" />
+      <Method Name="Txt_amount_KeyPress" Hidden="true" />
+      <Field Name="Txt_barcode" Hidden="true" />
+      <Field Name="Txt_category" Hidden="true" />
+      <Field Name="Txt_cost_price" Hidden="true" />
+      <Field Name="Txt_manufacturer" Hidden="true" />
+      <Field Name="Txt_model" Hidden="true" />
+      <Field Name="Txt_productInfo" Hidden="true" />
+      <Field Name="Txt_selling_price" Hidden="true" />
+      <Field Name="Txt_supplier" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgSQAAJAmKUEBBAABAiTkGgCCBQAiALgiYQACQUCAFA=</HashCode>
+      <FileName>update_product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_updateSupplier">
+    <Position X="20.25" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="Btn_cancelUpdating" Hidden="true" />
+      <Field Name="Btn_exit" Hidden="true" />
+      <Field Name="Btn_updateSupplier" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="Lbl_address" Hidden="true" />
+      <Field Name="Lbl_firstName" Hidden="true" />
+      <Field Name="Lbl_lastName" Hidden="true" />
+      <Field Name="Lbl_payedToSupplier" Hidden="true" />
+      <Field Name="Lbl_phoneNumber" Hidden="true" />
+      <Field Name="Lbl_supplierDept" Hidden="true" />
+      <Field Name="Lbl_updateSupplier" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="Txt_address" Hidden="true" />
+      <Field Name="Txt_firstName" Hidden="true" />
+      <Field Name="Txt_lastName" Hidden="true" />
+      <Field Name="Txt_paidToSupplier" Hidden="true" />
+      <Field Name="Txt_phoneNumber" Hidden="true" />
+      <Field Name="Txt_supplierDept" Hidden="true" />
+      <Field Name="UpperBluePanel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAwAICAACAEBQBKJgCAIFBSggABADBCFAg8kQECQJg=</HashCode>
+      <FileName>update_supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.Frm_productsData">
+    <Position X="36" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker1" Hidden="true" />
+      <Field Name="dateTimePicker2" Hidden="true" />
+      <Field Name="Lbl_aboutToRunOutNumber" Hidden="true" />
+      <Field Name="Lbl_aboutToRunOutOFStock" Hidden="true" />
+      <Field Name="Lbl_categoryName" Hidden="true" />
+      <Field Name="Lbl_fromDate" Hidden="true" />
+      <Field Name="Lbl_maxProductAmount" Hidden="true" />
+      <Field Name="Lbl_mostSailedCategory" Hidden="true" />
+      <Field Name="Lbl_mostSailedProduct" Hidden="true" />
+      <Field Name="Lbl_outOfStockNumber" Hidden="true" />
+      <Field Name="Lbl_productBarcode" Hidden="true" />
+      <Field Name="Lbl_productCategory" Hidden="true" />
+      <Field Name="Lbl_productCount" Hidden="true" />
+      <Field Name="Lbl_productCountNumber" Hidden="true" />
+      <Field Name="Lbl_productModel" Hidden="true" />
+      <Field Name="Lbl_ranOutOfStock" Hidden="true" />
+      <Field Name="Lbl_toDate" Hidden="true" />
+      <Field Name="Lbl_totalProductsNumber" Hidden="true" />
+      <Field Name="Lbl_totalSoldProducts" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>iEUEAAMBACBQAAMCpACAAAQGAEABQBAAAIQCDVkKqgE=</HashCode>
+      <FileName>productsData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.user">
+    <Position X="34.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEQAAABEAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>user.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Electricity_shop.vat">
+    <Position X="34.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>vat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

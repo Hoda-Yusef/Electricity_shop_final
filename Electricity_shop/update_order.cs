@@ -221,7 +221,7 @@ namespace Electricity_shop
 
         private void OpenAddProductToOrder(object obj)
         {
-            Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole));
+            Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole,userName));
         }
 
         //לחיצה על עדכן מעדכן הסטטוס של ההזמנה
