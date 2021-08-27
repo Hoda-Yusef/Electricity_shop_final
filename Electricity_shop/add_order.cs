@@ -189,7 +189,6 @@ namespace Electricity_shop
 
                 if (Customer != null)
                 {
-
                     for (int i = 0; i < Customer.Length; i++)//לולאה בודקת אם לקוח קיים
                     {
                         if (idTmp == Customer[i].Id.ToString())

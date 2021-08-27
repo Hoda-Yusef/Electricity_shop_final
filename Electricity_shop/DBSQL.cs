@@ -238,46 +238,6 @@ namespace Electricity_shop
 
         }
 
-        public orders[] GetOrdersDataByDate(string date)
-        {
-            DataSet ds = new DataSet();
-            orders[] Orders = null;
-            string cmdStr = "SELECT * FROM orders WHERE date='" + date + "'";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                ds = GetMultipleQuery(command);
-            }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-                Orders = new orders[dt.Rows.Count];
-
-                for (int i = 0; i < Orders.Length; i++)
-                {
-                    Orders[i] = new orders();
-                    Orders[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
-                    Orders[i].Customer_id = dt.Rows[i][1].ToString();
-                    Orders[i].Date = dt.Rows[i][2].ToString();
-                    Orders[i].Status = Convert.ToInt32(dt.Rows[i][3]);
-
-                }
-            }
-            return Orders;
-
-        }
-
         public user[] GetUsersData()
         {
             DataSet ds = new DataSet();
@@ -553,53 +513,6 @@ namespace Electricity_shop
                 Product.Amount = Convert.ToInt32(dt.Rows[0][8]);
                 Product.Product_info = dt.Rows[0][9].ToString();
 
-            }
-            return Product;
-
-        }
-
-
-        public Product[] GetAllOrderedProducts()
-        {
-            DataSet ds = new DataSet();
-            Product[] Product = null;
-            string cmdStr = "SELECT product.* FROM product INNER JOIN product_order "
-                +"ON product.product_serial_number = product_order.product_serial_number";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                ds = GetMultipleQuery(command);
-            }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-                Product = new Product[dt.Rows.Count];
-
-                for (int i = 0; i < Product.Length; i++)
-                {
-                    Product[i] = new Product();
-                    Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
-                    Product[i].Barcode = dt.Rows[i][1].ToString();
-                    Product[i].Category = dt.Rows[i][2].ToString();
-                    Product[i].Model = dt.Rows[i][3].ToString();
-                    Product[i].Manufacturer = dt.Rows[i][4].ToString();
-                    Product[i].Supplier = dt.Rows[i][5].ToString();
-                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
-                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
-                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
-                    Product[i].Product_info = dt.Rows[i][9].ToString();
-                }
             }
             return Product;
 
@@ -1662,20 +1575,6 @@ namespace Electricity_shop
         }
 
         public int countCustomers()
-        {
-            int result;
-
-            string cmdStr = "SELECT count(*) FROM customer";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                result = ExecuteScalarIntQuery(command);
-            }
-
-            return result;
-        }
-
-        public int countActiveCustomers()
         {
             int result;
 
