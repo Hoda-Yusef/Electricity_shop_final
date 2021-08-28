@@ -126,26 +126,18 @@ namespace Electricity_shop
 
         private void Pnl_biggestOrderContainer_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName,1,dateTimePicker_from.Text,dateTimePicker_to.Text);
-            Fom.Txt_customerId.Text = Lbl_customersId.Text;
+            Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName,orderNumber,1);
+           // Fom.Txt_customerId.Text = Lbl_customersId.Text;
             Fom.ShowDialog();
-            
-           
         }
-       /* 
-        private void OpenOrderManagement(object obj)
-        {
-            Application.Run(new Frm_ordersManagement(1, userName));
-        }
-       */
+      
         private void Lbl_deleviredNumber_Click(object sender, EventArgs e)
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
             if (Orders != null)
             {
                 Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
-                    dateTimePicker_from.Text, dateTimePicker_to.Text);
+                    dateTimePicker_from.Text, dateTimePicker_to.Text,"סופק");
 
                 om.Cbo_sortByOrderStatus.Text = "סופק";
 
@@ -161,7 +153,7 @@ namespace Electricity_shop
             if (Orders != null)
             {
                 Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
-                    dateTimePicker_from.Text, dateTimePicker_to.Text);
+                    dateTimePicker_from.Text, dateTimePicker_to.Text,"לא סופק");
 
                 om.Cbo_sortByOrderStatus.Text = "לא סופק";
 
@@ -177,7 +169,7 @@ namespace Electricity_shop
             if (Orders != null)
             {
                 Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
-                    dateTimePicker_from.Text, dateTimePicker_to.Text);
+                    dateTimePicker_from.Text, dateTimePicker_to.Text,"");
 
                 om.Cbo_sortByOrderStatus.Text = "הכל";
 

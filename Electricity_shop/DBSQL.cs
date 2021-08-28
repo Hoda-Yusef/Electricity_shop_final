@@ -997,6 +997,130 @@ namespace Electricity_shop
 
         }
 
+        public orders_customers[] GetOrdersRelevantData(string status, string date1, string date2)
+        {
+            string cmdStr = string.Empty;
+            DataSet ds = new DataSet();
+            orders_customers[] Orders_customers = null;
+            if (status == "")
+            {
+                cmdStr = "SELECT orders.order_number,orders.customer_id," +
+                    "customer.first_name,customer.last_name," +
+                   "customer.phone_number,customer.address,orders.date,orders.status," +
+                   "DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                   "FROM orders INNER JOIN " +
+                   "customer ON orders.customer_id = customer.id" +
+                   " WHERE orders.date BETWEEN STR_TO_DATE('" + date1 + "','%d-%m-%Y') AND STR_TO_DATE('" + date2 + "','%d-%m-%Y') ORDER BY orders.date DESC";
+            }
+            else if (status == "סופק")
+            {
+                cmdStr = "SELECT orders.order_number,orders.customer_id," +
+                  "customer.first_name,customer.last_name," +
+                 "customer.phone_number,customer.address,orders.date,orders.status," +
+                 "DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                 "FROM orders INNER JOIN " +
+                 "customer ON orders.customer_id = customer.id" +
+                 " WHERE orders.status=0 AND orders.date BETWEEN STR_TO_DATE('" + date1 + "','%d-%m-%Y') AND STR_TO_DATE('" + date2 + "','%d-%m-%Y') ORDER BY orders.date DESC";
+            }
+            else if (status == "לא סופק")
+            {
+                cmdStr = "SELECT orders.order_number,orders.customer_id," +
+                  "customer.first_name,customer.last_name," +
+                 "customer.phone_number,customer.address,orders.date,orders.status," +
+                 "DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                 "FROM orders INNER JOIN " +
+                 "customer ON orders.customer_id = customer.id" +
+                 " WHERE orders.status=1 AND orders.date BETWEEN STR_TO_DATE('" + date1 + "','%d-%m-%Y') AND STR_TO_DATE('" + date2 + "','%d-%m-%Y') ORDER BY orders.date DESC";
+            }
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Orders_customers = new orders_customers[dt.Rows.Count];
+
+                for (int i = 0; i < Orders_customers.Length; i++)
+                {
+                    Orders_customers[i] = new orders_customers();
+                    Orders_customers[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
+                    Orders_customers[i].Customer_id = dt.Rows[i][1].ToString();
+                    Orders_customers[i].First_name = dt.Rows[i][2].ToString();
+                    Orders_customers[i].Last_name = dt.Rows[i][3].ToString();
+                    Orders_customers[i].Phone_number = dt.Rows[i][4].ToString();
+                    Orders_customers[i].Address = dt.Rows[i][5].ToString();
+                    Orders_customers[i].Date = dt.Rows[i][8].ToString();
+                    Orders_customers[i].Status = Convert.ToInt32(dt.Rows[i][7]);
+
+                }
+            }
+            return Orders_customers;
+
+        }
+
+
+        public orders_customers GetBiggestOrderData(int orderNumber)
+        {
+            string cmdStr = string.Empty;
+            DataSet ds = new DataSet();
+            orders_customers Orders_customers = null;
+          
+                cmdStr = "SELECT orders.order_number,orders.customer_id," +
+                    "customer.first_name,customer.last_name," +
+                   "customer.phone_number,customer.address,orders.date,orders.status," +
+                   "DATE_FORMAT(date,'%d-%m-%Y') AS date_string " +
+                   "FROM orders INNER JOIN " +
+                   "customer ON orders.customer_id = customer.id" +
+                   " WHERE orders.order_number="+orderNumber+"";
+
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                ds = GetMultipleQuery(command);
+            }
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ds.Tables[0];
+            }
+
+            catch
+            {
+
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                Orders_customers = new orders_customers();
+
+                    Orders_customers = new orders_customers();
+                    Orders_customers.Order_number = Convert.ToInt32(dt.Rows[0][0]);
+                    Orders_customers.Customer_id = dt.Rows[0][1].ToString();
+                    Orders_customers.First_name = dt.Rows[0][2].ToString();
+                    Orders_customers.Last_name = dt.Rows[0][3].ToString();
+                    Orders_customers.Phone_number = dt.Rows[0][4].ToString();
+                    Orders_customers.Address = dt.Rows[0][5].ToString();
+                    Orders_customers.Date = dt.Rows[0][8].ToString();
+                    Orders_customers.Status = Convert.ToInt32(dt.Rows[0][7]);
+            }
+            return Orders_customers;
+
+        }
+
         //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של ספק לפי מספר טלפון שמקבלת
         public supplier GetSupplierDataByPhone(string phone)
         {

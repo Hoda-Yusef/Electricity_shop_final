@@ -17,6 +17,7 @@ namespace Electricity_shop
         string order_number_holder;
         customer Customer;
         orders_customers[] Orders_customers;
+        orders_customers[] relevant_orders;
         orders[] OrdersFromContainer;
         bool date_changed = false;
         int usersRole;
@@ -24,6 +25,9 @@ namespace Electricity_shop
         int from_containerData = 0;
         string fromDate = string.Empty;
         string toDate = string.Empty;
+        string containerPath = string.Empty;
+        int biggestOrderNumber = -1;
+        orders_customers biggestOrder;
 
         public Frm_ordersManagement(int role,string username)
         {
@@ -34,11 +38,23 @@ namespace Electricity_shop
             mySQL = DBSQL.Instance;
             usersRole = role;
             userName = username;
+        }
 
+        public Frm_ordersManagement(int role, string username,int orderNumber,int formContainer)
+        {
+            InitializeComponent();
+            DBSQL.DaseDataBaseName = "electricity_shop";
+            DBSQL.UserName = "root";
+            DBSQL.Password = string.Empty;
+            mySQL = DBSQL.Instance;
+            usersRole = role;
+            userName = username;
+            biggestOrderNumber = orderNumber;
+            from_containerData = formContainer;
         }
 
         public Frm_ordersManagement(int role, string username,
-            int from_containerData,string fromDate,string toDate)
+            int from_containerData,string fromDate,string toDate,string path)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -50,7 +66,7 @@ namespace Electricity_shop
             this.from_containerData = from_containerData;
             this.fromDate = fromDate;
             this.toDate = toDate;
-
+            this.containerPath = path;
         }
 
 
@@ -156,6 +172,52 @@ namespace Electricity_shop
 
                 }
             }
+            else
+            {
+                if (biggestOrderNumber == -1)
+                {
+                    relevant_orders = mySQL.GetOrdersRelevantData(containerPath, fromDate, toDate);
+                    customer Customer;
+                    if (Orders_customers != null)
+
+                        Grd_orders.Rows.Clear();
+
+                    for (int i = 0; i < relevant_orders.Length; i++)
+                    {
+                        Customer = mySQL.GetCustomerDataByID(relevant_orders[i].Customer_id);
+
+                        Grd_orders.Rows.Add(new object[]
+                        {
+                    relevant_orders[i].Order_number,
+                    Customer.Id,
+                    Customer.First_name,
+                    Customer.Last_name,
+                    Customer.Phone_number,
+                    Customer.Address,
+                    relevant_orders[i].Date,
+                    relevant_orders[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
+                            }); ;
+                    }
+                }
+                else
+                {
+                    biggestOrder = mySQL.GetBiggestOrderData(biggestOrderNumber);
+                    if (biggestOrder != null)
+                        Grd_orders.Rows.Clear();
+
+                    Grd_orders.Rows.Add(new object[]
+                    {
+                    biggestOrder.Order_number,
+                    biggestOrder.Customer_id,
+                    biggestOrder.First_name,
+                    biggestOrder.Last_name,
+                    biggestOrder.Phone_number,
+                    biggestOrder.Address,
+                    biggestOrder.Date,
+                    biggestOrder.Status==1?imageList1.Images[1]:imageList1.Images[0]
+                        });
+                }
+            }
         }
        
         private void Btn_updateStatus_Click(object sender, EventArgs e)//עדכון סטטוס
@@ -197,6 +259,7 @@ namespace Electricity_shop
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             date_changed = true;
+            
             Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text,
                 Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, dateTimePicker.Text);
             fill_grid(Orders_customers);

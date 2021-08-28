@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ordersManagement));
             this.Grd_orders = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,24 +85,24 @@
             this.Grd_orders.AllowUserToAddRows = false;
             this.Grd_orders.AllowUserToResizeColumns = false;
             this.Grd_orders.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Grd_orders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Grd_orders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Grd_orders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grd_orders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.Grd_orders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grd_orders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Grd_orders.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.Grd_orders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grd_orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grd_orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.Grd_orders.ColumnHeadersHeight = 55;
             this.Grd_orders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
@@ -114,14 +114,14 @@
             this.Column6,
             this.Column7});
             this.Grd_orders.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grd_orders.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grd_orders.DefaultCellStyle = dataGridViewCellStyle10;
             this.Grd_orders.EnableHeadersVisualStyles = false;
             this.Grd_orders.Location = new System.Drawing.Point(24, 98);
             this.Grd_orders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -186,8 +186,8 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column6.FillWeight = 80F;
             this.Column6.HeaderText = "תאריך";
             this.Column6.MinimumWidth = 6;
@@ -196,9 +196,9 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle9.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle9.NullValue")));
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column7.FillWeight = 50F;
             this.Column7.HeaderText = "סטטוס הזמנה";
             this.Column7.MinimumWidth = 6;
@@ -328,10 +328,10 @@
             this.panel3.Controls.Add(this.Btn_updateOrder);
             this.panel3.Controls.Add(this.Lbl_customerId);
             this.panel3.Controls.Add(this.Txt_customerId);
-            this.panel3.Location = new System.Drawing.Point(1042, 50);
+            this.panel3.Location = new System.Drawing.Point(1042, 32);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 540);
+            this.panel3.Size = new System.Drawing.Size(214, 574);
             this.panel3.TabIndex = 20;
             // 
             // Lbl_sortByAmount
@@ -380,7 +380,7 @@
             this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(19, 294);
+            this.dateTimePicker.Location = new System.Drawing.Point(19, 318);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(175, 29);
@@ -395,7 +395,7 @@
             this.BtnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnClear.ForeColor = System.Drawing.Color.White;
             this.BtnClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnClear.Location = new System.Drawing.Point(19, 350);
+            this.BtnClear.Location = new System.Drawing.Point(20, 392);
             this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(174, 38);
@@ -460,7 +460,7 @@
             this.Btn_backToMain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_backToMain.ForeColor = System.Drawing.Color.White;
             this.Btn_backToMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_backToMain.Location = new System.Drawing.Point(19, 488);
+            this.Btn_backToMain.Location = new System.Drawing.Point(20, 530);
             this.Btn_backToMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_backToMain.Name = "Btn_backToMain";
             this.Btn_backToMain.Size = new System.Drawing.Size(174, 38);
@@ -477,7 +477,7 @@
             this.Btn_updateStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateStatus.ForeColor = System.Drawing.Color.White;
             this.Btn_updateStatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateStatus.Location = new System.Drawing.Point(19, 442);
+            this.Btn_updateStatus.Location = new System.Drawing.Point(20, 484);
             this.Btn_updateStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_updateStatus.Name = "Btn_updateStatus";
             this.Btn_updateStatus.Size = new System.Drawing.Size(174, 38);
@@ -494,7 +494,7 @@
             this.Btn_updateOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_updateOrder.ForeColor = System.Drawing.Color.White;
             this.Btn_updateOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateOrder.Location = new System.Drawing.Point(19, 395);
+            this.Btn_updateOrder.Location = new System.Drawing.Point(20, 438);
             this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_updateOrder.Name = "Btn_updateOrder";
             this.Btn_updateOrder.Size = new System.Drawing.Size(174, 38);
@@ -635,12 +635,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn Column7;
         private System.Windows.Forms.Button BtnClear;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button Btn_leave;
         private System.Windows.Forms.Label Lbl_sortByAmount;
         public System.Windows.Forms.ComboBox Cbo_sortByOrderStatus;
         public System.Windows.Forms.TextBox Txt_customerId;
+        public System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }
