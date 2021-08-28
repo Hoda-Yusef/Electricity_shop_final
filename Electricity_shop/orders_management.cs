@@ -171,16 +171,10 @@ namespace Electricity_shop
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-
-            if (Orders.Status == 0)//משנים את הסטטוס ללא סופק
+           
+            else
             {
-                mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 1);
-                this.Close();
-                Thread th;
-                th = new Thread(openSelf);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
-
+                MessageBox.Show("הזמנה סופקה , אין לבצע שינויים");
             }
         }
 

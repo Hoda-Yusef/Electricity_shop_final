@@ -29,10 +29,9 @@ namespace Electricity_shop
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Cbo_orderStatus = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -59,27 +58,9 @@ namespace Electricity_shop
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lbl_updateOrder = new System.Windows.Forms.Label();
             this.Lbl_orderStatus = new System.Windows.Forms.Label();
+            this.Lbl_status = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_allOrders)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Cbo_orderStatus
-            // 
-            this.Cbo_orderStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.Cbo_orderStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Cbo_orderStatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Cbo_orderStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Cbo_orderStatus.ForeColor = System.Drawing.Color.White;
-            this.Cbo_orderStatus.FormattingEnabled = true;
-            this.Cbo_orderStatus.Items.AddRange(new object[] {
-            "סופק",
-            "לא סופק"});
-            this.Cbo_orderStatus.Location = new System.Drawing.Point(28, 554);
-            this.Cbo_orderStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Cbo_orderStatus.Name = "Cbo_orderStatus";
-            this.Cbo_orderStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Cbo_orderStatus.Size = new System.Drawing.Size(133, 29);
-            this.Cbo_orderStatus.TabIndex = 112;
-            this.Cbo_orderStatus.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.Cbo_orderStatus_Format);
             // 
             // panel1
             // 
@@ -280,24 +261,24 @@ namespace Electricity_shop
             this.Grd_allOrders.AllowUserToAddRows = false;
             this.Grd_allOrders.AllowUserToDeleteRows = false;
             this.Grd_allOrders.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Grd_allOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Grd_allOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Grd_allOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grd_allOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(65)))));
             this.Grd_allOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grd_allOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Grd_allOrders.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.Grd_allOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grd_allOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grd_allOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.Grd_allOrders.ColumnHeadersHeight = 55;
             this.Grd_allOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
@@ -308,14 +289,14 @@ namespace Electricity_shop
             this.Column4,
             this.Column9});
             this.Grd_allOrders.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grd_allOrders.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grd_allOrders.DefaultCellStyle = dataGridViewCellStyle6;
             this.Grd_allOrders.EnableHeadersVisualStyles = false;
             this.Grd_allOrders.Location = new System.Drawing.Point(28, 95);
             this.Grd_allOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -408,13 +389,24 @@ namespace Electricity_shop
             this.Lbl_orderStatus.TabIndex = 111;
             this.Lbl_orderStatus.Text = "סטטוס הזמנה :";
             // 
+            // Lbl_status
+            // 
+            this.Lbl_status.AutoSize = true;
+            this.Lbl_status.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_status.Location = new System.Drawing.Point(82, 557);
+            this.Lbl_status.Name = "Lbl_status";
+            this.Lbl_status.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Lbl_status.Size = new System.Drawing.Size(92, 25);
+            this.Lbl_status.TabIndex = 112;
+            this.Lbl_status.Text = "dgdfhdfh";
+            // 
             // Frm_updateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1163, 606);
-            this.Controls.Add(this.Cbo_orderStatus);
+            this.Controls.Add(this.Lbl_status);
             this.Controls.Add(this.Lbl_orderStatus);
             this.Controls.Add(this.Lbl_showTotalProductsAmount);
             this.Controls.Add(this.Lbl_totalProductAmount);
@@ -479,6 +471,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_updateOrder;
         public System.Windows.Forms.Label Txt_show_order_number;
         private System.Windows.Forms.Label Lbl_orderStatus;
-        private System.Windows.Forms.ComboBox Cbo_orderStatus;
+        public System.Windows.Forms.Label Lbl_status;
     }
 }

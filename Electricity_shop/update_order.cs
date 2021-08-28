@@ -104,13 +104,17 @@ namespace Electricity_shop
 
         private void displayResult()
         {
-            if (Cbo_orderStatus != null)
+            if (Orderss.Status == 0)
             {
-                if (Orderss.Status == 1)
-                    Cbo_orderStatus.Text = "לא סופק";
-                if (Orderss.Status == 0)
-                    Cbo_orderStatus.Text = "סופק";
+                Lbl_status.Text = "סופק";
+                Lbl_status.ForeColor =Color.FromArgb(0, 255, 0);
             }
+            else
+            {
+                Lbl_status.Text = "לא סופק";
+                Lbl_status.ForeColor = Color.Orange;
+            }
+                   
 
             if (Orderss.Status == 0)//אם ההזמנ סופקה אז אין אפשרות למשתמש לשנות את הכמות
                 Grd_allOrders.Columns[5].ReadOnly = true;
@@ -133,17 +137,6 @@ namespace Electricity_shop
         private void openOrderManagement(object obj)
         {
             Application.Run(new Frm_ordersManagement(usersRole,userName));
-        }
-
-        private void Cbo_orderStatus_Format(object sender, ListControlConvertEventArgs e)
-        {
-            //מגדירים צבע כתב תלוי בסטטוס
-            if (Cbo_orderStatus.Text == "לא סופק")
-                Cbo_orderStatus.ForeColor = Color.Orange;
-
-            if (Cbo_orderStatus.Text == "סופק")
-                Cbo_orderStatus.ForeColor = Color.FromArgb(0, 255, 0);
-
         }
 
         private void Btn_remove_Click(object sender, EventArgs e)
@@ -228,17 +221,14 @@ namespace Electricity_shop
         private void Btn_updateOrder_Click(object sender, EventArgs e)
         {
             Orderss = mySQL.GetOrdersDataByOrderNumber(order_number_holder);
-            if (Cbo_orderStatus != null)
-            {
-                if (Cbo_orderStatus.Text == "לא סופק")
-                {
-                    mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 1);
-                }
-
-                if (Cbo_orderStatus.Text == "סופק")
+                if (Lbl_status.Text == "לא סופק")
                 {
                     mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 0);
                 }
+
+               else 
+                {
+                MessageBox.Show("הזמנה סופקה , אין לבצע שינויים");
             }
             Thread th;
             this.Close();
