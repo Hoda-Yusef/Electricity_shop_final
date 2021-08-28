@@ -77,6 +77,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה שמקבלת אובייקט מסוג מוצר ומכניסה פרטים של אובייקט לתוך בסיסי נתונים 
         public void InsertProduct(Product Item)
         {
             string cmdStr = "INSERT INTO product (barcode,product_category,product_model," +
@@ -100,8 +101,8 @@ namespace Electricity_shop
             }
         }
 
-        
 
+        //פונקצייה שמקבלת אובייקט מסוג לקוח ומכניסה פרטים של אובייקט לתוך בסיסי נתונים 
         public void InsertCustomer(customer Item)
         {
             string cmdStr = "INSERT INTO customer (id,first_name,last_name," +
@@ -121,6 +122,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה שמקבלת אובייקט מסוג ספק ומכניסה פרטים של אובייקט לתוך בסיסי נתונים 
         public void InsertSupplier(supplier Item)
         {
             string cmdStr = "INSERT INTO supplier (first_name,last_name,phone_number,address," +
@@ -139,6 +141,7 @@ namespace Electricity_shop
             base.ExecuteSimpleQuery(command);
         }
 
+        //פונקצייה שמקבלת אובייקט מסוג הזמנה ומכניסה פרטים של אובייקט לתוך בסיסי נתונים 
         public void InsertOrder(orders Item)
         {
             string cmdStr = "INSERT INTO orders (customer_id,date,status)" +
@@ -156,7 +159,7 @@ namespace Electricity_shop
             }
         }
 
-
+        //פונקצייה שמקבלת ערכים של מוצר ומכניסה את הערכים לתוך בסיסי נתונים
         public void InsertToCart(string itemBarcode, string itemModel, int amount)
         {
             string cmdStr = "INSERT INTO cart (product_barcode,product_model,amount)" +
@@ -169,6 +172,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה שמקבלת ערכים של מוצר ומכניסה את הערכים לתוך בסיסי נתונים
         public void InsertToProductOrder(int product_serial, int order_serial, int amount)
         {
             string cmdStr = "INSERT INTO product_order (product_serial_number,order_serial_number,amount)" +
@@ -185,6 +189,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מחזירה המספר המקסימלי ממספר ההזמנות
         public int GetOrderMaxNumber()
         {
             int result;
@@ -197,6 +202,7 @@ namespace Electricity_shop
             return result;
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה את פרטים של ההזמנות
         public orders[] GetOrdersData()
         {
             DataSet ds = new DataSet();
@@ -238,46 +244,8 @@ namespace Electricity_shop
 
         }
 
-        public orders[] GetOrdersDataByDate(string date)
-        {
-            DataSet ds = new DataSet();
-            orders[] Orders = null;
-            string cmdStr = "SELECT * FROM orders WHERE date='" + date + "'";
 
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                ds = GetMultipleQuery(command);
-            }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-                Orders = new orders[dt.Rows.Count];
-
-                for (int i = 0; i < Orders.Length; i++)
-                {
-                    Orders[i] = new orders();
-                    Orders[i].Order_number = Convert.ToInt32(dt.Rows[i][0]);
-                    Orders[i].Customer_id = dt.Rows[i][1].ToString();
-                    Orders[i].Date = dt.Rows[i][2].ToString();
-                    Orders[i].Status = Convert.ToInt32(dt.Rows[i][3]);
-
-                }
-            }
-            return Orders;
-
-        }
-
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של המשתמשים
         public user[] GetUsersData()
         {
             DataSet ds = new DataSet();
@@ -317,7 +285,8 @@ namespace Electricity_shop
             return User;
 
         }
-        
+
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של הזמנות לפי טווח תאריכים
         public orders[] GetOredrsDataByTwoDates(string date1, string date2)
         {
             DataSet ds = new DataSet();
@@ -360,6 +329,7 @@ namespace Electricity_shop
             return Orders;
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של ערך מעמ
         public vat Getvat()
         {
             DataSet ds = new DataSet();
@@ -392,6 +362,8 @@ namespace Electricity_shop
             }
             return vatWorth;
         }
+
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצרים לפי מספר הזמנה
         public product_order[] GetProductsByOrderNumber(int orderNumber)
         {
             DataSet ds = new DataSet();
@@ -429,8 +401,8 @@ namespace Electricity_shop
             }
             return Orders;
             }
-        
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של הזמנה לפי מספר הזמנה
         public orders GetOrdersDataByOrderNumber(string order_number)
         {
             DataSet ds = new DataSet();
@@ -469,6 +441,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצרים
         public Product[] GetProductData()
         {
             DataSet ds = new DataSet();
@@ -514,11 +487,13 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצר לפי מספר סידורי של מוצר
         public Product GetProductDataBySerialNumber(string product_serial_number)
         {
             DataSet ds = new DataSet();
             Product Product = null;
-            string cmdStr = "SELECT * FROM product WHERE product_serial_number=" + product_serial_number + "";
+            string cmdStr = "SELECT * FROM product WHERE product_serial_number="
+                + product_serial_number + "";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
@@ -558,53 +533,9 @@ namespace Electricity_shop
 
         }
 
+       
 
-        public Product[] GetAllOrderedProducts()
-        {
-            DataSet ds = new DataSet();
-            Product[] Product = null;
-            string cmdStr = "SELECT product.* FROM product INNER JOIN product_order "
-                +"ON product.product_serial_number = product_order.product_serial_number";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                ds = GetMultipleQuery(command);
-            }
-
-            DataTable dt = new DataTable();
-            try
-            {
-                dt = ds.Tables[0];
-            }
-
-            catch
-            {
-
-            }
-
-            if (dt.Rows.Count > 0)
-            {
-                Product = new Product[dt.Rows.Count];
-
-                for (int i = 0; i < Product.Length; i++)
-                {
-                    Product[i] = new Product();
-                    Product[i].Product_serial_number = Convert.ToInt32(dt.Rows[i][0]);
-                    Product[i].Barcode = dt.Rows[i][1].ToString();
-                    Product[i].Category = dt.Rows[i][2].ToString();
-                    Product[i].Model = dt.Rows[i][3].ToString();
-                    Product[i].Manufacturer = dt.Rows[i][4].ToString();
-                    Product[i].Supplier = dt.Rows[i][5].ToString();
-                    Product[i].Cost_price = Convert.ToInt32(dt.Rows[i][6]);
-                    Product[i].Selling_price = Convert.ToInt32(dt.Rows[i][7]);
-                    Product[i].Amount = Convert.ToInt32(dt.Rows[i][8]);
-                    Product[i].Product_info = dt.Rows[i][9].ToString();
-                }
-            }
-            return Product;
-
-        }
-        
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצרים בעגלה
         public Cart[] getCartData()
         {
             DataSet ds = new DataSet();
@@ -642,8 +573,9 @@ namespace Electricity_shop
             }
             return cart;
         }
-        
 
+
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצר לפי ברקוד שמקבלת
         public Product GetProductDataByBarcode(string barcode)
         {
             DataSet ds = new DataSet();
@@ -685,6 +617,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצר לפי מודל שמקבלת
         public Product GetProductDataByModel(string model)
         {
             DataSet ds = new DataSet();
@@ -724,7 +657,8 @@ namespace Electricity_shop
             }
             return Product;
         }
-       
+
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של לקוחות
         public customer[] GetCustomerData()
         {
             DataSet ds = new DataSet();
@@ -764,6 +698,7 @@ namespace Electricity_shop
             return Customer;
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של לקוח לפי דעודת זהות שמקבלת
         public customer GetCustomerDataByID(string id)
         {
             DataSet ds = new DataSet();
@@ -802,6 +737,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של ספקים
         public supplier[] GetSupplierData()
         {
             DataSet ds = new DataSet();
@@ -844,6 +780,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצרים לפי פרטים שהיא מקבלת
         public Product[] GetProductDataFiltered(string stock_amount, string barcodeItem,
             string categoryItem, string manufactureItem, string modelItem)
         {
@@ -931,6 +868,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של הזמנות לפי פרטים שהיא מקבלת
         public orders_customers[] GetOrdersDataFiltered(string status,string customerID,
             string firstName, string lastName, string date)
         {
@@ -1058,7 +996,8 @@ namespace Electricity_shop
             return Orders_customers;
 
         }
-      
+
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של ספק לפי מספר טלפון שמקבלת
         public supplier GetSupplierDataByPhone(string phone)
         {
             DataSet ds = new DataSet();
@@ -1098,6 +1037,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של לקוחות לפי תעודת זהות שמקבלת
         public customer[] GetCustomerDataById2(string id)
         {
             DataSet ds = new DataSet();
@@ -1138,6 +1078,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של לקוח לפי מספר טלפון שמקבלת
         public customer GetCustomerDataByphoneN(string phone)
         {
             DataSet ds = new DataSet();
@@ -1175,6 +1116,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של לקוחות לפי מספר טלפון שמקבלת
         public customer[] GetCustomerDataByphoneNumber(string phone)
         {
             DataSet ds = new DataSet();
@@ -1215,6 +1157,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של לקוחות לפי שם פרטי
         public customer[] GetCustomerDataByFN(string name)
         {
             DataSet ds = new DataSet();
@@ -1255,6 +1198,7 @@ namespace Electricity_shop
 
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של ספקים לפי שם פרטי
         public supplier[] GetSupplierDataByFN(string name)
         {
             DataSet ds = new DataSet();
@@ -1295,6 +1239,7 @@ namespace Electricity_shop
             return Suppliers;
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של ספקים לפי שם משפחה שמקבלת
         public supplier[] GetSupplierDataByLN(string name)
         {
             DataSet ds = new DataSet();
@@ -1335,6 +1280,7 @@ namespace Electricity_shop
             return Suppliers;
         }
 
+        //פונקצייה שולפת מבסיסי נתונים ומחזירה פרטים של מוצרים בהזמנה לפי מספר הזמנה
         public product_order[] GetProduct_orderDataByOrderNumber(string orderNumber)
         {
             DataSet ds = new DataSet();
@@ -1375,7 +1321,7 @@ namespace Electricity_shop
 
         }
 
-
+        //פונקצייה מעדכנת בסיסי נתונים לכמות מלאי של מוצר לפי מספר מוצר והכמות שמקבלת
         public void UpdateProductAmountBySerial(int amount, string serial)
         {
             string cmdStr = "UPDATE product SET amount=" + amount + "" +
@@ -1390,7 +1336,7 @@ namespace Electricity_shop
         }
 
 
-
+        //פונקצייה מעדכנת בסיסי נתונים לכמות מלאי של מוצר לפי ברקוד מוצר והכמות שמקבלת
         public void UpdateProductAmountByBarcode(int amount, string barcode)
         {
             string cmdStr = "UPDATE product SET amount=" + amount + " WHERE barcode=" + barcode + "";
@@ -1403,6 +1349,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים לערך של מעמ לפי ערך שמקבלת
         public void updateVat(double Item)
         {
             string cmdStr = "UPDATE vat SET vat_percentage=" + Item + "";
@@ -1415,6 +1362,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים לכמות מלאי של מוצר לפי מודל מוצר והכמות שמקבלת
         public void UpdateProductAmountByModel(int amount, string model)
         {
             string cmdStr = "UPDATE product SET amount=" + amount + " WHERE product_model='" + model + "'";
@@ -1427,6 +1375,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים לפרטים של מוצר לפי הערכים באובייקט שמקבלת
         public void UpdateProductBySerial(Product Item)
         {
             string cmdStr = "UPDATE product SET barcode=@barcode,product_category=@product_category," +
@@ -1451,7 +1400,8 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-        
+
+        //פונקצייה מעדכנת בסיסי נתונים לפרטים של לקוח לפי ערכים של אובייקט שמקבלת
         public void UpdateCustomer(customer Item)
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
@@ -1470,7 +1420,8 @@ namespace Electricity_shop
                 base.ExecuteSimpleQuery(command);
             }
         }
-        
+
+        //פונקצייה מעדכנת בסיסי נתונים של הזמנה לפי מספר הזמנה
         public void UpdateOrderByOrderNumber(string orderNumber, int status)
         {
             string cmdStr = "UPDATE orders SET status=" + status + " WHERE order_number=" + orderNumber + "";
@@ -1484,6 +1435,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים של לקוח לפי מספר לקוח והאובייקט שמקבלת
         public void UpdateCustomerBySerial(customer Item)
         {
             string cmdStr = "UPDATE customer SET id=@id,first_name=@first_name," +
@@ -1504,6 +1456,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים של ספק לפי מספר ספק והאובייקט שמקבלת
         public void UpdateSupplierBySerial(supplier Item)
         {
             string cmdStr = "UPDATE supplier SET first_name=@first_name," +
@@ -1526,6 +1479,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים של עגלה לפי ברקוד והערכים שמקבלת
         public void UpdateCartAmountByBarcode(int productAmount, string productBarcode)
         {
             string cmdStr = "UPDATE cart SET amount=" + productAmount + "" +
@@ -1540,6 +1494,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים של כמות של מוצר בעגלה לפי מודל שמקבלת
         public void UpdateCartAmountByModel(int productAmount, string productModel)
         {
             string cmdStr = "UPDATE cart SET amount=" + productAmount + "" +
@@ -1554,6 +1509,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מעדכנת בסיסי נתונים לכמות של מוצר בהזמנה לפי ערכים שמקבלת
         public void UpdateProduct_orderAmount(string product_serial_number,
             string order_serial_number, int amount)
         {
@@ -1570,6 +1526,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מוחקת מבסיסי נתונים את כל שנמצא בטבלת העגלה
         public void clearCart()
         {
             string cmdStr = "DELETE FROM cart";
@@ -1580,6 +1537,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מוחת מבסיסי נתונים את הזמנה לפי מספר הזמנה
         public void deleteOrderByOrderNumber(string orderNumber)
         {
             string cmdStr = "DELETE FROM orders WHERE order_number=" + orderNumber + "";
@@ -1590,16 +1548,7 @@ namespace Electricity_shop
             }
         }
 
-        public void clearOrderNumberHolder()
-        {
-            string cmdStr = "DELETE FROM order_number_holder";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                base.ExecuteSimpleQuery(command);
-            }
-        }
-
+        //מחיקת מבסיסי נתונים מוצר שנמצא בעגלה לפי ברקוד שמקבלת
         public void deleteItemFromCartByBarcode(string item)
         {
             string cmdStr = "DELETE FROM cart WHERE product_barcode=" + item + "";
@@ -1610,6 +1559,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מחוקת מבסיסי נתונים מוצר בעגלה לפי מודל שמקבלת
         public void deleteItemFromCartByModel(string item)
         {
             string cmdStr = "DELETE FROM cart WHERE product_Model='" + item + "'";
@@ -1620,6 +1570,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מחוקת מבסיסי נתונים מוצר של הזמנה לפי מספר הזמנה ומספר של המוצר
         public void deleteProductFromProduct_cartByOrderNumberAndProductSerial(
             string product_serial_number, string order_serial_number)
         {
@@ -1633,6 +1584,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה סופרת מבסיסי נתונים את כמות המוצרים שאזלו מהמלאי
         public int countOutStockProducts()
         {
             int result;
@@ -1647,6 +1599,7 @@ namespace Electricity_shop
             return result;
         }
 
+        //פונקצייה סופרת מבסיסי נתונים את כמות המוצרים שעומדים להיגמר מהמלאי
         public int countAboutToEnd()
         {
             int result;
@@ -1661,6 +1614,7 @@ namespace Electricity_shop
             return result;
         }
 
+        //פונקצייה סופרת מבסיסי נתונים את כמות הלקוחות 
         public int countCustomers()
         {
             int result;
@@ -1675,20 +1629,7 @@ namespace Electricity_shop
             return result;
         }
 
-        public int countActiveCustomers()
-        {
-            int result;
-
-            string cmdStr = "SELECT count(*) FROM customer";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                result = ExecuteScalarIntQuery(command);
-            }
-
-            return result;
-        }
-
+        //פונקצייה סופרת מבסיסי נתונים את כמות הספקים
         public int countSupplies()
         {
             int result;
@@ -1703,6 +1644,7 @@ namespace Electricity_shop
             return result;
         }
 
+        //פונקצייה סופרת מבסיסי נתונים את כמות ההזמנות שלא סופקו
         public int countWaitingOrders()
         {
             int result;

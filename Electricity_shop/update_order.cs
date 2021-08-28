@@ -122,7 +122,6 @@ namespace Electricity_shop
 
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
-            mySQL.clearOrderNumberHolder();
             this.Close();
             Thread th;
             th = new Thread(openOrderManagement);

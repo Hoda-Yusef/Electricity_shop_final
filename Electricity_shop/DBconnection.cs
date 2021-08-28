@@ -39,6 +39,7 @@ namespace Electricity_shop
             return _instance;
         }
 
+        //פונקצייה שמקשרת עם בסיס נתונים
         private bool connect()
         {
             bool result = true;
@@ -55,11 +56,13 @@ namespace Electricity_shop
             return result;
         }
 
+        //פונקצייה סוגרת את החיבור עם בסיסי נתונים
         public void close()
         {
             connection.Close();
         }
 
+        //פוקצייה מפעילה שאילתה פשוטה
         protected bool ExecuteSimpleQuery(MySqlCommand command)
         {
             bool result = true;
@@ -89,6 +92,7 @@ namespace Electricity_shop
             return result;
         }
 
+        //פונקצייה מפעילה שאילתה ומחזירה מספר שלם
         protected int ExecuteScalarIntQuery(MySqlCommand command)
         {
             int result = -1;
@@ -118,6 +122,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה מפעילה שאילתה מורכבת
         protected DataSet GetMultipleQuery(MySqlCommand command)
         {
             DataSet dataset = new DataSet();
