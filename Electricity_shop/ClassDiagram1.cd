@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Electricity_shop.Frm_addCustomer">
-    <Position X="1" Y="0.75" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_addCustomer" Hidden="true" />
       <Field Name="Btn_cancel" Hidden="true" />
@@ -28,12 +28,12 @@
       <Field Name="Txt_phoneNumber" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>ACAQAACQACQEEAEyFCDRAFASBhiBhARAAQC0mQGCQhA=</HashCode>
+      <HashCode>ACCQAACQACQEEAEyFCDRAFASBhiBhARAAQC0mQGCQhA=</HashCode>
       <FileName>add_customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_main">
-    <Position X="2.75" Y="0.75" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_addCustomer" Hidden="true" />
       <Field Name="Btn_addOrder" Hidden="true" />
@@ -49,6 +49,7 @@
       <Field Name="Btn_manageSuppliers" Hidden="true" />
       <Field Name="button11" Hidden="true" />
       <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
       <Method Name="InitializeComponent" Hidden="true" />
       <Field Name="Lbl_about_to_end" Hidden="true" />
       <Field Name="Lbl_about_to_end_number" Hidden="true" />
@@ -87,7 +88,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_addOrder">
-    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Position X="6" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_cancel" Hidden="true" />
       <Field Name="Btn_clear" Hidden="true" />
@@ -117,12 +118,12 @@
       <Field Name="Upper_BluePanel" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>RgARiAKAAHQAEBiSEADBAMCCAACChKQEIQAMgQPCgAg=</HashCode>
+      <HashCode>RgARiEKAAHQAEBiSEADBAMCCIACChKREIUCMgQPCwAg=</HashCode>
       <FileName>add_order.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_addProduct">
-    <Position X="6.25" Y="0.75" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_addProduct" Hidden="true" />
       <Field Name="Btn_cancel" Hidden="true" />
@@ -162,7 +163,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_addProductsToOrder">
-    <Position X="8" Y="0.75" Width="1.5" />
+    <Position X="11.5" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="amountChoose" Hidden="true" />
       <Field Name="Btn_addToOrder" Hidden="true" />
@@ -208,7 +209,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_addSupplier">
-    <Position X="9.75" Y="0.75" Width="1.5" />
+    <Position X="19" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_addSupplier" Hidden="true" />
       <Field Name="Btn_cancel" Hidden="true" />
@@ -242,14 +243,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Cart">
-    <Position X="11.5" Y="0.75" Width="1.5" />
+    <Position X="28.25" Y="6.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>CAAAAAgAAAAAAAAAAAAAAACAAAAAgAAABAAAAAQAAAA=</HashCode>
       <FileName>cart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_cartProductMenu">
-    <Position X="13.25" Y="0.75" Width="1.5" />
+    <Position X="25" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="amountChoose" Hidden="true" />
       <Field Name="Btn_addToCart" Hidden="true" />
@@ -296,7 +297,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_ContainerData">
-    <Position X="46.5" Y="0.75" Width="1.5" />
+    <Position X="47" Y="11.75" Width="2.25" />
     <Members>
       <Field Name="Btn_exit" Hidden="true" />
       <Field Name="Btn_incomeAndOutcome" Hidden="true" />
@@ -326,14 +327,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.customer">
-    <Position X="37.75" Y="0.75" Width="1.5" />
+    <Position X="37" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAEAAAAAAQAAAAEAAAEAAAIAAAACAABCAAAAQgA=</HashCode>
       <FileName>customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.FrmCustomers_management">
-    <Position X="43" Y="0.75" Width="1.5" />
+    <Position X="44" Y="11.75" Width="2.75" />
     <Members>
       <Field Name="Btn_clear" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
@@ -369,21 +370,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.DBconnection">
-    <Position X="48.25" Y="0.75" Width="1.5" />
+    <Position X="50.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAEAAAAAAAgIAAAgBABAAAIAAAAAAAAQIAAAgAAAAA=</HashCode>
       <FileName>DBconnection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.DBSQL">
-    <Position X="50.25" Y="0.75" Width="3.5" />
+    <Position X="52.25" Y="11.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AA6ACoEAAYIaQASAHA4BIYEABiBgwEkCQ0AAAIMQwAA=</HashCode>
       <FileName>DBSQL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_incomeAndOutcome">
-    <Position X="30.75" Y="4" Width="1.5" />
+    <Position X="12.5" Y="15.25" Width="2" />
     <Members>
       <Field Name="Btn_changeVAT" Hidden="true" />
       <Field Name="components" Hidden="true" />
@@ -424,7 +425,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_InStock">
-    <Position X="29" Y="5" Width="1.5" />
+    <Position X="10" Y="16.25" Width="2.25" />
     <Members>
       <Field Name="Btn_exit" Hidden="true" />
       <Field Name="Btn_saveDocument" Hidden="true" />
@@ -453,11 +454,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_login">
-    <Position X="44.75" Y="0.75" Width="1.5" />
+    <Position X="37" Y="15.75" Width="1.5" />
     <Members>
       <Field Name="Btn_entry" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
       <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
       <Field Name="Lbl_wrongPasswordMessage" Hidden="true" />
       <Field Name="panel" Hidden="true" />
       <Field Name="panel1" Hidden="true" />
@@ -468,6 +471,7 @@
       <Field Name="Pic_login" Hidden="true" />
       <Field Name="Pic_password" Hidden="true" />
       <Field Name="Pic_user" Hidden="true" />
+      <Method Name="pictureBox1_Click" Hidden="true" />
       <Field Name="Txt_password" Hidden="true" />
       <Field Name="Txt_username" Hidden="true" />
     </Members>
@@ -477,7 +481,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_mainForEmployees">
-    <Position X="27.25" Y="0.75" Width="1.5" />
+    <Position X="7.25" Y="12" Width="2.5" />
     <Members>
       <Field Name="Btn_addCustomer" Hidden="true" />
       <Field Name="Btn_addOrder" Hidden="true" />
@@ -525,21 +529,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.orders">
-    <Position X="30.75" Y="0.75" Width="1.5" />
+    <Position X="12.5" Y="12" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAMAAAACAAAAAAAAAAAAAAAABABAAAQAQAAAAA=</HashCode>
       <FileName>orders.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.orders_customers">
-    <Position X="39.5" Y="0.75" Width="1.5" />
+    <Position X="38.75" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAMAAAACQAAAAEAAAAAAAIAABADAABSAQAAQgA=</HashCode>
       <FileName>orders_customers.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_ordersManagement">
-    <Position X="41.25" Y="0.75" Width="1.5" />
+    <Position X="40.5" Y="11.75" Width="3.25" />
     <Members>
       <Field Name="Btn_backToMain" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
@@ -558,8 +562,10 @@
       <Field Name="Column8" Hidden="true" />
       <Field Name="components" Hidden="true" />
       <Field Name="dateTimePicker" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
       <Field Name="Grd_orders" Hidden="true" />
       <Field Name="imageList1" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
       <Field Name="Lbl_customerId" Hidden="true" />
       <Field Name="Lbl_customersFirstName" Hidden="true" />
       <Field Name="Lbl_customersLastName" Hidden="true" />
@@ -586,7 +592,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_ordersData">
-    <Position X="25.5" Y="0.75" Width="1.5" />
+    <Position X="50.75" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Field Name="dateTimePicker_from" Hidden="true" />
@@ -621,14 +627,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Product">
-    <Position X="18.5" Y="0.75" Width="1.5" />
+    <Position X="40.25" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAgACQAIEAEAQIAAAECAAACAAgAAgAIAAAgIAAAYCAg=</HashCode>
       <FileName>product.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_productsInCart">
-    <Position X="23.75" Y="0.75" Width="1.5" />
+    <Position X="48.25" Y="0.5" Width="2.25" />
     <Members>
       <Field Name="Btn_AddToCart" Hidden="true" />
       <Field Name="Btn_cancel" Hidden="true" />
@@ -671,14 +677,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.product_order">
-    <Position X="34.25" Y="6" Width="1.5" />
+    <Position X="18.25" Y="17.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAEEAAABAAAAAAAAACAAAAAgAAAAAAAAAAQAgA=</HashCode>
       <FileName>product_order.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_products_management">
-    <Position X="32.5" Y="0.75" Width="1.5" />
+    <Position X="14.75" Y="12" Width="3.25" />
     <Members>
       <Field Name="Btn_clear" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
@@ -728,7 +734,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_productsList">
-    <Position X="29" Y="0.75" Width="1.5" />
+    <Position X="10" Y="12" Width="2.25" />
     <Members>
       <Field Name="Btn_exit" Hidden="true" />
       <Field Name="Btn_goBack" Hidden="true" />
@@ -779,14 +785,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.supplier">
-    <Position X="18.5" Y="6.5" Width="1.5" />
+    <Position X="38.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEEAAAAgAQAAIAAAAAEAAAIACAACAAgKAAAAQgA=</HashCode>
       <FileName>supplier.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_suppliersManagement">
-    <Position X="22" Y="0.75" Width="1.5" />
+    <Position X="45.25" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="Btn_clearTextBoxes" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
@@ -819,7 +825,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_update_customer">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+    <Position X="21.75" Y="0.5" Width="3" />
     <Members>
       <Field Name="Btn_cancel" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
@@ -850,7 +856,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_updateOrder">
-    <Position X="16.75" Y="0.75" Width="1.5" />
+    <Position X="30.75" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="Btn_add_to_cart" Hidden="true" />
       <Field Name="Btn_cancel" Hidden="true" />
@@ -894,7 +900,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_updateProduct">
-    <Position X="15" Y="0.75" Width="1.5" />
+    <Position X="28" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_cancel" Hidden="true" />
       <Field Name="Btn_close" Hidden="true" />
@@ -935,7 +941,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_updateSupplier">
-    <Position X="20.25" Y="0.75" Width="1.5" />
+    <Position X="42.5" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="Btn_cancelUpdating" Hidden="true" />
       <Field Name="Btn_exit" Hidden="true" />
@@ -968,11 +974,12 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.Frm_productsData">
-    <Position X="36" Y="0.75" Width="1.5" />
+    <Position X="20.5" Y="12" Width="2.5" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Field Name="dateTimePicker1" Hidden="true" />
       <Field Name="dateTimePicker2" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
       <Field Name="Lbl_aboutToRunOutNumber" Hidden="true" />
       <Field Name="Lbl_aboutToRunOutOFStock" Hidden="true" />
       <Field Name="Lbl_categoryName" Hidden="true" />
@@ -1003,14 +1010,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.user">
-    <Position X="34.25" Y="0.75" Width="1.5" />
+    <Position X="18.25" Y="12" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEQAAABEAAAAAAAACAAAAAgAAAAA=</HashCode>
       <FileName>user.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Electricity_shop.vat">
-    <Position X="34.25" Y="3.75" Width="1.5" />
+    <Position X="18.25" Y="15" Width="2" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>vat.cs</FileName>
