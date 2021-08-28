@@ -126,19 +126,19 @@ namespace Electricity_shop
 
         private void Pnl_biggestOrderContainer_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName);
+            //this.Close();
+            Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName,1,dateTimePicker_from.Text,dateTimePicker_to.Text);
             Fom.Txt_customerId.Text = Lbl_customersId.Text;
             Fom.ShowDialog();
             
            
         }
-        
+       /* 
         private void OpenOrderManagement(object obj)
         {
             Application.Run(new Frm_ordersManagement(1, userName));
         }
-
+       */
         private void Lbl_deleviredNumber_Click(object sender, EventArgs e)
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
