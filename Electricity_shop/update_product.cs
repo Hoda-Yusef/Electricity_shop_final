@@ -173,6 +173,7 @@ namespace Electricity_shop
             }
         }
 
+        //בדיקת קיום ברקוד של מוצר
         private void checkExistingProductByBarcode()
         {
             Product[] product = mySQL.GetProductData();

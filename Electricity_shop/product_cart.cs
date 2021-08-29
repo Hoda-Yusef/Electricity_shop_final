@@ -104,6 +104,7 @@ namespace Electricity_shop
 
         }
 
+        //ממלא טבלה בנתונים
         private void loudProductsInGrid(Product[] Products, Cart[] Cart, int i, int j)
         {
             if (Cart[i].Product_barcode != "" && Cart[i].Product_barcode == Products[j].Barcode)
@@ -154,6 +155,7 @@ namespace Electricity_shop
             Lbl_showTotalNumberOfProducts.Text = sum_products.ToString();
         }
 
+        //כפתור להסרה
         private void Btn_remove_Click(object sender, EventArgs e)
         {
             string itemBarcode = string.Empty;
@@ -311,6 +313,7 @@ namespace Electricity_shop
             Application.Run(new Frm_productsInCart(usersRole,userName));
         }
 
+        //יציאה
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             if (usersRole == 1)

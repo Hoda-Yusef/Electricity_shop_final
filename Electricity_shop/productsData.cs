@@ -32,6 +32,7 @@ namespace Electricity_shop
             this.userName = userName;
         }
        
+        //איפוס נתונים
         private void clearLabels()
         {
             Lbl_categoryName.Text ="- אין מידע -";
@@ -44,6 +45,7 @@ namespace Electricity_shop
         }
 
      
+        //מציג מידע לטווח תאריכים
         private void getDataByTwoDates()
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker1.Text, dateTimePicker2.Text);
@@ -88,6 +90,7 @@ namespace Electricity_shop
             }
         }
 
+        //בודק את המוצר המקסימלי
         private void checkMaxProduct()
         {
             if (sum_product > max_product)
@@ -102,6 +105,7 @@ namespace Electricity_shop
             }
         }
 
+        //מחשב הזמנות
         private void calculateOrdersProductData()
         {
             for (int i2 = 0; i2 < Orders.Length; i2++)
@@ -156,16 +160,19 @@ namespace Electricity_shop
             clearLabels();
         }
 
+        //אירוע לשינוי ערך של תאריך
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             getDataByTwoDates();
         }
 
+        //אירוע לשינוי ערך של תאריך
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             getDataByTwoDates();
         }
 
+        //פותח ניהול מוצרים שעומדים להיגמר
         private void Lbl_aboutToRunOutNumber_Click(object sender, EventArgs e)
         {
             Frm_products_management pm = new Frm_products_management(1, userName, 1);
@@ -177,6 +184,7 @@ namespace Electricity_shop
             
         }
 
+        //פותח ניהול מוצרים שלא זמינים במלאי
         private void Lbl_outOfStockNumber_Click(object sender, EventArgs e)
         {
             Frm_products_management pm = new Frm_products_management(1, userName, 1);

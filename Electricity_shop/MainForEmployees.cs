@@ -28,12 +28,14 @@ namespace Electricity_shop
             userName = username;
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_panel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -43,26 +45,31 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_panel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
+        //בעת לחיצה על יציאה
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //שינוי צבע
         private void Btn_exit_MouseHover(object sender, EventArgs e)
         {
             Btn_exit.BackColor = Color.White;
         }
 
+        //שינוי צבע
         private void Btn_exit_MouseLeave(object sender, EventArgs e)
         {
             Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
+        //לחיצה על כפתור ניהול מוצרים
         private void Btn_manageProducts_Click(object sender, EventArgs e)
         {
             Thread th;
@@ -78,6 +85,7 @@ namespace Electricity_shop
 
         }
 
+        //לחיצה על כפתור הוספת מוצר
         private void Btn_addProduct_Click(object sender, EventArgs e)
         {
             Thread th;
@@ -94,6 +102,7 @@ namespace Electricity_shop
 
         }
 
+        //לחיצה על כפתור ניהול לקוחות
         private void Btn_manageCustomers_Click(object sender, EventArgs e)
         {
             Thread th;
@@ -122,6 +131,7 @@ namespace Electricity_shop
             th.Start();
         }
 
+        //לחיצה על כפתור ניהול ספקים
         private void Btn_manageSuppliers_Click(object sender, EventArgs e)
         {
             Thread th;
@@ -136,6 +146,7 @@ namespace Electricity_shop
             Application.Run(new Frm_suppliersManagement(userRole,userName));
         }
 
+        //לחיצה על כפתור הוספת ספק
         private void Btn_addSupplier_Click(object sender, EventArgs e)
         {
             Thread th;
@@ -144,12 +155,13 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
-
+        //לחיצה על כפתור הוספת ספק
         private void OpenAddSupplier(object obj)
         {
             Application.Run(new Frm_addSupplier(userRole,userName));
         }
 
+        //לחיצה על כפתור ניהול הזמנות
         private void Btn_manageOrders_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -208,6 +220,7 @@ namespace Electricity_shop
             Lbl_active_customers_number.Text = countMany.ToString();
         }
 
+        //הצגת מידע בחלון ראשי
         private void displayData()
         {
             Lbl_out_of_stock_number.Text = mySQL.countOutStockProducts().ToString();
@@ -221,6 +234,7 @@ namespace Electricity_shop
             Lbl_orders_wait_number.Text = mySQL.countWaitingOrders().ToString();
         }
 
+        //אירוע לחיצה על אזל מהמלאי
         private void Lbl_out_of_stock_Click(object sender, EventArgs e)
         {
             Frm_products_management Fpm = new Frm_products_management(userRole, userName);
@@ -231,6 +245,7 @@ namespace Electricity_shop
             this.Close();
         }
 
+        //אירוע לחיצה על אזל מהמלאי
         private void Lbl_out_of_stock_number_Click(object sender, EventArgs e)
         {
             Frm_products_management Fpm = new Frm_products_management(userRole, userName);
@@ -241,6 +256,7 @@ namespace Electricity_shop
             this.Close();
         }
 
+        //אירוע לחיצה על עומד להיגמר מהמלאי
         private void Lbl_about_to_end_Click(object sender, EventArgs e)
         {
             Frm_products_management Fpm = new Frm_products_management(userRole, userName);
@@ -251,6 +267,7 @@ namespace Electricity_shop
             this.Close();
         }
 
+        //אירוע לחיצה על עומד להיגמר מהמלאי
         private void Lbl_about_to_end_number_Click(object sender, EventArgs e)
         {
             Frm_products_management Fpm = new Frm_products_management(userRole, userName);
@@ -261,6 +278,7 @@ namespace Electricity_shop
             this.Close();
         }
 
+        //אירוע לחיצה על הזמנות לא סופקו
         private void Lbl_orders_wait_Click(object sender, EventArgs e)
         {
             Frm_ordersManagement Fom = new Frm_ordersManagement(userRole, userName);
@@ -271,6 +289,7 @@ namespace Electricity_shop
             this.Close();
         }
 
+        //אירוע לחיצה על הזמנות לא סופקו
         private void Lbl_orders_wait_number_Click(object sender, EventArgs e)
         {
             Frm_ordersManagement Fom = new Frm_ordersManagement(userRole, userName);

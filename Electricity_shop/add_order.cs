@@ -60,14 +60,14 @@ namespace Electricity_shop
 
         private void Btn_exit_Click(object sender, EventArgs e)//יציאה
         {
-            if (usersRole == 1)
+            if (usersRole == 1)//אם מנהל
             {
                 this.Close();
                 th = new Thread(Opennewform);
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-            else
+            else//אם עובד
             {
                 this.Close();
                 th = new Thread(OpenEmployeesMain);
@@ -76,11 +76,11 @@ namespace Electricity_shop
             }
         }
 
-        private void Opennewform(object obj)
+        private void Opennewform(object obj)//פותח חלון ראשי
         {
             Application.Run(new Frm_main(usersRole, userName));
         }
-        private void OpenEmployeesMain(object obj)
+        private void OpenEmployeesMain(object obj)//פותח חלון ראשי של עובד
         {
             Application.Run(new Frm_mainForEmployees(usersRole,userName));
         }
@@ -124,12 +124,14 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -139,6 +141,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -326,7 +329,7 @@ namespace Electricity_shop
                 }
             }
         }
-        private bool Check_phone()
+        private bool Check_phone()//בדיקה למספר טלפון
         {
             return (Txt_customersPhoneNumber.Text.Length == 10);
         }
@@ -388,7 +391,8 @@ namespace Electricity_shop
             read_only_false();
         }
 
-        private void Txt_customersPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)//רק מספרים להזנה
+        //רק מספרים להזנה
+        private void Txt_customersPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
@@ -398,11 +402,13 @@ namespace Electricity_shop
             }
         }
 
+        //אין אפשרות לשנה ערכים במקלדת
         private void dateTimePicker_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
+        //בעת עזיבת שדה מספר טלפון בודק אם לא נשאר ריק
         private void Txt_customersPhoneNumber_Leave(object sender, EventArgs e)
         {
             if (Txt_customersPhoneNumber.Text != "")

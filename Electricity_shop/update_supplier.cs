@@ -212,18 +212,17 @@ namespace Electricity_shop
             person.Paid = Convert.ToInt32(Txt_paidToSupplier.Text);
 
         }
-
         private void Frm_updateSupplier_Load(object sender, EventArgs e)
         {
             load_supplier = mySQL.GetSupplierDataByPhone(Txt_phoneNumber.Text);
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -232,7 +231,7 @@ namespace Electricity_shop
                 this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
             }
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;

@@ -86,26 +86,31 @@ namespace Electricity_shop
             }
         }
 
+        //אירוע שנוי בשדה
         private void Txt_productBarcode_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_barcode();
         }
 
+        //אירוע שנוי בשדה
         private void Txt_productCategory_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_category();
         }
 
+        //אירוע שנוי בשדה
         private void Txt_productManufacturer_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_manufacture();
         }
 
+        //אירוע שנוי בשדה
         private void Txt_productModel_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_model();
         }
 
+        //ממלא טבלה בערכים לפי ברקוד
         private void fill_grid_by_barcode()
         {
             Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
@@ -116,6 +121,7 @@ namespace Electricity_shop
 
         }
 
+        //ממלא טבלה בערכים לפי קטגוריה
         private void fill_grid_by_category()
         {
             Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
@@ -126,6 +132,7 @@ namespace Electricity_shop
 
         }
 
+        //ממלא טבלה בערכים לפי יצרן
         private void fill_grid_by_manufacture()
         {
             Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
@@ -137,6 +144,7 @@ namespace Electricity_shop
 
         }
 
+        //ממלא טבלה בערכים לפי מודל
         private void fill_grid_by_model()
         {
             Products = mySQL.GetProductDataFiltered("זמין במלאי", Txt_productBarcode.Text, Txt_productCategory.Text, Txt_productManufacturer.Text, Txt_productModel.Text);
@@ -147,6 +155,7 @@ namespace Electricity_shop
 
         }
 
+        //ממלא ערכים בטבלה
         private void fill_grid(Product[] Product)
         {
             Grd_productsList.Rows.Clear();
@@ -172,6 +181,7 @@ namespace Electricity_shop
                 Grd_productsList.Rows.Clear();
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             {
@@ -180,6 +190,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -189,6 +200,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -204,6 +216,7 @@ namespace Electricity_shop
             }
         }
 
+        //בעת לחיצה על הוספה
         private void Btn_addToOrder_Click(object sender, EventArgs e)
         {
             bool same = false;
@@ -229,6 +242,7 @@ namespace Electricity_shop
                     }
                 }
             }
+            //מוסיף להזמנה
             insert_to_order(same, itemBarcode, itemModel, amount);
 
 
@@ -258,6 +272,7 @@ namespace Electricity_shop
             amountChoose.Value = 1;
         }
 
+        //פונקצייה בודקת אם יש מלאי זמין
         private void checkEnoughProduts(string itemBarcode, int amount, string itemModel)
         {
             if (itemBarcode != "")
@@ -286,6 +301,7 @@ namespace Electricity_shop
             }
         }
 
+        //כפתור חזרה לעדכון הזמנה
         private void Btn_backToOrder_Click(object sender, EventArgs e)
         {
             Thread th;
@@ -295,16 +311,19 @@ namespace Electricity_shop
             th.Start();
         }
 
+        //פותח חלון עדכון הזמנה
         private void OpenUpadteOrder(object obj)
         {
             Application.Run(new Frm_updateOrder(order_number_holder, usersRole,userName));
         }
 
+        //פותח חלון עצמו
         private void OpenSelf(object obj)
         {
             Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole,userName));
         }
 
+        //הזנת רק מספרים
         private void Txt_productBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -316,7 +335,7 @@ namespace Electricity_shop
         }
 
         
-
+        //כפתור לניקוי שדות
         private void Btn_clear_Click(object sender, EventArgs e)
         {
             Txt_productBarcode.Text = string.Empty;

@@ -27,17 +27,19 @@ namespace Electricity_shop
         }
 
 
-
+        //משנה צבע של כפתור
         private void Btn_exit_MouseHover(object sender, EventArgs e)
         {
             Btn_exit.BackColor = Color.White;
         }
 
+        //משנה צבע של כפתור
         private void Btn_exit_MouseLeave(object sender, EventArgs e)
         {
             Btn_exit.BackColor = Color.FromArgb(34, 36, 49);
         }
 
+        //בעת לחיצה על כניסה
         private void Btn_entry_Click(object sender, EventArgs e)
         {
             //בודק אם המשתמש הזין את שם משתמש וסיסמה
@@ -59,6 +61,7 @@ namespace Electricity_shop
                 Lbl_wrongPasswordMessage.Text = "* נא להזין שם משתמש וסיסמה תקינים";
         }
 
+        //בודק תקינות סיסמה
         private void checkPassword(int rows)
         {
             //אם כן עוברים לחלון ראשי
@@ -106,6 +109,7 @@ namespace Electricity_shop
             panel1.BackColor = Color.White;
         }
 
+        //כשלוחצים על שדה סיסמה
         private void Txt_password_Click(object sender, EventArgs e)
         {
             Txt_password.Clear();
@@ -120,6 +124,7 @@ namespace Electricity_shop
             panel.BackColor = Color.White;
         }
 
+        //כפתור יציאה
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();

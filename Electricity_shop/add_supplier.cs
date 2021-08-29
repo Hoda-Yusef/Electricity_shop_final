@@ -94,6 +94,7 @@ namespace Electricity_shop
             }
         }
 
+        //פונקצייה בודקת אם ספק קיים
         private void ifSupplierExist(bool same ,supplier supp)
         {
             if (same)//אם ספק קיים 
@@ -127,6 +128,7 @@ namespace Electricity_shop
             }
         }
 
+        //פותח חלון ניהול ספקים
         private void Open_supManagment(object obj)
         {
             Application.Run(new Frm_suppliersManagement(usersRole,userName));
@@ -167,6 +169,7 @@ namespace Electricity_shop
             }
         }
 
+        //בדיקת קיום ספק
         private void checkExistingSupplier(supplier supp)
         {
             if (Txt_supplierDept.Text != "" && Txt_payedForSupplier.Text == "")
@@ -284,7 +287,7 @@ namespace Electricity_shop
             }
         }
 
-        private bool Check_phone_number()
+        private bool Check_phone_number()//בודק תקינות מספר טלפון
         {
             return (this.Txt_phoneNumber.Text.Length == 10);
         }
@@ -374,12 +377,14 @@ namespace Electricity_shop
             Txt_payedForSupplier.Text = string.Empty;
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -389,6 +394,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;

@@ -29,12 +29,15 @@ namespace Electricity_shop
             this.userName = userName;
         }
        
+        //פונקצייה מקבלת ערך מעמ
         private double getVatData()
         {
             VatPercentage =mySQL.Getvat();
             return VatPercentage.Vat;
         }
        
+
+        //פונקצייה מציגה מידע
         private void getData()
         {
             int brutoEarnings = 0;
@@ -56,6 +59,7 @@ namespace Electricity_shop
             }
         }
 
+        //חישוב רווח והפסד
         private void calculateIncomeOutcome(int brutoEarnings, double pure_price,
             double VAT, int lose, double vatPercentage)
         {
@@ -81,12 +85,14 @@ namespace Electricity_shop
                     }
                 }
             }
+            //מציג נתונים בשדות
             Lbl_brutoEarnings.Text = brutoEarnings.ToString();
             Lbl_totalIncome.Text = Math.Round(pure_price, 2).ToString();
             Lbl_vatTotal.Text = Math.Round(VAT, 2).ToString();
             Lbl_totalOutcome.Text = lose.ToString();
         }
 
+        //מנקה נתונים
         private void clearData()
         {
             currentVat = mySQL.Getvat();
@@ -97,6 +103,7 @@ namespace Electricity_shop
             Txt_vat.Text = currentVat.Vat.ToString();
         }
         
+        //בעת עזיבת שדה המעמ
         private void Txt_vat_Leave(object sender, EventArgs e)
         {
             //mySQL.InsertVat(VatPercentage);
@@ -122,11 +129,13 @@ namespace Electricity_shop
             }
         }
 
+        //אירוע שינוי תאריך
         private void dateTimePicker_from_ValueChanged(object sender, EventArgs e)
         {
             getData();
         }
 
+        //אירוע שינוי תאריך
         private void dateTimePicker_to_ValueChanged(object sender, EventArgs e)
         {
             getData();
@@ -138,7 +147,7 @@ namespace Electricity_shop
         }
 
         
-
+        //כפתור שינוי ערך מעמ
         private void Btn_changeVAT_Click(object sender, EventArgs e)
         {
             if(Convert.ToDouble(Txt_vat.Text) >= 0 && Convert.ToDouble(Txt_vat.Text) <50)

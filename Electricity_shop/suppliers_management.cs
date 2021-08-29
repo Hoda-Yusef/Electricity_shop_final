@@ -117,6 +117,7 @@ namespace Electricity_shop
             }
         }
 
+        //ממלא נתונים
         private void fillCollection(supplier[] supplier)
         {
             for (int i = 0; i < supplier.Length; i++)
@@ -129,6 +130,7 @@ namespace Electricity_shop
             Txt_lastName.AutoCompleteCustomSource = last_nameAuto;
         }
 
+        //ממלא טבלה בנתונים
         private void fillGrid(supplier[] supplier)
         {
             for (int i = 0; i < supplier.Length; i++)
@@ -145,7 +147,8 @@ namespace Electricity_shop
             }
         }
 
-        private void Btn_clearTextBoxes_Click(object sender, EventArgs e)//כפתור ניקוי שדות
+        //כפתור ניקוי שדות
+        private void Btn_clearTextBoxes_Click(object sender, EventArgs e)
         {
             Txt_firstName.Text = "";
             Txt_lastName.Text = "";
@@ -225,12 +228,14 @@ namespace Electricity_shop
             Fill_grid_by_lastName();
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -240,6 +245,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;

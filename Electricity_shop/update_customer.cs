@@ -206,6 +206,7 @@ namespace Electricity_shop
             }
         }
 
+        //בדיקה קיום מספר טלפון של לקוח
         private void checkExistingCustomerPhoneNumber()
         {
             if (Txt_phoneNumber.Text != "")
@@ -234,6 +235,7 @@ namespace Electricity_shop
             }
         }
 
+        //בדיקת תקינות מספר טלפון
         private void checkValidPhoneNumber()
         {
             if (Check_phoneNumber() == true && count == 0)
@@ -294,12 +296,13 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -308,7 +311,7 @@ namespace Electricity_shop
                 this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
             }
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
