@@ -18,6 +18,7 @@ namespace Electricity_shop
         Product Product;
         int usersRole;
         string userName;
+        int orderNumber;
 
         public Frm_productsInCart(int role,string username)
         {
@@ -29,26 +30,10 @@ namespace Electricity_shop
             usersRole = role;
             userName = username;
         }
-
+       
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
-            mySQL.clearCart();
-            mySQL.deleteOrderByOrderNumber(Lbl_showOrderNumber.Text);
-            Thread th;
-            if (usersRole == 1)
-            {
-                this.Close();
-                th = new Thread(openMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
-            }
-            else
-            {
-                this.Close();
-                th = new Thread(openEmployeesMain);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
-            }
+            Exitting();
         }
 
         private void openMain(object obj)
@@ -277,7 +262,7 @@ namespace Electricity_shop
                 }
                 else if (Grd_productsList.Rows[i].Cells[3].Value.ToString() != "")
                 {
-                    //שליפת מידע על מוצר לפי ברקוד
+                    //שליפת מידע על מוצר לפי דגם
                     Product = mySQL.GetProductDataByModel(Grd_productsList.Rows[i].Cells[3].Value.ToString());
                     //מוסיפים את מספר הזמנה ומספר סידורי של מוצר וכמות לטבלה מקשרת
                     mySQL.InsertToProductOrder(Product.Product_serial_number, Convert.ToInt32(Lbl_showOrderNumber.Text),
@@ -313,8 +298,16 @@ namespace Electricity_shop
 
         private void Btn_exit_Click(object sender, EventArgs e)
         {
+            Exitting();
+        }
+
+        private void Exitting()
+        {
             if (usersRole == 1)
             {
+                mySQL.clearCart();
+                int currentOrderNumber = mySQL.GetOrderMaxNumber();
+                mySQL.DeleteOrder(currentOrderNumber);
                 this.Close();
                 th = new Thread(openMain);
                 th.TrySetApartmentState(ApartmentState.STA);
@@ -322,6 +315,9 @@ namespace Electricity_shop
             }
             else
             {
+                mySQL.clearCart();
+                int currentOrderNumber = mySQL.GetOrderMaxNumber();
+                mySQL.DeleteOrder(currentOrderNumber);
                 this.Close();
                 th = new Thread(openEmployeesMain);
                 th.TrySetApartmentState(ApartmentState.STA);

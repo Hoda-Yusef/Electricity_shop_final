@@ -32,6 +32,7 @@ namespace Electricity_shop
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_updateOrder));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -45,7 +46,6 @@ namespace Electricity_shop
             this.Lbl_showProducts_count = new System.Windows.Forms.Label();
             this.Lbl_totalPrice = new System.Windows.Forms.Label();
             this.Lbl_numberOfProducts = new System.Windows.Forms.Label();
-            this.Btn_cancel = new System.Windows.Forms.Button();
             this.Btn_updateOrder = new System.Windows.Forms.Button();
             this.Btn_add_to_cart = new System.Windows.Forms.Button();
             this.Grd_allOrders = new System.Windows.Forms.DataGridView();
@@ -59,6 +59,7 @@ namespace Electricity_shop
             this.Lbl_updateOrder = new System.Windows.Forms.Label();
             this.Lbl_orderStatus = new System.Windows.Forms.Label();
             this.Lbl_status = new System.Windows.Forms.Label();
+            this.Btn_exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_allOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +97,7 @@ namespace Electricity_shop
             this.UpperBluePanel.Location = new System.Drawing.Point(0, -3);
             this.UpperBluePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpperBluePanel.Name = "UpperBluePanel";
-            this.UpperBluePanel.Size = new System.Drawing.Size(1166, 19);
+            this.UpperBluePanel.Size = new System.Drawing.Size(1137, 19);
             this.UpperBluePanel.TabIndex = 56;
             this.UpperBluePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpperBluePanel_MouseDown);
             this.UpperBluePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpperBluePanel_MouseMove);
@@ -204,23 +205,6 @@ namespace Electricity_shop
             this.Lbl_numberOfProducts.Size = new System.Drawing.Size(158, 38);
             this.Lbl_numberOfProducts.TabIndex = 102;
             this.Lbl_numberOfProducts.Text = ": מספר מוצרים ";
-            // 
-            // Btn_cancel
-            // 
-            this.Btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.Btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Btn_cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_cancel.ForeColor = System.Drawing.Color.White;
-            this.Btn_cancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_cancel.Location = new System.Drawing.Point(620, 522);
-            this.Btn_cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Btn_cancel.Name = "Btn_cancel";
-            this.Btn_cancel.Size = new System.Drawing.Size(117, 38);
-            this.Btn_cancel.TabIndex = 101;
-            this.Btn_cancel.Text = "ביטול";
-            this.Btn_cancel.UseVisualStyleBackColor = false;
-            this.Btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
             // 
             // Btn_updateOrder
             // 
@@ -400,12 +384,28 @@ namespace Electricity_shop
             this.Lbl_status.TabIndex = 112;
             this.Lbl_status.Text = "dgdfhdfh";
             // 
+            // Btn_exit
+            // 
+            this.Btn_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.Btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.Btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("Btn_exit.Image")));
+            this.Btn_exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_exit.Location = new System.Drawing.Point(1126, -1);
+            this.Btn_exit.Name = "Btn_exit";
+            this.Btn_exit.Size = new System.Drawing.Size(37, 28);
+            this.Btn_exit.TabIndex = 113;
+            this.Btn_exit.UseVisualStyleBackColor = false;
+            this.Btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
+            // 
             // Frm_updateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1163, 606);
+            this.Controls.Add(this.Btn_exit);
             this.Controls.Add(this.Lbl_status);
             this.Controls.Add(this.Lbl_orderStatus);
             this.Controls.Add(this.Lbl_showTotalProductsAmount);
@@ -417,7 +417,6 @@ namespace Electricity_shop
             this.Controls.Add(this.Lbl_showProducts_count);
             this.Controls.Add(this.Lbl_totalPrice);
             this.Controls.Add(this.Lbl_numberOfProducts);
-            this.Controls.Add(this.Btn_cancel);
             this.Controls.Add(this.Btn_updateOrder);
             this.Controls.Add(this.Btn_add_to_cart);
             this.Controls.Add(this.Grd_allOrders);
@@ -457,7 +456,6 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_showProducts_count;
         private System.Windows.Forms.Label Lbl_totalPrice;
         private System.Windows.Forms.Label Lbl_numberOfProducts;
-        private System.Windows.Forms.Button Btn_cancel;
         private System.Windows.Forms.Button Btn_updateOrder;
         private System.Windows.Forms.Button Btn_add_to_cart;
         private System.Windows.Forms.DataGridView Grd_allOrders;
@@ -472,5 +470,6 @@ namespace Electricity_shop
         public System.Windows.Forms.Label Txt_show_order_number;
         private System.Windows.Forms.Label Lbl_orderStatus;
         public System.Windows.Forms.Label Lbl_status;
+        private System.Windows.Forms.Button Btn_exit;
     }
 }

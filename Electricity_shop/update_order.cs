@@ -123,7 +123,7 @@ namespace Electricity_shop
             Lbl_showTotalProductsAmount.Text = total_amount.ToString();
             Lbl_showingTotalPrice.Text = Total_price.ToString();
         }
-
+        /*
         private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
         {
             this.Close();
@@ -132,7 +132,7 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
-
+        */
         private void openOrderManagement(object obj)
         {
             Application.Run(new Frm_ordersManagement(usersRole,userName));
@@ -294,6 +294,15 @@ namespace Electricity_shop
 
             this.Close();
             th = new Thread(openself);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void Btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread th;
+            th = new Thread(openOrderManagement);
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }

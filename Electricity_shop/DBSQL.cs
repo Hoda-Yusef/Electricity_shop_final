@@ -77,6 +77,15 @@ namespace Electricity_shop
             }
         }
 
+        public void DeleteOrder(int orderNumber)
+        {
+            string cmdStr = "DELETE FROM  orders WHERE order_number="+orderNumber+"";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         //פונקצייה שמקבלת אובייקט מסוג מוצר ומכניסה פרטים של אובייקט לתוך בסיסי נתונים 
         public void InsertProduct(Product Item)
         {
@@ -565,6 +574,7 @@ namespace Electricity_shop
                 for (int i = 0; i < cart.Length; i++)
                 {
                     cart[i] = new Cart();
+                    cart[i].Id = Convert.ToInt32(dt.Rows[i][0]);
                     cart[i].Product_barcode = dt.Rows[i][1].ToString();
                     cart[i].Product_model = dt.Rows[i][2].ToString();
                     cart[i].Amount = Convert.ToInt32(dt.Rows[i][3]);

@@ -19,10 +19,11 @@ namespace Electricity_shop
         Point sp = new Point(0, 0);
         Product[] Products;
         Product Product;
-        readonly Cart Cart;
+        Cart[] Cart;
         private readonly string product_barcode;
         int usersRole;
         string userName;
+        
 
         public Frm_cartProductMenu(int role,string username)
         {
@@ -38,7 +39,7 @@ namespace Electricity_shop
         private void Frm_cartProductMenu_Load(object sender, EventArgs e)//בעת פתיחה חלון נטען במוצרים
         {
             Products = mySQL.GetProductData();
-
+            Cart = null;
             if (Products != null)
             {
 
@@ -227,7 +228,7 @@ namespace Electricity_shop
             string itemBarcode = Grd_productsList.CurrentRow.Cells[3].Value.ToString();
             string itemModel = Grd_productsList.CurrentRow.Cells[2].Value.ToString();
             int amount = (int)Grd_productsList.CurrentRow.Cells[5].Value;
-            Cart[] Cart = mySQL.getCartData();
+            Cart = mySQL.getCartData();
 
             if (Cart != null)
             {
@@ -296,8 +297,18 @@ namespace Electricity_shop
         }
         private void Btn_exit_Click(object sender, EventArgs e)
         {
+            Exitting();
+
+        }
+
+
+        private void Exitting()
+        {
             if (usersRole == 1)
             {
+                mySQL.clearCart();
+                int currentOrderNumber = mySQL.GetOrderMaxNumber();
+                mySQL.DeleteOrder(currentOrderNumber);
                 this.Close();
                 th = new Thread(OpenMain);
                 th.TrySetApartmentState(ApartmentState.STA);
@@ -305,12 +316,14 @@ namespace Electricity_shop
             }
             else
             {
+                mySQL.clearCart();
+                int currentOrderNumber = mySQL.GetOrderMaxNumber();
+                mySQL.DeleteOrder(currentOrderNumber);
                 this.Close();
                 th = new Thread(OpenEmployeesMain);
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-
         }
     }
 }
