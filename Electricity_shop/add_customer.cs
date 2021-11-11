@@ -50,6 +50,7 @@ namespace Electricity_shop
                 th.Start();
             }
         }
+        //פתיחת טופס ראשי
         private void OpenEmployeesMain(object obj)
         {
             Application.Run(new Frm_mainForEmployees(usersRole,userName));
@@ -62,14 +63,14 @@ namespace Electricity_shop
         //לחיצה על כפתור X
         private void Btn_exit_Click(object sender, EventArgs e)
         {
-            if (usersRole == 1)
+            if (usersRole == 1)//אם ממשתמש המנהל
             {
                 this.Close();
                 th = new Thread(OpenMain);
                 th.TrySetApartmentState(ApartmentState.STA);
                 th.Start();
             }
-            else
+            else//אם ממשתמש העובד
             {
                 this.Close();
                 th = new Thread(OpenEmployeesMain);
@@ -254,6 +255,7 @@ namespace Electricity_shop
             }
         }
 
+        //בדיקה אם לקוח נמצא לפי מספר טלפון
         private void checkExistingCustomerByPhone()
         {
             if (Txt_phoneNumber.Text != "")
@@ -352,6 +354,7 @@ namespace Electricity_shop
             }
         }
 
+        //לחיצה מנקה את השדות
         private void Btn_clear_Click(object sender, EventArgs e)
         {
             Txt_address.Text = string.Empty;
@@ -361,12 +364,14 @@ namespace Electricity_shop
             Txt_phoneNumber.Text = string.Empty;
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel4_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel4_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -376,6 +381,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel4_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;

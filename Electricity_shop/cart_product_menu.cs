@@ -130,12 +130,14 @@ namespace Electricity_shop
                 Grd_productsList.Rows.Clear();
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -145,6 +147,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -169,21 +172,25 @@ namespace Electricity_shop
             }
         }
 
+        //בעת שנוי בשדה
         private void Txt_barcode_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_barcode();
         }
 
+        //בעת שנוי בשדה
         private void Txt_category_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_category();
         }
 
+        //בעת שנוי בשדה
         private void Txt_manufacturer_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_manufacture();
         }
 
+        //בעת שנוי בשדה
         private void Txt_model_TextChanged(object sender, EventArgs e)
         {
             fill_grid_by_model();
@@ -208,7 +215,7 @@ namespace Electricity_shop
         }
 
 
-        private void OpenProductCart(object obj)
+        private void OpenProductCart(object obj)//פותח חלון העגלה
         {
             Application.Run(new Frm_productsInCart(usersRole,userName));
         }
@@ -287,14 +294,17 @@ namespace Electricity_shop
             amountChoose.Value = 1;//מחזירים את כמות הבחירה ל 1
         }
 
+        //פותח חלון ראשי
         private void OpenMain(object obj)
         {
             Application.Run(new Frm_main(usersRole, userName));
         }
+        //פןתח חלון ראשי של עובד
         private void OpenEmployeesMain(object obj)
         {
             Application.Run(new Frm_mainForEmployees(usersRole, userName));
         }
+        //כפתור יציאה בודק אם המשתמש הוא מנהל או עובד
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             Exitting();

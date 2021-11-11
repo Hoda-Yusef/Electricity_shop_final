@@ -230,6 +230,7 @@ namespace Electricity_shop
             }
         }
 
+        //כפתור לניקוי שדות
         private void Btn_clear_Click(object sender, EventArgs e)
         {
             Txt_firstName.Text = string.Empty;
@@ -237,12 +238,14 @@ namespace Electricity_shop
             Txt_customerId.Text = string.Empty;
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -252,11 +255,13 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
+        //אירוע לחיצה כפולה על שורה
         private void Grd_customers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Frm_update_customer uCustomer = new Frm_update_customer(usersRole,userName);
@@ -265,6 +270,7 @@ namespace Electricity_shop
             uCustomer.Txt_lastName.Text = Grd_customers.CurrentRow.Cells[2].Value.ToString();
             uCustomer.Txt_phoneNumber.Text = Grd_customers.CurrentRow.Cells[3].Value.ToString();
             uCustomer.Txt_address.Text = Grd_customers.CurrentRow.Cells[4].Value.ToString();
+            //פותח ומעביר את הנתונים לחלון עדכון לקוח
             uCustomer.ShowDialog();
 
             this.Close();

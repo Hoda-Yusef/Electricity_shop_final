@@ -45,13 +45,13 @@ namespace Electricity_shop
             userName = username;
             order_number_holder = order_number;
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -60,7 +60,7 @@ namespace Electricity_shop
                 this.Location = new Point(p.X - sp.X, p.Y - sp.Y);
             }
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void UpperBluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -138,6 +138,7 @@ namespace Electricity_shop
             Application.Run(new Frm_ordersManagement(usersRole,userName));
         }
 
+        //בעת לחיצה על הסר מוצר
         private void Btn_remove_Click(object sender, EventArgs e)
         {
             Orderss = mySQL.GetOrdersDataByOrderNumber(Orderss.Order_number.ToString());//שולפים מידע להזמנה נוכחית
@@ -164,6 +165,7 @@ namespace Electricity_shop
 
         }
 
+        //הסרת מוצר
         private void removeItems()
         {
             //מקבל מפרט של מוצר לפי ברקוד
@@ -189,6 +191,7 @@ namespace Electricity_shop
             }
         }
 
+        //פתיחת חלון עצמו
         private void openself(object obj)
         {
             Application.Run(new Frm_updateOrder(order_number_holder, usersRole,userName));
@@ -241,6 +244,7 @@ namespace Electricity_shop
             Application.Run(new Frm_ordersManagement(usersRole, userName));
         }
 
+        //בעת שינוי אידיקס בשורה
         private void Grd_allOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             sum = 0;

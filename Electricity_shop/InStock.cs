@@ -11,6 +11,7 @@ using Font = iTextSharp.text.Font;
 
 namespace Electricity_shop
 {
+    //מחלקה לספירת מלאי של החנות וגם להדפסת דוח
     public partial class Frm_InStock : Form
     {
         Thread th;
@@ -129,7 +130,7 @@ namespace Electricity_shop
         }
 
        
-
+        //הגדרת כותרת
         private void setTitle(Font headerFont, Font headerFont2)
         {
             Paragraph myPar1 = new Paragraph("Inventory Count Report\n", headerFont2);
@@ -213,12 +214,13 @@ namespace Electricity_shop
             //MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -228,6 +230,7 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;

@@ -52,6 +52,7 @@ namespace Electricity_shop
             }
     }
 
+        //מציג תוצאות
         private void displayResult()
         {
             Lbl_totalPrice.Text = max_ID.ToString();
@@ -62,6 +63,7 @@ namespace Electricity_shop
             Lbl_waitingOrdersNumber.Text = count_waiting_orders.ToString();
         }
 
+        //פונקצייה מחשבת הזמנות
         private void calculateOrders()
         {
             for (int i = 0; i < Orders.Length; i++)//לולאה עוברת על ההזמנות שבין שני התאריכים
@@ -99,6 +101,7 @@ namespace Electricity_shop
             }
         }
 
+        //מאפס מידע
         private void clearData()
         {
             Lbl_totalPrice.Text = "0";
@@ -109,11 +112,13 @@ namespace Electricity_shop
             Lbl_waitingOrdersNumber.Text = "0";
         }
 
+        //בעת שינוי תאריך
         private void dateTimePicker_from_ValueChanged(object sender, EventArgs e)
         {
             getOrdersData();
         }
 
+        //בעת שינוי תאריך
         private void dateTimePicker_to_ValueChanged(object sender, EventArgs e)
         {
             getOrdersData();
@@ -124,13 +129,14 @@ namespace Electricity_shop
             clearData();
         }
 
+        //פותח ניהול הזמנות
         private void Pnl_biggestOrderContainer_Click(object sender, EventArgs e)
         {
             Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName,orderNumber,1);
-           // Fom.Txt_customerId.Text = Lbl_customersId.Text;
             Fom.ShowDialog();
         }
-      
+
+        //פותח ניהול הזמנות שסופקו
         private void Lbl_deleviredNumber_Click(object sender, EventArgs e)
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
@@ -147,6 +153,7 @@ namespace Electricity_shop
                 MessageBox.Show("אין מידע לטווח תאריכים");
         }
 
+        //פותח ניהול הזמנות שלא סופקו
         private void Lbl_waitingOrdersNumber_Click(object sender, EventArgs e)
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
@@ -163,6 +170,7 @@ namespace Electricity_shop
                 MessageBox.Show("אין מידע לטווח תאריכים");
         }
 
+        //פותח ניהול הזמנות
         private void Lbl_totalOrdersNumber_Click(object sender, EventArgs e)
         {
             Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);

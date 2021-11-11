@@ -26,6 +26,7 @@ namespace Electricity_shop
             userName = username;
         }
 
+        //בעת לחיצה על הזמנות
         private void Btn_ordersData_Click(object sender, EventArgs e)
         {
             Lbl_title.Text = "מידע לגבי הזמנות";
@@ -36,6 +37,7 @@ namespace Electricity_shop
             orderData.Show();
         }
 
+        //בעת לחיצה על מוצרים
         private void Btn_productsData_Click(object sender, EventArgs e)
         {
             Lbl_title.Text = "מידע לגבי מוצרים";
@@ -46,6 +48,7 @@ namespace Electricity_shop
             productData.Show();
         }
 
+        //בעת לחיצה על רווח והפסד
         private void Btn_incomeAndOutcome_Click(object sender, EventArgs e)
         {
             Lbl_title.Text = "רווח והפסד";
@@ -56,6 +59,7 @@ namespace Electricity_shop
             cashData.Show();
         }
 
+        //יציאה
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -63,11 +67,14 @@ namespace Electricity_shop
             th.TrySetApartmentState(ApartmentState.STA);
             th.Start();
         }
+
+        //פותח חלון ראשי
         private void Opennewform(object obj)
         {
             Application.Run(new Frm_main(1,userName));
         }
 
+        //פותח חלון ראשי
         private void Btn_toMain_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -76,12 +83,13 @@ namespace Electricity_shop
             th.Start();
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             sp = new Point(e.X, e.Y);
         }
-
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
@@ -91,11 +99,13 @@ namespace Electricity_shop
             }
         }
 
+        //הזזת החלון באמצע לחיצה על הפאנל באמצעות העכבר
         private void Upper_BluePanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
 
+        
         private void Frm_ContainerData_Load(object sender, EventArgs e)
         {
             Lbl_userName.Text = userName;

@@ -272,6 +272,7 @@ namespace Electricity_shop
             
         }
 
+        //בעת עזיבת שדה של הברקוד
         private void checkLeavingBarcode()
         {
             if (Check_barcode() == false && count == 0)

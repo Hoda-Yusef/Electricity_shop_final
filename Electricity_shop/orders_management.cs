@@ -265,7 +265,8 @@ namespace Electricity_shop
             fill_grid(Orders_customers);
         }
 
-        private void Txt_customersLastName_TextChanged(object sender, EventArgs e)//מסנן את הטבלה לפי שם משפחה
+        //מסנן את הטבלה לפי שם משפחה
+        private void Txt_customersLastName_TextChanged(object sender, EventArgs e)
         {
             if (date_changed)
             {
@@ -390,6 +391,7 @@ namespace Electricity_shop
 
         }
 
+        //אירוע לחיצה כפולה על השורה
         private void Grd_orders_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Frm_productsList Show_order = new Frm_productsList(usersRole);
@@ -426,11 +428,13 @@ namespace Electricity_shop
             }
         }
 
+        //אין להזין דבר
         private void Cbo_sortByOrderStatus_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
+        //אירוע לבחירה אינדיקס בשורה
         private void Cbo_sortByOrderStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text,
