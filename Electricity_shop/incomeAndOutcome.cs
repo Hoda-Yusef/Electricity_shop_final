@@ -61,7 +61,7 @@ namespace Electricity_shop
 
         //חישוב רווח והפסד
         private void calculateIncomeOutcome(int brutoEarnings, double pure_price,
-            double VAT, int lose, double vatPercentage)
+            double VAT, double lose, double vatPercentage)
         {
             for (int i = 0; i < Orders.Length; i++)//לולאה עוברת על ההזמנות שבין שני התאריכים
             {
@@ -74,13 +74,11 @@ namespace Electricity_shop
                         product = mySQL.GetProductDataBySerialNumber(Product_order[j].Product_serial_number.ToString());
 
                         brutoEarnings += product.Selling_price * Product_order[j].Amount;//מחשב סכום רווח פרוטו
-                        pure_price += ((product.Selling_price - product.Cost_price) -
-                            ((product.Selling_price - product.Cost_price) * (double)vatPercentage / 100)) *
-                            Product_order[j].Amount;//מחשב סכום רווח נטו
+                        pure_price += (product.Selling_price - product.Cost_price) * Product_order[j].Amount;
+                            //מחשב סכום רווח נטו
 
-                        VAT += ((product.Selling_price - product.Cost_price) * 
-                            (double)vatPercentage / 100) * Product_order[j].Amount;
-                        lose += product.Cost_price;//מחשב סכום הפסד
+                        VAT += (product.Cost_price * (double)vatPercentage / 100) * Product_order[j].Amount;
+                        lose += (product.Cost_price - (product.Cost_price * (double)vatPercentage / 100)) * Product_order[j].Amount;//מחשב סכום הפסד
 
                     }
                 }
