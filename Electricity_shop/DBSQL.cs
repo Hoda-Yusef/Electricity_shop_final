@@ -86,6 +86,15 @@ namespace Electricity_shop
             }
         }
 
+        public void DeleteProductsInOrder(int orderNumber)
+        {
+            string cmdStr = "DELETE FROM  orders WHERE product_order_number WHERE order_serial_number=" + orderNumber + "";
+            using (MySqlCommand command = new MySqlCommand(cmdStr))
+            {
+                base.ExecuteSimpleQuery(command);
+            }
+        }
+
         //פונקצייה שמקבלת אובייקט מסוג מוצר ומכניסה פרטים של אובייקט לתוך בסיסי נתונים 
         public void InsertProduct(Product Item)
         {
@@ -1671,16 +1680,7 @@ namespace Electricity_shop
             }
         }
 
-        //פונקצייה מוחת מבסיסי נתונים את הזמנה לפי מספר הזמנה
-        public void deleteOrderByOrderNumber(string orderNumber)
-        {
-            string cmdStr = "DELETE FROM orders WHERE order_number=" + orderNumber + "";
-
-            using (MySqlCommand command = new MySqlCommand(cmdStr))
-            {
-                base.ExecuteSimpleQuery(command);
-            }
-        }
+       
 
         //מחיקת מבסיסי נתונים מוצר שנמצא בעגלה לפי ברקוד שמקבלת
         public void deleteItemFromCartByBarcode(string item)

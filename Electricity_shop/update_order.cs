@@ -123,16 +123,7 @@ namespace Electricity_shop
             Lbl_showTotalProductsAmount.Text = total_amount.ToString();
             Lbl_showingTotalPrice.Text = Total_price.ToString();
         }
-        /*
-        private void Btn_cancel_Click(object sender, EventArgs e)//ביטול
-        {
-            this.Close();
-            Thread th;
-            th = new Thread(openOrderManagement);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
-        }
-        */
+       
         private void openOrderManagement(object obj)
         {
             Application.Run(new Frm_ordersManagement(usersRole,userName));
@@ -219,19 +210,13 @@ namespace Electricity_shop
             Application.Run(new Frm_addProductsToOrder(order_number_holder, usersRole,userName));
         }
 
-        //לחיצה על עדכן מעדכן הסטטוס של ההזמנה
-        private void Btn_updateOrder_Click(object sender, EventArgs e)
+        // לחיצה על הסרת הזמנה
+        // קודם מוחקים מוצרים ששייכים לאותה הזמנה לפי מספר ההזמנה
+        // ואז מוחקים את ההזמנה
+        private void Btn_deleteOrder_Click(object sender, EventArgs e)
         {
-            Orderss = mySQL.GetOrdersDataByOrderNumber(order_number_holder);
-                if (Lbl_status.Text == "לא סופק")
-                {
-                    mySQL.UpdateOrderByOrderNumber(Orderss.Order_number.ToString(), 0);
-                }
-
-               else 
-                {
-                MessageBox.Show("הזמנה סופקה , אין לבצע שינויים");
-            }
+            mySQL.DeleteProductsInOrder(Orderss.Order_number);
+            mySQL.DeleteOrder(Orderss.Order_number);
             Thread th;
             this.Close();
             th = new Thread(OpenOrderManagement);

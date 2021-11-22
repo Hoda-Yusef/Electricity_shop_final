@@ -46,7 +46,7 @@ namespace Electricity_shop
             this.Lbl_showProducts_count = new System.Windows.Forms.Label();
             this.Lbl_totalPrice = new System.Windows.Forms.Label();
             this.Lbl_numberOfProducts = new System.Windows.Forms.Label();
-            this.Btn_updateOrder = new System.Windows.Forms.Button();
+            this.Btn_deleteOrder = new System.Windows.Forms.Button();
             this.Btn_add_to_cart = new System.Windows.Forms.Button();
             this.Grd_allOrders = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,15 +151,15 @@ namespace Electricity_shop
             this.Btn_remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
             this.Btn_remove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Btn_remove.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_remove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_remove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(126)))), ((int)(((byte)(26)))));
             this.Btn_remove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_remove.Location = new System.Drawing.Point(753, 522);
+            this.Btn_remove.Location = new System.Drawing.Point(887, 517);
             this.Btn_remove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_remove.Name = "Btn_remove";
             this.Btn_remove.Size = new System.Drawing.Size(117, 38);
             this.Btn_remove.TabIndex = 106;
-            this.Btn_remove.Text = "הסרה";
+            this.Btn_remove.Text = "הסרת מוצר";
             this.Btn_remove.UseVisualStyleBackColor = false;
             this.Btn_remove.Click += new System.EventHandler(this.Btn_remove_Click);
             // 
@@ -206,22 +206,22 @@ namespace Electricity_shop
             this.Lbl_numberOfProducts.TabIndex = 102;
             this.Lbl_numberOfProducts.Text = ": מספר מוצרים ";
             // 
-            // Btn_updateOrder
+            // Btn_deleteOrder
             // 
-            this.Btn_updateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
-            this.Btn_updateOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_updateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Btn_updateOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_updateOrder.ForeColor = System.Drawing.Color.White;
-            this.Btn_updateOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_updateOrder.Location = new System.Drawing.Point(1020, 522);
-            this.Btn_updateOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Btn_updateOrder.Name = "Btn_updateOrder";
-            this.Btn_updateOrder.Size = new System.Drawing.Size(117, 38);
-            this.Btn_updateOrder.TabIndex = 100;
-            this.Btn_updateOrder.Text = "עדכן";
-            this.Btn_updateOrder.UseVisualStyleBackColor = false;
-            this.Btn_updateOrder.Click += new System.EventHandler(this.Btn_updateOrder_Click);
+            this.Btn_deleteOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(184)))));
+            this.Btn_deleteOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_deleteOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_deleteOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_deleteOrder.ForeColor = System.Drawing.Color.White;
+            this.Btn_deleteOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Btn_deleteOrder.Location = new System.Drawing.Point(750, 517);
+            this.Btn_deleteOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_deleteOrder.Name = "Btn_deleteOrder";
+            this.Btn_deleteOrder.Size = new System.Drawing.Size(117, 38);
+            this.Btn_deleteOrder.TabIndex = 100;
+            this.Btn_deleteOrder.Text = "הסרת הזמנה";
+            this.Btn_deleteOrder.UseVisualStyleBackColor = false;
+            this.Btn_deleteOrder.Click += new System.EventHandler(this.Btn_deleteOrder_Click);
             // 
             // Btn_add_to_cart
             // 
@@ -231,7 +231,7 @@ namespace Electricity_shop
             this.Btn_add_to_cart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_add_to_cart.ForeColor = System.Drawing.Color.White;
             this.Btn_add_to_cart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Btn_add_to_cart.Location = new System.Drawing.Point(887, 522);
+            this.Btn_add_to_cart.Location = new System.Drawing.Point(1021, 517);
             this.Btn_add_to_cart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_add_to_cart.Name = "Btn_add_to_cart";
             this.Btn_add_to_cart.Size = new System.Drawing.Size(117, 38);
@@ -417,7 +417,7 @@ namespace Electricity_shop
             this.Controls.Add(this.Lbl_showProducts_count);
             this.Controls.Add(this.Lbl_totalPrice);
             this.Controls.Add(this.Lbl_numberOfProducts);
-            this.Controls.Add(this.Btn_updateOrder);
+            this.Controls.Add(this.Btn_deleteOrder);
             this.Controls.Add(this.Btn_add_to_cart);
             this.Controls.Add(this.Grd_allOrders);
             this.Controls.Add(this.Lbl_updateOrder);
@@ -456,7 +456,7 @@ namespace Electricity_shop
         private System.Windows.Forms.Label Lbl_showProducts_count;
         private System.Windows.Forms.Label Lbl_totalPrice;
         private System.Windows.Forms.Label Lbl_numberOfProducts;
-        private System.Windows.Forms.Button Btn_updateOrder;
+        private System.Windows.Forms.Button Btn_deleteOrder;
         private System.Windows.Forms.Button Btn_add_to_cart;
         private System.Windows.Forms.DataGridView Grd_allOrders;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
