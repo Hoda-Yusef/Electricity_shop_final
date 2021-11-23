@@ -386,5 +386,7 @@ namespace Electricity_shop
         {
             drag = false;
         }
+
+        
     }
 }

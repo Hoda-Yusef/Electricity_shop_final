@@ -130,9 +130,9 @@ namespace Electricity_shop
         }
 
         //פותח ניהול הזמנות
-        private void Pnl_biggestOrderContainer_Click(object sender, EventArgs e)
+        private void Lbl_totalPrice_Click(object sender, EventArgs e)
         {
-            Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName,orderNumber,1);
+            Frm_ordersManagement Fom = new Frm_ordersManagement(1, userName, orderNumber, 1);
             Fom.ShowDialog();
         }
 

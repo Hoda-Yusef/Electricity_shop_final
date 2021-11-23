@@ -150,15 +150,15 @@ namespace Electricity_shop
 
                 customer Customer;
                 if (Orders_customers != null)
-
+                {
                     Grd_orders.Rows.Clear();
 
-                for (int i = 0; i < Orders_customers.Length; i++)
-                {
-                    Customer = mySQL.GetCustomerDataByID(Orders_customers[i].Customer_id);
-
-                    Grd_orders.Rows.Add(new object[]
+                    for (int i = 0; i < Orders_customers.Length; i++)
                     {
+                        Customer = mySQL.GetCustomerDataByID(Orders_customers[i].Customer_id);
+
+                        Grd_orders.Rows.Add(new object[]
+                        {
                     Orders_customers[i].Order_number,
                     Customer.Id,
                     Customer.First_name,
@@ -167,9 +167,9 @@ namespace Electricity_shop
                     Customer.Address,
                     Orders_customers[i].Date,
                     Orders_customers[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
-                        }); ;
+                            }); ;
 
-
+                    }
                 }
             }
             else
@@ -178,16 +178,16 @@ namespace Electricity_shop
                 {
                     relevant_orders = mySQL.GetOrdersRelevantData(containerPath, fromDate, toDate);
                     customer Customer;
-                    if (Orders_customers != null)
-
+                    if (Orders_customers != null && relevant_orders !=null)
+                    {
                         Grd_orders.Rows.Clear();
 
-                    for (int i = 0; i < relevant_orders.Length; i++)
-                    {
-                        Customer = mySQL.GetCustomerDataByID(relevant_orders[i].Customer_id);
-
-                        Grd_orders.Rows.Add(new object[]
+                        for (int i = 0; i < relevant_orders.Length; i++)
                         {
+                            Customer = mySQL.GetCustomerDataByID(relevant_orders[i].Customer_id);
+
+                            Grd_orders.Rows.Add(new object[]
+                            {
                     relevant_orders[i].Order_number,
                     Customer.Id,
                     Customer.First_name,
@@ -196,17 +196,19 @@ namespace Electricity_shop
                     Customer.Address,
                     relevant_orders[i].Date,
                     relevant_orders[i].Status==1?imageList1.Images[1]:imageList1.Images[0]
-                            }); ;
+                                }); ;
+                        }
                     }
                 }
                 else
                 {
                     biggestOrder = mySQL.GetBiggestOrderData(biggestOrderNumber);
                     if (biggestOrder != null)
+                    {
                         Grd_orders.Rows.Clear();
 
-                    Grd_orders.Rows.Add(new object[]
-                    {
+                        Grd_orders.Rows.Add(new object[]
+                        {
                     biggestOrder.Order_number,
                     biggestOrder.Customer_id,
                     biggestOrder.First_name,
@@ -215,7 +217,8 @@ namespace Electricity_shop
                     biggestOrder.Address,
                     biggestOrder.Date,
                     biggestOrder.Status==1?imageList1.Images[1]:imageList1.Images[0]
-                        });
+                            });
+                    }
                 }
             }
         }

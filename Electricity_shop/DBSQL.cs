@@ -88,7 +88,7 @@ namespace Electricity_shop
 
         public void DeleteProductsInOrder(int orderNumber)
         {
-            string cmdStr = "DELETE FROM  orders WHERE product_order_number WHERE order_serial_number=" + orderNumber + "";
+            string cmdStr = "DELETE FROM product_order WHERE order_serial_number=" + orderNumber + "";
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
                 base.ExecuteSimpleQuery(command);

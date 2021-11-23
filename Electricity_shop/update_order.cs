@@ -215,8 +215,8 @@ namespace Electricity_shop
         // ואז מוחקים את ההזמנה
         private void Btn_deleteOrder_Click(object sender, EventArgs e)
         {
-            mySQL.DeleteProductsInOrder(Orderss.Order_number);
-            mySQL.DeleteOrder(Orderss.Order_number);
+            mySQL.DeleteProductsInOrder(Convert.ToInt32(Txt_show_order_number.Text));
+            mySQL.DeleteOrder(Convert.ToInt32(Txt_show_order_number.Text));
             Thread th;
             this.Close();
             th = new Thread(OpenOrderManagement);
@@ -232,6 +232,7 @@ namespace Electricity_shop
         //בעת שינוי אידיקס בשורה
         private void Grd_allOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+           
             sum = 0;
             //כאשר משתמש משנה את הכמות בודק אם יש הכמות הנדרשת אם כן מחסרים את הכמות במלאי בהתאם או מוסיפים
             Product_order = mySQL.GetProduct_orderDataByOrderNumber(order_number_holder);
@@ -260,7 +261,7 @@ namespace Electricity_shop
                         th.Start();
 
                     }
-
+                    
                 }
             }
         }
@@ -296,10 +297,35 @@ namespace Electricity_shop
             th.Start();
         }
 
+        
+
+        private void Grd_allOrders_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPress);
+            if (Grd_allOrders.CurrentCell.ColumnIndex == 5) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column_KeyPress);
+                }
+            }
+        }
+
+        private void Column_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void Grd_allOrders_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             //כאשר רוצים לשנות כמות אנו שומרים את הכמות הקודמת
             previosAmount = Convert.ToInt32(Grd_allOrders.CurrentRow.Cells[5].Value);
+
+
         }
     }
 

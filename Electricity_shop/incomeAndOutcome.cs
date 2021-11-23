@@ -86,8 +86,8 @@ namespace Electricity_shop
             //מציג נתונים בשדות
             Lbl_brutoEarnings.Text = brutoEarnings.ToString();
             Lbl_totalIncome.Text = Math.Round(pure_price, 2).ToString();
-            Lbl_vatTotal.Text = Math.Round(VAT, 2).ToString();
-            Lbl_totalOutcome.Text = lose.ToString();
+            Lbl_vatTotal.Text = Math.Round(VAT, 2).ToString("0.00");
+            Lbl_totalOutcome.Text = lose.ToString("0.00");
         }
 
         //מנקה נתונים
