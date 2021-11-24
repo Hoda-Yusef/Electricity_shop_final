@@ -155,6 +155,7 @@ namespace Electricity_shop
             // 
             // Lbl_totalPrice
             // 
+            this.Lbl_totalPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Lbl_totalPrice.ForeColor = System.Drawing.Color.Chartreuse;
             this.Lbl_totalPrice.Location = new System.Drawing.Point(202, 103);
             this.Lbl_totalPrice.Name = "Lbl_totalPrice";

@@ -215,13 +215,59 @@ namespace Electricity_shop
         // ואז מוחקים את ההזמנה
         private void Btn_deleteOrder_Click(object sender, EventArgs e)
         {
-            mySQL.DeleteProductsInOrder(Convert.ToInt32(Txt_show_order_number.Text));
-            mySQL.DeleteOrder(Convert.ToInt32(Txt_show_order_number.Text));
-            Thread th;
-            this.Close();
-            th = new Thread(OpenOrderManagement);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (Lbl_status.Text == "לא סופק")
+            {
+                DialogResult dialogResult = MessageBox.Show("? האם ברצונך למחוק את ההזמנה ", "מחיקת הזמנה", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    removeAllItems();
+
+                    mySQL.DeleteProductsInOrder(Convert.ToInt32(Txt_show_order_number.Text));
+                    mySQL.DeleteOrder(Convert.ToInt32(Txt_show_order_number.Text));
+                    Thread th;
+                    this.Close();
+                    th = new Thread(OpenOrderManagement);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+            }
+            else
+            {
+                MessageBox.Show("לא ניתן למחוק הזמנה שסופקה", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+            
+        }
+
+        private void removeAllItems()
+        {
+            for (int i = 0; i < Grd_allOrders.Rows.Count; i++)
+            {
+                
+
+                //מקבל מפרט של מוצר לפי ברקוד
+                if (Grd_allOrders.Rows[i].Cells[0].Value.ToString() != "")
+                    Product = mySQL.GetProductDataByBarcode(Grd_allOrders.Rows[i].Cells[0].Value.ToString());
+                //מקבל מפרט של מוצר לפי דגם
+                else if (Grd_allOrders.Rows[i].Cells[3].Value.ToString() != "")
+                    Product = mySQL.GetProductDataByModel(Grd_allOrders.Rows[i].Cells[3].Value.ToString());
+                //מסירים את המוצר הנבחר מההזמנה
+                mySQL.deleteProductFromProduct_cartByOrderNumberAndProductSerial(
+                    Product.Product_serial_number.ToString(), Txt_show_order_number.Text);
+                //בודקים אם ההזמנה במצב לא סופק אז ניתן להחזיר כמות למוצר קיים
+                if (Orderss.Status == 1)
+                {
+                    int sum = 0;
+                    //מחבר הכמות של המוצר שהוסר למוצר הקיים
+                    sum = Product.Amount + Convert.ToInt32(Grd_allOrders.Rows[i].Cells[5].Value);
+                    if (Product.Barcode != "")
+                        //מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
+                        mySQL.UpdateProductAmountByBarcode(sum, Product.Barcode);
+                    else if (Product.Model != "")
+                        //מוסיפים את כמות של המוצר שהוסר לכמות של המוצר הקיים במערכת
+                        mySQL.UpdateProductAmountByModel(sum, Product.Model);
+                }
+            }
         }
 
         private void OpenOrderManagement(object obj)
@@ -318,6 +364,15 @@ namespace Electricity_shop
             {
                 e.Handled = true;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread th;
+            th = new Thread(openOrderManagement);
+            th.TrySetApartmentState(ApartmentState.STA);
+            th.Start();
         }
 
         private void Grd_allOrders_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
