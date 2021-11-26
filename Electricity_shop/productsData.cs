@@ -64,20 +64,23 @@ namespace Electricity_shop
 
                     sum_category = 0;
                     order = mySQL.GetProductsByOrderNumber(Orders[i].Order_number);
-                    for (int j = 0; j < order.Length; j++)
+                    if (order != null)
                     {
-                        sum_product = 0;
-                        // כמות מוצרים שנמכרה בין שני התאריכים
-                        totalProducts += order[j].Amount;
+                        for (int j = 0; j < order.Length; j++)
+                        {
+                            sum_product = 0;
+                            // כמות מוצרים שנמכרה בין שני התאריכים
+                            totalProducts += order[j].Amount;
 
-                        //קטגוריה נמכרת ביותר
-                        currentProduct = mySQL.GetProductDataBySerialNumber(
-                            order[j].Product_serial_number.ToString());
-                        currentCategory = currentProduct.Category;
+                            //קטגוריה נמכרת ביותר
+                            currentProduct = mySQL.GetProductDataBySerialNumber(
+                                order[j].Product_serial_number.ToString());
+                            currentCategory = currentProduct.Category;
 
-                        calculateOrdersProductData();
+                            calculateOrdersProductData();
 
-                        checkMaxProduct();
+                            checkMaxProduct();
+                        }
                     }
                 }
 
@@ -111,19 +114,22 @@ namespace Electricity_shop
             for (int i2 = 0; i2 < Orders.Length; i2++)
             {
                 tmporder = mySQL.GetProductsByOrderNumber(Orders[i2].Order_number);
-                for (int j2 = 0; j2 < tmporder.Length; j2++)
+                if (tmporder != null)
                 {
-                    temporaryProduct = mySQL.GetProductDataBySerialNumber(
-                        tmporder[j2].Product_serial_number.ToString());
-
-                    if (currentCategory == temporaryProduct.Category)
+                    for (int j2 = 0; j2 < tmporder.Length; j2++)
                     {
-                        sum_category += tmporder[j2].Amount;
-                        //בודקים אם זה אותו מוצר
-                        if (currentProduct.Barcode == temporaryProduct.Barcode
-                            || currentProduct.Model == temporaryProduct.Model)
+                        temporaryProduct = mySQL.GetProductDataBySerialNumber(
+                            tmporder[j2].Product_serial_number.ToString());
+
+                        if (currentCategory == temporaryProduct.Category)
                         {
-                            sum_product += tmporder[j2].Amount;
+                            sum_category += tmporder[j2].Amount;
+                            //בודקים אם זה אותו מוצר
+                            if (currentProduct.Barcode == temporaryProduct.Barcode
+                                || currentProduct.Model == temporaryProduct.Model)
+                            {
+                                sum_product += tmporder[j2].Amount;
+                            }
                         }
                     }
                 }
