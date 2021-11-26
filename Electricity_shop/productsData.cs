@@ -158,6 +158,10 @@ namespace Electricity_shop
         private void Frm_productsData_Load(object sender, EventArgs e)
         {
             clearLabels();
+            Lbl_outOfStockNumber.Text = mySQL.countOutStockProducts().ToString();
+            
+            Lbl_aboutToRunOutNumber.Text = mySQL.countAboutToEnd().ToString();
+
         }
 
         //אירוע לשינוי ערך של תאריך

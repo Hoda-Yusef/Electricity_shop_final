@@ -9,14 +9,14 @@ namespace Electricity_shop
     {
         private DBSQL mySQL;
         orders[] Orders;
-        int orderNumber=0;
+        int orderNumber = 0;
         product_order[] Product_order;
         Product product;
         customer Customer;
         string userName;
         string max_customer_name = string.Empty;
-        int max_sum = 0, max_ID = 0,max_id = 0;
-        int count_deliverd_orders = 0,count_waiting_orders = 0;
+        int max_sum = 0, max_ID = 0, max_id = 0;
+        int count_deliverd_orders = 0, count_waiting_orders = 0;
         public Frm_ordersData(string username)
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace Electricity_shop
                 MessageBox.Show("אין מידע לטווח תאריכים");
                 clearData();
             }
-    }
+        }
 
         //מציג תוצאות
         private void displayResult()
@@ -139,53 +139,78 @@ namespace Electricity_shop
         //פותח ניהול הזמנות שסופקו
         private void Lbl_deleviredNumber_Click(object sender, EventArgs e)
         {
-            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
-            if (Orders != null)
+            if (Lbl_deleviredNumber.Text != "0")
             {
-                Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
-                    dateTimePicker_from.Text, dateTimePicker_to.Text,"סופק");
+                Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
+                if (Orders != null)
+                {
+                    Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
+                        dateTimePicker_from.Text, dateTimePicker_to.Text, "סופק");
 
-                om.Cbo_sortByOrderStatus.Text = "סופק";
+                    om.Cbo_sortByOrderStatus.Text = "סופק";
 
-                om.ShowDialog();
+                    om.ShowDialog();
+                }
+                else
+                    MessageBox.Show("אין מידע לטווח תאריכים");
             }
             else
-                MessageBox.Show("אין מידע לטווח תאריכים");
+            {
+                MessageBox.Show("אין מידע להצגה");
+            }
         }
 
         //פותח ניהול הזמנות שלא סופקו
         private void Lbl_waitingOrdersNumber_Click(object sender, EventArgs e)
-        {
-            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
-            if (Orders != null)
+        { 
+            if (Lbl_waitingOrdersNumber.Text != "0")
             {
-                Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
-                    dateTimePicker_from.Text, dateTimePicker_to.Text,"לא סופק");
+            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
+           
+                if (Orders != null)
+                {
+                    Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
+                        dateTimePicker_from.Text, dateTimePicker_to.Text, "לא סופק");
 
-                om.Cbo_sortByOrderStatus.Text = "לא סופק";
+                    om.Cbo_sortByOrderStatus.Text = "לא סופק";
 
-                om.ShowDialog();
+                    om.ShowDialog();
+                }
+                else
+                    MessageBox.Show("אין מידע לטווח תאריכים");
             }
             else
-                MessageBox.Show("אין מידע לטווח תאריכים");
+            {
+                MessageBox.Show("אין מידע להצגה");
+            }
         }
 
         //פותח ניהול הזמנות
         private void Lbl_totalOrdersNumber_Click(object sender, EventArgs e)
-        {
-            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
-            if (Orders != null)
+        { 
+            if (Lbl_totalOrdersNumber.Text != "0")
             {
-                Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
-                    dateTimePicker_from.Text, dateTimePicker_to.Text,"");
+            Orders = mySQL.GetOredrsDataByTwoDates(dateTimePicker_from.Text, dateTimePicker_to.Text);
+           
+                if (Orders != null)
+                {
+                    Frm_ordersManagement om = new Frm_ordersManagement(1, userName, 1,
+                        dateTimePicker_from.Text, dateTimePicker_to.Text, "");
 
-                om.Cbo_sortByOrderStatus.Text = "הכל";
+                    om.Cbo_sortByOrderStatus.Text = "הכל";
 
-                om.ShowDialog();
+                    om.ShowDialog();
+                }
+                else
+                    MessageBox.Show("אין מידע לטווח תאריכים");
             }
             else
-                MessageBox.Show("אין מידע לטווח תאריכים");
+            {
+                MessageBox.Show("אין מידע להצגה");
+            }
+           
         }
     }
 }
+
   

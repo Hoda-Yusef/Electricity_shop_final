@@ -25,7 +25,7 @@ namespace Electricity_shop
         int from_containerData = 0;
         string fromDate = string.Empty;
         string toDate = string.Empty;
-        string containerPath = string.Empty;
+        string containerStatus = string.Empty;
         int biggestOrderNumber = -1;
         orders_customers biggestOrder;
 
@@ -54,7 +54,7 @@ namespace Electricity_shop
         }
 
         public Frm_ordersManagement(int role, string username,
-            int from_containerData,string fromDate,string toDate,string path)
+            int from_containerData,string fromDate,string toDate,string status)
         {
             InitializeComponent();
             DBSQL.DaseDataBaseName = "electricity_shop";
@@ -66,7 +66,7 @@ namespace Electricity_shop
             this.from_containerData = from_containerData;
             this.fromDate = fromDate;
             this.toDate = toDate;
-            this.containerPath = path;
+            this.containerStatus = status;
         }
 
 
@@ -143,11 +143,12 @@ namespace Electricity_shop
         //בעת פתיחת חלון טוען את הטבלה הזמנות מבסיס נתונים
         private void Frm_ordersManagement_Load(object sender, EventArgs e)
         {
-            if (from_containerData == 0)
-            {
-                Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text,
+            Orders_customers = mySQL.GetOrdersDataFiltered(Cbo_sortByOrderStatus.Text,
                     Txt_customerId.Text, Txt_customersFirstName.Text, Txt_customersLastName.Text, "");
 
+            if (from_containerData == 0)
+            {
+               
                 customer Customer;
                 if (Orders_customers != null)
                 {
@@ -176,7 +177,7 @@ namespace Electricity_shop
             {
                 if (biggestOrderNumber == -1)
                 {
-                    relevant_orders = mySQL.GetOrdersRelevantData(containerPath, fromDate, toDate);
+                    relevant_orders = mySQL.GetOrdersRelevantData(containerStatus, fromDate, toDate);
                     customer Customer;
                     if (Orders_customers != null && relevant_orders !=null)
                     {
@@ -224,22 +225,29 @@ namespace Electricity_shop
         }
        
         private void Btn_updateStatus_Click(object sender, EventArgs e)//עדכון סטטוס
-        {
-            Orders = mySQL.GetOrdersDataByOrderNumber(Grd_orders.CurrentRow.Cells[0].Value.ToString());
+        { 
+            if (Grd_orders.CurrentRow != null)
+            { 
+                Orders = mySQL.GetOrdersDataByOrderNumber(Grd_orders.CurrentRow.Cells[0].Value.ToString());
+                if (Orders.Status == 1)//משנים את הסטטוס לסופק
+                {
+                    mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 0);
+                    this.Close();
+                    Thread th;
+                    th = new Thread(openSelf);
+                    th.TrySetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
 
-            if (Orders.Status == 1)//משנים את הסטטוס לסופק
-            {
-                mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 0);
-                this.Close();
-                Thread th;
-                th = new Thread(openSelf);
-                th.TrySetApartmentState(ApartmentState.STA);
-                th.Start();
+                else
+                {
+                    Orders = null;
+                    MessageBox.Show("הזמנה סופקה , אין לבצע שינויים");
+                }
             }
-           
             else
             {
-                MessageBox.Show("הזמנה סופקה , אין לבצע שינויים");
+                MessageBox.Show("לא נבחרה הזמנה: בחרו הזמנה שברצונכם לעדכן את הסטטוס שלה");
             }
         }
 
@@ -355,14 +363,19 @@ namespace Electricity_shop
 
         private void Btn_updateOrder_Click(object sender, EventArgs e)//כפתור לעידכון הזמנה
         {
-
-            // mySQL.InsertOrderNumberHolder(Grd_orders.CurrentRow.Cells[0].Value.ToString());
-            order_number_holder = Grd_orders.CurrentRow.Cells[0].Value.ToString();
-            this.Close();
-            Thread th;
-            th = new Thread(openUpdateOrder);
-            th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            if (Grd_orders.CurrentRow != null)
+            {
+                order_number_holder = Grd_orders.CurrentRow.Cells[0].Value.ToString();
+                this.Close();
+                Thread th;
+                th = new Thread(openUpdateOrder);
+                th.TrySetApartmentState(ApartmentState.STA);
+                th.Start();
+            }
+            else
+            {
+                MessageBox.Show("לא נבחרה הזמנה: בחרו הזמנה שברצונכם לעדכן");
+            }
 
         }
 

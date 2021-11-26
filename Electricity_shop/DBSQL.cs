@@ -452,10 +452,10 @@ namespace Electricity_shop
                 Orders.Customer_id = dt.Rows[0][1].ToString();
                 Orders.Date = dt.Rows[0][2].ToString();
                 Orders.Status = Convert.ToInt32(dt.Rows[0][3]);
-
+                return Orders;
 
             }
-            return Orders;
+            return null;
 
         }
 
@@ -1696,7 +1696,7 @@ namespace Electricity_shop
         //פונקצייה מחוקת מבסיסי נתונים מוצר בעגלה לפי מודל שמקבלת
         public void deleteItemFromCartByModel(string item)
         {
-            string cmdStr = "DELETE FROM cart WHERE product_Model='" + item + "'";
+            string cmdStr = "DELETE FROM cart WHERE product_model=" + item + "";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {

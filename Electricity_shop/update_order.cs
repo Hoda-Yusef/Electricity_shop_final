@@ -147,6 +147,8 @@ namespace Electricity_shop
                     th.TrySetApartmentState(ApartmentState.STA);
                     th.Start();
                 }
+                else
+                    MessageBox.Show("לא נבחר מוצר להסרה");
             }
             else
                 MessageBox.Show("הזמנה סופקה , אין להסיר מוצרים");

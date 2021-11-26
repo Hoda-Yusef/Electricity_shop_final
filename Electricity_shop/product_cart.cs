@@ -145,26 +145,32 @@ namespace Electricity_shop
         {
             string itemBarcode = string.Empty;
             string itemModel = string.Empty;
-
-
-            if (Grd_productsList.CurrentRow.Cells[0].Value.ToString() != "")
+            if (Grd_productsList.CurrentRow != null)
             {
-                itemBarcode = Grd_productsList.CurrentRow.Cells[0].Value.ToString();
-                mySQL.deleteItemFromCartByBarcode(itemBarcode);//מסיר מוצר מעגלה
+                if (Grd_productsList.CurrentRow.Cells[0].Value.ToString() != "")
+                {
+                    itemBarcode = Grd_productsList.CurrentRow.Cells[0].Value.ToString();
+                    mySQL.deleteItemFromCartByBarcode(itemBarcode);//מסיר מוצר מעגלה
 
-            }
-            else if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
-            {
-                itemModel = Grd_productsList.CurrentRow.Cells[3].Value.ToString();
-                mySQL.deleteItemFromCartByModel(itemModel);//מסיר מוצר מעגלה
-
-            }
-
+                }
+                else if (Grd_productsList.CurrentRow.Cells[3].Value.ToString() != "")
+                {
+                    itemModel = Grd_productsList.CurrentRow.Cells[3].Value.ToString();
+                    mySQL.deleteItemFromCartByModel(itemModel);//מסיר מוצר מעגלה
+                } 
             Thread th;
             this.Close();
             th = new Thread(openCartProduct);
             th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+                th.Start();   
+
+            }
+            else
+            {
+                MessageBox.Show("לא נבחר מוצר להסרה");
+            }
+
+            
         }
 
         private void openCartProduct(object obj)
