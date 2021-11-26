@@ -339,10 +339,11 @@ namespace Electricity_shop
         private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+            /*
             Thread th;
             th = new Thread(openOrderManagement);
             th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            th.Start();*/
         }
 
         
@@ -368,13 +369,14 @@ namespace Electricity_shop
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_goBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            /*
             Thread th;
             th = new Thread(openOrderManagement);
             th.TrySetApartmentState(ApartmentState.STA);
-            th.Start();
+            th.Start();*/
         }
 
         private void Grd_allOrders_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

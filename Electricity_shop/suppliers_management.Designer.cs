@@ -202,7 +202,7 @@ namespace Electricity_shop
             this.Lbl_lastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_lastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
             this.Lbl_lastName.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.Lbl_lastName.Location = new System.Drawing.Point(52, 111);
+            this.Lbl_lastName.Location = new System.Drawing.Point(94, 115);
             this.Lbl_lastName.Name = "Lbl_lastName";
             this.Lbl_lastName.Size = new System.Drawing.Size(95, 21);
             this.Lbl_lastName.TabIndex = 40;
@@ -214,7 +214,7 @@ namespace Electricity_shop
             this.Lbl_firstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Lbl_firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(190)))), ((int)(((byte)(250)))));
             this.Lbl_firstName.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.Lbl_firstName.Location = new System.Drawing.Point(71, 32);
+            this.Lbl_firstName.Location = new System.Drawing.Point(115, 35);
             this.Lbl_firstName.Name = "Lbl_firstName";
             this.Lbl_firstName.Size = new System.Drawing.Size(74, 21);
             this.Lbl_firstName.TabIndex = 39;

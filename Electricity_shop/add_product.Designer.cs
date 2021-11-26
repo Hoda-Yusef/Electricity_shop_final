@@ -71,7 +71,6 @@ namespace Electricity_shop
             this.Txt_category.Multiline = true;
             this.Txt_category.Name = "Txt_category";
             this.Txt_category.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Txt_category.ShortcutsEnabled = false;
             this.Txt_category.Size = new System.Drawing.Size(225, 30);
             this.Txt_category.TabIndex = 2;
             // 

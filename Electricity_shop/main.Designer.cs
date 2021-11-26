@@ -464,7 +464,6 @@ namespace Electricity_shop
             this.Lbl_orders_wait_number.Text = "0";
             this.Lbl_orders_wait_number.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Lbl_orders_wait_number.Click += new System.EventHandler(this.Lbl_orders_wait_number_Click);
-            //this.Lbl_orders_wait_number.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_orders_wait_number_MouseDoubleClick);
             // 
             // Lbl_orders_wait
             // 
@@ -479,7 +478,6 @@ namespace Electricity_shop
             this.Lbl_orders_wait.Text = "הזמנות לא סופקו";
             this.Lbl_orders_wait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Lbl_orders_wait.Click += new System.EventHandler(this.Lbl_orders_wait_Click);
-            //this.Lbl_orders_wait.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Lbl_orders_wait_number_MouseDoubleClick);
             // 
             // Btn_addOrder
             // 
@@ -548,7 +546,7 @@ namespace Electricity_shop
             this.Btn_incomeAndOutcome.Name = "Btn_incomeAndOutcome";
             this.Btn_incomeAndOutcome.Size = new System.Drawing.Size(173, 38);
             this.Btn_incomeAndOutcome.TabIndex = 13;
-            this.Btn_incomeAndOutcome.Text = "דו\"ח רווח והפסד";
+            this.Btn_incomeAndOutcome.Text = " רווח והפסד";
             this.Btn_incomeAndOutcome.UseVisualStyleBackColor = false;
             this.Btn_incomeAndOutcome.Click += new System.EventHandler(this.Btn_incomeAndOutcome_Click);
             // 
@@ -564,7 +562,7 @@ namespace Electricity_shop
             this.Btn_inStockReport.Name = "Btn_inStockReport";
             this.Btn_inStockReport.Size = new System.Drawing.Size(173, 38);
             this.Btn_inStockReport.TabIndex = 12;
-            this.Btn_inStockReport.Text = "דו\"ח ספירת מלאי";
+            this.Btn_inStockReport.Text = " ספירת מלאי";
             this.Btn_inStockReport.UseVisualStyleBackColor = false;
             this.Btn_inStockReport.Click += new System.EventHandler(this.Btn_inStockReport_Click);
             // 

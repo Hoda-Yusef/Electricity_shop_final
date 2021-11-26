@@ -366,7 +366,7 @@ namespace Electricity_shop
             if (Grd_orders.CurrentRow != null)
             {
                 order_number_holder = Grd_orders.CurrentRow.Cells[0].Value.ToString();
-                this.Close();
+                //this.Close();
                 Thread th;
                 th = new Thread(openUpdateOrder);
                 th.TrySetApartmentState(ApartmentState.STA);
