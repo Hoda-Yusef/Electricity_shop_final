@@ -228,15 +228,20 @@ namespace Electricity_shop
         { 
             if (Grd_orders.CurrentRow != null)
             { 
+
                 Orders = mySQL.GetOrdersDataByOrderNumber(Grd_orders.CurrentRow.Cells[0].Value.ToString());
                 if (Orders.Status == 1)//משנים את הסטטוס לסופק
                 {
-                    mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 0);
-                    this.Close();
-                    Thread th;
-                    th = new Thread(openSelf);
-                    th.TrySetApartmentState(ApartmentState.STA);
-                    th.Start();
+                    DialogResult dialogResult = MessageBox.Show("? האם ברצונך לעדכן סטטוס הזמנה ", "עידכון סטטוס הזמנה", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        mySQL.UpdateOrderByOrderNumber(Orders.Order_number.ToString(), 0);
+                        this.Close();
+                        Thread th;
+                        th = new Thread(openSelf);
+                        th.TrySetApartmentState(ApartmentState.STA);
+                        th.Start();
+                    }
                 }
 
                 else

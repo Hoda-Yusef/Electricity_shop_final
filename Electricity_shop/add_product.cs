@@ -18,11 +18,11 @@ namespace Electricity_shop
         //int inx;
         private readonly DBSQL mySQL;
         private System.Windows.Forms.ErrorProvider barcodeErrorProvider;
-        readonly AutoCompleteStringCollection barcodeAuto = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection manufacturerAuto = new AutoCompleteStringCollection();
-        readonly AutoCompleteStringCollection supplierAuto = new AutoCompleteStringCollection();
+         AutoCompleteStringCollection barcodeAuto = new AutoCompleteStringCollection();
+         AutoCompleteStringCollection categoryAuto = new AutoCompleteStringCollection();
+         AutoCompleteStringCollection modelAuto = new AutoCompleteStringCollection();
+         AutoCompleteStringCollection manufacturerAuto = new AutoCompleteStringCollection();
+         AutoCompleteStringCollection supplierAuto = new AutoCompleteStringCollection();
         int usersRole;
         string userName;
         public Frm_addProduct(int role,string username)
@@ -253,7 +253,6 @@ namespace Electricity_shop
                     {
                         if (temporary_barcode == Product[i].Barcode.ToString())
                         {
-                            MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
                             load_products = mySQL.GetProductDataByBarcode(Txt_barcode.Text);
                             Txt_barcode.Text = load_products.Barcode.ToString();
                             Txt_category.Text = load_products.Category.ToString();
@@ -263,6 +262,7 @@ namespace Electricity_shop
                             Txt_costPrice.Text = load_products.Cost_price.ToString();
                             Txt_sellingPrice.Text = load_products.Selling_price.ToString();
                             Txt_productInformation.Text = load_products.Product_info.ToString();
+                            MessageBox.Show("מוצר קיים , ניתן להוסיף כמות");
                             Read_only_true();
                         }
                     }

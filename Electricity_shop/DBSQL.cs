@@ -908,7 +908,7 @@ namespace Electricity_shop
                        " WHERE customer.id LIKE '" + customerID + "%' AND" +
                        " customer.first_name LIKE '" + firstName + "%'" +
                        "AND customer.last_name LIKE '" + lastName + "%'" +
-                       " AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.date DESC";
+                       " AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.order_number DESC";
                 }
                 else
                 {
@@ -919,7 +919,7 @@ namespace Electricity_shop
                         "customer ON orders.customer_id = customer.id" +
                         " WHERE customer.id LIKE '" + customerID + "%' AND" +
                         " customer.first_name LIKE '" + firstName + "%'" +
-                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.date DESC";
+                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.order_number DESC";
                 }
             }else if(status == "סופק")
             {
@@ -934,7 +934,7 @@ namespace Electricity_shop
                        " WHERE orders.status=0 AND customer.id LIKE '" + customerID + "%'" +
                        " AND customer.first_name LIKE '" + firstName + "%'" +
                        "AND customer.last_name LIKE '" + lastName + "%' AND" +
-                       " orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.date DESC";
+                       " orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.order_number DESC";
                 }
                 else
                 {
@@ -945,7 +945,7 @@ namespace Electricity_shop
                         "customer ON orders.customer_id = customer.id" +
                         " WHERE orders.status=0 AND customer.id LIKE '" + customerID + "%'" +
                         " AND customer.first_name LIKE '" + firstName + "%'" +
-                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.date DESC";
+                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.order_number DESC";
                 }
             }
             else if(status == "לא סופק")
@@ -961,7 +961,7 @@ namespace Electricity_shop
                        " WHERE orders.status=1 AND customer.id LIKE '" + customerID + "%'" +
                        " AND customer.first_name LIKE '" + firstName + "%'" +
                        "AND customer.last_name LIKE '" + lastName + "%'" +
-                       " AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.date DESC";
+                       " AND orders.date=STR_TO_DATE('" + date + "','%d-%m-%Y') ORDER BY orders.order_number DESC";
                 }
                 else
                 {
@@ -973,7 +973,7 @@ namespace Electricity_shop
                         "customer ON orders.customer_id = customer.id" +
                         " WHERE orders.status=1 AND customer.id LIKE '" + customerID + "%'" +
                         " AND customer.first_name LIKE '" + firstName + "%'" +
-                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.date DESC";
+                        "AND customer.last_name LIKE '" + lastName + "%' ORDER BY orders.order_number DESC";
                 }
             }
 
@@ -1696,7 +1696,7 @@ namespace Electricity_shop
         //פונקצייה מחוקת מבסיסי נתונים מוצר בעגלה לפי מודל שמקבלת
         public void deleteItemFromCartByModel(string item)
         {
-            string cmdStr = "DELETE FROM cart WHERE product_model=" + item + "";
+            string cmdStr = "DELETE FROM cart WHERE product_model='" + item + "'";
 
             using (MySqlCommand command = new MySqlCommand(cmdStr))
             {
